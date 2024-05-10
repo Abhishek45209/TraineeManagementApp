@@ -1,0 +1,31 @@
+<template>
+    <lightning-card>
+        <div class="registration">
+            <div class="content-on-leftside">
+                <div class="textcontainer">
+                    <h1>Sign Up</h1>
+                    <img src={nameIcon} alt="name" class="nameIcon">
+                    <input type="text" name="FullName" placeholder="Enter you Full Name" onchange={handleFullNameChange}>
+                    <br>
+                    <img src={emailIcon} alt="name" class="emailIcon">
+                    <input type="Email" name="Email" placeholder="Enter you Email" onchange={handleEmailChange}>
+                    <br>
+                    <img src={mobileIcon} alt="name" class="mobileIcon">
+                    <input type="text" name="mobilenumber" placeholder="Enter you Mobile Number" onchange={handleMobileNumberChange}>
+                    <br>
+                    <img src={passwordIcon} alt="name" class="passwordIcon">
+                    <input type="password" name="password" placeholder="Create your Password" onchange={handlePasswordChange}>
+                    <br>
+                    <img src={ConfirmPasswordIcon} alt="name" class="ConfirmPasswordIcon">
+                    <input type="text" name="confirmPassword" placeholder="Retype your Password" onchange={handleConfirmPasswordChange}>
+                    <br>
+                    <button class="Register" onclick={handleRegister}>Register</button>
+                </div>
+
+            </div>
+            <div class="content-on-rightside">
+                <img src={registrationLeftImage} alt="image">
+            </div>
+        </div>
+    </lightning-card>
+</template>

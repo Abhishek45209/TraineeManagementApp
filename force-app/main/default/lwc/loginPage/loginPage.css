@@ -1,0 +1,189 @@
+/* Style for the login container */
+.loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #eaf0f0; /* Background color for the container */
+    
+}
+
+/* Style for the login box */
+.login-box {
+    width: 400px; /* Adjust the width of the login box */
+    padding: 20px; /* Add padding inside the login box */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 20px; /* Add border radius to create rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+    background-color: #a837cd; /* Background color for the login box */
+    height: 650px;
+    margin-top: -40px;
+}
+
+/* Style for the "Welcome to Login Page" heading */
+.login-box h2 {
+    text-align: center; /* Center align the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+/* Style for input icons */
+.input-icon {
+    width: 24px; /* Adjust icon width */
+    height: 24px; /* Adjust icon height */
+    margin-right: 10px; /* Add some spacing between icon and input field */
+}
+
+/* Style for input fields */
+.input-group input {
+    width: calc(100% - 34px); /* Adjust input field width considering the icon width and spacing */
+    padding: 10px; /* Add padding to input fields */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    margin-bottom: 15px; /* Add some space below each input field */
+}
+
+.input-group lightning-input {
+    border-radius: 5px; /* Add border radius */
+}
+
+/* Style for login button */
+.regular-button {
+    width: 100%; /* Make the button fill the width of its container */
+    height: 50px; /* Adjust button height */
+    border-radius: 25px; /* Makes the button oval-shaped */
+    background-color: #007bff; /* Change to your desired background color */
+    color: #fff; /* Text color */
+    font-size: 18px; /* Font size */
+    border: none; /* Removes border */
+    cursor: pointer;
+    margin-bottom: 10px; /* Add margin below the button */
+}
+
+/* Hover effect for login button */
+.regular-button:hover {
+    background-color: #0056b3; /* Change to your desired hover background color */
+}
+
+/* Style for login buttons */
+.login-buttons {
+    text-align: center; /* Center align the login buttons */
+}
+
+/* Style for login button icons */
+.login-buttons button img {
+    width: 24px; /* Adjust icon width */
+    height: 24px; /* Adjust icon height */
+    margin-right: 10px; /* Add some spacing between icon and text */
+    vertical-align: middle; /* Align icon vertically with text */
+}
+
+/* Style for login button text */
+.login-buttons button span {
+    vertical-align: middle; /* Align text vertically with the icon */
+}
+
+
+
+
+
+
+/* Style for login with google button */
+.login-with-google {
+    width: 200px; /* Adjust button width */
+    height: 40px; /* Adjust button height */
+    border-radius: 20px; /* Makes the button oval-shaped */
+    background-color: #4285F4; /* Blue color for Google */
+    color: #fff; /* Text color */
+    font-size: 16px; /* Font size */
+    border: none; /* Removes border */
+    cursor: pointer;
+    display: flex; /* Use flexbox for aligning content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    margin-bottom: 10px; /* Add margin below the button */
+    margin: auto;
+}
+
+/* Hover effect for login with google button */
+.login-with-google:hover {
+    background-color: #357ae8; /* Darker blue color on hover */
+}
+
+/* Style for login with gmail button */
+.login-with-gmail {
+    width: 200px; /* Adjust button width */
+    height: 40px; /* Adjust button height */
+    border-radius: 20px; /* Makes the button oval-shaped */
+    background-color: #EA4335; /* Red color for Gmail */
+    color: #fff; /* Text color */
+    font-size: 16px; /* Font size */
+    border: none; /* Removes border */
+    cursor: pointer;
+    display: flex; /* Use flexbox for aligning content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    margin-bottom: 10px; /* Add margin below the button */
+    margin: auto;
+}
+
+/* Hover effect for login with gmail button */
+.login-with-gmail:hover {
+    background-color: #d14836; /* Darker red color on hover */
+}
+
+/* Style for login with linkedin button */
+.login-with-linkedin {
+    width: 200px; /* Adjust button width */
+    height: 40px; /* Adjust button height */
+    border-radius: 20px; /* Makes the button oval-shaped */
+    background-color: #0077B5; /* Blue color for LinkedIn */
+    color: #fff; /* Text color */
+    font-size: 16px; /* Font size */
+    border: none; /* Removes border */
+    cursor: pointer;
+    display: flex; /* Use flexbox for aligning content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    margin-bottom: 10px; /* Add margin below the button */
+    margin: auto;
+}
+
+/* Hover effect for login with linkedin button */
+.login-with-linkedin:hover {
+    background-color: #005f93; /* Darker blue color on hover */
+}
+
+
+
+
+
+/* Style for the login button */
+.login {
+    width: 360px; /* Adjust button width */
+    height: 40px; /* Adjust button height */
+    border-radius: 20px; /* Makes the button oval-shaped */
+    background-color: #007bff; /* Blue color for the button */
+    color: #fff; /* Text color */
+    font-size: 16px; /* Font size */
+    border: none; /* Removes border */
+    cursor: pointer;
+    display: flex; /* Use flexbox for aligning content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    margin-top: 15px; /* Add margin above the button */
+    display: inline-block; 
+    margin-right: 10px;
+}
+
+/* Hover effect for the login button */
+.login:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+
+
+
+.login-heading {
+    color: hsl(220, 20%, 97%); /* Set the color to blue */
+    
+}

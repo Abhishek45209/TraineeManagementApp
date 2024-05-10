@@ -1,0 +1,56 @@
+<template>
+    <lightning-card>
+        <div class="slds-grid slds-grid_align-spread">
+            <div class="slds-col">
+                <img src="https://i.imgur.com/x41ikwl.png" class="company-logo" alt="Company Logo" />
+            </div>
+            <div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center">
+                <div class="slds-col slds-grid slds-wrap">
+                    <a onclick={navigateToHome} class="slds-col"
+                        style="color: black; text-decoration: none; margin-right: 25px;">Home</a>
+                    <a onclick={navigateToTraining} class="slds-col"
+                        style="color: black; text-decoration: none; margin-right: 25px;">Training</a>
+                    <a onclick={navigateToAbout} class="slds-col"
+                        style="color: black; text-decoration: none; margin-right: 25px;">About Us</a>
+                    <a onclick={navigateToFaq} class="slds-col"
+                        style="color: black; text-decoration: none; margin-right: 25px;">FAQs</a>
+                </div>
+            </div>
+            <div class="slds-col">
+                <a href="https://www.linkedin.com/company/appycrown-private-limited">
+                    <img src="https://i.imgur.com/AakiuUS.png" alt="linkedin">
+                </a>
+
+                <a href="https://twitter.com/AppyCrown">
+                    <img src="https://i.imgur.com/uaDhR3M.png" alt="Twitter" width="30" height="30">
+                </a>
+            </div>
+        </div>
+    </lightning-card>
+
+    <lightning-card class="app-card">
+        <div class="slds-grid">
+            <!-- left  -->
+            <div class="slds-col slds-size_1-of-2">
+                <br>
+                <br>
+                <br>
+                <h1 class="slds-text-heading_large custom-heading">AppynTern</h1>
+                <p class="slds-text-title custom-subtitle">Learn, Code & Explore The Salesforce</p>
+                <br>
+
+                <!-- changes made by utsav -->
+                <div class="button-container">
+                    <lightning-button variant="destructive" label="Register Now" onclick={navigateToRegister}></lightning-button>
+                </div>
+                <!-- changes made by utsav -->
+
+            </div>
+            <!-- right  -->
+            <div class="slds-col slds-size_1-of-2">
+                <img src="https://i.imgur.com/RYLSwcX.png" class="slds-m-top_small">
+            </div>
+        </div>
+    </lightning-card>
+
+</template>

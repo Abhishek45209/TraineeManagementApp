@@ -1,0 +1,116 @@
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+
+.fade-out {
+    animation: fadeOut ease 2s;
+    -webkit-animation: fadeOut ease 2s;
+    -moz-animation: fadeOut ease 2s;
+    -o-animation: fadeOut ease 2s;
+    -ms-animation: fadeOut ease 2s;
+    background-color: #4B0082;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation-fill-mode: forwards;  /* stay at last frame after the fade out */
+}
+
+/*import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+ download This font to static resources and then use it  i dont have time for these things 
+*/
+
+.fade-in {
+    background-color: #4B0082;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoText {
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    text-align: center;
+}
+
+.company-logo {
+    height: 60px;
+    width: 180px;
+}
+
+
+.slds-theme_shade p.slds-col {
+    margin-right: 15px;
+}
+
+p {
+    color: black;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.app-card {
+    
+    padding: 15px;
+  width: 100vw; 
+  height: 100vh;
+  }
+  
+  .slds-text-heading_large {
+      font-weight: bold;
+      color: #5e5e5e;
+  }
+  
+  .slds-text-title {
+      font-size: 1rem;
+      color: #8b8b8b;
+  }
+  
+  .img-class {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+  }
+
+  .custom-heading {
+    font-size: 50px; 
+    text-align: center;
+    margin: auto;
+}
+
+.custom-subtitle {
+    font-size: 29px; 
+    text-align: center;
+    margin: auto;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.app-card-visible {
+    position: absolute;
+    top: 65px;
+    transition: top 2s;
+    padding: 15px;
+    width: 100vw;  
+    height: 100vh;
+}

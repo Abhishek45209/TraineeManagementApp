@@ -1,0 +1,39 @@
+<template>
+    <div class="loginPage">
+        <div class="login-box">
+            <h2 class="login-heading">Welcome to Login Page</h2>
+            <div class="input-group">
+                <img src={emailIcon} alt="Email" class="input-icon">
+                <input type="text" placeholder="Enter Your Email...." onchange={getEmail}>
+            </div>
+            
+            <div class="input-group">
+                <img src={passwordIcon} alt="Password" class="input-icon">
+                <input type="password" placeholder="Enter Your Password....." onchange={getPassword}></input>
+            
+                <button class="login" onclick={userLogin}>
+                    Login
+                </button>
+            </div>
+           <br>
+
+               <br> 
+            <div class="login-buttons">
+                <button class="login-with-google" onclick={loginWithGoogle}>
+                    <img src={googleIcon} alt="Google" class="login-icon">
+                    <span>Login with Google</span>
+                </button>
+                <br>
+                <button class="login-with-gmail" onclick={loginWithGmail}>
+                    <img src={gmailIcon} alt="Gmail" class="login-icon">
+                    <span>Login with Gmail</span>
+                </button>
+                <br>
+                <button class="login-with-linkedin" onclick={loginWithLinkedIn}>
+                    <img src={linkedinIcon} alt="LinkedIn" class="login-icon">
+                    <span>Login with LinkedIn</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</template>
