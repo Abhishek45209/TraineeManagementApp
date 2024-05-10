@@ -114,3 +114,20 @@ p {
     width: 100vw;  
     height: 100vh;
 }
+
+.imageContainer {
+    position: relative;
+    width: 500px; 
+    height: 500px; 
+}
+
+.overlap, .underlap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.overlap {
+    z-index: 2;
+}

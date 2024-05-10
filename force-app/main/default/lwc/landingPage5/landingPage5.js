@@ -1,11 +1,20 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, track } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 
-export class LandingPage5 extends LightningElement {
+export default class StartAnimation extends NavigationMixin(LightningElement) {
+    @track fadeClass = 'fade-in';
+    @track appCardClass = 'app-card';
     imageUrl = 'https://imgur.com/a/C4aMRvG';
-}
-
-export default class NavigationPart extends NavigationMixin(LightningElement) {
+    
+    connectedCallback() {
+        setTimeout(() => {
+            this.fadeClass = 'fade-out';
+            setTimeout(() => {
+                this.appCardClass = 'app-card app-card-visible';
+            }, 2000);
+        }, 2000);
+    }
+    
     navigateToHome() {
         this[NavigationMixin.Navigate]({
             type: 'standard__navItemPage',
@@ -42,14 +51,15 @@ export default class NavigationPart extends NavigationMixin(LightningElement) {
         });
     }
 
-
-    // changes made by utsav
     navigateToRegister() {
         this[NavigationMixin.Navigate]({
-          type: "standard__navItemPage",
-          attributes: {
-            apiName: 'Registration',
-          },
+            type: "standard__navItemPage",
+            attributes: {
+                apiName: 'Registration',
+            },
         });
-      }
+    }
+    
 }
+
+
