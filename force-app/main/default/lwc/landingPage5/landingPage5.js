@@ -4,7 +4,7 @@ import { NavigationMixin } from 'lightning/navigation';
 export default class StartAnimation extends NavigationMixin(LightningElement) {
     @track fadeClass = 'fade-in';
     @track appCardClass = 'app-card';
-    imageUrl = 'https://imgur.com/a/C4aMRvG';
+    imageUrl = 'https://i.imgur.com/sLAB0QO.gif';
     
     connectedCallback() {
         setTimeout(() => {
