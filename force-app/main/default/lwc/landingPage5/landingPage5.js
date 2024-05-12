@@ -1,6 +1,7 @@
 import { LightningElement, track } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 
+
 export default class StartAnimation extends NavigationMixin(LightningElement) {
     @track fadeClass = 'fade-in';
     @track appCardClass = 'app-card';
@@ -32,7 +33,14 @@ export default class StartAnimation extends NavigationMixin(LightningElement) {
             },
         });
     }
-    
+
+    navigateToAboutUs() {
+        this[NavigationMixin.Navigate]({
+            type: 'standard__navItemPage',
+            attributes: {
+                apiName: '/about',
+            },
+        });
+    }
 }
-
-
+    

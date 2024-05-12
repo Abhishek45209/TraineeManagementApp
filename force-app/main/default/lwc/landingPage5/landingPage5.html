@@ -1,40 +1,42 @@
 <template>
     <div class={fadeClass}>
-        
-            <img src="https://i.imgur.com/sLAB0QO.gif">
-        
+
+        <img src="https://i.imgur.com/sLAB0QO.gif">
+
     </div>
     <lightning-card class={appCardClass}>
         <div class="navbar">
             <nav class="slds-nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Linkedin</a></li>
-                        </ul>
+                      
+                    
                     </li>
                     <li class="right"><a href="#new" onclick={navigateToLogin}>Log In</a></li>
                 </ul>
             </nav>
         </div>
-        
+
         <div class="slds-grid">
             <!-- left  -->
             <div class="slds-col slds-size_1-of-2">
                 <br>
                 <br>
                 <br>
-                <h1 class="slds-text-heading_large custom-heading">AppynTern</h1>
+                <h1 class="slds-text-heading_large custom-heading">AppyNtern</h1>
                 <p class="slds-text-title custom-subtitle">Learn, Code & Explore The Salesforce</p>
                 <br>
 
+                <div class="advt">
+                
+                    <p class="advtSol">Join our internship program and unlock new world of opportunity</p>
+                </div>
+
                 <!-- changes made by utsav -->
                 <div class="button-container">
-                    <lightning-button variant="destructive" label="Register Now" onclick={navigateToRegister}></lightning-button>
+                    <button class="Register-Button" onclick={navigateToRegister}>Register Now </button>
                 </div>
                 <!-- changes made by utsav -->
 
@@ -48,6 +50,42 @@
         <br>
         <br>
         <br><br><br><br><br><br><br><br><br><br><br>
+        <section id="about">
+            <div class="containeraboutus">
+              
+              <div class="textContent">
+                <h1 class="slds-text-heading_large slds-text-heading_bold">About Us <br></h1>
+
+                <p>
+
+                    <br>At AppynTern, we believe in empowering our students with a deep understanding of Salesforce, not just on a surface level. We strive to uncover the 'why' behind the 'how', instilling a sense of curiosity and discovery in our students. We encourage you to explore, experiment, and question, fostering an environment that promotes innovation and creativity.<br>
+                    
+                    Our Salesforce training goes beyond the conventional. We integrate real-world scenarios and case studies into our curriculum. This provides you a taste of what it's like to tackle actual industry challenges, preparing you for the dynamic & evolving Salesforce. <br>
+                    
+                    We also invest in our community of learners. We organize regular interactive sessions, webinars, & workshops featuring industry experts. These events present unique networking opportunities and the chance to learn from the experiences of those in the field.<br>
+                    
+                    At AppynTern, we also offer continuous support even after you complete your training. Our dedicated career guidance team provides ongoing assistance for job placements and interview preparations. We are committed to ensuring that our students have all the resources they need to embark on a fruitful Salesforce career.<br>
+                    
+                    Remember, your journey with AppynTern doesn’t end with receiving a course completion certificate; rather, that's where it truly begins. Let's conquer the Salesforce world, one challenge at a time. Let's make your career dreams a reality with AppynTern!<br>
+                    
+                    So step into the world of Salesforce with AppynTern and become a part of our learning community. Open the doors to endless opportunities, and let us propel you towards a successful career with Salesforce. Your future awaits!<br>     
+                    Our mission at AppynTern does not stop at producing Salesforce experts; it goes a step further to shaping up skilled individuals ready to contribute to the Salesforce community. We take pride in our students who go on to become game-changers, breaking new grounds in this revolutionary field.<br>
+
+From understanding the rudiments of Salesforce to mastering the advanced concepts, our curriculum covers an extensive range. We ensure that you are equipped with all the necessary skills, knowledge, and confidence to shine in your professional endeavors.<br>
+
+Are you ready to dive into a world of opportunities with Salesforce? Are you ready to elevate your career and achieve new heights of professional satisfaction? If your answer is yes, then join us at AppynTern now!<br>
+
+Our doors are always open to ambitious learners, and we are here to guide you every step of the way. Enroll now and let AppynTern be the launching pad of your success in Salesforce.<br>
+
+Welcome aboard for an educational journey like nothing else. Embrace the learning, cherish the experiences, and let's build a brighter career future together with AppynTern. Your Salesforce journey starts here! </p>
+              </div>
+
+              <div class="imageContaineraboutus">
+                <img src="https://i.imgur.com/9u7W7do.png"/>
+              </div>
+            </div>
+        </section>
+         
     </lightning-card>
 
 </template>
