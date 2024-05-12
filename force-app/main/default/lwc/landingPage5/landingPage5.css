@@ -36,15 +36,23 @@
     text-align: center;
 }
 
-
+/* .lightning-card {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+   */
 
 
 
 .app-card {
     
-    padding: 15px;
-  width: 150vw; 
-  height: 150vh;
+   
+  width: 100vw; 
+  height: 100vh;
   }
   
   .slds-text-heading_large {
@@ -133,7 +141,7 @@ p {
     position: absolute;
     top: 65px;
     transition: top 2s;
-    padding: 15px;
+    padding-top: 15px;
     width: 100vw;  
     height: 100vh;
 }
@@ -211,11 +219,36 @@ p {
   }
   
   .textContent {
-    margin-right: 35px;
+    /* margin-right: 35px; */
     text-align: center;
-    width: 75%;
-    padding-left: 40px;
+    width: 55%;
+    /* padding-left: 40px; */
     color: rgba(0, 0, 0, 0.1);
+  }
+  
+
+  /* Responsive CSS 12/05/24 */
+@media only screen and (max-width: 600px) {
+   
+    .Register-Button{
+      font-size: 1.2em;
+    }
+    
+    .custom-heading {
+      font-size: 30px; 
+    }
+    
+    .custom-subtitle {
+      font-size: 20px; 
+    }
+  
+    .advtQuest {
+      font-size: 1.5em;
+    }
+  
+    .advtSol {
+      font-size: 1.3em;
+    }
   }
   
   
