@@ -36,38 +36,9 @@
     text-align: center;
 }
 
-.content-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    overflow: hidden; 
-    width: 100%; 
-}
 
 
-.logoText {
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    font-size: 40px;
-    margin-right: 35px;
-}
 
-.company-logo {
-    height: 60px;
-    width: 180px;
-}
-
-
-.slds-theme_shade p.slds-col {
-    margin-right: 15px;
-}
-
-p {
-    color: black;
-    font-size: 15px;
-    padding: 10px;
-}
 
 .app-card {
     
@@ -105,6 +76,14 @@ p {
     margin: auto;
 }
 
+p {
+    color: black;
+    font-size: 15px;
+    padding: 10px;
+}
+
+
+
 .button-container {
     display: flex;
     justify-content: center;
@@ -126,7 +105,7 @@ p {
 .navbar ul {
     list-style-type: none;
     margin: 0;
-    padding-top: 0;
+    padding: 0;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -135,6 +114,7 @@ p {
 
 .navbar li {
     float: left;
+    position: relative;
 }
 
 .navbar li a {
@@ -145,20 +125,32 @@ p {
     text-decoration: none;
 }
 
-.full-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: -1;
+.navbar li.right {
+    margin-left: auto;
 }
 
-.full-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.navbar li.right a {
+    font-weight: bold;
 }
 
+.navbar ul li:hover > ul {            
+    display: block;
+    position: absolute; 
+    min-width: 160px;
+    background-color: black;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
 
+.navbar ul li ul {
+    display: none;
+}
+
+.navbar ul li ul li {
+    float: none;
+    position: relative;
+}
+
+.navbar ul li ul li a {
+    padding: 16px;
+    color: black;
+}

@@ -15,47 +15,20 @@ export default class StartAnimation extends NavigationMixin(LightningElement) {
         }, 2000);
     }
     
-    navigateToHome() {
-        this[NavigationMixin.Navigate]({
-            type: 'standard__navItemPage',
-            attributes: {
-                apiName: '/home',
-            },
-        });
-    }
-
-    navigateToTraining() {
-        this[NavigationMixin.Navigate]({
-            type: 'standard__navItemPage',
-            attributes: {
-                apiName: '/training',
-            },
-        });
-    }
-
-    navigateToAbout() {
-        this[NavigationMixin.Navigate]({
-            type: 'standard__navItemPage',
-            attributes: {
-                apiName: '/aboutus',
-            },
-        });
-    }
-
-    navigateToFaq() {
-        this[NavigationMixin.Navigate]({
-            type: 'standard__navItemPage',
-            attributes: {
-                apiName: '/faqs',
-            },
-        });
-    }
-
     navigateToRegister() {
         this[NavigationMixin.Navigate]({
             type: "standard__navItemPage",
             attributes: {
                 apiName: 'Registration',
+            },
+        });
+    }
+
+    navigateToLogin() {
+        this[NavigationMixin.Navigate]({
+            type: "standard__navItemPage",
+            attributes: {
+                apiName: 'LoginPage',
             },
         });
     }
