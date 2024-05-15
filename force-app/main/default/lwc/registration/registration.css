@@ -23,7 +23,7 @@
 }
 .content-on-leftside{
     width: 30%;
-    background-color: #a837cd; 
+    background-color: #cb1acb; 
     border-radius: 15px;
     align-items: center;
     justify-content: center;
@@ -81,20 +81,40 @@
     background-color: #007bff;
     padding-left: 40px;
     padding-right: 40px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 15%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 20px;
     font-size: 1.9em;
     color: white;
 }
 
 .Register:hover{
     color: white;
-   
     background-color: rgb(11, 91, 197);
     box-shadow: 2px 2px 2px black;
 }
 
+
+.login-Button{
+    margin-top: 15px;
+    text-align: center;
+    align-items: center;
+    background-color: #580205;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 20px;
+    font-size: 1.9em;
+    color: white;
+    text-decoration:none;
+}
+
+.login-Button:hover{
+    color: white;
+    background-color: rgb(11, 91, 197);
+    box-shadow: 2px 2px 2px black;
+}
 
 .image{
     width: 24%;

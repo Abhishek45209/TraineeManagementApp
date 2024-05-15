@@ -1,11 +1,10 @@
 import { LightningElement, track } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 
-
 export default class StartAnimation extends NavigationMixin(LightningElement) {
     @track fadeClass = 'fade-in';
     @track appCardClass = 'app-card';
-    imageUrl = 'https://i.imgur.com/sLAB0QO.gif';
+    imageUrl = 'https://imgur.com/a/C4aMRvG';
     
     connectedCallback() {
         setTimeout(() => {
@@ -15,7 +14,53 @@ export default class StartAnimation extends NavigationMixin(LightningElement) {
             }, 2000);
         }, 2000);
     }
+
+    //for login page button
     
+    navigateToLogin(){
+        this[NavigationMixin.Navigate]({
+            type: 'standard__navItemPage',
+            attributes: {
+              apiName: 'LoginPage',
+            },
+          });
+    }
+    navigateToHome() {
+        this[NavigationMixin.Navigate]({
+            type: 'standard__navItemPage',
+            attributes: {
+                apiName: '/home',
+            },
+        });
+    }
+
+    navigateToTraining() {
+        this[NavigationMixin.Navigate]({
+            type: 'standard__navItemPage',
+            attributes: {
+                apiName: '/training',
+            },
+        });
+    }
+
+    navigateToAbout() {
+        this[NavigationMixin.Navigate]({
+            type: 'standard__navItemPage',
+            attributes: {
+                apiName: '/aboutus',
+            },
+        });
+    }
+
+    navigateToFaq() {
+        this[NavigationMixin.Navigate]({
+            type: 'standard__navItemPage',
+            attributes: {
+                apiName: '/faqs',
+            },
+        });
+    }
+
     navigateToRegister() {
         this[NavigationMixin.Navigate]({
             type: "standard__navItemPage",
@@ -24,23 +69,5 @@ export default class StartAnimation extends NavigationMixin(LightningElement) {
             },
         });
     }
-
-    navigateToLogin() {
-        this[NavigationMixin.Navigate]({
-            type: "standard__navItemPage",
-            attributes: {
-                apiName: 'LoginPage',
-            },
-        });
-    }
-
-    navigateToAboutUs() {
-        this[NavigationMixin.Navigate]({
-            type: 'standard__navItemPage',
-            attributes: {
-                apiName: '/about',
-            },
-        });
-    }
-}
     
+}

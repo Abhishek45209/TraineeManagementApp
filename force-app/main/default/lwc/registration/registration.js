@@ -2,7 +2,9 @@ import { LightningElement, track } from 'lwc';
 import saveCandidate from '@salesforce/apex/RegisterCandidates.saveCandidate';
 import ImageSidebar from '@salesforce/resourceUrl/ImageSidebar';
 
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { RecordFieldDataType } from 'lightning/uiRecordApi';
+import { NavigationMixin } from 'lightning/navigation';
 
 
 import Google from '@salesforce/resourceUrl/Google';
@@ -13,7 +15,7 @@ import password from '@salesforce/resourceUrl/password';
 import ConfirmPassword from '@salesforce/resourceUrl/ConfirmPassword';
 
 
-export default class Registration extends LightningElement {
+export default class Registration extends NavigationMixin(LightningElement) {
     registrationLeftImage = ImageSidebar;
     googleImage = Google;
     nameIcon = Name;
@@ -51,7 +53,7 @@ export default class Registration extends LightningElement {
     }
 
     handleConfirmPasswordChange(event) {
-        this.retypePassword = event.target.value;
+        this.confirmPassword = event.target.value;
     }
 
     handleRegister() {
@@ -60,12 +62,33 @@ export default class Registration extends LightningElement {
             this.error = 'Passwords do not match';
             return;
         }else{
-            saveCandidate({ fullName: this.fullName, email: this.email, password: this.password, mobileNumber: this.mobileNumber })
+            saveCandidate({ fullName: this.fullName,
+                 email: this.email, 
+                 password: this.password,
+                  mobileNumber: this.mobileNumber })
             .then(() => {
+                const event = new ShowToastEvent({
+                    title: 'Success!',
+                    message: 'Registration successful.',
+                    variant: 'success',
+                });
+                this.dispatchEvent(event);
                 
-                console.log('Candidate saved successfully!');
+                this[NavigationMixin.Navigate]({
+                    type: 'standard__navItemPage',
+                    attributes: {
+                      apiName: 'LoginPage',
+                    },
+                  });
+
             })
             .catch(error => {
+                const event = new ShowToastEvent({
+                    title: 'Failed!',
+                    message: 'Something went wrong!',
+                    variant: 'error',
+                });
+                this.dispatchEvent(event);
               
                 this.error = error.body.message;
                 console.error('Error saving candidate:', this.error);
@@ -75,6 +98,16 @@ export default class Registration extends LightningElement {
         
         
     }
+
+
+    LoginRedirect() {
+        this[NavigationMixin.Navigate]({
+          type: 'standard__navItemPage',
+          attributes: {
+            apiName: 'LoginPage',
+          },
+        });
+      }
 }
 
 
