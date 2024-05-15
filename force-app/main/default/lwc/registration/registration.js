@@ -112,10 +112,4 @@ export default class Registration extends NavigationMixin(LightningElement) {
 
 
 
-
-
-
-
-
-
 // new css design

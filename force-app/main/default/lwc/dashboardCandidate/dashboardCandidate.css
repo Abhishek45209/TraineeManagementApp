@@ -1,0 +1,929 @@
+/* Reset CSS */
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* DESIGN FOR LOGIN PAGE */
+/* Style for the login container */
+.loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #eaf0f0; /* Background color for the container */
+    
+}
+
+/* Style for the login box */
+.login-box {
+    width: 400px; /* Adjust the width of the login box */
+    padding: 20px; /* Add padding inside the login box */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 20px; /* Add border radius to create rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+    background-color: #a837cd; /* Background color for the login box */
+    height: 650px;
+    margin-top: -40px;
+}
+
+/* Style for the "Welcome to Login Page" heading */
+.login-box h2 {
+    text-align: center; /* Center align the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+/* Style for input icons */
+.input-icon {
+    width: 24px; /* Adjust icon width */
+    height: 24px; /* Adjust icon height */
+    margin-right: 10px; /* Add some spacing between icon and input field */
+}
+
+/* Style for input fields */
+.input-group input {
+    width: calc(100% - 34px); /* Adjust input field width considering the icon width and spacing */
+    padding: 10px; /* Add padding to input fields */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    margin-bottom: 15px; /* Add some space below each input field */
+}
+
+.input-group lightning-input {
+    border-radius: 5px; /* Add border radius */
+}
+
+/* Style for login button */
+.regular-button {
+    width: 100%; /* Make the button fill the width of its container */
+    height: 50px; /* Adjust button height */
+    border-radius: 25px; /* Makes the button oval-shaped */
+    background-color: #007bff; /* Change to your desired background color */
+    color: #fff; /* Text color */
+    font-size: 18px; /* Font size */
+    border: none; /* Removes border */
+    cursor: pointer;
+    margin-bottom: 10px; /* Add margin below the button */
+}
+
+/* Hover effect for login button */
+.regular-button:hover {
+    background-color: #0056b3; /* Change to your desired hover background color */
+}
+
+/* Style for login buttons */
+.login-buttons {
+    text-align: center; /* Center align the login buttons */
+}
+
+/* Style for login button icons */
+.login-buttons button img {
+    width: 24px; /* Adjust icon width */
+    height: 24px; /* Adjust icon height */
+    margin-right: 10px; /* Add some spacing between icon and text */
+    vertical-align: middle; /* Align icon vertically with text */
+}
+
+/* Style for login button text */
+.login-buttons button span {
+    vertical-align: middle; /* Align text vertically with the icon */
+}
+
+/* Style for login with google button */
+.login-with-google {
+    width: 200px; /* Adjust button width */
+    height: 40px; /* Adjust button height */
+    border-radius: 20px; /* Makes the button oval-shaped */
+    background-color: #4285F4; /* Blue color for Google */
+    color: #fff; /* Text color */
+    font-size: 16px; /* Font size */
+    border: none; /* Removes border */
+    cursor: pointer;
+    display: flex; /* Use flexbox for aligning content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    margin-bottom: 10px; /* Add margin below the button */
+    margin: auto;
+}
+
+/* Hover effect for login with google button */
+.login-with-google:hover {
+    background-color: #357ae8; /* Darker blue color on hover */
+}
+
+/* Style for login with gmail button */
+.login-with-gmail {
+    width: 200px; /* Adjust button width */
+    height: 40px; /* Adjust button height */
+    border-radius: 20px; /* Makes the button oval-shaped */
+    background-color: #EA4335; /* Red color for Gmail */
+    color: #fff; /* Text color */
+    font-size: 16px; /* Font size */
+    border: none; /* Removes border */
+    cursor: pointer;
+    display: flex; /* Use flexbox for aligning content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    margin-bottom: 10px; /* Add margin below the button */
+    margin: auto;
+}
+
+/* Hover effect for login with gmail button */
+.login-with-gmail:hover {
+    background-color: #d14836; /* Darker red color on hover */
+}
+
+/* Style for login with linkedin button */
+.login-with-linkedin {
+    width: 200px; /* Adjust button width */
+    height: 40px; /* Adjust button height */
+    border-radius: 20px; /* Makes the button oval-shaped */
+    background-color: #0077B5; /* Blue color for LinkedIn */
+    color: #fff; /* Text color */
+    font-size: 16px; /* Font size */
+    border: none; /* Removes border */
+    cursor: pointer;
+    display: flex; /* Use flexbox for aligning content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    margin-bottom: 10px; /* Add margin below the button */
+    margin: auto;
+}
+
+/* Hover effect for login with linkedin button */
+.login-with-linkedin:hover {
+    background-color: #005f93; /* Darker blue color on hover */
+}
+
+/* Style for the login button */
+.login {
+    width: 360px; /* Adjust button width */
+    height: 40px; /* Adjust button height */
+    border-radius: 20px; /* Makes the button oval-shaped */
+    background-color: #007bff; /* Blue color for the button */
+    color: #fff; /* Text color */
+    font-size: 16px; /* Font size */
+    border: none; /* Removes border */
+    cursor: pointer;
+    display: flex; /* Use flexbox for aligning content */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+    margin-top: 15px; /* Add margin above the button */
+    display: inline-block; 
+    margin-right: 10px;
+}
+
+/* Hover effect for the login button */
+.login:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+.login-heading {
+    color: hsl(220, 20%, 97%); /* Set the color to blue */
+    
+}
+
+
+
+  /* DESIGN FOR DASHBOARD PAGE */
+  body {
+    background: #e848f0;
+  }
+  
+  /* Container */
+  .full-page{
+    width: 100%;
+  }
+  .dashboard {
+    display: flex;
+    width: 100%;
+  }
+  /* Sidebar */
+  .sidebar {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    left: 0;
+    background: #03164e;
+    width: 22%;
+    overflow: hidden;
+    box-shadow: 0 20px 35px hsla(0, 0%, 99%, 0.1);
+  }
+  .inner-page{
+    width: 78%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: #000000;
+  }
+  
+  .sidebar .logo {
+    text-align: center;
+    display: flex;
+    margin: 10px 0 0 10px;
+  }
+  
+  .sidebar .logo img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
+  
+  .sidebar .logo span {
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  
+  .sidebar button {
+    position: relative;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    display: table;
+    width: 280px;
+    padding: 10px;
+  }
+  
+  .sidebar .fas {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .sidebar .nav-item {
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+    background: #03164e;
+  }
+  
+  .sidebar button:hover {
+    background: #1b65e5;
+  }
+  
+  .sidebar .logout {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    
+  }
+  
+  /* Main Section */
+  .main {
+    position: relative;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .main .main-top {
+    display: flex;
+    width: 100%;
+  }
+  
+  .main .main-top i {
+    position: absolute;
+    right: 0;
+    margin: 10px 30px;
+    color: rgb(110, 109, 109);
+    cursor: pointer;
+  }
+  
+  .main .main-skills {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .main .main-skills .card {
+    width: 65%;
+    margin: 10px;
+    background: #000000;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    color: #007bff;
+  }
+  
+  .main .main-skills .card h3 {
+    margin: 10px;
+    text-transform: capitalize;
+  }
+  
+  .main .main-skills .card p {
+    font-size: 12px;
+  }
+  
+  .main .main-skills .card button {
+    background: rgb(22, 75, 189);
+    color: #ffffff;
+    padding: 7px 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  
+  .main .main-skills .card button:hover {
+    background: rgba(4, 13, 78, 0.856);
+  }
+  
+  .main .main-skills .card i {
+    font-size: 22px;
+    padding: 10px;
+  }
+  
+  /* Courses */
+  .main-course {
+    margin-top: 20px;
+    text-transform: capitalize;
+  }
+  
+  .course-box {
+    width: 100%;
+    height: 300px;
+    padding: 10px 10px 30px 10px;
+    margin-top: 10px;
+    background: #000000;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    color: #007bff;
+  }
+  
+  .course-box ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .course-box ul li {
+    margin: 10px;
+    color: gray;
+    cursor: pointer;
+  }
+  
+  .course-box ul .active {
+    color: #154ae9;
+    border-bottom: 1px solid #000;
+  }
+  
+  .course-box .course {
+    display: flex;
+  }
+  
+  .box {
+    width: 33%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background: rgb(235, 233, 233);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+  
+  .box p {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .box button {
+    background: #0d4ae4;
+    color: #fff;
+    padding: 7px 10px;
+    border-radius: 10px;
+    margin-top: 3rem;
+    cursor: pointer;
+  }
+  
+  .box button:hover {
+    background: rgba(1, 3, 30, 0.842);
+  }
+  
+  .box i {
+    font-size: 17rem;
+    float: right;
+    margin: -20px 20px 20px 0;
+  }
+  
+  .html {
+    color: rgb(25, 94, 54);
+  }
+  
+  .css {
+    color: rgb(104, 179, 35);
+  }
+  
+  .js {
+    color: rgb(28, 98, 179);
+  }
+  
+  
+  
+  
+  /* Add this CSS to style the user profile section */
+  .user-profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .profile-image {
+      margin-right: 20px;
+    }
+    
+    .profile-image img {
+      width: 100px; /* Adjust size as needed */
+      height: 100px; /* Adjust size as needed */
+      border-radius: 50%;
+    }
+    
+    .profile-details {
+      flex: 1;
+    }
+    
+    .profile-details h2 {
+      margin-bottom: 10px;
+    }
+    
+    .profile-details p {
+      margin-bottom: 5px;
+    }
+    
+    .profile-details button {
+      background-color: #1c26e3;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .profile-details button:hover {
+      background-color: #02031b;
+    }
+  
+    
+    /* Make the profile image circular */
+  .profile-image img {
+      width: 100px; /* Adjust size as needed */
+      height: 100px; /* Adjust size as needed */
+      border-radius: 50%; /* Make it circular */
+    }
+    
+  
+  
+    /* Additional courses */
+  .main-course .box:nth-child(3) h3 {
+      color: rgb(28, 98, 179); /* Change color for Apex */
+  }
+  
+  .main-course .box:nth-child(4) h3 {
+      color: rgb(214, 48, 49); /* Change color for Trigger */
+  }
+  
+  .main-course .box:nth-child(3) i {
+      color: rgb(28, 98, 179); /* Change icon color for Apex */
+  }
+  
+  .main-course .box:nth-child(4) i {
+      color: rgb(214, 48, 49); /* Change icon color for Trigger */
+  }
+  
+  
+  .horizontal-navbar {
+    background-color: #071a57;
+    overflow: hidden;
+    width: auto; 
+    color: #071a57;
+    
+    
+  }
+  
+  .horizontal-navbar ul {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+   
+   
+  }
+  
+  
+  .horizontal-navbar ul li {
+    float: right;
+  }
+  
+  .horizontal-navbar ul button {
+    background-color: #131cbd;
+    color: #fff;
+    margin: 20px;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .horizontal-navbar ul button:hover {
+    color: #007bff;
+  }
+  
+  
+  .horizontal-navbar ul li a {
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+    
+    
+  }
+  
+  .horizontal-navbar ul li a:hover {
+    background-color: #ffffff;
+    color: #000000;
+    
+  }
+  
+  
+  
+  .left-nav {
+    font-size: 32px; /* Set the desired icon size */
+    margin-right: 26px; /* Adjust margin as needed */
+    color: #d6e112; /* Customize icon color */
+  }
+  
+  .left-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  
+  
+  
+  
+  .recommended-section {
+    width: 20%;
+    float: right;
+    margin: 130px;
+    background-color: #eba6f3;
+    color: #000;
+    
+  }
+  
+  .job-item {
+    padding: 20px;
+    border: 1px solid #0c020b;
+    margin-bottom: 10px;
+  }
+  
+  .job-title {
+    font-weight: bold;
+  }
+  
+  .job-location {
+    margin-top: 5px;
+    color: #070352;
+  }
+  
+  .job-description {
+    margin-top: 20px;
+  }
+  
+  .job-apply-button {
+    margin-top: 15px;
+  }
+  
+  button {
+    padding: 8px 16px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0b35f1;
+  }
+  
+  
+  
+  
+  
+  
+  
+  /* Define colors for the boxes */
+  .box1 {
+    background-color: #ffffff; /* Light gray */
+  }
+  
+  .box2 {
+    background-color: #ffffff; /* Lighter gray */
+  }
+  
+  .box3 {
+    background-color: #ffffff; /* Even lighter gray */
+  }
+  
+  .box4 {
+    background-color: #ffffff; /* Another shade of gray */
+  }
+  
+  /* Apply styling to the grid container and columns */
+  
+  
+  /* Apply box colors to respective columns */
+  
+  
+  
+  
+  
+  /* dashboard.css */
+  .dashboard-container {
+    max-width: 100%;
+    height: 80px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background-color:#03164e;
+    color: #fff;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  .sidebar {
+    text-align: center;
+    margin-bottom: 20px;
+    align-items: center;
+   
+  }
+  .sidebar ul {
+    align-items: center;
+  
+  }
+  
+  .sidebar li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar li .nav-item {
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar li .nav-item:hover {
+    background-color: #0056b3;
+  }
+  
+  .sidebar li .button-wrapper {
+    width: 150px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidebar li .icon {
+    width: 26px;
+    height: 26px;
+    margin-top: 24px;
+  }
+  
+  
+  
+  /* .navigation {
+    text-align: center;
+    margin-bottom: 20px;
+   
+  }
+  
+  .navigation ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .navigation ul li {
+    display: inline;
+    text-align: center;
+  
+  } */
+  
+  
+  .footer {
+    text-align: center;
+    margin-top: 20px; /* Adjust margin as needed */
+  }
+  
+  .footer-links {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    margin-right: 10px;
+    color: #fff; /* White text color */
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-social {
+    margin-bottom: 20px;
+  }
+  
+  .social-link img {
+    width: 40px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    padding: 3px;
+  }
+  
+  .social-link img:hover {
+    filter: grayscale(100%); /* Add grayscale effect on hover */
+  }
+  
+  .copyright {
+    font-size: 12px;
+    color: #fff; /* White text color */
+  }
+  
+  
+  
+  
+  .recommended-section {
+    background-color: rgb(210, 170, 233); /* Light background color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 0 10px #0000001a; /* Shadow for depth */
+  
+    
+  }
+  
+  .recommended-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .job-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .job-item img {
+    width: 50px; /* Adjust icon size */
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 50%; /* Make icons circular */
+  }
+  
+  .job-details {
+    flex: 1;
+  }
+  
+  .job-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .job-location {
+    color: #faf6fc;
+    margin-bottom: 5px;
+  }
+  
+  .job-description {
+    margin-bottom: 10px;
+  }
+  
+  .job-apply-button button {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .job-apply-button button:hover {
+    background-color: #005fb2;
+  }
+  
+  
+  /* 
+  .slds-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 10px; 
+    width: 100%;
+    width: fit-content;
+  } */
+  
+  
+  
+  
+  
+  /* .slds-grid {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .slds-col {
+    flex: 1;
+  } */
+  
+  .slds-grid{
+    border: 2px solid rgb(255, 255, 255)  ;
+  }
+  
+  /* Hide all slides by default */
+  .slide {
+      display: none;
+  }
+  
+  /* Style the navigation arrows */
+  .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+  }
+  
+  .prev {
+      left: 0;
+  }
+  
+  .next {
+      right: 0;
+  }
+  
+  
+  
+  
+  /* iconListItem.css */
+  .nav-item {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    padding-left: 10px;
+    
+  }
+  
+  /* Style for the list item */
+  li {
+    list-style: none;
+  }
+  
+  /* Style for the link */
+  a {
+    text-decoration: none;
+    color: #000; /* Adjust as needed */
+  }
+  
+  /* Hover effect for the link */
+  a:hover {
+    color: #007bff; /* Adjust as needed */
+  }
+  
+  /* Style for the icon */
+  .icon {
+    width: 24px; /* Adjust as needed */
+    height: 24px; /* Adjust as needed */
+    background-color: transparent;
+    border-radius: 50%;
+    
+  }
+
+
+  /* ABHISHEK PROFILE CSS */ 
+
+
+  

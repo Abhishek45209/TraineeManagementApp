@@ -1,0 +1,413 @@
+<template>
+    <lightning-card>
+
+        <template if:true={isLogin}>
+            
+            <template  if:true={showDashboard}>
+                <!--Dashboar page-->
+                <lightning-card>
+                    <div class="full-page">
+                        <div class="dashboard-container">
+                        <nav class="horizontal-navbar">
+                            <ul>
+                               
+                                <li><a href="#">Setting</a></li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">Coursec</a></li>
+                                <li><a onclick={clickJobs}>Jobs</a></li>
+              
+                                <span>
+                                <lightning-input class="Search" type="search" name="Search" placeholder="Search here"
+                                    id="searchBox"></lightning-input >
+                                </span>
+              
+                                
+                                  <button class="nav-item" onclick={clickLogout}>Log out</button>
+                              
+                                
+                            </ul>
+                        </nav>
+                        </div>
+                    
+                    <div class="dashboard">
+                        <div class="sidebar">
+                          <ul>
+                            <li>
+                              <div class="button-wrapper">
+                                <img src={homeimage} alt="Home Icon" class="icon">
+                                <button class="nav-item" onclick={clickHome}>Home</button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="button-wrapper">
+                                <img src={profile} alt="Internship Icon" class="icon">
+                                <button class="nav-item" onclick={clickProfile}>Profile</button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="button-wrapper">
+                                <img src={internship} alt="Internship Icon" class="icon">
+                                <button class="nav-item" onclick={clickInternship}>Internship</button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="button-wrapper">
+                                <img src={task} alt="Internship Icon" class="icon">
+                                <button class="nav-item" onclick={clickTasks}>Tasks</button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="button-wrapper">
+                                <img src={application} alt="Internship Icon" class="icon">
+                                <button class="nav-item" onclick={clickApplication}>Application Management</button>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="button-wrapper">
+                                <img src={feedback} alt="Internship Icon" class="icon">
+                                <button class="nav-item" onclick={clickFeedback}>Feedback and Support</button>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+
+                    <!--App inner pages-->
+                        <template if:true={showHome}>
+                        <div class="inner-page">
+                            <section class="main">
+                                <div class="main-top">
+                                   
+                                </div>
+                                
+                                <div class="user-profile">
+                                    <div class="profile-image">                      
+                                        <img src={dashboard} alt="User Image">
+                                    </div>
+              
+                                    <template if:true={candidate}>
+                                    <div class="profile-details">
+                                      
+                                          <strong><h2>{candidate.Name}</h2></strong>
+                                          <p>Email: {candidate.Email__c}</p>
+                                          
+              
+                                      
+                                          
+                                      
+                                        <p>Location: India</p>
+              
+                                        <button>Edit Profile</button>
+                                    </div>
+                                  </template>
+              
+                                    <img src ={logophoto} alt="LogoAppy" height="200"  width="600">
+                                </div>
+                                <div class="main-skills">
+                                    <div class="card">
+                                        <i class="fas fa-laptop-code"></i>
+                                        <h3>Admin Part</h3>
+                                        <p>Salesforce.</p>
+                                        <button>Get Started</button>
+                                    </div>
+                
+                                    <div class="card">
+                                        <i class="fab fa-wordpress"></i>
+                                        <h3>Developer Part</h3>
+                                        <p>Salesforce.</p>
+                                        <button>Get Started</button>
+                                    </div>
+                                    <div class="card">
+                                        <i class="fas fa-palette"></i>
+                                        <h3>Trigger Part</h3>
+                                        <p>Salesforce.</p>
+                                        <button>Get Started</button>
+                                    </div>
+                                    <div class="card">
+                                        <i class="fab fa-app-store-ios"></i>
+                                        <h3>Lightning Wave Component</h3>
+                                        <p>Salesforce.</p>
+                                        <button>Get Started</button>
+                                    </div>
+                                 
+                                    <video controls  height="350" width="400">
+                                        <source src={videos} title="video/Mp4"/>
+                                    </video>
+                                
+                                </div>
+                
+                                <section class="main-course">
+                                    <h1>My courses</h1>
+                                    <div class="course-box">
+                                        <ul>
+                                            <li class="active">In progress</li>
+                                            <li>Explore</li>
+                                            <li>Incoming</li>
+                                            <li>Finished</li>
+                                        </ul>
+                                        <div class="course">
+                                            <div class="box">
+                                                <h3>HTML</h3>
+                                                <p>80% - Progress</p>
+                                                <button>Continue</button>
+                                                <i class="fab fa-html5 html"></i>
+                                            </div>
+                                            <div class="box">
+                                                <h3>CSS</h3>
+                                                <p>50% - Progress</p>
+                                                <button>Continue</button>
+                                                <i class="fab fa-css3-alt css"></i>
+                                            </div>
+                                            <div class="box">
+                                                <h3>JavaScript</h3>
+                                                <p>30% - Progress</p>
+                                                <button>Continue</button>
+                                                <i class="fab fa-js-square js"></i>
+                                            </div>
+                                            <div class="box">
+                                                <h3>Apex</h3>
+                                                <p>30% - Progress</p>
+                                                <button>Continue</button>
+                                                <i class="fas fa-code"></i>
+                                            </div>
+                                            <!-- Trigger Course -->
+                                            <div class="box">
+                                                <h3>Trigger</h3>
+                                                <p>25% - Progress</p>
+                                                <button>Continue</button>
+                                                <i class="fas fa-bolt"></i>
+                                            </div>
+                
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                        
+                        </template>
+
+                        <template if:true={showProfile}>
+                            <div class="profile">
+                                <div class="profilesidebar">
+                                  <ul>
+                                    <li>
+                                      <div class="button-wrapper">
+                                        <img src={homeimage} alt="Home Icon" class="icon">
+                                        <button class="nav-item" onclick={clickOverview}>Overview</button>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <div class="button-wrapper">
+                                        <img src={profile} alt="Work Icon" class="icon">
+                                        <button class="nav-item" onclick={clickWorkandExperience}>Work And Education </button>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <div class="button-wrapper">
+                                        <img src={internship} alt="Contact Icon" class="icon">
+                                        <button class="nav-item" onclick={clickContact}>Contact</button>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <div class="button-wrapper">
+                                        <img src={task} alt="Hobbies Icon" class="icon">
+                                        <button class="nav-item" onclick={clickHobbies}>Hobbies</button>
+                                      </div>
+                                    </li>
+                                </ul>
+                                <template if:true={showOverview}>
+                                    <lightning-card title="Candidate Profile Details" icon-name="custom:custom14">
+                                        <div class="slds-m-around_medium">
+                                            <p><b>Name: </b>{candidateProfile.data.fields.Name.value}</p>
+                                            <p><b>Date of Birth: </b>{candidateProfile.data.fields.Date_of_Birth__c.value}</p>
+                                            <p><b>Mobile: </b>{candidateProfile.data.fields.Mobile__c.value}</p>
+                                            <p><b>Email: </b>{candidateProfile.data.fields.Email_ID__c.value}</p>
+                                            
+                                            <p><b>Nationality: </b>{candidateProfile.data.fields.Nationality__c.value}</p>
+                                            <p><b>Gender: </b>{candidateProfile.data.fields.Gender__c.value}</p>
+                                        </div>
+                                    </lightning-card>
+                                </template>
+                                <template if:false={showOverview}></template>
+                                <template if:true={showWorkandEdu}>Work</template>
+                                <template if:false={showWorkandEdu}></template>
+                                <template if:true={showContact}>Contact</template>
+                                <template if:false={showContact}></template>
+                                <template if:true={showHobbies}>Hobbies</template>
+                                <template if:false={showHobbies}></template>
+                            </div>   
+                                
+                        </div>
+
+                        </template>
+                        <template if:false={showProfile}>
+
+                        </template>
+                    
+                        <template if:true={showInternship}>
+                            <div class="inner-page">
+                                <p>Internships</p>
+                            </div>
+                        </template>
+                        <template if:false={showInternship}>
+                            
+                        </template>
+                    
+                        <template if:true={showTasks}>
+                            <div class="inner-page">
+                                <p>Tasks</p>
+                            </div>
+                        </template>
+                        <template if:false={showTasks}>
+                            
+                        </template>
+                    
+                        <template if:true={showApplication}>
+                            <div class="inner-page">
+                                <p>Application Management</p>
+                            </div>
+                        </template>
+                        <template if:false={showApplication}>
+                            
+                        </template>
+                    
+                        <template if:true={showFeedback}>
+                            <div class="inner-page">
+                                <p>Feedback</p>
+                            </div>
+                        </template>
+                        <template if:false={showFeedback}>
+                            
+                        </template>
+                    
+                        <template if:true={showJobs}>
+                            <div class="inner-page">
+                                <p>All jobs will appear here</p>
+                            </div>
+
+                        </template>
+                        <template if:false={showJobs}>
+                            
+                        </template>
+
+                        </div>
+                    
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
+                          <img src={craft} alt="craft">
+                        </div>
+                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
+                            <img src={crafting} alt="photo dashboard">
+                        </div>
+                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
+                            <img src={home} alt="clicking">
+                        </div>
+                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
+                            <img src={homes} alt="imagesclick">
+                          
+                        </div>
+                      </div>
+                   
+                        <div class="dashboard-container">
+                            <header class="header">
+                                <h1>  Welcome to Your Dashboard</h1>
+                                <p>  Our aim is to make meaningful connections to fill gap with the leading practices, trust, Innovation and, customer success..</p>
+                            </header>
+                    
+                            <nav class="navigation">
+                                <ul>
+                                    <li><a href="#main-content">Jump to Main Content</a></li>
+                                    <!-- Add other navigation links as needed -->
+                                </ul>
+                            </nav>
+                    
+                            <main id="main-content" class="main-content">
+                                <h2>Main Content</h2>
+                              <p>
+                                AppyCrown: Your trusted Salesforce Consulting Partner delivering reliable consulting services.
+                
+                                 We are a team of highly expertise and experience in Salesforce which has enabled us to implement and support various business use cases in the Sales, Service, Experience, and Marketing Clouds.
+                
+                                At AppyCrown Private Limited, our team diligently adheres to all Salesforce best practices, guided by Salesforce MVP Om Prakash, who serves as our Founder, CEO, and Technical Architect.
+                
+                               Our aim is to make meaningful connections to fill gap with the leading practices, trust, Innovation and, customer success.
+                              </p>
+                            </main>
+                    
+                            <footer class="footer">
+                                <div class="footer-links">
+                                    <a href="#">About </a>
+                                    <a href="#">Candidate Dashboard</a>
+                                    <a href="#">Download the App AppyNtern</a>
+                                    <!-- Add more footer links as needed -->
+                                </div>
+                                <div class="footer-social">
+                                    <a href="#" class="social-link"><img src={instagramicon} alt="Instagram Icon"></a>
+                                    <a href="#" class="social-link"><img src={twittericon} alt="Twitter Icon"></a>
+                                    <a href="#" class="social-link"><img src={pineresticon} alt="Pinterest Icon"></a>
+                                    <a href="#" class="social-link"><img src={facebookicon} alt="Facebook Icon"></a>
+                                    <a href="https://www.linkedin.com/company/appycrown-private-limited/mycompany/verification/" class="social-link"><img src={likedinicon} alt="LinkedIn Icon"></a>
+                                    <!-- Replace image src with actual icon URLs or use icon font libraries -->
+                                </div>
+                                <div class="copyright">
+                                    <p>&copy; 2024 AppyNtern. All rights reserved.</p>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+   
+                    
+                
+                </lightning-card>
+
+            </template>
+            <template if:false={showDashboard}>
+
+            </template>
+
+
+        </template>
+
+        <template if:false={isLogin}>
+            <div class="loginPage">
+                <div class="login-box">
+                    <h2 class="login-heading">Welcome to Login Page</h2>
+                    <div class="input-group">
+                        <img src={emailIcon} alt="Email" class="input-icon">
+                        <input type="text" placeholder="Enter Your Email...." onchange={getEmail}>
+                    </div>
+                    
+                    <div class="input-group">
+                        <img src={passwordIcon} alt="Password" class="input-icon">
+                        <input type="password" placeholder="Enter Your Password....." onchange={getPassword}></input>
+        
+                        <div class="slds-m-top_medium">{error}</div>
+                    
+                        <button class="login" onclick={userLogin}>Login</button>
+                    </div>
+                   <br>
+        
+                       <br> 
+                    <div class="login-buttons">
+                        <button class="login-with-google" onclick={loginWithGoogle}>
+                            <img src={googleIcon} alt="Google" class="login-icon">
+                            <span>Login with Google</span>
+                        </button>
+                        <br>
+                        <button class="login-with-gmail" onclick={loginWithGmail}>
+                            <img src={gmailIcon} alt="Gmail" class="login-icon">
+                            <span>Login with Gmail</span>
+                        </button>
+                        <br>
+                        <button class="login-with-linkedin" onclick={loginWithLinkedIn}>
+                            <img src={linkedinIcon} alt="LinkedIn" class="login-icon">
+                            <span>Login with LinkedIn</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </template>
+        
+    </lightning-card>
+
+</template>
