@@ -17,6 +17,8 @@ import image from '@salesforce/resourceUrl/Dashboardimage';
 import video from '@salesforce/resourceUrl/videoAppy';
 
 
+
+
 import picture from '@salesforce/resourceUrl/photo1';
 import pictures from '@salesforce/resourceUrl/photo2';
 import copy from '@salesforce/resourceUrl/photo3';
@@ -45,20 +47,22 @@ import img5 from '@salesforce/resourceUrl/Task';
 import appy from '@salesforce/resourceUrl/LogoAppyNtern';
 
 
+//abhishek import
+
+
+
+import getTaskReminders from '@salesforce/apex/TaskReminderController.getTaskReminders';
+import updateTaskStatus from '@salesforce/apex/TaskReminderController.updateTaskStatus';
+
+
+import Currentresume from '@salesforce/resourceUrl/Currentresume';
+import achievementsicon from '@salesforce/resourceUrl/achievementsicon';
+import Certificateicon from '@salesforce/resourceUrl/Certificateicon';
+
+
+
+
 //improting for backend
-
-//import by Abhishek
-import { getRecord } from 'lightning/uiRecordApi';
-
-const fields = [
-    'Candidate_Profile__c.Name',
-    'Candidate_Profile__c.Date_of_Birth__c',
-    'Candidate_Profile__c.Mobile__c',
-    'Candidate_Profile__c.University__c',
-    // 'Candidate_Profile__c.Graduation_Year__c',
-    'Candidate_Profile__c.Nationality__c',
-    'Candidate_Profile__c.Gender__c'
-];
 
 
 
@@ -112,6 +116,12 @@ instagramicon = instagram;
 salescloud = salesforce;
 salesadmin = salesforcecloud;
 developer = salesforceadmin;
+
+//abhishek
+resumeImageUrl = Currentresume;
+achievementImageUrl = achievementsicon;
+certificateImageUrl = Certificateicon;
+
 
 
 
@@ -212,7 +222,7 @@ developer = salesforceadmin;
             .catch(error => {
                 // Handle error
                 console.error('Error:', error);
-                this.error=error;
+                console.log(error)
             });
     }
 
@@ -268,6 +278,7 @@ developer = salesforceadmin;
         this.showProfile = false;
         this.showInternship = false;
         this.showTasks = false;
+        this.showApplication = true;
         this.showFeedback = false;
         this.showJobs = false;
 
@@ -303,6 +314,10 @@ developer = salesforceadmin;
         this.showApplication = false;
         this.showFeedback = true;
         this.showJobs = false;
+
+
+        
+    
     }
 
     clickJobs(){
@@ -328,12 +343,12 @@ handleButtonClick() {
 
 
 //profile 
-clickFeedback(){
-    this.showHome = false;
-    this.dashboardImage = false;
-    this.showProfile = false;
-    this.showInternship = false;
-}
+// clickFeedback(){
+//     this.showHome = false;
+//     this.dashboardImage = false;
+//     this.showProfile = false;
+//     this.showInternship = false;
+// }
 
 
 //Abhishek profile section js 
@@ -367,10 +382,60 @@ clickHobbies() {
 }
 
 
-@api recordId;
 
-    @wire(getRecord, { recordId: '$recordId', fields })
-    candidateProfile;
+
+
+
+
+handleEmailChange(event) {
+    this.email = event.target.value;
+}
+
+handleSubjectChange(event) {
+    this.subject = event.target.value;
+}
+
+handleDescriptionChange(event) {
+    this.description = event.target.value;
+}
+
+handleSubmit() {
+   
+}
+
+
+//TASK SECTION 
+
+taskReminders;
+
+    @wire(getTaskReminders)
+    wiredTaskReminders({ error, data }) {
+        if (data) {
+            this.taskReminders = data;
+        } else if (error) {
+            console.error(error);
+        }
+    }
+
+    handleTaskCompletion(event) {
+        const taskId = event.target.dataset.taskId;
+        const taskStatus = event.target.checked;
+
+        updateTaskStatus({ taskId: taskId, status: taskStatus })
+            .then(result => {
+                
+                this.taskReminders = this.taskReminders.map(task => {
+                    if (task.Id === taskId) {
+                        return { ...task, Status__c: taskStatus };
+                    }
+                    return task;
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
 }
 
 

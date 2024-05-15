@@ -204,20 +204,7 @@
                                         </li>
                                     </ul>
                                     </div>
-                                    <template if:true={showOverview}>
-                                        
-                                        <lightning-card title="Candidate Profile Details" icon-name="custom:custom14">
-                                                <div class="slds-m-around_medium">
-                                                    <p><b>Name: </b>{candidateProfile.data.fields.Name.value}</p>
-                                                    <p><b>Date of Birth: </b>{candidateProfile.data.fields.Date_of_Birth__c.value}</p>
-                                                    <p><b>Mobile: </b>{candidateProfile.data.fields.Mobile__c.value}</p>
-                                                    <p><b>Email: </b>{candidateProfile.data.fields.Email_ID__c.value}</p>
-                                                    
-                                                    <p><b>Nationality: </b>{candidateProfile.data.fields.Nationality__c.value}</p>
-                                                    <p><b>Gender: </b>{candidateProfile.data.fields.Gender__c.value}</p>
-                                                </div>
-                                         </lightning-card>
-                                    </template>
+                                    <template if:true={showOverview}>over</template>
                                     <template if:false={showOverview}></template>
                                     <template if:true={showWorkandEdu}>Work</template>
                                     <template if:false={showWorkandEdu}></template>
@@ -247,7 +234,16 @@
                     
                         <template if:true={showTasks}>
                             <div class="inner-page">
-                                <p>Tasks</p>
+                                <lightning-card title="Task Reminders">
+                                    <ul>
+                                        <template for:each={taskReminders} for:item="task">
+                                            <li key={task.Id}>
+                                                {task.Name} - Due Date: {task.Due_Date__c} 
+                                                <lightning-input type="checkbox" label="Completed" checked={task.Status__c} onchange={handleTaskCompletion} data-task-id={task.Id}></lightning-input>
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </lightning-card>
                             </div>
                         </template>
                         <template if:false={showTasks}>
@@ -256,7 +252,38 @@
                     
                         <template if:true={showApplication}>
                             <div class="inner-page">
-                                <p>Application Management</p>
+                                <div class="grid-container">
+                                    <div class="grid-item">
+                                        <lightning-card title="Current Resume" icon-name="standard:resume">
+                                            <lightning-accordion allow-multiple-sections-open>
+                                                <lightning-accordion-section name="A" label="Current Resume">
+                                                    <img src={resumeImageUrl} alt="Resume image"/>
+                                                    
+                                                </lightning-accordion-section>
+                                            </lightning-accordion>
+                                        </lightning-card>
+                                    </div>
+                                    <div class="grid-item">
+                                        <lightning-card title="Certificates" icon-name="standard:certificate">
+                                            <lightning-accordion allow-multiple-sections-open>
+                                                <lightning-accordion-section name="B" label="Certificates">
+                                                    <img src={certificateImageUrl} alt="Certificates image"/>
+                                                  
+                                                </lightning-accordion-section>
+                                            </lightning-accordion>
+                                        </lightning-card>
+                                    </div>
+                                    <div class="grid-item">
+                                        <lightning-card title="Achievements" icon-name="standard:trophy">
+                                            <lightning-accordion allow-multiple-sections-open>
+                                                <lightning-accordion-section name="C" label="Achievements">
+                                                    <img src={achievementImageUrl} alt="Achievements image"/>
+                                                   
+                                                </lightning-accordion-section>
+                                            </lightning-accordion>
+                                        </lightning-card>
+                                    </div>
+                                </div>
                             </div>
                         </template>
                         <template if:false={showApplication}>
@@ -265,8 +292,27 @@
                     
                         <template if:true={showFeedback}>
                             <div class="inner-page">
-                                <p>Feedback</p>
-                            </div>
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <lightning-card title="Feedback & Support" icon-name="action:feedback">
+                                            <div class="slds-card__body slds-text-color_default">
+                                                <lightning-input type="email" label="Your Email" value={email} onchange={handleEmailChange}></lightning-input>
+                                                <lightning-input type="text" label="Subject" value={subject} onchange={handleSubjectChange}></lightning-input>
+                                                <lightning-textarea label="Description" value={description} onchange={handleDescriptionChange}></lightning-textarea>
+                                                <div class="slds-m-top_medium">
+                                                    <label for="screenshot">Screenshot (if available): </label>
+                                                    <input type="file" id="screenshot" name="screenshot" margin-top = "20px" accept="image/png, image/jpeg">
+                                                </div>
+                                
+                                                <lightning-button label="Submit" onclick={handleSubmit} class="slds-m-top_medium" margin-top = "20px"></lightning-button>
+                                            </div>
+                                        </lightning-card>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-2">
+                                        <img src="https://i.imgur.com/VCkeUCB.png" alt="support illustration" class="imageStyle"  height="200"  width="600"/>
+                                    </div>
+                                </div>
+                           </div>
                         </template>
                         <template if:false={showFeedback}>
                             

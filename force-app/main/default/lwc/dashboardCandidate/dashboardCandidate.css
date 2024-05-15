@@ -286,12 +286,10 @@
   }
   
   .profilesidebar {
-    background-color: #0077B5;
     width: 15%;
   }
   
   .profilesidebar .p-ul {
-    background-color: ;
     list-style: none;
     padding: 0;
   }
@@ -962,3 +960,13 @@
 
 
   /* ABHISHEK PROFILE CSS */
+
+/* Feedback support CSS */
+  .slds-theme_default {
+    background-color: var(--lwc-colorBackgroundAlt, rgb(255, 255, 255));
+    border-radius: 0.25rem;
+    transition: opacity 0.45s;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 0.3rem 1rem -0.8rem rgba(0, 0, 0, 0.25);
+    color: var(--lwc-colorTextDefault, rgb(22, 50, 92));
+    padding:1em;
+}
