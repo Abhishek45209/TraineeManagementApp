@@ -186,57 +186,50 @@
                         </template>
 
                         <template if:true={showProfile}>
-                            <div class="profile">
-                                <div class="profilesidebar">
-                                  <ul>
-                                    <li>
-                                      <div class="button-wrapper">
-                                        <img src={homeimage} alt="Home Icon" class="icon">
-                                        <button class="nav-item" onclick={clickOverview}>Overview</button>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="button-wrapper">
-                                        <img src={profile} alt="Work Icon" class="icon">
-                                        <button class="nav-item" onclick={clickWorkandExperience}>Work And Education </button>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="button-wrapper">
-                                        <img src={internship} alt="Contact Icon" class="icon">
-                                        <button class="nav-item" onclick={clickContact}>Contact</button>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="button-wrapper">
-                                        <img src={task} alt="Hobbies Icon" class="icon">
-                                        <button class="nav-item" onclick={clickHobbies}>Hobbies</button>
-                                      </div>
-                                    </li>
-                                </ul>
-                                <template if:true={showOverview}>
-                                    <lightning-card title="Candidate Profile Details" icon-name="custom:custom14">
-                                        <div class="slds-m-around_medium">
-                                            <p><b>Name: </b>{candidateProfile.data.fields.Name.value}</p>
-                                            <p><b>Date of Birth: </b>{candidateProfile.data.fields.Date_of_Birth__c.value}</p>
-                                            <p><b>Mobile: </b>{candidateProfile.data.fields.Mobile__c.value}</p>
-                                            <p><b>Email: </b>{candidateProfile.data.fields.Email_ID__c.value}</p>
-                                            
-                                            <p><b>Nationality: </b>{candidateProfile.data.fields.Nationality__c.value}</p>
-                                            <p><b>Gender: </b>{candidateProfile.data.fields.Gender__c.value}</p>
-                                        </div>
-                                    </lightning-card>
-                                </template>
-                                <template if:false={showOverview}></template>
-                                <template if:true={showWorkandEdu}>Work</template>
-                                <template if:false={showWorkandEdu}></template>
-                                <template if:true={showContact}>Contact</template>
-                                <template if:false={showContact}></template>
-                                <template if:true={showHobbies}>Hobbies</template>
-                                <template if:false={showHobbies}></template>
-                            </div>   
-                                
-                        </div>
+                            <div class="inner-page">
+                                <div class="profile">
+                                    <div class="profilesidebar">
+                                      <ul class="p-ul">
+                                        <li class="p-li">
+                                            <button class="p-button" onclick={clickOverview}>Overview</button>
+                                        </li>
+                                        <li class="p-li">
+                                            <button class="p-button" onclick={clickWorkandExperience}>Work And Education </button>
+                                        </li>
+                                        <li class="p-li">
+                                            <button class="p-button" onclick={clickContact}>Contact</button>
+                                        </li>
+                                        <li class="p-li">
+                                            <button class="p-button" onclick={clickHobbies}>Hobbies</button>
+                                        </li>
+                                    </ul>
+                                    </div>
+                                    <template if:true={showOverview}>
+                                        
+                                        <lightning-card title="Candidate Profile Details" icon-name="custom:custom14">
+                                                <div class="slds-m-around_medium">
+                                                    <p><b>Name: </b>{candidateProfile.data.fields.Name.value}</p>
+                                                    <p><b>Date of Birth: </b>{candidateProfile.data.fields.Date_of_Birth__c.value}</p>
+                                                    <p><b>Mobile: </b>{candidateProfile.data.fields.Mobile__c.value}</p>
+                                                    <p><b>Email: </b>{candidateProfile.data.fields.Email_ID__c.value}</p>
+                                                    
+                                                    <p><b>Nationality: </b>{candidateProfile.data.fields.Nationality__c.value}</p>
+                                                    <p><b>Gender: </b>{candidateProfile.data.fields.Gender__c.value}</p>
+                                                </div>
+                                         </lightning-card>
+                                    </template>
+                                    <template if:false={showOverview}></template>
+                                    <template if:true={showWorkandEdu}>Work</template>
+                                    <template if:false={showWorkandEdu}></template>
+                                    <template if:true={showContact}>Contact</template>
+                                    <template if:false={showContact}></template>
+                                    <template if:true={showHobbies}>Hobbies</template>
+                                    <template if:false={showHobbies}></template>
+                                </div>   
+                                    
+                            
+                            </div>
+                            
 
                         </template>
                         <template if:false={showProfile}>
@@ -380,7 +373,7 @@
                         <img src={passwordIcon} alt="Password" class="input-icon">
                         <input type="password" placeholder="Enter Your Password....." onchange={getPassword}></input>
         
-                        <div class="slds-m-top_medium">{error}</div>
+                        <div class="slds-m-top_medium" style="color:brown; margin:auto;">{error}</div>
                     
                         <button class="login" onclick={userLogin}>Login</button>
                     </div>

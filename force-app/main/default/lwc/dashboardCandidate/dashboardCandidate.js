@@ -47,6 +47,19 @@ import appy from '@salesforce/resourceUrl/LogoAppyNtern';
 
 //improting for backend
 
+//import by Abhishek
+import { getRecord } from 'lightning/uiRecordApi';
+
+const fields = [
+    'Candidate_Profile__c.Name',
+    'Candidate_Profile__c.Date_of_Birth__c',
+    'Candidate_Profile__c.Mobile__c',
+    'Candidate_Profile__c.University__c',
+    // 'Candidate_Profile__c.Graduation_Year__c',
+    'Candidate_Profile__c.Nationality__c',
+    'Candidate_Profile__c.Gender__c'
+];
+
 
 
 
@@ -198,12 +211,6 @@ developer = salesforceadmin;
             })
             .catch(error => {
                 // Handle error
-                const event = new ShowToastEvent({
-                    title: 'Failed!',
-                    message: 'Something went wrong! Please try again.',
-                    variant: 'error',
-                });
-                this.dispatchEvent(event);
                 console.error('Error:', error);
                 this.error=error;
             });
@@ -360,5 +367,10 @@ clickHobbies() {
 }
 
 
+@api recordId;
 
+    @wire(getRecord, { recordId: '$recordId', fields })
+    candidateProfile;
 }
+
+

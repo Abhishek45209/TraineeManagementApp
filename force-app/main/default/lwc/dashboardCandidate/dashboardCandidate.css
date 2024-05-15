@@ -22,20 +22,22 @@
 
 /* Style for the login box */
 .login-box {
-    width: 400px; /* Adjust the width of the login box */
-    padding: 20px; /* Add padding inside the login box */
-    border: 1px solid #ccc; /* Add border */
-    border-radius: 20px; /* Add border radius to create rounded corners */
+    height: max-content;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-inline: 30px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
-    background-color: #a837cd; /* Background color for the login box */
-    height: 650px;
-    margin-top: -40px;
+    
 }
 
 /* Style for the "Welcome to Login Page" heading */
 .login-box h2 {
-    text-align: center; /* Center align the heading */
+    text-align: center;
+    font-size: large;
     margin-bottom: 20px; /* Add some space below the heading */
+    color: rgb(0, 0, 0);
 }
 
 /* Style for input icons */
@@ -276,8 +278,44 @@
     padding: 20px;
     
   }
+
+  /*DESIGN FOR INNER PAGE PROFILE */
+
+  .profile {
+    display: flex;
+  }
   
-  /* Main Section */
+  .profilesidebar {
+    background-color: #0077B5;
+    width: 15%;
+  }
+  
+  .profilesidebar .p-ul {
+    background-color: ;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .p-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    border: none;
+    background-color: rgba(0, 72, 239, 0.963);
+    cursor: pointer;
+  }
+  
+  .template {
+    flex: 1;
+  }
+  
+
+
+
+
+  
+  /* DESIGN FOR  Main Section */
   .main {
     position: relative;
     padding: 20px;
@@ -923,7 +961,4 @@
   }
 
 
-  /* ABHISHEK PROFILE CSS */ 
-
-
-  
+  /* ABHISHEK PROFILE CSS */
