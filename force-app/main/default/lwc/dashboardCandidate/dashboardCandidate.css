@@ -970,3 +970,14 @@
     color: var(--lwc-colorTextDefault, rgb(22, 50, 92));
     padding:1em;
 }
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+}
+
+.grid-item {
+  padding: 10px;
+}
