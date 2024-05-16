@@ -257,26 +257,28 @@
 
                 <!-- ABHISHEK HR VIEWS FEEDBACK PAGE -->
                 <template if:true={showNotificationsAndCommunicationManagement}>
-                    <lightning-card title="Feedback Display" icon-name="custom:custom14">
+                    <div style="background-color: white; padding: 10px;">
                         <template if:true={feedbacks}>
-                            <template for:each={feedbacks} for:item="feedback">
-                                <div style="margin-left: 20px;" key={feedback.Id}>
-
-                                    <p><b>Email: </b> {feedback.Email__c}</p>
-                                    <p><b>Subject: </b> {feedback.Subject__c}</p>
-                                    <p><b>Description: </b> {feedback.Description__c}</p>
-                                    <p><b>Screenshot: </b></p>
-                                    <img src={feedback.Screenshot__c} alt="Screenshot" />
-                                    <hr/>
-                                </div>
-                            </template>
+                            <lightning-accordion active-section-name="A">
+                                <template for:each={feedbacks} for:item="feedback" for:index="index">
+                                    <lightning-accordion-section name={feedback.Id} label={feedback.Subject__c} key={feedback.Id}>
+                                        <div style="background-color: rgb(220, 247, 220); margin: 10px; padding: 10px;">
+                                            <p><b>Email: </b> {feedback.Email__c}</p>
+                                            <p><b>Description: </b> {feedback.Description__c}</p>
+                                            <p><b>Screenshot: </b></p>
+                                            <img src={feedback.Screenshot__c} alt="Screenshot" />
+                                        </div>
+                                    </lightning-accordion-section>
+                                </template>
+                            </lightning-accordion>
                         </template>
                         <template if:true={error}>
                             <div class="slds-text-color_error">
                                 <p>{error}</p>
                             </div>
                         </template>
-                    </lightning-card>
+                    </div>
+                    
                 </template>
                 <template if:false={showNotificationsAndCommunicationManagement}>
 
