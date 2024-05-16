@@ -11,12 +11,13 @@ import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 import validateCandidate from '@salesforce/apex/LoginCandidate.validateCandidate';
+import saveFeedbackDetails from '@salesforce/apex/SaveFeedback.saveFeedbackDetails';
 
 //aniket's dashboard
 import image from '@salesforce/resourceUrl/Dashboardimage';
 import video from '@salesforce/resourceUrl/videoAppy';
-
-
+import internship from '@salesforce/resourceUrl/InternshipImage';
+import job from '@salesforce/resourceUrl/jobimage';
 
 
 import picture from '@salesforce/resourceUrl/photo1';
@@ -80,12 +81,6 @@ export default class DashboardCandidate extends LightningElement {
     showJobs = false;
     showHome = false;
 
-    //form login
-    emailIcon = emailIcon;
-    passwordIcon = passwordIcon;
-    googleIcon = googleIcon;
-    gmailIcon = gmailIcon;
-    linkedinIcon = linkedinIcon;
 
     //from aniket's dashboard
     logophoto = appy;
@@ -95,6 +90,24 @@ profile = img3;
 application = img4;
 feedback = img2;
 task = img5;
+
+intern = internship;
+jobappy = job;
+ //form login
+ emailIcon = emailIcon;
+ passwordIcon = passwordIcon;
+ googleIcon = googleIcon;
+ gmailIcon = gmailIcon;
+ linkedinIcon = linkedinIcon;
+
+
+
+
+
+
+
+
+
 
 //from abhishek profile section
 @track showOverview = true;
@@ -197,13 +210,13 @@ certificateImageUrl = Certificateicon;
                         this.showDashboard = true;
                         this.showHome = true; 
 
-                        console.log(enterPass, result.UserPassword__c);
+                        //console.log(enterPass, result.UserPassword__c);
                         
                     }else{
                         this.error = 'Incorrect Password! Check carefully';
                         console.log(this.error);
 
-                        console.log(this.entrPass, result.UserPassword__c , this.candidate);
+                        //console.log(this.entrPass, result.UserPassword__c , this.candidate);
                     }
                     
 
@@ -216,13 +229,14 @@ certificateImageUrl = Certificateicon;
                     this.dispatchEvent(event);
                     
                     this.error = 'Invalid Username or Password';
-                    console.log(error);
+                    console.log(this.error);
                 }
             })
             .catch(error => {
                 // Handle error
                 console.error('Error:', error);
-                console.log(error)
+                this.error = 'Invalid Username or Password';
+                console.log(this.error)
             });
     }
 
@@ -385,7 +399,7 @@ clickHobbies() {
 
 
 
-
+//feedback Abhishek
 
 handleEmailChange(event) {
     this.email = event.target.value;
@@ -399,10 +413,27 @@ handleDescriptionChange(event) {
     this.description = event.target.value;
 }
 
-handleSubmit() {
-   
+handleFileChange(event) {
+    this.file = event.target.files[0]; 
 }
 
+handleSubmit() {
+    saveFeedbackDetails({
+        email: this.email,
+        subject: this.subject,
+        description: this.description
+    })
+    .then(result => {
+        alert('Feedback sent successfully!');
+        this.email = '';
+        this.subject = '';
+        this.description = '';
+        this.file = '';
+    })
+    .catch(error => {
+        console.error('An error occurred: ', error);
+    });
+}
 
 //TASK SECTION 
 
@@ -436,6 +467,68 @@ taskReminders;
             });
     }
 
+
+
+
+
+@api wordToShow = 'Do not be embarrassed by your failures, learn from them and start again';
+ // Word to show initially
+ 
+    @api wordToHide = ''; // Word to hide
+    @api typingSpeed = 10; // Speed in milliseconds per character
+    displayedText = ''; // Initialize with an empty string
+
+    connectedCallback() {
+        this.typeText();
+    }
+
+    typeText() {
+        let index = 0;
+        const typingInterval = setInterval(() => {
+            if (index < this.wordToShow.length) {
+                this.displayedText += this.wordToShow[index];
+                index++;
+            } else {
+                clearInterval(typingInterval); // Stop typing when text is fully typed
+                setTimeout(() => {
+                    this.hideText();
+                }, 1000); // Delay before hiding the text
+            }
+        }, this.typingSpeed);
+    }
+
+    hideText() {
+        let index = 0;
+        const hidingInterval = setInterval(() => {
+            if (index < this.wordToHide.length) {
+                this.displayedText = this.displayedText.slice(0, -1);
+                index++;
+            } else {
+                clearInterval(hidingInterval); // Stop hiding when text is fully hidden
+            }
+        }, this.typingSpeed);
+    }
+
+
+
+  
+    
+
+
+    clickHandler(event) {
+        const sectionName = event.detail.openSections[0];
+        console.log('Section toggled:', sectionName);
+        // You can perform any additional logic here based on the toggled section
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
-
-

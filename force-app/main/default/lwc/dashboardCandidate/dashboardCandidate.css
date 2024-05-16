@@ -341,12 +341,12 @@
   .main .main-skills .card {
     width: 65%;
     margin: 10px;
-    background: #000000;
+    background: #e4e4e4e6;
     text-align: center;
     border-radius: 20px;
     padding: 10px;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-    color: #007bff;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    color: #070707;
   }
   
   .main .main-skills .card h3 {
@@ -387,7 +387,7 @@
     height: 300px;
     padding: 10px 10px 30px 10px;
     margin-top: 10px;
-    background: #000000;
+    background: #e4e4e4e6;
     border-radius: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
     color: #007bff;
@@ -400,7 +400,7 @@
   
   .course-box ul li {
     margin: 10px;
-    color: gray;
+    color: rgb(92, 70, 70);
     cursor: pointer;
   }
   
@@ -530,14 +530,12 @@
       color: rgb(214, 48, 49); /* Change icon color for Trigger */
   }
   
-  
   .horizontal-navbar {
     background-color: #071a57;
     overflow: hidden;
     width: auto; 
     color: #071a57;
-    
-    
+    margin-top: -48px;
   }
   
   .horizontal-navbar ul {
@@ -959,25 +957,150 @@
   }
 
 
+
+
+
+
+.inner-page{
+  margin: right;
+  align-items: right;
+  justify-content: right;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #03164e;
+}
+
+
+
+
+
+.photo{
+  float: right;
+}
+
+
+
+.Internship Section{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.Section{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+
+
+
+
+.Select{
+  background-color: rgb(25, 218, 218);
+  color: rgb(177, 174, 149);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+
+.Button-Apply{
+  color: rgb(220, 135, 16);
+}
+
+
+
+
+
+
+
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.auto-typing {
+  overflow: hidden;
+  white-space: nowrap; /* Keep the text on a single line */
+  animation: typing 15s steps(40, end), blink-caret 0.75s step-end infinite; /* Adjust duration as needed */
+  color: #093f5d;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: #0056b3;
+  width: 40px;
+  height: fit-content;
+  font-size: large;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black }
+}
+.container {
+ 
+  
+  align-items: center;
+  display: flex;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #070352;
+   /* Make the container take the full height of the viewport */
+}
+
+
+
+
+
+.accordion-item {
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background-color: #f4f6f9;
+}
+
+.accordion-content {
+    padding: 0.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+.custom-container button {
+    
+width: 50px;
+}
+
+
+
+
+  /* ABHISHEK PROFILE CSS */
+
   /* ABHISHEK PROFILE CSS */
 
 /* Feedback support CSS */
-  .slds-theme_default {
-    background-color: var(--lwc-colorBackgroundAlt, rgb(255, 255, 255));
-    border-radius: 0.25rem;
-    transition: opacity 0.45s;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 0.3rem 1rem -0.8rem rgba(0, 0, 0, 0.25);
-    color: var(--lwc-colorTextDefault, rgb(22, 50, 92));
-    padding:1em;
+.slds-theme_default {
+  background-color: var(--lwc-colorBackgroundAlt, rgb(255, 255, 255));
+  border-radius: 0.25rem;
+  transition: opacity 0.45s;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 0.3rem 1rem -0.8rem rgba(0, 0, 0, 0.25);
+  color: var(--lwc-colorTextDefault, rgb(22, 50, 92));
+  padding:1em;
 }
 
 
 .grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 10px;
+display: grid;
+grid-template-columns: auto auto auto;
+gap: 10px;
 }
 
 .grid-item {
-  padding: 10px;
+padding: 10px;
 }

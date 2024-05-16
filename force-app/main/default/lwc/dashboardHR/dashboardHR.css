@@ -1,0 +1,192 @@
+.header{
+    background-color: rgb(4, 4, 73);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+   
+}
+
+.header h1{
+    font-weight: bolder;
+    color: White;
+    padding-left: 40px;
+}
+
+.sidebar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    color: white;
+    width: auto;
+    overflow: hidden;
+    background-color: rgb(193, 190, 194);
+}
+
+
+.Links{
+    padding-top: 60px;
+}
+
+
+.Links li{
+    padding: 10px;
+    margin: 20px;
+    text-decoration: none;
+    font:bolder;
+}
+
+
+.Links  img{
+    width: 20px;
+    height: 20px;
+}
+
+.Links  a{
+    color: rgb(1, 1, 1);
+    padding: 20px;
+    font: bolder;    
+}
+
+.Links  li:hover{
+    background-color: rgb(78, 78, 245); 
+    transition: all 0.5s    linear;
+    border-radius: 20px;
+    font-size: larger;
+    text-decoration: none;
+    color: black;
+}
+
+.Links  a:hover{
+    color: rgb(241, 241, 241);
+}
+
+.heading    p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 3em;
+    border-bottom: 1px  groove  green;
+    
+}
+
+.data-yes{
+    border: 2px    solid    blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    width: 140vh;
+    margin-top: 22px;
+    background-color: beige;
+    margin-left: 13px;
+}
+.table  tr{
+    margin-top: 8px;
+}
+
+.table-data p{
+    margin-top: 22px;
+}
+
+.table-Header{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 1.3em;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    text-align: center;
+}
+
+
+
+
+
+/* code copied */
+
+.listingsDetails{
+    margin-left: 30px;
+    border-bottom: 2px  solid   skyblue;
+    background-color: rgb(240, 247, 255);
+
+}
+.listingsDetailsHeading{
+    border-bottom: 2px  groove  rgb(61, 125, 227);
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.listingsDetailsHeading   p{
+    font-size: 1.6em;
+}
+
+.head{
+    font-size: 1.1em;
+  
+    font-family:Arial, Helvetica, sans-serif;
+  
+}
+
+
+
+
+.listings{
+    background-color: rgb(239, 220, 194);
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    padding-left: 8px;
+    color: rgb(34, 62, 91);
+}
+
+.content-value{
+    padding-left: 8px;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.margin-left{
+    display: flex;
+    justify-content: space-around;
+}
+
+.button{
+    margin-top: 5px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 50%;
+}
+
+
+.createNewInternship{
+    margin-left: 1.2%;
+    margin-bottom: 1%;
+}
+.createNewInternship    button{
+    display: flex;
+    align-items: center;
+}
+
+.internshipName{
+    font-size: 1.8em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+.slds-checkbox span{
+    font-size: 1.6em;
+
+}

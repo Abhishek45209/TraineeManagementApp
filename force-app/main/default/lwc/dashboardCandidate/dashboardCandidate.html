@@ -129,9 +129,9 @@
                                         <button>Get Started</button>
                                     </div>
                                  
-                                    <video controls  height="350" width="400">
+                                    <!-- <video controls  height="350" width="400">
                                         <source src={videos} title="video/Mp4"/>
-                                    </video>
+                                    </video> -->
                                 
                                 </div>
                 
@@ -225,7 +225,145 @@
                     
                         <template if:true={showInternship}>
                             <div class="inner-page">
-                                <p>Internships</p>
+
+                                <div class="container">
+                                    <div class="auto-typing" style="background-color: rgb(255, 255, 255) ;">{displayedText}</div>
+                                </div>
+
+                                <div class="Select">
+                                    <div class="slds-form-element">
+                                      <label class="slds-form-element__label" for="select-01">Select Role</label>
+                                      <div class="slds-form-element__control">
+                                      <div class="slds-select_container">
+                                      <select class="slds-select" id="select-01">
+                                      <option value="">Select…</option>
+                                      <option>Developer Role</option >
+                                      <option>Consultant Role</option>
+                                      <option>Admin Role</option>
+                                      </select>
+                                      </div>
+                                      </div>
+                                      </div>
+                                  </div>
+                                
+
+
+                                  
+                              <div class="photo">
+               <img src={intern} alt="Intern Photo" height="200" width="450">
+                              </div>
+                              <br>
+              <div class = "Internship Section">
+
+                <div class="demo-only" style="width:30rem">
+                    <article class="slds-tile slds-hint-parent">
+                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                    <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                    <a href="#">Salesforce Developer Role</a>
+                    </h3>
+
+                    <div class="slds-shrink-none">
+                    
+                    </div>
+                    </div>
+                    <div class ="Section ">
+                    <div class="slds-tile__detail">
+                    <dl class="slds-list_horizontal slds-wrap">
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Developer Role:</dt>
+                    <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
+                    <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
+                    <dd class="slds-item_detail slds-truncate" title="Description for second label">5LPA</dd>
+                    <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
+                    </dl>
+                </div>
+                    </div>
+                    </article>
+                    </div>
+
+                    <div style="background-color:#073c8c;padding:0.3rem">
+                        
+                      </div>
+
+
+                      <div class="demo-only" style="width:30rem">
+                        <article class="slds-tile slds-hint-parent">
+                        <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                        <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                        <a href="#">Salesforce Admin Role</a>
+                        </h3>
+    
+                        <div class="slds-shrink-none">
+                        
+                        </div>
+                        </div>
+                        <div class ="Section ">
+                        <div class="slds-tile__detail">
+                        <dl class="slds-list_horizontal slds-wrap">
+                        <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Admin Role:</dt>
+                        <dd class="slds-item_detail slds-truncate" title="Description for first label">Fresher</dd>
+                        <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
+                        <dd class="slds-item_detail slds-truncate" title="Description for second label">Delhi</dd>
+                        <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
+                        <dd class="slds-item_detail slds-truncate" title="Description for second label">4LPA</dd>
+                        <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
+                        </dl>
+                    </div>
+                        </div>
+                        </article>
+                        </div>
+    
+                        <div style="background-color:#073c8c;padding:0.3rem">
+                           
+                          </div>
+    
+                          <div class="demo-only" style="width:30rem">
+                            <article class="slds-tile slds-hint-parent">
+                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                            <a href="#">Salesforce Consultant Role</a>
+                            </h3>
+        
+                            <div class="slds-shrink-none">
+                            
+                            </div>
+                            </div>
+                            <div class ="Section ">
+                            <div class="slds-tile__detail">
+                            <dl class="slds-list_horizontal slds-wrap">
+                            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Consultant Role:</dt>
+                            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
+                            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
+                            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
+                            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
+                            <dd class="slds-item_detail slds-truncate" title="Description for second label">8LPA</dd>
+                            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
+                            </dl>
+                        </div>
+                            </div>
+                            </article>
+                            </div>
+        
+                            <div style="background-color:#073c8c;padding:0.3rem">
+                               
+                              </div>
+
+                              
+                            <div class="Button-Apply">
+                            <div style="background-color:#07426e; padding:0.5rem ">
+                                <button class="slds-button slds-button_inverse">Apply</button>
+                                </div>
+
+                            </div>
+
+
+
+
+                   </div>
+
+
+
                             </div>
                         </template>
                         <template if:false={showInternship}>
@@ -244,6 +382,7 @@
                                         </template>
                                     </ul>
                                 </lightning-card>
+                            </div>
                             </div>
                         </template>
                         <template if:false={showTasks}>
@@ -289,6 +428,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </div>
                         </template>
                         <template if:false={showApplication}>
                             
@@ -305,7 +445,8 @@
                                                 <lightning-textarea label="Description" value={description} onchange={handleDescriptionChange}></lightning-textarea>
                                                 <div class="slds-m-top_medium">
                                                     <label for="screenshot">Screenshot (if available): </label>
-                                                    <input type="file" id="screenshot" name="screenshot" margin-top = "20px" accept="image/png, image/jpeg">
+                                                    <input type="file" id="screenshot" name="screenshot" margin-top = "20px" accept="image/png, image/jpeg" onchange={handleFileChange} />
+
                                                 </div>
                                 
                                                 <lightning-button label="Submit" onclick={handleSubmit} class="slds-m-top_medium" margin-top = "20px"></lightning-button>
@@ -317,6 +458,7 @@
                                     </div>
                                 </div>
                            </div>
+                            </div>
                         </template>
                         <template if:false={showFeedback}>
                             
@@ -324,7 +466,227 @@
                     
                         <template if:true={showJobs}>
                             <div class="inner-page">
-                                <p>All jobs will appear here</p>
+                              
+                                <div class="photo">
+                                    <img src={jobappy} alt="job Photo" height="200" width="450">
+                                                   </div>
+
+
+<lightning-accordion class="accordian"
+    onsectiontoggle={clickHandler}
+    active-section-name="A">
+    <lightning-accordion-section name="A" label="Salesforce Developer Job">
+        <div class="demo-only" style="width:30rem">
+            <article class="slds-tile slds-hint-parent">
+            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+            <a href="#">Salesforce Developer Role</a>
+            </h3>
+
+            <div class="slds-shrink-none">
+            
+            </div>
+            </div>
+            <div class ="Section ">
+            <div class="slds-tile__detail">
+            <dl class="slds-list_horizontal slds-wrap">
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Developer Role:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">5LPA</dd>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
+            </dl>
+        </div>
+            </div>
+            </article>
+            </div>
+            <button class="slds-button slds-button_success">Success Button</button>
+    </lightning-accordion-section>
+    <lightning-accordion-section name="B" label="Salesforce Admin Job">
+        <div class="demo-only" style="width:30rem">
+            <article class="slds-tile slds-hint-parent">
+            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+            <a href="#">Salesforce Admin Role</a>
+            </h3>
+
+            <div class="slds-shrink-none">
+            
+            </div>
+            </div>
+            <div class ="Section ">
+            <div class="slds-tile__detail">
+            <dl class="slds-list_horizontal slds-wrap">
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Admin Role:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">4LPA</dd>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
+            </dl>
+        </div>
+            </div>
+            </article>
+            </div>
+            <button class="slds-button slds-button_success">Success Button</button>
+
+
+
+
+    </lightning-accordion-section>
+
+    <lightning-accordion-section name="C" label="Salesforce Consultant Job">
+
+        <div class="demo-only" style="width:30rem">
+            <article class="slds-tile slds-hint-parent">
+            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+            <a href="#">Salesforce Consultant Role</a>
+            </h3>
+
+            <div class="slds-shrink-none">
+            
+            </div>
+            </div>
+            <div class ="Section ">
+            <div class="slds-tile__detail">
+            <dl class="slds-list_horizontal slds-wrap">
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Consultant Role:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">9LPA</dd>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
+            </dl>
+        </div>
+            </div>
+            </article>
+            </div>
+            <button class="slds-button slds-button_success">Success Button</button>
+
+
+    </lightning-accordion-section>
+</lightning-accordion>
+
+<lightning-accordion class="accordian"
+    onsectiontoggle={clickHandler}
+    active-section-name="A">
+    <lightning-accordion-section name="A" label="Salesforce Administrator Job">
+        <div class="demo-only" style="width:30rem">
+            <article class="slds-tile slds-hint-parent">
+            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+            <a href="#">Salesforce Developer Role</a>
+            </h3>
+
+            <div class="slds-shrink-none">
+            
+            </div>
+            </div>
+            <div class ="Section ">
+            <div class="slds-tile__detail">
+            <dl class="slds-list_horizontal slds-wrap">
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Administrator Role:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Mumbai</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">7LPA</dd>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
+            </dl>
+        </div>
+            </div>
+            </article>
+            </div>
+            <button class="slds-button slds-button_success">Success Button</button>
+    </lightning-accordion-section>
+    <lightning-accordion-section name="B" label="Salesforce Admin Job">
+        <div class="demo-only" style="width:30rem">
+            <article class="slds-tile slds-hint-parent">
+            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+            <a href="#">Salesforce Architect Role</a>
+            </h3>
+
+            <div class="slds-shrink-none">
+            
+            </div>
+            </div>
+            <div class ="Section ">
+            <div class="slds-tile__detail">
+            <dl class="slds-list_horizontal slds-wrap">
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Architect Role:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">8LPA</dd>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
+            </dl>
+        </div>
+            </div>
+            </article>
+            </div>
+            <button class="slds-button slds-button_success">Success Button</button>
+
+
+
+
+    </lightning-accordion-section>
+
+    <lightning-accordion-section name="C" label="Salesforce Consultant Job">
+
+        <div class="demo-only" style="width:30rem">
+            <article class="slds-tile slds-hint-parent">
+            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+            <a href="#">Salesforce Consultant Role</a>
+            </h3>
+
+            <div class="slds-shrink-none">
+            
+            </div>
+            </div>
+            <div class ="Section ">
+            <div class="slds-tile__detail">
+            <dl class="slds-list_horizontal slds-wrap">
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Consultant Role:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
+            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">9LPA</dd>
+            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
+            </dl>
+        </div>
+            </div>
+            </article>
+            </div>
+            <button class="slds-button slds-button_success">Success Button</button>
+
+
+    </lightning-accordion-section>
+</lightning-accordion>
+
+
+
+
+
+
+
+
+
+
+
+
+                               
+                                    
+                             
+
                             </div>
 
                         </template>

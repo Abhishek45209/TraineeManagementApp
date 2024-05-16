@@ -1,0 +1,291 @@
+<template>
+
+    <lightning-card>
+        <div class="header">
+            <h1>AppyNtern</h1>
+            <span>
+                <lightning-input class="Search" type="search" name="Search" placeholder="Search here"
+                    id="searchBox"></lightning-input>
+            </span>
+        </div>
+        <!-- grid 1 -->
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-large-size_3-of-12 slds-medium-size_4-of-12 slds-size_3-of-12">
+                <div class="sidebar ">
+                    <ul class="Links">
+                        <li class="active">
+                            <img src={icon} alt="dashboard">
+                            <a href="#" onclick={handleShowDashboard}>Dashboard</a>
+                        </li>
+                        <li>
+                            <img src={icon} alt="dashboard">
+                            <a href="#" onclick={handleShowInternshipListings}>Internships Listings</a>
+                        </li>
+                        <li>
+                            <img src={icon} alt="dashboard">
+                            <a href="#" onclick={handleShowApplicationManagement}>Applications Management</a>
+                        </li>
+                        <li>
+                            <img src={icon} alt="dashboard">
+                            <a href="#" onclick={handleShowInternManagement}>Intern Management</a>
+                        </li>
+                        <li>
+                            <img src={icon} alt="dashboard">
+                            <a href="#" onclick={handleShowCandidateManagement}>Candidate Management</a>
+                        </li>
+                        <li>
+                            <img src={icon} alt="dashboard">
+                            <a href="#" onclick={handleShowProjectsManagement}>Projects Management</a>
+                        </li>
+                        <li>
+                            <img src={icon} alt="dashboard">
+                            <a href="#" onclick={handleShowNotificationsAndCommunications}>Notifications and
+                                Communications</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- grid 2 -->
+            <div class="slds-col slds-large-size_9-of-12 slds-medium-size_8-of-12 slds-size_9-of-12">
+                <template if:true={dashboardImage}>
+                    <img src={dashboard} alt="Dashboard">
+                </template>
+
+                <template if:true={showDashboard}>
+                    <p>Dashboard Shown</p>
+                </template>
+                <template if:false={showDashboard}>
+
+                </template>
+
+                <!-- Internships Listings Button click event -->
+
+                <template if:true={showInternshipsListings}>
+                    <div class="listings">
+                        <p>All Internships</p>
+                    </div>
+                    <div class="createNewInternship">
+                        <button class="slds-button slds-button_neutral">Create New</button>
+
+                    </div>
+                    <div class="listingsDetails">
+
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <div class="slds-checkbox">
+                                    <input type="checkbox" name="options" id="checkbox-unique-id-80"
+                                        value="checkbox-unique-id-80" checked="" />
+                                    <label class="slds-checkbox__label" for="checkbox-unique-id-80 labelheading">
+                                        <span class="slds-checkbox_faux"></span>
+                                        <span class="slds-form-element__label internshipName">Internship Name</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+                                <div class="demo-only" style="width:30rem">
+                                    <article class="slds-tile">
+
+
+                                        <div class="slds-tile__detail">
+
+                                            <dl class="slds-list_horizontal slds-wrap">
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                    title="First Label">
+                                                    Duration:</dt>
+                                                <dd class="slds-item_detail slds-truncate  content-value"
+                                                    title="Description for first label">
+                                                    6 weeks</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                    title="First Label">
+                                                    Created Date:</dt>
+                                                <dd class="slds-item_detail slds-truncate  content-value"
+                                                    title="Description for first label">
+                                                    5/14/2024 3:37 AM</dd>
+
+                                            </dl>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+
+                                <div class="demo-only" style="width:30rem">
+                                    <article class="slds-tile">
+
+                                        <div class="slds-tile__detail margin-left">
+                                            <dl class="slds-list_horizontal slds-wrap">
+                                               
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                    title="First Label">
+                                                    Created On:</dt>
+                                                <dd class="slds-item_detail slds-truncate content-value"
+                                                    title="Description for first label">
+                                                    5/12/2024 3:37 AM</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                    title="Second Label">
+                                                    Deadline:</dt>
+                                                <dd class="slds-item_detail slds-truncate content-value"
+                                                    title="Description for second label">
+                                                    5/14/2024 3:37 AM</dd>
+
+                                            </dl>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+                                <div class="demo-only" style="width:30rem">
+                                    <article class="slds-tile">
+
+                                        <div class="slds-tile__detail ">
+                                            <dl class="slds-list_horizontal slds-wrap">
+                                                
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                    title="First Label">
+                                                    Status</dt>
+                                                <dd class="slds-item_detail slds-truncate  content-value"
+                                                    title="Description for first label">
+                                                    Published/Unpublished</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                    title="Second Label">
+                                                    Last Modified Date</dt>
+                                                <dd class="slds-item_detail slds-truncate content-value"
+                                                    title="Description for second label">
+                                                    5/14/2024 3:37 AM</dd>
+
+                                            </dl>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <button class="slds-button slds-button_brand">Edit</button>
+                            <button class="slds-button slds-button_destructive">Delete</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </template>
+                <template if:false={showInternshipsListings}>
+
+                </template>
+
+
+                <template if:true={showApplcationManagement}>
+                    <p>Aplications Management shown</p>
+                </template>
+                <template if:false={showApplcationManagement}>
+
+                </template>
+
+                <template if:true={showInternManagement}>
+
+                </template>
+                <template if:false={showInternManagement}>
+
+                </template>
+
+
+                <template if:true={showCandidateManagement}>
+
+                    <div class="heading">
+                        <p>All Candidates</p>
+                    </div>
+
+                    <!-- table -->
+                    <div class="table">
+                        <table style="width:100%">
+                            <!-- table headings -->
+                            <tr class="table-Header">
+                                <th>Candidate ID</th>
+                                <th>Candidate Name</th>
+                                <th>Email ID</th>
+                                <th>Phone</th>
+                                <th>Action</th>
+                            </tr>
+                            <!-- table data -->
+                            <template for:each={record} for:item="currentItem" for:index="index">
+                                <tr key={currentItem.Id}>
+
+                                    <td class="table-data">
+                                        <p>{currentItem.Id}</p>
+                                    </td>
+                                    <td class="table-data">
+                                        <p>{currentItem.Name}</p>
+                                    </td>
+                                    <td class="table-data">
+                                        <p>{currentItem.Email__c}</p>
+                                    </td>
+                                    <td class="table-data">
+                                        <p>{currentItem.phone_Number__c}</p>
+                                    </td>
+                                    <td class="table-data">
+                                        <lightning-button variant="brand" label="View"
+                                            onclick={handleButtonClick}></lightning-button>
+                                    </td>
+                                </tr>
+                            </template>
+                        </table>
+                    </div>
+
+
+
+
+                </template>
+                <template if:false={showCandidateManagement}>
+
+                </template>
+                <template if:true={showProjectManagement}>
+                    <p>Project Management shown</p>
+                </template>
+                <template if:false={showProjectManagement}>
+
+                </template>
+
+                <!-- ABHISHEK HR VIEWS FEEDBACK PAGE -->
+                <template if:true={showNotificationsAndCommunicationManagement}>
+                    <lightning-card title="Feedback Display" icon-name="custom:custom14">
+                        <template if:true={feedbacks}>
+                            <template for:each={feedbacks} for:item="feedback">
+                                <div style="margin-left: 20px;" key={feedback.Id}>
+
+                                    <p><b>Email: </b> {feedback.Email__c}</p>
+                                    <p><b>Subject: </b> {feedback.Subject__c}</p>
+                                    <p><b>Description: </b> {feedback.Description__c}</p>
+                                    <p><b>Screenshot: </b></p>
+                                    <img src={feedback.Screenshot__c} alt="Screenshot" />
+                                    <hr/>
+                                </div>
+                            </template>
+                        </template>
+                        <template if:true={error}>
+                            <div class="slds-text-color_error">
+                                <p>{error}</p>
+                            </div>
+                        </template>
+                    </lightning-card>
+                </template>
+                <template if:false={showNotificationsAndCommunicationManagement}>
+
+                </template>
+
+                <!-- ABHISHEK HR VIEWS FEEDBACK PAGE ABOVE  -->
+
+            </div>
+        </div>
+    </lightning-card>
+
+</template>
