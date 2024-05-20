@@ -1,5 +1,5 @@
 // loginPage.js
-import { LightningElement,wire } from 'lwc';
+import { LightningElement,api,wire } from 'lwc';
 import emailIcon from '@salesforce/resourceUrl/EmailIcon';
 import passwordIcon from '@salesforce/resourceUrl/PasswordIcon';
 import googleIcon from '@salesforce/resourceUrl/GoogleIcon';
@@ -12,6 +12,7 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 import validateCandidate from '@salesforce/apex/LoginCandidate.validateCandidate';
 
+
 //export default class LoginPage extends LightningElement {
 export default class LoginPage extends NavigationMixin(LightningElement) {
     emailIcon = emailIcon;
@@ -21,10 +22,14 @@ export default class LoginPage extends NavigationMixin(LightningElement) {
     linkedinIcon = linkedinIcon;
 
     //Ibrar Working..
-    entrUsr;
-    entrPass;
+    @api entrUsr;
+    @api entrPass;
+
+    candidateId;
     //record;
     error = '';
+    
+    candidate;
     
     
     //Aniket's code
@@ -48,23 +53,39 @@ export default class LoginPage extends NavigationMixin(LightningElement) {
     getPassword(event) {
         this.entrPass = event.target.value;
     }
+
+    
     userLogin() {
         validateCandidate({ username: this.entrUsr, password: this.entrPass })
             .then(result => {
                 if (result) {
-                    const event = new ShowToastEvent({
+
+                    this.candidateId = result.Id;
+                    // Dispatch a custom event with candidateId
+                    // this[NavigationMixin.Navigate]({
+                    //     type: 'standard__webPage',
+                    //     attributes: {
+                    //         url: '/apex/dashboard1?candidateId=' + this.candidateId
+                    //     }
+                    // });
+
+                    const eventa = new ShowToastEvent({
                         title: 'Success!',
                         message: 'Login successful.',
                         variant: 'success',
                     });
-                    this.dispatchEvent(event);
-                    // Navigate to Dashboard
+                    this.dispatchEvent(eventa);
+                    //Navigate to Dashboard Page
+
                     this[NavigationMixin.Navigate]({
-                        type: 'standard__app',
+                        type: 'standard__navItemPage',
                         attributes: {
-                            pageName: 'Welcome'
-                        }
+                            apiName: 'dashboard1',
+                        },
                     });
+                    
+                    
+
                 } else {
                     const event = new ShowToastEvent({
                         title: 'Failed!',
@@ -85,5 +106,7 @@ export default class LoginPage extends NavigationMixin(LightningElement) {
                 console.error('Error:', error);
             });
     }
+
+    
     
      }

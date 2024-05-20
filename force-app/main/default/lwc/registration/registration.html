@@ -1,34 +1,113 @@
 <template>
     <lightning-card>
-        <div class="registration">
+        <template if:true={showOtpo}>
+            <div class="container">
+                <lightning-card>
+                    <div class="content slds-m-around_medium">
+                        <div class="slds-text-heading_medium">Finish Your Registration</div>
+                        <div class="slds-text-body_regular slds-m-top_small">Check your Email and enter the 6 digit Verification code to confirm your account.</div>
+                        
+                        <div class="slds-m-top_large otp-field">
+                            <lightning-input class="large-input" type="number" pattern="[0-9]{6}" maxlength="6" placeholder="Verification Code:"></lightning-input>
+                        </div>
+                        
+                        <div class="slds-p-horizontal_small"><hr class="slds-border_bottom"></div>
+        
+                        <lightning-button variant="brand" label="Submit"></lightning-button>
+                        <div class="slds-m-top_medium buttons-field">
+                                <a>Didn't get a code?</a>
+                        </div>
+                    </div>
+                </lightning-card>
+            </div>
+        </template>
+        <template if:false={showOtp}>
+            <div class="full-body">
+
+            
+            <div class="registration">
             <div class="content-on-leftside">
                 <div class="textcontainer">
                     <h1>Sign Up</h1>
-                    <img src={nameIcon} alt="name" class="nameIcon">
-                    <input type="text" name="FullName" placeholder="Enter you Full Name" onchange={handleFullNameChange}>
-                    <br>
-                    <img src={emailIcon} alt="name" class="emailIcon">
-                    <input type="Email" name="Email" placeholder="Enter you Email" onchange={handleEmailChange}>
-                    <br>
-                    <img src={mobileIcon} alt="name" class="mobileIcon">
-                    <input type="text" name="mobilenumber" placeholder="Enter you Mobile Number" onchange={handleMobileNumberChange}>
-                    <br>
-                    <img src={passwordIcon} alt="name" class="passwordIcon">
-                    <input type="password" name="password" placeholder="Create your Password" onchange={handlePasswordChange}>
-                    <br>
-                    <img src={ConfirmPasswordIcon} alt="name" class="ConfirmPasswordIcon">
-                    <input type="text" name="confirmPassword" placeholder="Retype your Password" onchange={handleConfirmPasswordChange}>
-                    <br>
-                    <button class="Register" onclick={handleRegister}>Register</button>
                     
-
+                    <div class="input-group">
+                        <img src={nameIcon} alt="name" class="nameIcon">
+                        <input type="text" name="FullName" placeholder="Enter you Full Name" onchange={handleFullNameChange}>
+                    </div>
+                    <div class="input-group">
+                        <img src={emailIcon} alt="name" class="emailIcon">
+                        <input type="Email" name="Email" placeholder="Enter you Email" onchange={handleEmailChange}>
+                    </div>
+                    <div class="input-group">
+                        <img src={mobileIcon} alt="name" class="mobileIcon">
+                        <input type="text" name="mobilenumber" placeholder="Enter you Mobile Number" onchange={handleMobileNumberChange}>
+                    </div>
+                    <div class="input-group">
+                        <img src={passwordIcon} alt="name" class="passwordIcon">
+                        <input type="password" name="password" placeholder="Create your Password" onchange={handlePasswordChange}>
+                    </div>
+                    <div class="input-group">
+                        <img src={ConfirmPasswordIcon} alt="name" class="ConfirmPasswordIcon">
+                        <input type="text" name="confirmPassword" placeholder="Retype your Password" onchange={handleConfirmPasswordChange}>
+                    </div>
+                    
+                    <div class="slds-m-top_medium" style="color:brown; margin:auto; width:95%">{error}</div>
+                    <div class="button-group">
+                        <button class="login-Button" onclick={LoginRedirect}>Login</button>
+                    
+                        <button class="register-button" onclick={handleRegister}>Register</button>
+                    </div>
+                    
                 </div>
-                <a class="login-Button" href="https://appycrownonboarding-dev-ed.develop.lightning.force.com/lightning/n/LoginPage">
-                Login</a>
             </div>
+
+
+        
+        </div>
+            
+
+    <!-- <lightning-button label="Enter OTP" onclick={showPopup}></lightning-button> -->
+
+    <template if:true={isPopupVisible}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="outer-div">
+                
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closePopup}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                <div class="content slds-m-around_medium">
+
+                    <div class="slds-text-heading_medium">Finish Your Registration</div>
+                    <div class="slds-text-body_regular slds-m-top_small">Check your Email and enter the 6 digit Verification code to confirm your account.</div>
+                    
+                    <div class="slds-m-top_large otp-field">
+                        <lightning-input onchange={handleCodeChange} class="large-input" type="number" pattern="[0-9]{6}" maxlength="6" placeholder="Verification Code:"></lightning-input>
+                    </div>
+                    
+                    <div class="slds-p-horizontal_small"><hr class="slds-border_bottom"></div>
+    
+                    <lightning-button onclick={submitOtp} variant="brand" label="Submit"></lightning-button>
+                    <div class="slds-m-top_medium buttons-field">
+                            <a>Didn't get a code?</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+
+
+
+
+
             <div class="content-on-rightside">
                 <img src={registrationLeftImage} alt="image">
             </div>
-        </div>
+            </div>
+        </template>
+        
     </lightning-card>
 </template>

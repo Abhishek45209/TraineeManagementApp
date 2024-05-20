@@ -131,3 +131,28 @@ p {
 .overlap {
     z-index: 2;
 }
+
+
+
+
+/*
+Aniket Implement
+*/
+
+.auto-typing {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.typing-text {
+    color: rgb(33, 159, 190);
+    font-size: 2.1em;
+    font-weight: 800;
+    text-shadow: 5px 5px 15px rgb(200, 65, 227);
+}
+
+.typing-text-detail {
+    color: rgb(255, 255, 255);
+    font-size: 1.6em;
+    font-weight: 700;
+}

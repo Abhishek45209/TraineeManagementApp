@@ -1,0 +1,505 @@
+<template>
+    <lightning-card>
+        <!-- Personal detail section -->
+        <template if:true={profilePage}>
+            <div class="applicationFormHeading">
+                <p>Application Form</p>
+            </div>
+            <div class="applicationFormSubHeading">
+                <p>Profile</p>
+            </div>
+
+            <div class="ProfileForm">
+
+
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+                        <!-- FUll Name  -->
+                        <div class="slds-form-element  formData">
+                            <label class="slds-form-element  formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Full Name</label>
+                            <div class="slds-form-element  formData__control">
+                                <input type="text" id="text-input-id-46" placeholder="Full Name" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element  formData">
+                            <label class="slds-form-element  formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Phone</label>
+                            <div class="slds-form-element  formData__control">
+                                <input type="text" id="text-input-id-47" placeholder="Phone" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element  formData">
+                            <label class="slds-form-element  formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Highesh Qualification</label>
+                            <div class="slds-form-element  formData__control">
+                                <input type="text" id="text-input-id-57" placeholder="Graduation" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+
+                        <!-- Current Address  -->
+
+                        <div class="slds-form-element  formData">
+                            <label class="slds-form-element  formData__label" for="textarea-id-01">Current
+                                Address</label>
+                            <div class="slds-form-element  formData__control">
+                                <textarea id="textarea-id-02" placeholder="Type your Current Address"
+                                    class="slds-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+
+                        <!-- Category -->
+
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                            <lightning-combobox label="Gender" class="selectBox formData" name="gender"
+                                value={selectedTypeOption} options={genderOptions} onchange={handleTypeChange}>
+                            </lightning-combobox>
+                        </div>
+
+
+                        <!-- Email  -->
+
+                        <div class="slds-form-element  formData">
+                            <label class="slds-form-element  formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Email</label>
+                            <div class="slds-form-element  formData__control">
+                                <input type="text" id="text-input-id-48" placeholder="Email" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+
+
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                            <lightning-combobox label="Graduation Year" class="selectBox formData" name="GradYear"
+                                value={selectedGradYear} options={options} onchange={handleGradYearChange}>
+                            </lightning-combobox>
+                        </div>
+                  
+
+                        <!-- permanent Address  -->
+
+
+                        <div class="slds-form-element  formData">
+                            <label class="slds-form-element  formData__label" for="textarea-id-01">Permanent
+                                Address</label>
+                            <div class="slds-form-element  formData__control">
+                                <textarea id="textarea-id-01" placeholder="Type your Permanent Address"
+                                    class="slds-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="EducationFormSubHeading">
+                <p>Education</p>
+            </div>
+            <div class="EducationLevel">
+                <p>Matriculation</p>
+            </div>
+
+            <div class="EducationForm">
+
+                <div class="slds-grid slds-wrap">
+                    <!-- column1 -->
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+                        <div class="slds-form-element  formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Board Name</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-51" placeholder="Matriculation Board" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+
+
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Session</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-54" placeholder="Enter Your Session" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- column2 -->
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>School Name</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-52" placeholder="Matriculation School Name"
+                                    required="" class="slds-input" />
+                            </div>
+                        </div>
+
+
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Passing year</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-55" placeholder="Enter your Passing Year"
+                                    required="" class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- column3 -->
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>School Location</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-53" placeholder="School Location" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Percentage</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-56" placeholder="Enter overall Percentage"
+                                    required="" class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="EducationLevel">
+                <p>Intermediate</p>
+            </div>
+
+            <div class="EducationForm">
+
+                <div class="slds-grid slds-wrap">
+                    <!-- column1 -->
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+                        <div class="slds-form-element  formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Board Name</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-67" placeholder="Matriculation Board" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+
+
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Session</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-59" placeholder="Enter Your Session" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                            <lightning-combobox label="Faculty" class="selectBox formData" name="Faculty"
+                                value={selectedFacultyOption} options={facultyOptions} onchange={handleFacultyChange}>
+                            </lightning-combobox>
+                        </div>
+
+                    </div>
+
+                    <!-- column2 -->
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>School Name</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-60" placeholder="Matriculation School Name"
+                                    required="" class="slds-input" />
+                            </div>
+                        </div>
+
+
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Passing year</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-61" placeholder="Enter your Passing Year"
+                                    required="" class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- column3 -->
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>School Location</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-62" placeholder="School Location" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Percentage</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-63" placeholder="Enter overall Percentage"
+                                    required="" class="slds-input" />
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="EducationLevel">
+                <p>Graduation</p>
+            </div>
+
+            <div class="EducationForm">
+
+                <div class="slds-grid slds-wrap">
+                    <!-- column1 -->
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+                        <div class="slds-form-element  formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Board Name</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-70" placeholder="Matriculation Board" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+
+
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Session</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-71" placeholder="Enter Your Session" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                            <lightning-combobox label="Faculty" class="selectBox formData" name="Faculty"
+                                value={selectedGradFacultyOption} options={GradfacultyOptions} onchange={handleGradFacultyChange}>
+                            </lightning-combobox>
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- column2 -->
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>School Name</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-72" placeholder="Matriculation School Name"
+                                    required="" class="slds-input" />
+                            </div>
+                        </div>
+
+
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Passing year</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-73" placeholder="Enter your Passing Year"
+                                    required="" class="slds-input" />
+                            </div>
+                        </div>
+
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Specialization</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-74" placeholder="Computer Science and Engineering" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- column3 -->
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>College Location</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-77" placeholder="School Location" required=""
+                                    class="slds-input" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element formData">
+                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                <abbr class="slds-required" title="required">* </abbr>Percentage (Aggregate)</label>
+                            <div class="slds-form-element formData__control">
+                                <input type="text" id="text-input-id-75" placeholder="Enter overall Percentage"
+                                    required="" class="slds-input" />
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="button">
+
+                <button class="slds-button slds-button_success" onclick={goUpload}>Save & Next</button>
+            </div>
+
+        </template>
+        <template if:false={profilePage}>
+
+        </template> 
+
+        <!-- uploading -->
+
+        <template if:true={UploadSection}>
+            <div class="UploadFormHeading">
+                <p>Application Form</p>
+            </div>
+            <div class="UploadFormSubHeading">
+                <p>Upload</p>
+            </div>
+
+            <div class="UploadForm">
+
+
+                <div class="slds-grid slds-wrap uploading">
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+                        <!-- Uploading   -->
+                        <div class="slds-form-element formData uploading">
+                            <span class="slds-form-element formData__label" id="file-selector-primary-label-103">10th
+                                Marksheet/Certificate</span>
+                            <div class="slds-form-element formData__control">
+                                <div class="slds-file-selector slds-file-selector_files">
+                                    <div class="slds-file-selector__dropzone">
+                                        <input type="file" class="slds-file-selector__input slds-assistive-text"
+                                            accept="image/png" id="file-upload-input-104"
+                                            aria-labelledby="file-selector-primary-label-101 file-selector-secondary-label102" />
+                                        <label class="slds-file-selector__body" for="file-upload-input-103"
+                                            id="file-selector-secondary-label103">
+                                            <span class="slds-file-selector__button slds-button slds-button_neutral">
+                                                <svg class="slds-button__icon slds-button__icon_left"
+                                                    aria-hidden="true">
+                                                    <use
+                                                        xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload">
+                                                    </use>
+                                                </svg>Upload</span>
+                                            <span class="slds-file-selector__text slds-medium-show">or Drop</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="slds-form-element formData uploading">
+                            <span class="slds-form-element formData__label" id="file-selector-primary-label-101">Upload
+                                Resume</span>
+                            <div class="slds-form-element formData__control">
+                                <div class="slds-file-selector slds-file-selector_files">
+                                    <div class="slds-file-selector__dropzone">
+                                        <input type="file" class="slds-file-selector__input slds-assistive-text"
+                                            accept="image/png" id="file-upload-input-103"
+                                            aria-labelledby="file-selector-primary-label-101 file-selector-secondary-label102" />
+                                        <label class="slds-file-selector__body" for="file-upload-input-103"
+                                            id="file-selector-secondary-label102">
+                                            <span class="slds-file-selector__button slds-button slds-button_neutral">
+                                                <svg class="slds-button__icon slds-button__icon_left"
+                                                    aria-hidden="true">
+                                                    <use
+                                                        xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload">
+                                                    </use>
+                                                </svg>Upload</span>
+                                            <span class="slds-file-selector__text slds-medium-show">or Drop</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="slds-form-element formData uploading">
+                            <span class="slds-form-element formData__label" id="file-selector-primary-label-102">Latest
+                                passport
+                                size Photograph</span>
+                            <div class="slds-form-element formData__control">
+                                <div class="slds-file-selector slds-file-selector_files">
+                                    <div class="slds-file-selector__dropzone">
+                                        <input type="file" class="slds-file-selector__input slds-assistive-text"
+                                            accept="image/png" id="file-upload-input-105"
+                                            aria-labelledby="file-selector-primary-label-101 file-selector-secondary-label102" />
+                                        <label class="slds-file-selector__body" for="file-upload-input-103"
+                                            id="file-selector-secondary-label105">
+                                            <span class="slds-file-selector__button slds-button slds-button_neutral">
+                                                <svg class="slds-button__icon slds-button__icon_left"
+                                                    aria-hidden="true">
+                                                    <use
+                                                        xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload">
+                                                    </use>
+                                                </svg>Upload Files</span>
+                                            <span class="slds-file-selector__text slds-medium-show">or Drop</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="button">
+
+                <button class="slds-button slds-button_brand" onclick={goProfile}>Back</button>
+
+                <button class="slds-button slds-button_destructive" onclick={Submit}>Submit</button>
+            </div>
+        </template>
+        <template if:false={UploadSection}>
+
+        </template>
+
+
+    </lightning-card>
+</template>

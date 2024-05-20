@@ -23,6 +23,10 @@
                         </li>
                         <li>
                             <img src={icon} alt="dashboard">
+                            <a href="#" onclick={handleShowJobPostings}>Job Postings</a>
+                        </li>
+                        <li>
+                            <img src={icon} alt="dashboard">
                             <a href="#" onclick={handleShowApplicationManagement}>Applications Management</a>
                         </li>
                         <li>
@@ -68,7 +72,7 @@
                         <p>All Internships</p>
                     </div>
                     <div class="createNewInternship">
-                        <button class="slds-button slds-button_neutral">Create New</button>
+                        <button class="slds-button slds-button_neutral" onclick={newInternship}>Create New</button>
 
                     </div>
                     <div class="listingsDetails">
@@ -87,7 +91,7 @@
                         </div>
 
                         <div class="slds-grid slds-wrap">
-                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
                                 <div class="demo-only" style="width:30rem">
                                     <article class="slds-tile">
 
@@ -103,10 +107,10 @@
                                                     6 weeks</dd>
                                                 <dt class="slds-item_label slds-text-color_weak slds-truncate head"
                                                     title="First Label">
-                                                    Created Date:</dt>
+                                                    Location:</dt>
                                                 <dd class="slds-item_detail slds-truncate  content-value"
                                                     title="Description for first label">
-                                                    5/14/2024 3:37 AM</dd>
+                                                    Remote/Office</dd>
 
                                             </dl>
                                         </div>
@@ -114,14 +118,14 @@
                                 </div>
                             </div>
 
-                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
 
                                 <div class="demo-only" style="width:30rem">
                                     <article class="slds-tile">
 
                                         <div class="slds-tile__detail margin-left">
                                             <dl class="slds-list_horizontal slds-wrap">
-                                               
+
                                                 <dt class="slds-item_label slds-text-color_weak slds-truncate head"
                                                     title="First Label">
                                                     Created On:</dt>
@@ -141,13 +145,13 @@
                                 </div>
                             </div>
 
-                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
                                 <div class="demo-only" style="width:30rem">
                                     <article class="slds-tile">
 
                                         <div class="slds-tile__detail ">
                                             <dl class="slds-list_horizontal slds-wrap">
-                                                
+
                                                 <dt class="slds-item_label slds-text-color_weak slds-truncate head"
                                                     title="First Label">
                                                     Status</dt>
@@ -167,9 +171,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="button">
-                            <button class="slds-button slds-button_brand">Edit</button>
-                            <button class="slds-button slds-button_destructive">Delete</button>
+                        <div class="internshipButton">
+                            //Abhik code for adding event
+                            <button class="slds-button slds-button_brand">Edit onclick={handleButtonClick}</button>
+                            <button class="slds-button slds-button_destructive">Delete onclick={handleButtonClick}</button>
+                            <button class="slds-button slds-button_success">Publish onclick={handleButtonClick}</button>
+                            <button class="slds-button slds-button_text-destructive">Unpublish onclick={handleButtonClick}</button>
                         </div>
                     </div>
 
@@ -180,20 +187,93 @@
 
                 </template>
                 <template if:false={showInternshipsListings}>
-
                 </template>
 
+                <template if:true={showJobPostings}>
+                    <p>Job Postings Shown</p>
+                </template>
+                <template if:false={showJobPostings}>
+
+                </template>
 
                 <template if:true={showApplcationManagement}>
                     <p>Aplications Management shown</p>
                 </template>
                 <template if:false={showApplcationManagement}>
 
+                    <!-- By anushka -->
+
                 </template>
 
                 <template if:true={showInternManagement}>
 
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Graduation year</th>
+                                <th>Experience</th>
+                                <th>Course</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Utsav</td>
+                                <td>Utsav120@gmail.com</td>
+                                <td>2024</td>
+                                <td>Fresher</td>
+                                <td>Btech</td>
+                                <td>
+                                    <button class="slds-button slds-button_brand">View</button>
+                                </td>
+                            </tr>
+                            <tr class="active-row">
+                                <td>Anushka</td>
+                                <td>anushkatiwari123@gmail.com</td>
+                                <td>2024</td>
+                                <td>Fresher</td>
+                                <td>Btech</td>
+                                <td>
+                                    <button class="slds-button slds-button_brand">View</button>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
                 </template>
+
+                <!-- By anushka -->
                 <template if:false={showInternManagement}>
 
                 </template>
@@ -261,7 +341,8 @@
                         <template if:true={feedbacks}>
                             <lightning-accordion active-section-name="A">
                                 <template for:each={feedbacks} for:item="feedback" for:index="index">
-                                    <lightning-accordion-section name={feedback.Id} label={feedback.Subject__c} key={feedback.Id}>
+                                    <lightning-accordion-section name={feedback.Id} label={feedback.Subject__c}
+                                        key={feedback.Id}>
                                         <div style="background-color: rgb(220, 247, 220); margin: 10px; padding: 10px;">
                                             <p><b>Email: </b> {feedback.Email__c}</p>
                                             <p><b>Description: </b> {feedback.Description__c}</p>
@@ -278,7 +359,7 @@
                             </div>
                         </template>
                     </div>
-                    
+
                 </template>
                 <template if:false={showNotificationsAndCommunicationManagement}>
 
@@ -289,5 +370,105 @@
             </div>
         </div>
     </lightning-card>
+
+
+
+    <template if:true={NewInternship}>
+
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">Create new
+                        Internship Opportunities</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-input-id-48">
+                            <abbr class="slds-required" title="required">* </abbr>Internship Name</label>
+                        <div class="slds-form-element__control">
+                            <input type="text" id="text-input-id-48" placeholder="Enter name of Internship" required=""
+                                class="slds-input" />
+                        </div>
+                    </div>
+
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="textarea-id-01">Details</label>
+                        <div class="slds-form-element__control">
+                            <textarea id="textarea-id-01" placeholder="Write Details for the Internship"
+                                class="slds-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="internshipForm">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="text-input-id-47">
+                                        <abbr class="slds-required" title="required">* </abbr>Duration</label>
+                                    <div class="slds-form-element__control">
+                                        <input type="text" id="text-input-id-47" placeholder="Enter Internship Duration"
+                                            required="" class="slds-input" />
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="text-input-id-47">
+                                        <abbr class="slds-required" title="required">* </abbr>Location</label>
+                                    <div class="slds-form-element__control">
+                                        <input type="text" id="text-input-id-80" placeholder="Remote/Office"
+                                            class="slds-input" />
+                                    </div>
+                                </div>
+
+                                <!-- status published or unpublished  -->
+
+                            </div>
+                            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+
+
+                                <!-- Deadline Date field  -->
+
+
+
+
+                                <div class="slds-form-element">
+                                    <lightning-input type="date" label="Select a Date" name="dateField"
+                                        onchange={handleDateChange}></lightning-input>
+                                </div>
+
+
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="text-input-id-47">
+                                        <abbr class="slds-required" title="required">* </abbr>Stipend</label>
+                                    <div class="slds-form-element__control">
+                                        <input type="text" id="text-input-id-84" placeholder="Free/Paid"
+                                            class="slds-input" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_outline-brand" onclick={unShowNewInternship}>Back</button>
+                    <button class="slds-button slds-button_success" onclick={handleSubmit}>Submit</button>
+
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+
+    </template>
 
 </template>

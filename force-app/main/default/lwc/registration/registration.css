@@ -1,29 +1,146 @@
-.registration{
+.full-body{
     display: flex;
+}
+.registration{
+    width: 400px;
+    border-radius: 16px;
+    display: flex;
+    background-color: #ebebeb;
+    padding: 25px;
+    margin-left: 150px;
 }
 
 .content-on-rightside{
     width: 50%;
 }
 
+
+
+.textcontainer {
+    width: 350px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.textcontainer h1 {
+    color: rgb(0, 0, 0);
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    border-bottom-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-group img {
+    height: 24px;
+    width: 24px;
+    margin-right: 10px;
+}
+
+.input-group input {
+    width: calc(100% - 50px);
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.register-button {
+    text-align: center;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    border: none;
+    width: 45%;
+}
+
+.login-Button {
+    text-align: center;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    border: none;
+    width: 45%;
+}
+
+.register-button {
+    background-color: #007bff;
+}
+
+.register-button:hover {
+    background-color: rgb(11, 91, 197);
+    box-shadow: 2px 2px 2px black;
+}
+
+.login-Button {
+    background-color: #19007b;
+}
+
+.login-Button:hover {
+    background-color: rgb(11, 91, 197);
+    box-shadow: 2px 2px 2px black;
+}
+
+.error-message {
+    color: brown;
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image {
+    width: 24%;
+}
+
+.image img {
+    height: 24px;
+    width: auto;
+}
+
+
+
+/* 
+
+
 .textcontainer{
-    padding-top: 40px;
-    padding-bottom: 40px;
+    width: 450px;
+    padding-top: 24px;
+    padding-bottom: 24px;
 }
 
 
 .textcontainer  h1{
-    color: rgb(255, 250, 250);
+    color: rgb(0, 0, 0);
     font-size: 2.8em;
     text-align: center;
     margin-bottom: 20px;
-    border-bottom: 2px  solid   white;
+    border-bottom: 2px  solid   rgb(0, 0, 0);
     border-bottom-right-radius: 10%;
     border-bottom-left-radius: 10%;
 }
 .content-on-leftside{
-    width: 30%;
-    background-color: #cb1acb; 
+    background-color: #e4e4e4e6; 
     border-radius: 15px;
     align-items: center;
     justify-content: center;
@@ -33,10 +150,10 @@
 
 }
 
-.content-on-leftside    input{
-
+.content-on-leftside input{
+    margin-inline: 30px;
+    width: 80%;
     font-size: 1.6em;
-    width: 350px;
     height: auto;
     margin-top: 13px;
     opacity: 0.8;
@@ -74,40 +191,33 @@
     margin-right: 10px;
 }
 
-.Register{
-    margin-top: 15px;
+.register-button{
+    margin-top: 12px;
     text-align: center;
     align-items: center;
     background-color: #007bff;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding: 8px 24px;
     border-radius: 20px;
-    font-size: 1.9em;
+    font-size: 1.5em;
     color: white;
 }
 
-.Register:hover{
+.register-button:hover{
     color: white;
     background-color: rgb(11, 91, 197);
     box-shadow: 2px 2px 2px black;
-}
+} */
 
 
 .login-Button{
-    margin-top: 15px;
+    margin-top: 12px;
     text-align: center;
     align-items: center;
-    background-color: #580205;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    background-color: #19007b;
+    padding: 8px 24px;
     border-radius: 20px;
-    font-size: 1.9em;
+    font-size: 1.5em;
     color: white;
-    text-decoration:none;
 }
 
 .login-Button:hover{
@@ -123,4 +233,59 @@
 .image img{
     height: 24px;
     width: auto;
+}
+
+/*FOR CODE VERIFICATION PAGE*/
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(251, 250, 250);
+    margin: 0px;
+    border-radius: 6px;
+    padding: 50px;
+}
+
+.otp-field, .button-field {
+    position: relative;
+    left: 0;
+    transform: none;
+}
+
+.slds-form-element__control input {
+    width: max-content;
+    font-size: 18px;
+    font-style: bold;
+    text-align: center;
+}
+
+.large-input input {
+    height: 70px;
+    font-size: 24px;
+}
+
+
+
+
+.outer-div{
+    align-content: center;
+    height: max-content;
+    margin: auto;
+    width: max-content;
+}
+.slds-modal{
+    display: flex;
+    max-width: max-content;
+    max-height: max-content;
+    margin: auto;
+    align-items: center;
+}
+.slds-input{
+    text-align: center;
+    font-size: 18px;
+}
+.slds-button{
+    display: flex;
+    padding: 8px 14px;
 }

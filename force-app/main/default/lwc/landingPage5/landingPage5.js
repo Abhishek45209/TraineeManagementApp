@@ -19,11 +19,11 @@ export default class StartAnimation extends NavigationMixin(LightningElement) {
     
     navigateToLogin(){
         this[NavigationMixin.Navigate]({
-            type: 'standard__navItemPage',
+            type: 'standard__namedPage',
             attributes: {
-              apiName: 'LoginPage',
+                pageName: 'home',
             },
-          });
+        });
     }
     navigateToHome() {
         this[NavigationMixin.Navigate]({

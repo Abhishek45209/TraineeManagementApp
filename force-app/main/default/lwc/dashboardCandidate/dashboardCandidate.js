@@ -1,11 +1,17 @@
 import { LightningElement, api, wire, track } from 'lwc';
 
+
+
+
 //login page
 import emailIcon from '@salesforce/resourceUrl/EmailIcon';
 import passwordIcon from '@salesforce/resourceUrl/PasswordIcon';
 import googleIcon from '@salesforce/resourceUrl/GoogleIcon';
 import gmailIcon from '@salesforce/resourceUrl/EmailIcon';
 import linkedinIcon from '@salesforce/resourceUrl/LinkedinIcon';
+import avtar from '@salesforce/resourceUrl/Avtarimage';
+
+
 
 import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
@@ -57,7 +63,7 @@ import updateTaskStatus from '@salesforce/apex/TaskReminderController.updateTask
 
 
 import Currentresume from '@salesforce/resourceUrl/Currentresume';
-import achievementsicon from '@salesforce/resourceUrl/achievementsicon';
+import achievementsicon1 from '@salesforce/resourceUrl/achievementsicon';
 import Certificateicon from '@salesforce/resourceUrl/Certificateicon';
 
 
@@ -68,7 +74,7 @@ import Certificateicon from '@salesforce/resourceUrl/Certificateicon';
 
 
 
-export default class DashboardCandidate extends LightningElement {
+export default class DashboardCandidate extends NavigationMixin(LightningElement) {
 
     // template variable assignment
     dashboardImage = true;
@@ -79,7 +85,12 @@ export default class DashboardCandidate extends LightningElement {
     showApplication = false;
     showFeedback = false;
     showJobs = false;
+    showCourse = false;
+
     showHome = false;
+    showLandingPage = false;
+    showRegistrationPage = false;
+    showLoginPage = false;
 
 
     //from aniket's dashboard
@@ -90,6 +101,9 @@ profile = img3;
 application = img4;
 feedback = img2;
 task = img5;
+
+avtarimage = avtar;
+
 
 intern = internship;
 jobappy = job;
@@ -130,9 +144,8 @@ salescloud = salesforce;
 salesadmin = salesforcecloud;
 developer = salesforceadmin;
 
-//abhishek
 resumeImageUrl = Currentresume;
-achievementImageUrl = achievementsicon;
+achievementImageUrl = achievementsicon1;
 certificateImageUrl = Certificateicon;
 
 
@@ -151,24 +164,35 @@ certificateImageUrl = Certificateicon;
 
 
 //ibrar's code set profile
-    //@api candidateId;
     candidate;
     error;
-
-    @track candidateId;
-
 
     //Ibrar Working..
     isLogin = false;
     @api entrUsr;
     @api entrPass;
-
-    //record;
     error = '';
-    
     candidate;
-    
-    
+    showForgotPass = false;
+    showLogin = false;
+    //LOGIN PAGE BUTTONS
+    navigateToForgotPass(){
+        this.showLogin = true;
+        this.showForgotPass = true;
+    }
+    navigateToRegister(){
+        this[NavigationMixin.Navigate]({
+            type: "standard__navItemPage",
+            attributes: {
+                apiName: 'Registration',
+            },
+        });
+    }
+    cancelPass(){
+        this.showLogin = false;
+        this.showForgotPass = false;
+    }
+    //CODE FOR DASHBOARD PAGE
     //Aniket's code
     loginWithGoogle() {
         window.location.href = 'https://www.googli.com/'; // Redirect to Google login URL
@@ -251,6 +275,8 @@ certificateImageUrl = Certificateicon;
         this.showApplication = false;
         this.showFeedback = false;;
         this.showJobs = false;
+        this.showCourse = false;
+        this.showCourse = false;
     }
 
     clickProfile(){
@@ -262,6 +288,7 @@ certificateImageUrl = Certificateicon;
         this.showApplication = false;
         this.showFeedback = false;
         this.showJobs = false;
+        this.showCourse = false;
 }
 
     clickInternship(){
@@ -273,6 +300,7 @@ certificateImageUrl = Certificateicon;
         this.showApplication = false;
         this.showFeedback = false;
         this.showJobs = false;
+        this.showCourse = false;
     }
  
     clickTasks(){
@@ -284,6 +312,7 @@ certificateImageUrl = Certificateicon;
         this.showApplication = false;
         this.showFeedback = false;
         this.showJobs = false;
+        this.showCourse = false;
     }
 
     clickApplication(){
@@ -295,6 +324,7 @@ certificateImageUrl = Certificateicon;
         this.showApplication = true;
         this.showFeedback = false;
         this.showJobs = false;
+        this.showCourse = false;
 
         //To retrived data from CandidateApplication object
     //     getCandidateDetails()
@@ -328,9 +358,7 @@ certificateImageUrl = Certificateicon;
         this.showApplication = false;
         this.showFeedback = true;
         this.showJobs = false;
-
-
-        
+        this.showCourse = false;
     
     }
 
@@ -343,6 +371,18 @@ certificateImageUrl = Certificateicon;
         this.showApplication = false;
         this.showFeedback = false;
         this.showJobs = true;
+        this.showCourse = false;
+    }
+    clickCourse(){
+        this.showHome = false;
+        this.dashboardImage = false;
+        this.showProfile = false;
+        this.showInternship = false;
+        this.showTasks = false;
+        this.showApplication = false;
+        this.showFeedback = false;;
+        this.showJobs = false;
+        this.showCourse = true;
     }
 
     clickLogout(){
@@ -394,8 +434,6 @@ clickHobbies() {
     this.showContact = false;
     this.showHobbies = true;
 }
-
-
 
 
 
@@ -468,58 +506,56 @@ taskReminders;
     }
 
 
-
-
-
-@api wordToShow = 'Do not be embarrassed by your failures, learn from them and start again';
- // Word to show initially
- 
-    @api wordToHide = ''; // Word to hide
-    @api typingSpeed = 10; // Speed in milliseconds per character
-    displayedText = ''; // Initialize with an empty string
-
-    connectedCallback() {
-        this.typeText();
-    }
-
-    typeText() {
-        let index = 0;
-        const typingInterval = setInterval(() => {
-            if (index < this.wordToShow.length) {
-                this.displayedText += this.wordToShow[index];
-                index++;
-            } else {
-                clearInterval(typingInterval); // Stop typing when text is fully typed
-                setTimeout(() => {
-                    this.hideText();
-                }, 1000); // Delay before hiding the text
-            }
-        }, this.typingSpeed);
-    }
-
-    hideText() {
-        let index = 0;
-        const hidingInterval = setInterval(() => {
-            if (index < this.wordToHide.length) {
-                this.displayedText = this.displayedText.slice(0, -1);
-                index++;
-            } else {
-                clearInterval(hidingInterval); // Stop hiding when text is fully hidden
-            }
-        }, this.typingSpeed);
-    }
-
-
-
-  
-    
-
-
     clickHandler(event) {
         const sectionName = event.detail.openSections[0];
         console.log('Section toggled:', sectionName);
         // You can perform any additional logic here based on the toggled section
     }
+
+
+
+    // Aniket import for animination 
+    renderedCallback() {
+        const text = "Let's Build Something great Together";
+        const typingTextElement = this.template.querySelector(".typing-text");
+
+        if (!typingTextElement) {
+            // Element not found, maybe it's not rendered yet, try again later
+            return;
+        }
+
+        let index = 0;
+        let isTyping = true;
+
+        const type = () => {
+            if (isTyping) {
+                typingTextElement.textContent += text[index];
+                index++;
+                if (index === text.length) {
+                    isTyping = false;
+                    setTimeout(type, 1000); // Pause before deleting
+                } else {
+                    setTimeout(type, 150); // Adjusting typing speed (in milliseconds)
+                }
+            } else {
+                if (typingTextElement.textContent.length > 0) {
+                    typingTextElement.textContent = typingTextElement.textContent.slice(0, -1);
+                    setTimeout(type, 100); // Adjusting deleting speed (in milliseconds)
+                } else {
+                    isTyping = true;
+                    index = 0;
+                    setTimeout(type, 1000); // Pause before typing again
+                }
+            }
+        };
+
+        type();
+    }
+
+
+
+
+    
 
 
 

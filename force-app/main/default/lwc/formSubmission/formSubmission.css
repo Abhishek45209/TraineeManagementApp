@@ -4,5 +4,11 @@ nothing here
 
 
  label{
-    font-weight: bold;
+    font-weight: 20px;
+ }
+ .slds-box 
+ {
+   background-color: rgb(222, 225, 232);
+   padding: 2rem;
+   font-weight: bold;
  }

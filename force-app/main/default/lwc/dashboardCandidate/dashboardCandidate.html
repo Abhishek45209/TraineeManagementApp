@@ -7,13 +7,14 @@
                 <!--Dashboar page-->
                 <lightning-card>
                     <div class="full-page">
+                        
                         <div class="dashboard-container">
                         <nav class="horizontal-navbar">
                             <ul>
                                
                                 <li><a href="#">Setting</a></li>
                                 <li><a href="#">Help</a></li>
-                                <li><a href="#">Coursec</a></li>
+                                <li><a onclick={clickCourse}>Coursec</a></li>
                                 <li><a onclick={clickJobs}>Jobs</a></li>
               
                                 <span>
@@ -129,9 +130,9 @@
                                         <button>Get Started</button>
                                     </div>
                                  
-                                    <!-- <video controls  height="350" width="400">
+                                    <video controls  height="350" width="400">
                                         <source src={videos} title="video/Mp4"/>
-                                    </video> -->
+                                    </video>
                                 
                                 </div>
                 
@@ -226,8 +227,9 @@
                         <template if:true={showInternship}>
                             <div class="inner-page">
 
-                                <div class="container">
-                                    <div class="auto-typing" style="background-color: rgb(255, 255, 255) ;">{displayedText}</div>
+                                <div class="auto-typing">
+                                    <p id="typing-text" class="typing-text"></p>
+                                    
                                 </div>
 
                                 <div class="Select">
@@ -372,63 +374,130 @@
                     
                         <template if:true={showTasks}>
                             <div class="inner-page">
-                                <lightning-card title="Task Reminders">
-                                    <ul>
-                                        <template for:each={taskReminders} for:item="task">
-                                            <li key={task.Id}>
-                                                {task.Name} - Due Date: {task.Due_Date__c} 
-                                                <lightning-input type="checkbox" label="Completed" checked={task.Status__c} onchange={handleTaskCompletion} data-task-id={task.Id}></lightning-input>
-                                            </li>
-                                        </template>
-                                    </ul>
-                                </lightning-card>
-                            </div>
+                                <div class="table-data">
+                                    <div class="order">
+                                        <div class="head">
+                                            <h3>Tasks</h3>
+                                        </div>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Task</th>
+                                                    <th> Due Date </th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <template for:each={taskReminders} for:item="task">
+                                                    <tr key={task.Id}>
+                                                        <td>{task.Name}</td>
+                                                        <td style="color: #142846;">{task.Due_Date__c}</td>
+                                                        
+                                                        <td style="color: #FB174F;"><lightning-input type="checkbox" label="Completed" checked="True" onchange={handleTaskCompletion}></lightning-input> </td>
+                                                    </tr>
+                                                </template>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </template>
+
+                            
+                       
                         <template if:false={showTasks}>
                             
                         </template>
                     
                         <template if:true={showApplication}>
                             <div class="inner-page">
-                                <div class="grid-container">
-                                    <div class="grid-item">
-                                        <lightning-card title="Current Resume" icon-name="standard:resume">
-                                            <img src={resumeImageUrl} alt="Resume image"/>
-                                            <lightning-accordion allow-multiple-sections-open>
-                                                <lightning-accordion-section name="A" label="Current Resume">
-                                                    
-                                                    
-                                                </lightning-accordion-section>
-                                            </lightning-accordion>
-                                        </lightning-card>
-                                    </div>
-                                    <div class="grid-item">
-                                        <lightning-card title="Certificates" icon-name="standard:certificate">
-                                            <img src={certificateImageUrl} alt="Certificates image"/>
-                                            <lightning-accordion allow-multiple-sections-open>
+                                
+                                <div class="details">
+                                    <div class="internStatus">
+                                        <div class="cardHeader">
+                                            <h2>Apply Status</h2>
+                                            <a href="#" class="btn">View All</a>
+                                        </div>
+                    
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <td>Internship</td>
+                                                    <td>Mode</td>
+                                                    <td>Date Applied</td>
+                                                    <td>Status</td>
+                                                </tr>
+                                            </thead>
+                    
+                                            <tbody>
+                                                <tr>
+                                                    <td>AppyNtern Summer Internship 2024</td>
+                                                    <td> Online</td>
+                                                    <td> 13/5/24</td>
+                                                    <td><span class="status select">Accepted</span></td>
+                                                </tr>
+                    
+                                                <tr>
+                                                    <td>AppynTern Industrial Training 2024</td>
+                                                    <td> Offline</td>
+                                                    <td>18/5/24</td>
+                                                    <td><span class="status pending">Pending</span></td>
+                                                </tr>
+                    
+                                                <tr>
+                                                    <td>AppynTern Winter Training 2023</td>
+                                                    <td> Online</td>
+                                                    <td>19/12/23</td>
+                                                    <td><span class="status reject">Rejected</span></td>
+                                                </tr>
+                    
+                                                <tr>
+                                                    <td>AppynTern Campus Training 2024</td>
+                                                    <td>Online</td>
+                                                    <td>1/04/24</td>
+                                                    <td><span class="status inProgress">Ongoing</span></td>
+                                                </tr>
+                    
                                                 
-                                                  
-                                                <lightning-accordion-section name="B" label="Certificates">
-                                                    
-                                                </lightning-accordion-section>
-                                            </lightning-accordion>
-                                        </lightning-card>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <div class="grid-item">
-                                        <lightning-card title="Achievements" icon-name="standard:trophy">
-                                            <img src={achievementImageUrl} alt="Achievements image"/>
-                                            <lightning-accordion allow-multiple-sections-open>
-                                                <lightning-accordion-section name="C" label="Achievements">
-                                                   
-                                                   
-                                                </lightning-accordion-section>
-                                            </lightning-accordion>
-                                        </lightning-card>
+                                    
+                                    <div class="finishedInternships">
+                                        <div class="cardHeader">
+                                            <h2>Finished Internships</h2>
+                                        </div>
+                    
+                                        <table>
+                                            <tr>
+                                                <td width="60px">
+                                                    <div class="imgBx"><lightning-icon icon-name="utility:download" size="small" alternative-text="Download"></lightning-icon>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <h4> AppynTern Summer Training 2023 <br> <span>2023</span></h4>
+                                                </td>
+                                            </tr>
+                    
+                                            
+                                               
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                            </div>
+                        
+                                
+                                
+
+
+                               
+                                
+                            
+                   
+                   
+                   
+
+
                         </template>
                         <template if:false={showApplication}>
                             
@@ -445,8 +514,7 @@
                                                 <lightning-textarea label="Description" value={description} onchange={handleDescriptionChange}></lightning-textarea>
                                                 <div class="slds-m-top_medium">
                                                     <label for="screenshot">Screenshot (if available): </label>
-                                                    <input type="file" id="screenshot" name="screenshot" margin-top = "20px" accept="image/png, image/jpeg" onchange={handleFileChange} />
-
+                                                    <input type="file" id="screenshot" name="screenshot" margin-top = "20px" accept="image/png, image/jpeg">
                                                 </div>
                                 
                                                 <lightning-button label="Submit" onclick={handleSubmit} class="slds-m-top_medium" margin-top = "20px"></lightning-button>
@@ -467,14 +535,22 @@
                         <template if:true={showJobs}>
                             <div class="inner-page">
                               
+                                <div class="auto-typing">
+                                    <p id="typing-text1" class="typing-text"></p>
+                                    
+                                </div>
+
+
                                 <div class="photo">
-                                    <img src={jobappy} alt="job Photo" height="200" width="450">
-                                                   </div>
-
-
+                                    <img src={jobappy} alt="job Photo" height="100" width="450">
+                                  
+                                                </div>
+     
 <lightning-accordion class="accordian"
     onsectiontoggle={clickHandler}
     active-section-name="A">
+    <div style="background-color:#16325c;padding:0.2rem" ></div>
+
     <lightning-accordion-section name="A" label="Salesforce Developer Job">
         <div class="demo-only" style="width:30rem">
             <article class="slds-tile slds-hint-parent">
@@ -502,7 +578,8 @@
             </div>
             </article>
             </div>
-            <button class="slds-button slds-button_success">Success Button</button>
+            <br>
+            <button class="slds-button slds-button_success">Apply</button>
     </lightning-accordion-section>
     <lightning-accordion-section name="B" label="Salesforce Admin Job">
         <div class="demo-only" style="width:30rem">
@@ -531,7 +608,8 @@
             </div>
             </article>
             </div>
-            <button class="slds-button slds-button_success">Success Button</button>
+            <br>
+            <button class="slds-button slds-button_success">Apply</button>
 
 
 
@@ -566,7 +644,9 @@
             </div>
             </article>
             </div>
-            <button class="slds-button slds-button_success">Success Button</button>
+            <br>
+            <button class="slds-button slds-button_success">Apply</button>
+            
 
 
     </lightning-accordion-section>
@@ -602,7 +682,10 @@
             </div>
             </article>
             </div>
-            <button class="slds-button slds-button_success">Success Button</button>
+            <br>
+            <button class="slds-button slds-button_success">Apply</button>
+            <div style="background-color:#16325c;padding:0.2rem" ></div>
+
     </lightning-accordion-section>
     <lightning-accordion-section name="B" label="Salesforce Admin Job">
         <div class="demo-only" style="width:30rem">
@@ -631,10 +714,9 @@
             </div>
             </article>
             </div>
-            <button class="slds-button slds-button_success">Success Button</button>
-
-
-
+            <br>
+            <button class="slds-button slds-button_success">Apply</button>
+            <div style="background-color:#16325c;padding:0.2rem" ></div>
 
     </lightning-accordion-section>
 
@@ -666,26 +748,15 @@
             </div>
             </article>
             </div>
-            <button class="slds-button slds-button_success">Success Button</button>
-
+            <br>
+            <button class="slds-button slds-button_success">Apply</button>
+            <div style="background-color:#16325c;padding:0.2rem" ></div>
 
     </lightning-accordion-section>
 </lightning-accordion>
 
-
-
-
-
-
-
-
-
-
-
-
-                               
-                                    
-                             
+                            
+ 
 
                             </div>
 
@@ -694,7 +765,160 @@
                             
                         </template>
 
+                        <template if:true={showCourse}>
+                            <div class="inner-page">
+                           
+                            <lightning-accordion class=""
+                                onsectiontoggle={clickHandler}
+                                active-section-name="A">
+                                <lightning-accordion-section name="A" label="Development Course">
+                                    <div style="background-color:#96a4b9;padding:0.3rem">
+                                    </div>
+                                    <div class="course-box">
+                                    <div class="course">
+                                        <div class="box">
+                                            <h3>HTML</h3>
+                                            <p>130 Hrs</p>
+                                            <p>6 Weeks , 4 Mock Test</p>
+                                            <p>1 Project</p>
+                                            <button>Enrol Now</button>
+                                            <i class="fab fa-html5 html"></i>
+                                        </div>
+                                        <div class="box">
+                                            <h3>CSS</h3>
+                                            <p>130 Hrs</p>
+                                            <p>5 Weeks , 4 Mock Test</p>
+                                            <p>1 Project</p>
+                                            <button>Enrol Now</button>
+                                            <i class="fab fa-css3-alt css"></i>
+                                        </div>
+                                        <div class="box">
+                                            <h3>JavaScript</h3>
+                                            <p>150 Hrs</p>
+                                            <p>5 Weeks , 4 Mock Test</p>
+                                            <p>1 Project</p>
+                                            <button>Enrol Now</button>
+                                            <i class="fab fa-js-square js"></i>
+                                        </div>
+                                        <div class="box">
+                                            <h3>Apex</h3>
+                                            <p>130 Hrs</p>
+                                            <p>5 Weeks , 4 Mock Test</p>
+                                            <p>1 Project</p>
+                                            <button>Enrol Now</button>
+                                            <i class="fas fa-code"></i>
+                                        </div>
+                                        <!-- Trigger Course -->
+                                        <div class="box">
+                                            <h3>LWC</h3>
+                                            <p>150 Hrs</p>
+                                            <p>8 Weeks , 7 Mock Test</p>
+                                            <p>1 Project</p>
+                                            <button>Enrol Now</button>
+                                            <i class="fas fa-bolt"></i>
+                                        </div>
+                                    </div>
+                                    </div>
+                                        
+                                </lightning-accordion-section>
+                                <lightning-accordion-section name="B" label="Admin Course">
+                                    <div style="background-color:#96a4b9;padding:0.3rem">
+                                    </div>
+                                    <div class="course-box">
+                                        <div class="course">
+                                            <div class="box">
+                                                <h3>Data Management</h3>
+                                                <p>130 Hrs</p>
+                                                <p>7 Weeks , 4 Mock Test</p>
+                                                <button>Enrol Now</button>
+                                                <i class="fab fa-html5 html"></i>
+                                            </div>
+                                            <div class="box">
+                                                <h3>User Management</h3>
+                                                <p>130 Hrs</p>
+                                                <p>7 Weeks , 4 Mock Test</p>
+                                                <button>Enrol Now</button>
+                                                <i class="fab fa-css3-alt css"></i>
+                                            </div>
+                                            <div class="box">
+                                                <h3>Product Management</h3>
+                                                <p>140 Hrs</p>
+                                                <p>5 Weeks , 4 Mock Test</p>
+                                                <button>Enrol Now</button>
+                                                <i class="fab fa-js-square js"></i>
+                                            </div>
+                                            <div class="box">
+                                                <h3>Flow</h3>
+                                                <p>120 Hrs</p>
+                                                <p>4 Weeks , 4 Mock Test</p>
+                                                <button>Enrol Now</button>
+                                                <i class="fas fa-code"></i>
+                                            </div>
+                                            <!-- Trigger Course -->
+                                            <div class="box">
+                                                <h3>Trigger</h3>
+                                                <p>110 Hrs</p>
+                                                <p>6 Weeks , 6 Mock Test</p>
+                                                <button>Enrol Now</button>
+                                                <i class="fas fa-bolt"></i>
+                                            </div>
+                                        </div>
+                                        </div>
+                                </lightning-accordion-section>
+                            
+                                <lightning-accordion-section name="C" label="Consultant Course">
+                                    <div style="background-color:#96a4b9;padding:0.3rem">
+                                    </div>
+                                    <div class="course-box">
+                                        <div class="course">
+                                            <div class="box">
+                                                <h3>Marketing Cloud Consultant</h3>
+                                                <p>110 Hrs</p>
+                                                <p>6 Weeks , 6 Mock Test</p>
+                                                <button>Enrol Now</button>
+                                                <i class="fab fa-html5 html"></i>
+                                            </div>
+                                            <div class="box">
+                                                <h3>Service Cloud Consultant</h3>
+                                                <p>120 Hrs</p>
+                                                <p>6 Weeks , 4 Mock Test</p>
+                                                <button>Enrol Now</button>
+                                                <i class="fab fa-css3-alt css"></i>
+                                            </div>
+                                            <div class="box">
+                                                <h3>Sales Cloud</h3>
+                                                <p>120 Hrs</p>
+                                                <p>4 Weeks , 4 Mock Test</p>
+                                                <button>Enrol Now</button>
+                                                <i class="fab fa-js-square js"></i>
+                                            </div>
+                                            <div class="box">
+                                                <h3> Project management</h3>
+                                                <p>140 Hrs</p>
+                                                <p>7 Weeks , 4 Mock Test</p>
+                                                <button>Enrol Now</button>
+                                                <i class="fas fa-code"></i>
+                                            </div>
+                                            <!-- Trigger Course -->
+                                            <div class="box">
+                                                <h3>Commerce Cloud</h3>
+                                                <p>140 Hrs</p>
+                                                <p>7 Weeks , 4 Mock Test</p>
+                                                <button>Enrol Now</button>
+                                                <i class="fas fa-bolt"></i>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        
+                                </lightning-accordion-section>
+                            </lightning-accordion>
+
                         </div>
+                        </template>
+                        <template if:false={showCourse}>
+                        </template>
+
+                    </div>
                     
                     <div class="slds-grid slds-wrap">
                         <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
@@ -768,48 +992,93 @@
             <template if:false={showDashboard}>
 
             </template>
-
-
         </template>
 
         <template if:false={isLogin}>
-            <div class="loginPage">
-                <div class="login-box">
-                    <h2 class="login-heading">Welcome to Login Page</h2>
-                    <div class="input-group">
-                        <img src={emailIcon} alt="Email" class="input-icon">
-                        <input type="text" placeholder="Enter Your Email...." onchange={getEmail}>
+            <template if:true={showLogin}>
+                <template if:true={showForgotPass}>
+                    <div class="loginPage">
+                        <div class="login-box">
+                            <h2 class="login-heading">Forgot Password</h2>
+                            <div class="input-group">
+                                <img src={emailIcon} alt="Email" class="input-icon">
+                                <lightning-input type="text" placeholder="Enter Your Email...." onchange={getEmail}></lightning-input>
+    
+                            </div>
+    
+                            <div class="input-group">
+                                <img src={passwordIcon} alt="Password" class="input-icon">
+                                <lightning-input type="password" placeholder="Enter Your Password....." onchange={getPassword}></lightning-input>
+                            </div>
+                            <div class="input-group">
+                                <img src={passwordIcon} alt="Password" class="input-icon">
+                                <lightning-input type="password" placeholder="Confirm-Password" onchange={getPassword}></lightning-input>
+                            </div>
+                            <div class="slds-m-top_medium" style="color:brown; margin:auto;">{error}</div>
+    
+                            
+                           <div class="forgot-pass">
+                            <button onclick={cancelPass}>Cancel</button>
+                            <button onclick={forgotPass}>Submit</button>
+    
+                           </div>
+
+                        </div>
                     </div>
+                </template>
+                <template if:true={showForgotPass}>
                     
-                    <div class="input-group">
-                        <img src={passwordIcon} alt="Password" class="input-icon">
-                        <input type="password" placeholder="Enter Your Password....." onchange={getPassword}></input>
-        
+                </template>
+            
+                
+            </template>
+            <template if:false={showLogin}>
+                <div class="loginPage">
+                    <div class="login-box">
+                        <h2 class="login-heading">Welcome to Login Page</h2>
+                        <div class="input-group">
+                            <img src={emailIcon} alt="Email" class="input-icon">
+                            <lightning-input type="text" placeholder="Enter Your Email...." onchange={getEmail}></lightning-input>
+
+                        </div>
+
+                        <div class="input-group">
+                            <img src={passwordIcon} alt="Password" class="input-icon">
+                            <lightning-input type="password" placeholder="Enter Your Password....." onchange={getPassword}></lightning-input>
+
+                        </div>
                         <div class="slds-m-top_medium" style="color:brown; margin:auto;">{error}</div>
-                    
-                        <button class="login" onclick={userLogin}>Login</button>
-                    </div>
-                   <br>
-        
-                       <br> 
-                    <div class="login-buttons">
-                        <button class="login-with-google" onclick={loginWithGoogle}>
-                            <img src={googleIcon} alt="Google" class="login-icon">
-                            <span>Login with Google</span>
-                        </button>
                         <br>
-                        <button class="login-with-gmail" onclick={loginWithGmail}>
-                            <img src={gmailIcon} alt="Gmail" class="login-icon">
-                            <span>Login with Gmail</span>
-                        </button>
-                        <br>
-                        <button class="login-with-linkedin" onclick={loginWithLinkedIn}>
-                            <img src={linkedinIcon} alt="LinkedIn" class="login-icon">
-                            <span>Login with LinkedIn</span>
-                        </button>
+
+                            <button class="login" onclick={userLogin}>LogIn</button>
+
+                       <br>
+                       <div class="forgot-pass">
+                        <a onclick={navigateToForgotPass}>Forgot Password.</a>
+                        <a onclick={navigateToRegister}>SignUp.</a>
+
+                       </div>
+                           <br> 
+                        <div class="login-buttons">
+                            <button class="login-with-google" onclick={loginWithGoogle}>
+                                <img src={googleIcon} alt="Google" class="login-icon">
+                                <span>Login with Google</span>
+                            </button>
+                            <br>
+                            <button class="login-with-gmail" onclick={loginWithGmail}>
+                                <img src={gmailIcon} alt="Gmail" class="login-icon">
+                                <span>Login with Gmail</span>
+                            </button>
+                            <br>
+                            <button class="login-with-linkedin" onclick={loginWithLinkedIn}>
+                                <img src={linkedinIcon} alt="LinkedIn" class="login-icon">
+                                <span>Login with LinkedIn</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </template>
+            
 
         </template>
         

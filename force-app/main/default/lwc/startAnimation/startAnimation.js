@@ -60,6 +60,51 @@ export default class StartAnimation extends NavigationMixin(LightningElement) {
         });
     }
     
+
+// Aniket Implement
+
+    renderedCallback() {
+        const text = "Let's Build Something great Together";
+        const typingTextElement = this.template.querySelector(".typing-text");
+
+        if (!typingTextElement) {
+            // Element not found, maybe it's not rendered yet, try again later
+            return;
+        }
+
+        let index = 0;
+        let isTyping = true;
+
+        const type = () => {
+            if (isTyping) {
+                typingTextElement.textContent += text[index];
+                index++;
+                if (index === text.length) {
+                    isTyping = false;
+                    setTimeout(type, 1000); // Pause before deleting
+                } else {
+                    setTimeout(type, 150); // Adjusting typing speed (in milliseconds)
+                }
+            } else {
+                if (typingTextElement.textContent.length > 0) {
+                    typingTextElement.textContent = typingTextElement.textContent.slice(0, -1);
+                    setTimeout(type, 100); // Adjusting deleting speed (in milliseconds)
+                } else {
+                    isTyping = true;
+                    index = 0;
+                    setTimeout(type, 1000); // Pause before typing again
+                }
+            }
+        };
+
+        type();
+    }
+
+
+
+
+
+
+
+
 }
-
-

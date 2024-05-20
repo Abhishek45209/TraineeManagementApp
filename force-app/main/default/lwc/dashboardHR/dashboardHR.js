@@ -2,11 +2,15 @@ import { LightningElement,wire, track} from 'lwc';
 
 //Abhik Code for import apex class(SetDataForHr)for internship purpose in Hr Dashboard.
 import createInternship from '@salesforce/apex/SetDataForHr.createInternship';
+import updateInternship from '@salesforce/apex/SetDataForHr.updateInternship';
+import deleteInternship from '@salesforce/apex/SetDataForHr.deleteInternship';
+
 
 import Name from '@salesforce/resourceUrl/Name';
 import Dashboardimage from '@salesforce/resourceUrl/ImageSidebar';
+import previewIcon from '@salesforce/resourceUrl/PreviewIcon';
 
-//ABHISSHEK IMPORT
+//ABHISHEK IMPORT
 import getFeedbacks from '@salesforce/apex/FeedbackDisplay.getFeedbacks';
 
 
@@ -14,12 +18,19 @@ import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getCandidateDetails from '@salesforce/apex/GetDataForHR.getCandidateDetails';
 export default class DashboardHR extends LightningElement {
+//Abhik Code
+
+    showInternshipsListings = true;
      name = '';
      duration = '';
      createDate = '';
      createdOn = '';
      deadline = '';
      status = '';
+     stipend='';
+     details ='';
+     Location='';
+
     
     statusOptions = [
         { label: 'Published', value: 'Published' },
@@ -28,8 +39,95 @@ export default class DashboardHR extends LightningElement {
     //static resources
     icon = Name;
     dashboard = Dashboardimage;
-
+    preview = previewIcon;
     record;
+//Abhik code for button event
+handleInputChange(event) {
+    const field = event.target.name;
+    if (field) {
+        this[field] = event.target.value;
+    }
+}
+
+handleButtonClick(event) {
+    const action = event.target.dataset.id;
+    if (action === 'createNew') {
+        this.createInternship();
+    } else if (action === 'edit') {
+        this.updateInternship();
+    } else if (action === 'delete') {
+        this.deleteInternship();
+    }
+}
+
+   //Abhik Code for creating Internship
+createInternship() {
+    createInternship({
+        name: this.internshipName,
+        duration: this.duration,
+        createdOn: this.createdOn,
+        deadline: this.deadline,
+        status: this.status
+    })
+    .then(result => {
+        this.showToast('Success', 'Internship created successfully', 'success');
+        this.resetForm();
+    })
+    .catch(error => {
+        this.showToast('Error', 'Error creating internship', 'error');
+    });
+}
+
+updateInternship() {
+    updateInternship({
+        name: this.internshipName,
+        duration: this.duration,
+        createdOn: this.createdOn,
+        deadline: this.deadline,
+        status: this.status
+    })
+    .then(result => {
+        this.showToast('Success', 'Internship updated successfully', 'success');
+    })
+    .catch(error => {
+        this.showToast('Error', 'Error updating internship', 'error');
+    });
+}
+
+deleteInternship() {
+    deleteInternship({
+        name: this.internshipName
+    })
+    .then(result => {
+        this.showToast('Success', 'Internship deleted successfully', 'success');
+        this.resetForm();
+    })
+    .catch(error => {
+        this.showToast('Error', 'Error deleting internship', 'error');
+    });
+}
+
+showToast(title, message, variant) {
+    const event = new ShowToastEvent({
+        title: title,
+        message: message,
+        variant: variant
+    });
+    this.dispatchEvent(event);
+}
+
+resetForm() {
+    this.internshipName = '';
+    this.duration = '';
+    this.createdOn = '';
+    this.deadline = '';
+    this.status = '';
+    this.lastModifiedDate = '';
+}
+
+     
+
+
 
     // template variable assignment
     dashboardImage = true;
@@ -40,6 +138,8 @@ export default class DashboardHR extends LightningElement {
     showCandidateManagement = false;
     showProjectManagement = false;
     showNotificationsAndCommunicationManagement = false;
+    NewInternship = false;
+    showJobPostings = false;
 
 
     // functions to handle the different templates showing up on a button click on admin panel
@@ -48,6 +148,7 @@ export default class DashboardHR extends LightningElement {
         this.showDashboard = true;
         this.dashboardImage = false;
         this.showInternshipsListings = false;
+        this.showJobPostings = false;
         this.showApplcationManagement = false;
         this.showInternManagement = false;
         this.showCandidateManagement = false;
@@ -59,6 +160,7 @@ export default class DashboardHR extends LightningElement {
         this.showDashboard = false;
         this.dashboardImage = false;
         this.showInternshipsListings = true;
+        this.showJobPostings = false;
         this.showApplcationManagement = false;
         this.showInternManagement = false;
         this.showCandidateManagement = false;
@@ -70,6 +172,7 @@ export default class DashboardHR extends LightningElement {
         this.showDashboard = false;
         this.dashboardImage = false;
         this.showInternshipsListings = false;
+        this.showJobPostings = false;
         this.showApplcationManagement = true;
         this.showInternManagement = false;
         this.showCandidateManagement = false;
@@ -81,6 +184,7 @@ export default class DashboardHR extends LightningElement {
         this.showDashboard = false;
         this.dashboardImage = false;
         this.showInternshipsListings = false;
+        this.showJobPostings = false;
         this.showApplcationManagement = false;
         this.showInternManagement = true;
         this.showCandidateManagement = false;
@@ -92,6 +196,7 @@ export default class DashboardHR extends LightningElement {
         this.showDashboard = false;
         this.dashboardImage = false;
         this.showInternshipsListings = false;
+        this.showJobPostings = false;
         this.showApplcationManagement = false;
         this.showInternManagement = false;
         //this.showCandidateManagement = true;
@@ -125,6 +230,7 @@ export default class DashboardHR extends LightningElement {
         this.showDashboard = false;
         this.dashboardImage = false;
         this.showInternshipsListings = false;
+        this.showJobPostings = false;
         this.showApplcationManagement = false;
         this.showInternManagement = false;
         this.showCandidateManagement = false;
@@ -132,10 +238,24 @@ export default class DashboardHR extends LightningElement {
         this.showNotificationsAndCommunicationManagement = false;
     }
 
+
+    handleShowJobPostings(){
+        this.showDashboard = false;
+        this.dashboardImage = false;
+        this.showInternshipsListings = false;
+        this.showJobPostings = true;
+        this.showApplcationManagement = false;
+        this.showInternManagement = false;
+        this.showCandidateManagement = false;
+        this.showProjectManagement = false;
+        this.showNotificationsAndCommunicationManagement = false;
+    }
+
     handleShowNotificationsAndCommunications(){
         this.showDashboard = false;
         this.dashboardImage = false;
         this.showInternshipsListings = false;
+        this.showJobPostings = false;
         this.showApplcationManagement = false;
         this.showInternManagement = false;
         this.showCandidateManagement = false;
@@ -170,4 +290,17 @@ handleSubmit() {
         }
     }
 
+    newInternship(){
+        this.NewInternship = true;
+    }
+
+    unShowNewInternship(){
+        this.NewInternship = false;
+    }
+
+    @track date;
+    handleDateChange(event){
+        this.date = event.target.value;
+    }
+    
 }

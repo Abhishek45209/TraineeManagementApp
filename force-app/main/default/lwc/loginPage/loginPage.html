@@ -4,12 +4,14 @@
             <h2 class="login-heading">Welcome to Login Page</h2>
             <div class="input-group">
                 <img src={emailIcon} alt="Email" class="input-icon">
-                <input type="text" placeholder="Enter Your Email...." onchange={getEmail}>
+                <input type="text" placeholder="Enter Your Email" onchange={getEmail}>
             </div>
             
             <div class="input-group">
                 <img src={passwordIcon} alt="Password" class="input-icon">
-                <input type="password" placeholder="Enter Your Password....." onchange={getPassword}></input>
+                <input type="password" placeholder="Enter Your Password" onchange={getPassword}></input>
+
+                <div class="slds-m-top_medium">{error}</div>
             
                 <button class="login" onclick={userLogin}>
                     Login
