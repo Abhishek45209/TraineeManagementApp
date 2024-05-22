@@ -1,8 +1,8 @@
-import { LightningElement,wire, track} from 'lwc';
+import { LightningElement,wire,track} from 'lwc';
 
 //Abhik Code for import apex class(SetDataForHr)for internship purpose in Hr Dashboard.
 import createInternship from '@salesforce/apex/SetDataForHr.createInternship';
-import updateInternship from '@salesforce/apex/SetDataForHr.updateInternship';
+// import updateInternship from '@salesforce/apex/SetDataForHr.updateInternship';
 import deleteInternship from '@salesforce/apex/SetDataForHr.deleteInternship';
 
 
@@ -18,36 +18,96 @@ import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getCandidateDetails from '@salesforce/apex/GetDataForHR.getCandidateDetails';
 export default class DashboardHR extends LightningElement {
+    
+//utsav code for creating new internship
+@track selectedLocationOption = ''; // 
+locationOptions = [
+    { label: 'Remote', value: 'Remote' },
+    { label: 'Office', value: 'Office' },
+
+];
+@track selectedExperienceOption = ''; // 
+experienceOptions = [
+    { label: 'Fresher', value: 'Fresher' },
+    { label: 'Experienced', value: 'Experienced' },
+
+];
+// @track selectedStatusOption = ''; // 
+// statusOptions = [
+//     { label: 'Published', value: 'Published' },
+//     { label: 'Unpublished', value: 'Unpublished' },
+
+// ];
+
+
+
+//variable name for storing values
+internshipName = '';
+internshipDetail = ''
+internshipDuration = '';
+internshipLocation = '';
+internshipExperience = '';
+internshipDeadline = '';
+internshipStipend = '';
+
+internshipNameChange(event){
+    this.internshipName = event.target.value;
+    console.log(this.internshipName);
+}
+internshipDetailChange(event){
+    this.internshipDetail = event.target.value;
+    console.log(this.internshipDetail);
+}
+internshipDurationChange(event){
+    this.internshipDuration = event.target.value;
+    console.log(this.internshipDuration);
+}
+internshipLocationChange(event){
+    this.internshipLocation = event.target.value;
+    console.log(this.internshipLocation);
+}
+internshipExperienceChange(event){
+    this.internshipExperience = event.target.value;
+    console.log(this.internshipName);
+}
+internshipDeadlineChange(event){
+    this.internshipDeadline = event.target.value;
+    console.log(this.internshipDeadline);
+}
+internshipStipendChange(event){
+    this.internshipStipend = event.target.value;
+    console.log(this.internshipStipend);
+}
+
+
 //Abhik Code
 
     showInternshipsListings = true;
      name = '';
      duration = '';
      createDate = '';
-     createdOn = '';
      deadline = '';
-     status = '';
      stipend='';
      details ='';
      Location='';
 
     
-    statusOptions = [
-        { label: 'Published', value: 'Published' },
-        { label: 'Unpublished', value: 'Unpublished' }
-    ];
+    // statusOptions = [
+    //     { label: 'Published', value: 'Published' },
+    //     { label: 'Unpublished', value: 'Unpublished' }
+    // ];
     //static resources
     icon = Name;
     dashboard = Dashboardimage;
     preview = previewIcon;
     record;
 //Abhik code for button event
-handleInputChange(event) {
-    const field = event.target.name;
-    if (field) {
-        this[field] = event.target.value;
-    }
-}
+// handleInputChange(event) {
+//     const field = event.target.name;
+//     if (field) {
+//         this[field] = event.target.value;
+//     }
+// }
 
 handleButtonClick(event) {
     const action = event.target.dataset.id;
@@ -67,7 +127,7 @@ createInternship() {
         duration: this.duration,
         createdOn: this.createdOn,
         deadline: this.deadline,
-        status: this.status
+        // status: this.status
     })
     .then(result => {
         this.showToast('Success', 'Internship created successfully', 'success');
@@ -84,7 +144,7 @@ updateInternship() {
         duration: this.duration,
         createdOn: this.createdOn,
         deadline: this.deadline,
-        status: this.status
+        // status: this.status
     })
     .then(result => {
         this.showToast('Success', 'Internship updated successfully', 'success');
@@ -121,7 +181,7 @@ resetForm() {
     this.duration = '';
     this.createdOn = '';
     this.deadline = '';
-    this.status = '';
+    // this.status = '';
     this.lastModifiedDate = '';
 }
 
@@ -139,6 +199,7 @@ resetForm() {
     showProjectManagement = false;
     showNotificationsAndCommunicationManagement = false;
     NewInternship = false;
+    CandidateApplicationDetails = false;
     showJobPostings = false;
 
 
@@ -199,9 +260,24 @@ resetForm() {
         this.showJobPostings = false;
         this.showApplcationManagement = false;
         this.showInternManagement = false;
-        //this.showCandidateManagement = true;
+        this.showCandidateManagement = true;
         this.showProjectManagement = false;
         this.showNotificationsAndCommunicationManagement = false;
+
+        
+        handleShowProjectsManagement()
+        {
+            this.showProjectManagement = true;
+            this.dashboardImage = false;
+            this.showDashboard = false;
+            this.showInternshipsListings = false;
+            this.showApplcationManagement = false;
+            this.showInternManagement = false;
+            this.showCandidateManagement = false;
+            this.showNotificationsAndCommunicationManagement = false;
+            
+        
+        }
 
         //By Ibrar feching details from LoginCandidate class to show in Manage Candidate of dashboardHR.
         getCandidateDetails()
@@ -271,7 +347,7 @@ handleSubmit() {
         createDate: this.createDate,
         createdOn: this.createdOn,
         deadline: this.deadline,
-        status: this.status
+        // status: this.status
     })
     
 }
@@ -298,9 +374,23 @@ handleSubmit() {
         this.NewInternship = false;
     }
 
+    viewCandidateApplicationDetails(){
+        this.CandidateApplicationDetails = true;
+    }
+    closeCandidateApplicationDetails(){
+        this.CandidateApplicationDetails = false;
+    }
+
     @track date;
     handleDateChange(event){
         this.date = event.target.value;
     }
     
 }
+
+// intern management
+// showInternManagement = false;
+// viewbutton()
+// {
+//     showInternManagement=true;
+// }

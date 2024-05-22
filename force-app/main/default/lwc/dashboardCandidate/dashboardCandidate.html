@@ -187,37 +187,144 @@
                         </template>
 
                         <template if:true={showProfile}>
+                            
                             <div class="inner-page">
-                                <div class="profile">
-                                    <div class="profilesidebar">
-                                      <ul class="p-ul">
-                                        <li class="p-li">
-                                            <button class="p-button" onclick={clickOverview}>Overview</button>
-                                        </li>
-                                        <li class="p-li">
-                                            <button class="p-button" onclick={clickWorkandExperience}>Work And Education </button>
-                                        </li>
-                                        <li class="p-li">
-                                            <button class="p-button" onclick={clickContact}>Contact</button>
-                                        </li>
-                                        <li class="p-li">
-                                            <button class="p-button" onclick={clickHobbies}>Hobbies</button>
-                                        </li>
-                                    </ul>
+                                <div class="proContainer">
+                                <section class="userProfile card">
+                                    <div class="profile">
+                                        <figure><img src="profile.png" alt="profile" width="250px" height="250px"></figure>
                                     </div>
-                                    <template if:true={showOverview}>over</template>
-                                    <template if:false={showOverview}></template>
-                                    <template if:true={showWorkandEdu}>Work</template>
-                                    <template if:false={showWorkandEdu}></template>
-                                    <template if:true={showContact}>Contact</template>
-                                    <template if:false={showContact}></template>
-                                    <template if:true={showHobbies}>Hobbies</template>
-                                    <template if:false={showHobbies}></template>
-                                </div>   
-                                    
+                                </section>
+                        
+                        
+                                <!-- ===== ===== Work & Skills Section ===== ===== -->
+                                <section class="work_skills card">
+                        
+                                    <!-- ===== ===== Work Contaienr ===== ===== -->
+                                    <div class="work">
+                                        <h1 class="heading">Education</h1>
+                                        <div class="primary">
+                                            <h1>School Name</h1>
+                                            <span>Intermediate</span>
+                                            <p>City<br> State</p>
+                                        </div>
+                        
+                                        <div class="secondary">
+                                            <h1>College Name <br> Session</h1>
+                                            <span>Graduation</span>
+                                            <p>City <br> State</p>
+                                        </div>
+                                    </div>
+                        
+                                    <!-- ===== ===== Skills Contaienr ===== ===== -->
+                                    <div class="skills">
+                                        <h1 class="heading">Skills</h1>
+                                        <ul>
+                                            <li style="--i:0">Apex</li>
+                                            <li style="--i:1">LWC</li>
+                                            <li style="--i:2">Admin</li>
+                                            <li style="--i:3">---</li>
+                                        </ul>
+                                    </div>
+                                </section>
+                        
+                        
+                                <!-- ===== ===== User Details Sections ===== ===== -->
+                                <section class="userDetails card">
+                                    <div class="userName">
+                                        <h1 class="name">Name(field)</h1>
+                                        <div class="map">
+                                            <i class="ri-map-pin-fill ri"></i>
+                                            <span>Current_Address_c</span>
+                                        </div>
+                                        <p>Fresher</p>
+                                    </div>
+                        
+                                    <div class="rank">
+                                        <h1 class="heading">Email</h1>
+                                        <span>Email__c</span>
+                                        
+                                    </div>
+                        
+                                    <div class="btns">
+                                        <ul>
+                                            <li class="sendMsg">
+                                                <i class="ri-chat-4-fill ri"></i>
+                                                <a href="#">Linkedin</a>
+                                            </li>
+                        
+                                            <li class="sendMsg active">
+                                                <i class="ri-check-fill ri"></i>
+                                                <a href="#">Verified</a>
+                                            </li>
+                        
+                                            <li class="sendMsg">
+                                                <a href="#">Github</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+                        
+                        
+                               
+                                <section class="timeline_about card">
+                                    <div class="tabs">
+                                        <ul>
+                                            <li class="timeline">
+                                                <i class="ri-eye-fill ri"></i>
+                                                <span>Timeline</span>
+                                            </li>
+                        
+                                            <li class="about active">
+                                                <i class="ri-user-3-fill ri"></i>
+                                                <span>About</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                        
+                                    <div class="contact_Info">
+                                        <h1 class="heading">Contact Information</h1>
+                                        <ul>
+                                            <li class="phone">
+                                                <h1 class="label">Phone:</h1>
+                                                <span class="info"></span>
+                                            </li>
+                        
+                                            <li class="address">
+                                                <h1 class="label">Address:</h1>
+                                                <span class="info"><br></span>
+                                            </li>
+                        
+                                            <li class="email">
+                                                <h1 class="label">E-mail:</h1>
+                                                <span class="info"></span>
+                                            </li>
+                        
+                                            <li class="site">
+                                                <h1 class="label">College</h1>
+                                                <span class="info"></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                        
+                                    <div class="basic_info">
+                                        <h1 class="heading">Basic Information</h1>
+                                        <ul>
+                                            <li class="birthday">
+                                                <h1 class="label">Birthday:</h1>
+                                                <span class="info"></span>
+                                            </li>
+                        
+                                            <li class="sex">
+                                                <h1 class="label">Gender:</h1>
+                                                <span class="info"></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
                             
                             </div>
-                            
+                        </div>
 
                         </template>
                         <template if:false={showProfile}>
