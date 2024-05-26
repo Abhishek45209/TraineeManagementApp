@@ -2,1193 +2,2125 @@
     <lightning-card>
 
         <template if:true={isLogin}>
-            
-            <template  if:true={showDashboard}>
+
+            <template if:true={showDashboard}>
                 <!--Dashboar page-->
                 <lightning-card>
                     <div class="full-page">
-                        
+
                         <div class="dashboard-container">
-                        <nav class="horizontal-navbar">
-                            <ul>
-                               
-                                <li><a href="#">Setting</a></li>
-                                <li><a href="#">Help</a></li>
-                                <li><a onclick={clickCourse}>Coursec</a></li>
-                                <li><a onclick={clickJobs}>Jobs</a></li>
-              
-                                <span>
-                                <lightning-input class="Search" type="search" name="Search" placeholder="Search here"
-                                    id="searchBox"></lightning-input >
-                                </span>
-              
-                                
-                                  <button class="nav-item" onclick={clickLogout}>Log out</button>
-                              
-                                
-                            </ul>
-                        </nav>
-                        </div>
-                    
-                    <div class="dashboard">
-                        <div class="sidebar">
-                          <ul>
-                            <li>
-                              <div class="button-wrapper">
-                                <img src={homeimage} alt="Home Icon" class="icon">
-                                <button class="nav-item" onclick={clickHome}>Home</button>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="button-wrapper">
-                                <img src={profile} alt="Internship Icon" class="icon">
-                                <button class="nav-item" onclick={clickProfile}>Profile</button>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="button-wrapper">
-                                <img src={internship} alt="Internship Icon" class="icon">
-                                <button class="nav-item" onclick={clickInternship}>Internship</button>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="button-wrapper">
-                                <img src={task} alt="Internship Icon" class="icon">
-                                <button class="nav-item" onclick={clickTasks}>Tasks</button>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="button-wrapper">
-                                <img src={application} alt="Internship Icon" class="icon">
-                                <button class="nav-item" onclick={clickApplication}>Application Management</button>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="button-wrapper">
-                                <img src={feedback} alt="Internship Icon" class="icon">
-                                <button class="nav-item" onclick={clickFeedback}>Feedback and Support</button>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
+                            <nav class="horizontal-navbar">
+                                <div class="sidebar-toggle-button" onclick={toggleSidebar}>
+                                    <img src={iconToggleImg} alt="Menu">
+                                </div>
+                                <div class="page-heading">
+                                    {pageName}
+                                </div>
 
-                    <!--App inner pages-->
-                        <template if:true={showHome}>
-                        <div class="inner-page">
-                            <section class="main">
-                                <div class="main-top">
-                                   
-                                </div>
+                                <div class="nav-ul">
                                 
-                                <div class="user-profile">
-                                    <div class="profile-image">                      
-                                        <img src={dashboard} alt="User Image">
-                                    </div>
-              
-                                    <template if:true={candidate}>
-                                    <div class="profile-details">
-                                      
-                                          <strong><h2>{candidate.Name}</h2></strong>
-                                          <p>Email: {candidate.Email__c}</p>
-                                          
-              
-                                      
-                                          
-                                      
-                                        <p>Location: India</p>
-              
-                                        <button>Edit Profile</button>
-                                    </div>
-                                  </template>
-              
-                                    <img src ={logophoto} alt="LogoAppy" height="200"  width="600">
-                                </div>
-                                <div class="main-skills">
-                                    <div class="card">
-                                        <i class="fas fa-laptop-code"></i>
-                                        <h3>Admin Part</h3>
-                                        <p>Salesforce.</p>
-                                        <button>Get Started</button>
-                                    </div>
-                
-                                    <div class="card">
-                                        <i class="fab fa-wordpress"></i>
-                                        <h3>Developer Part</h3>
-                                        <p>Salesforce.</p>
-                                        <button>Get Started</button>
-                                    </div>
-                                    <div class="card">
-                                        <i class="fas fa-palette"></i>
-                                        <h3>Trigger Part</h3>
-                                        <p>Salesforce.</p>
-                                        <button>Get Started</button>
-                                    </div>
-                                    <div class="card">
-                                        <i class="fab fa-app-store-ios"></i>
-                                        <h3>Lightning Wave Component</h3>
-                                        <p>Salesforce.</p>
-                                        <button>Get Started</button>
-                                    </div>
-                                 
-                                    <video controls  height="350" width="400">
-                                        <source src={videos} title="video/Mp4"/>
-                                    </video>
-                                
-                                </div>
-                
-                                <section class="main-course">
-                                    <h1>My courses</h1>
-                                    <div class="course-box">
-                                        <ul>
-                                            <li class="active">In progress</li>
-                                            <li>Explore</li>
-                                            <li>Incoming</li>
-                                            <li>Finished</li>
-                                        </ul>
-                                        <div class="course">
-                                            <div class="box">
-                                                <h3>HTML</h3>
-                                                <p>80% - Progress</p>
-                                                <button>Continue</button>
-                                                <i class="fab fa-html5 html"></i>
-                                            </div>
-                                            <div class="box">
-                                                <h3>CSS</h3>
-                                                <p>50% - Progress</p>
-                                                <button>Continue</button>
-                                                <i class="fab fa-css3-alt css"></i>
-                                            </div>
-                                            <div class="box">
-                                                <h3>JavaScript</h3>
-                                                <p>30% - Progress</p>
-                                                <button>Continue</button>
-                                                <i class="fab fa-js-square js"></i>
-                                            </div>
-                                            <div class="box">
-                                                <h3>Apex</h3>
-                                                <p>30% - Progress</p>
-                                                <button>Continue</button>
-                                                <i class="fas fa-code"></i>
-                                            </div>
-                                            <!-- Trigger Course -->
-                                            <div class="box">
-                                                <h3>Trigger</h3>
-                                                <p>25% - Progress</p>
-                                                <button>Continue</button>
-                                                <i class="fas fa-bolt"></i>
-                                            </div>
-                
-                                        </div>
-                                    </div>
-                                </section>
-                            </section>
-                        </div>
-                        
-                        </template>
+                                    <ul>
 
-                        <template if:true={showProfile}>
-                            
-                            <div class="inner-page">
-                                <div class="proContainer">
-                                <section class="userProfile card">
-                                    <div class="profile">
-                                        <figure><img src="profile.png" alt="profile" width="250px" height="250px"></figure>
-                                    </div>
-                                </section>
-                        
-                        
-                                <!-- ===== ===== Work & Skills Section ===== ===== -->
-                                <section class="work_skills card">
-                        
-                                    <!-- ===== ===== Work Contaienr ===== ===== -->
-                                    <div class="work">
-                                        <h1 class="heading">Education</h1>
-                                        <div class="primary">
-                                            <h1>School Name</h1>
-                                            <span>Intermediate</span>
-                                            <p>City<br> State</p>
-                                        </div>
-                        
-                                        <div class="secondary">
-                                            <h1>College Name <br> Session</h1>
-                                            <span>Graduation</span>
-                                            <p>City <br> State</p>
-                                        </div>
-                                    </div>
-                        
-                                    <!-- ===== ===== Skills Contaienr ===== ===== -->
-                                    <div class="skills">
-                                        <h1 class="heading">Skills</h1>
-                                        <ul>
-                                            <li style="--i:0">Apex</li>
-                                            <li style="--i:1">LWC</li>
-                                            <li style="--i:2">Admin</li>
-                                            <li style="--i:3">---</li>
-                                        </ul>
-                                    </div>
-                                </section>
-                        
-                        
-                                <!-- ===== ===== User Details Sections ===== ===== -->
-                                <section class="userDetails card">
-                                    <div class="userName">
-                                        <h1 class="name">Name(field)</h1>
-                                        <div class="map">
-                                            <i class="ri-map-pin-fill ri"></i>
-                                            <span>Current_Address_c</span>
-                                        </div>
-                                        <p>Fresher</p>
-                                    </div>
-                        
-                                    <div class="rank">
-                                        <h1 class="heading">Email</h1>
-                                        <span>Email__c</span>
+                                        <li><a href="#">Setting</a></li>
+                                        <li><a href="#">Help</a></li>
+                                        <li><a onclick={clickCourse}>Coursec</a></li>
+                                        <li><a onclick={clickJobs}>Jobs</a></li>
+
+                                        <span>
+                                            <lightning-input class="Search" type="search" name="Search"
+                                                placeholder="Search here" id="searchBox"></lightning-input>
+                                        </span>
+
+
                                         
-                                    </div>
-                        
-                                    <div class="btns">
-                                        <ul>
-                                            <li class="sendMsg">
-                                                <i class="ri-chat-4-fill ri"></i>
-                                                <a href="#">Linkedin</a>
-                                            </li>
-                        
-                                            <li class="sendMsg active">
-                                                <i class="ri-check-fill ri"></i>
-                                                <a href="#">Verified</a>
-                                            </li>
-                        
-                                            <li class="sendMsg">
-                                                <a href="#">Github</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </section>
-                        
-                        
-                               
-                                <section class="timeline_about card">
-                                    <div class="tabs">
-                                        <ul>
-                                            <li class="timeline">
-                                                <i class="ri-eye-fill ri"></i>
-                                                <span>Timeline</span>
-                                            </li>
-                        
-                                            <li class="about active">
-                                                <i class="ri-user-3-fill ri"></i>
-                                                <span>About</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                        
-                                    <div class="contact_Info">
-                                        <h1 class="heading">Contact Information</h1>
-                                        <ul>
-                                            <li class="phone">
-                                                <h1 class="label">Phone:</h1>
-                                                <span class="info"></span>
-                                            </li>
-                        
-                                            <li class="address">
-                                                <h1 class="label">Address:</h1>
-                                                <span class="info"><br></span>
-                                            </li>
-                        
-                                            <li class="email">
-                                                <h1 class="label">E-mail:</h1>
-                                                <span class="info"></span>
-                                            </li>
-                        
-                                            <li class="site">
-                                                <h1 class="label">College</h1>
-                                                <span class="info"></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                        
-                                    <div class="basic_info">
-                                        <h1 class="heading">Basic Information</h1>
-                                        <ul>
-                                            <li class="birthday">
-                                                <h1 class="label">Birthday:</h1>
-                                                <span class="info"></span>
-                                            </li>
-                        
-                                            <li class="sex">
-                                                <h1 class="label">Gender:</h1>
-                                                <span class="info"></span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </section>
-                            
-                            </div>
-                        </div>
 
-                        </template>
-                        <template if:false={showProfile}>
 
-                        </template>
-                    
-                        <template if:true={showInternship}>
-                            <div class="inner-page">
-
-                                <div class="auto-typing">
-                                    <p id="typing-text" class="typing-text"></p>
-                                    
+                                    </ul>
                                 </div>
-
-                                <div class="Select">
-                                    <div class="slds-form-element">
-                                      <label class="slds-form-element__label" for="select-01">Select Role</label>
-                                      <div class="slds-form-element__control">
-                                      <div class="slds-select_container">
-                                      <select class="slds-select" id="select-01">
-                                      <option value="">Select…</option>
-                                      <option>Developer Role</option >
-                                      <option>Consultant Role</option>
-                                      <option>Admin Role</option>
-                                      </select>
-                                      </div>
-                                      </div>
-                                      </div>
-                                  </div>
-                                
-
-
-                                  
-                              <div class="photo">
-               <img src={intern} alt="Intern Photo" height="200" width="450">
-                              </div>
-                              <br>
-              <div class = "Internship Section">
-
-                <div class="demo-only" style="width:30rem">
-                    <article class="slds-tile slds-hint-parent">
-                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                    <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
-                    <a href="#">Salesforce Developer Role</a>
-                    </h3>
-
-                    <div class="slds-shrink-none">
-                    
-                    </div>
-                    </div>
-                    <div class ="Section ">
-                    <div class="slds-tile__detail">
-                    <dl class="slds-list_horizontal slds-wrap">
-                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Developer Role:</dt>
-                    <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
-                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
-                    <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
-                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
-                    <dd class="slds-item_detail slds-truncate" title="Description for second label">5LPA</dd>
-                    <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
-                    </dl>
-                </div>
-                    </div>
-                    </article>
-                    </div>
-
-                    <div style="background-color:#073c8c;padding:0.3rem">
-                        
-                      </div>
-
-
-                      <div class="demo-only" style="width:30rem">
-                        <article class="slds-tile slds-hint-parent">
-                        <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                        <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
-                        <a href="#">Salesforce Admin Role</a>
-                        </h3>
-    
-                        <div class="slds-shrink-none">
-                        
-                        </div>
-                        </div>
-                        <div class ="Section ">
-                        <div class="slds-tile__detail">
-                        <dl class="slds-list_horizontal slds-wrap">
-                        <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Admin Role:</dt>
-                        <dd class="slds-item_detail slds-truncate" title="Description for first label">Fresher</dd>
-                        <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
-                        <dd class="slds-item_detail slds-truncate" title="Description for second label">Delhi</dd>
-                        <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
-                        <dd class="slds-item_detail slds-truncate" title="Description for second label">4LPA</dd>
-                        <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
-                        </dl>
-                    </div>
-                        </div>
-                        </article>
-                        </div>
-    
-                        <div style="background-color:#073c8c;padding:0.3rem">
-                           
-                          </div>
-    
-                          <div class="demo-only" style="width:30rem">
-                            <article class="slds-tile slds-hint-parent">
-                            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-                            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
-                            <a href="#">Salesforce Consultant Role</a>
-                            </h3>
-        
-                            <div class="slds-shrink-none">
-                            
-                            </div>
-                            </div>
-                            <div class ="Section ">
-                            <div class="slds-tile__detail">
-                            <dl class="slds-list_horizontal slds-wrap">
-                            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Consultant Role:</dt>
-                            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
-                            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
-                            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
-                            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
-                            <dd class="slds-item_detail slds-truncate" title="Description for second label">8LPA</dd>
-                            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
-                            </dl>
-                        </div>
-                            </div>
-                            </article>
-                            </div>
-        
-                            <div style="background-color:#073c8c;padding:0.3rem">
-                               
-                              </div>
-
-                              
-                            <div class="Button-Apply">
-                            <div style="background-color:#07426e; padding:0.5rem ">
-                                <button class="slds-button slds-button_inverse">Apply</button>
-                                </div>
-
-                            </div>
-
-
-
-
-                   </div>
-
-
-
-                            </div>
-                        </template>
-                        <template if:false={showInternship}>
-                            
-                        </template>
-                    
-                        <template if:true={showTasks}>
-                            <div class="inner-page">
-                                <div class="table-data">
-                                    <div class="order">
-                                        <div class="head">
-                                            <h3>Tasks</h3>
-                                        </div>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th>Task</th>
-                                                    <th> Due Date </th>
-                                                    <th>Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <template for:each={taskReminders} for:item="task">
-                                                    <tr key={task.Id}>
-                                                        <td>{task.Name}</td>
-                                                        <td style="color: #142846;">{task.Due_Date__c}</td>
-                                                        
-                                                        <td style="color: #FB174F;"><lightning-input type="checkbox" label="Completed" checked="True" onchange={handleTaskCompletion}></lightning-input> </td>
-                                                    </tr>
-                                                </template>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </template>
-
-                            
-                       
-                        <template if:false={showTasks}>
-                            
-                        </template>
-                    
-                        <template if:true={showApplication}>
-                            <div class="inner-page">
-                                
-                                <div class="details">
-                                    <div class="internStatus">
-                                        <div class="cardHeader">
-                                            <h2>Apply Status</h2>
-                                            <a href="#" class="btn">View All</a>
-                                        </div>
-                    
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <td>Internship</td>
-                                                    <td>Mode</td>
-                                                    <td>Date Applied</td>
-                                                    <td>Status</td>
-                                                </tr>
-                                            </thead>
-                    
-                                            <tbody>
-                                                <tr>
-                                                    <td>AppyNtern Summer Internship 2024</td>
-                                                    <td> Online</td>
-                                                    <td> 13/5/24</td>
-                                                    <td><span class="status select">Accepted</span></td>
-                                                </tr>
-                    
-                                                <tr>
-                                                    <td>AppynTern Industrial Training 2024</td>
-                                                    <td> Offline</td>
-                                                    <td>18/5/24</td>
-                                                    <td><span class="status pending">Pending</span></td>
-                                                </tr>
-                    
-                                                <tr>
-                                                    <td>AppynTern Winter Training 2023</td>
-                                                    <td> Online</td>
-                                                    <td>19/12/23</td>
-                                                    <td><span class="status reject">Rejected</span></td>
-                                                </tr>
-                    
-                                                <tr>
-                                                    <td>AppynTern Campus Training 2024</td>
-                                                    <td>Online</td>
-                                                    <td>1/04/24</td>
-                                                    <td><span class="status inProgress">Ongoing</span></td>
-                                                </tr>
-                    
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    
-                                    <div class="finishedInternships">
-                                        <div class="cardHeader">
-                                            <h2>Finished Internships</h2>
-                                        </div>
-                    
-                                        <table>
-                                            <tr>
-                                                <td width="60px">
-                                                    <div class="imgBx"><lightning-icon icon-name="utility:download" size="small" alternative-text="Download"></lightning-icon>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <h4> AppynTern Summer Training 2023 <br> <span>2023</span></h4>
-                                                </td>
-                                            </tr>
-                    
-                                            
-                                               
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                                
-                                
-
-
-                               
-                                
-                            
-                   
-                   
-                   
-
-
-                        </template>
-                        <template if:false={showApplication}>
-                            
-                        </template>
-                    
-                        <template if:true={showFeedback}>
-                            <div class="inner-page">
-                                <div class="slds-grid">
-                                    <div class="slds-col slds-size_1-of-2">
-                                        <lightning-card title="Feedback & Support" icon-name="action:feedback">
-                                            <div class="slds-card__body slds-text-color_default">
-                                                <lightning-input type="email" label="Your Email" value={email} onchange={handleEmailChange}></lightning-input>
-                                                <lightning-input type="text" label="Subject" value={subject} onchange={handleSubjectChange}></lightning-input>
-                                                <lightning-textarea label="Description" value={description} onchange={handleDescriptionChange}></lightning-textarea>
-                                                <div class="slds-m-top_medium">
-                                                    <label for="screenshot">Screenshot (if available): </label>
-                                                    <input type="file" id="screenshot" name="screenshot" margin-top = "20px" accept="image/png, image/jpeg">
-                                                </div>
-                                
-                                                <lightning-button label="Submit" onclick={handleSubmit} class="slds-m-top_medium" margin-top = "20px"></lightning-button>
-                                            </div>
-                                        </lightning-card>
-                                    </div>
-                                    <div class="slds-col slds-size_1-of-2">
-                                        <img src="https://i.imgur.com/VCkeUCB.png" alt="support illustration" class="imageStyle"  height="200"  width="600"/>
-                                    </div>
-                                </div>
-                           </div>
-                            </div>
-                        </template>
-                        <template if:false={showFeedback}>
-                            
-                        </template>
-                    
-                        <template if:true={showJobs}>
-                            <div class="inner-page">
-                              
-                                <div class="auto-typing">
-                                    <p id="typing-text1" class="typing-text"></p>
-                                    
-                                </div>
-
-
-                                <div class="photo">
-                                    <img src={jobappy} alt="job Photo" height="100" width="450">
-                                  
-                                                </div>
-     
-<lightning-accordion class="accordian"
-    onsectiontoggle={clickHandler}
-    active-section-name="A">
-    <div style="background-color:#16325c;padding:0.2rem" ></div>
-
-    <lightning-accordion-section name="A" label="Salesforce Developer Job">
-        <div class="demo-only" style="width:30rem">
-            <article class="slds-tile slds-hint-parent">
-            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
-            <a href="#">Salesforce Developer Role</a>
-            </h3>
-
-            <div class="slds-shrink-none">
-            
-            </div>
-            </div>
-            <div class ="Section ">
-            <div class="slds-tile__detail">
-            <dl class="slds-list_horizontal slds-wrap">
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Developer Role:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">5LPA</dd>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
-            </dl>
-        </div>
-            </div>
-            </article>
-            </div>
-            <br>
-            <button class="slds-button slds-button_success">Apply</button>
-    </lightning-accordion-section>
-    <lightning-accordion-section name="B" label="Salesforce Admin Job">
-        <div class="demo-only" style="width:30rem">
-            <article class="slds-tile slds-hint-parent">
-            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
-            <a href="#">Salesforce Admin Role</a>
-            </h3>
-
-            <div class="slds-shrink-none">
-            
-            </div>
-            </div>
-            <div class ="Section ">
-            <div class="slds-tile__detail">
-            <dl class="slds-list_horizontal slds-wrap">
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Admin Role:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">4LPA</dd>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
-            </dl>
-        </div>
-            </div>
-            </article>
-            </div>
-            <br>
-            <button class="slds-button slds-button_success">Apply</button>
-
-
-
-
-    </lightning-accordion-section>
-
-    <lightning-accordion-section name="C" label="Salesforce Consultant Job">
-
-        <div class="demo-only" style="width:30rem">
-            <article class="slds-tile slds-hint-parent">
-            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
-            <a href="#">Salesforce Consultant Role</a>
-            </h3>
-
-            <div class="slds-shrink-none">
-            
-            </div>
-            </div>
-            <div class ="Section ">
-            <div class="slds-tile__detail">
-            <dl class="slds-list_horizontal slds-wrap">
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Consultant Role:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">9LPA</dd>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
-            </dl>
-        </div>
-            </div>
-            </article>
-            </div>
-            <br>
-            <button class="slds-button slds-button_success">Apply</button>
-            
-
-
-    </lightning-accordion-section>
-</lightning-accordion>
-
-<lightning-accordion class="accordian"
-    onsectiontoggle={clickHandler}
-    active-section-name="A">
-    <lightning-accordion-section name="A" label="Salesforce Administrator Job">
-        <div class="demo-only" style="width:30rem">
-            <article class="slds-tile slds-hint-parent">
-            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
-            <a href="#">Salesforce Developer Role</a>
-            </h3>
-
-            <div class="slds-shrink-none">
-            
-            </div>
-            </div>
-            <div class ="Section ">
-            <div class="slds-tile__detail">
-            <dl class="slds-list_horizontal slds-wrap">
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Administrator Role:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Mumbai</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">7LPA</dd>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
-            </dl>
-        </div>
-            </div>
-            </article>
-            </div>
-            <br>
-            <button class="slds-button slds-button_success">Apply</button>
-            <div style="background-color:#16325c;padding:0.2rem" ></div>
-
-    </lightning-accordion-section>
-    <lightning-accordion-section name="B" label="Salesforce Admin Job">
-        <div class="demo-only" style="width:30rem">
-            <article class="slds-tile slds-hint-parent">
-            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
-            <a href="#">Salesforce Architect Role</a>
-            </h3>
-
-            <div class="slds-shrink-none">
-            
-            </div>
-            </div>
-            <div class ="Section ">
-            <div class="slds-tile__detail">
-            <dl class="slds-list_horizontal slds-wrap">
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Architect Role:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">8LPA</dd>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
-            </dl>
-        </div>
-            </div>
-            </article>
-            </div>
-            <br>
-            <button class="slds-button slds-button_success">Apply</button>
-            <div style="background-color:#16325c;padding:0.2rem" ></div>
-
-    </lightning-accordion-section>
-
-    <lightning-accordion-section name="C" label="Salesforce Consultant Job">
-
-        <div class="demo-only" style="width:30rem">
-            <article class="slds-tile slds-hint-parent">
-            <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
-            <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
-            <a href="#">Salesforce Consultant Role</a>
-            </h3>
-
-            <div class="slds-shrink-none">
-            
-            </div>
-            </div>
-            <div class ="Section ">
-            <div class="slds-tile__detail">
-            <dl class="slds-list_horizontal slds-wrap">
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Consultant Role:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for first label">Experienced</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Location:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Bangalore</dd>
-            <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Expected Salary:</dt>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">9LPA</dd>
-            <dd class="slds-item_detail slds-truncate" title="Description for second label">Full-Time</dd>
-            </dl>
-        </div>
-            </div>
-            </article>
-            </div>
-            <br>
-            <button class="slds-button slds-button_success">Apply</button>
-            <div style="background-color:#16325c;padding:0.2rem" ></div>
-
-    </lightning-accordion-section>
-</lightning-accordion>
-
-                            
- 
-
-                            </div>
-
-                        </template>
-                        <template if:false={showJobs}>
-                            
-                        </template>
-
-                        <template if:true={showCourse}>
-                            <div class="inner-page">
-                           
-                            <lightning-accordion class=""
-                                onsectiontoggle={clickHandler}
-                                active-section-name="A">
-                                <lightning-accordion-section name="A" label="Development Course">
-                                    <div style="background-color:#96a4b9;padding:0.3rem">
-                                    </div>
-                                    <div class="course-box">
-                                    <div class="course">
-                                        <div class="box">
-                                            <h3>HTML</h3>
-                                            <p>130 Hrs</p>
-                                            <p>6 Weeks , 4 Mock Test</p>
-                                            <p>1 Project</p>
-                                            <button>Enrol Now</button>
-                                            <i class="fab fa-html5 html"></i>
-                                        </div>
-                                        <div class="box">
-                                            <h3>CSS</h3>
-                                            <p>130 Hrs</p>
-                                            <p>5 Weeks , 4 Mock Test</p>
-                                            <p>1 Project</p>
-                                            <button>Enrol Now</button>
-                                            <i class="fab fa-css3-alt css"></i>
-                                        </div>
-                                        <div class="box">
-                                            <h3>JavaScript</h3>
-                                            <p>150 Hrs</p>
-                                            <p>5 Weeks , 4 Mock Test</p>
-                                            <p>1 Project</p>
-                                            <button>Enrol Now</button>
-                                            <i class="fab fa-js-square js"></i>
-                                        </div>
-                                        <div class="box">
-                                            <h3>Apex</h3>
-                                            <p>130 Hrs</p>
-                                            <p>5 Weeks , 4 Mock Test</p>
-                                            <p>1 Project</p>
-                                            <button>Enrol Now</button>
-                                            <i class="fas fa-code"></i>
-                                        </div>
-                                        <!-- Trigger Course -->
-                                        <div class="box">
-                                            <h3>LWC</h3>
-                                            <p>150 Hrs</p>
-                                            <p>8 Weeks , 7 Mock Test</p>
-                                            <p>1 Project</p>
-                                            <button>Enrol Now</button>
-                                            <i class="fas fa-bolt"></i>
-                                        </div>
-                                    </div>
-                                    </div>
-                                        
-                                </lightning-accordion-section>
-                                <lightning-accordion-section name="B" label="Admin Course">
-                                    <div style="background-color:#96a4b9;padding:0.3rem">
-                                    </div>
-                                    <div class="course-box">
-                                        <div class="course">
-                                            <div class="box">
-                                                <h3>Data Management</h3>
-                                                <p>130 Hrs</p>
-                                                <p>7 Weeks , 4 Mock Test</p>
-                                                <button>Enrol Now</button>
-                                                <i class="fab fa-html5 html"></i>
-                                            </div>
-                                            <div class="box">
-                                                <h3>User Management</h3>
-                                                <p>130 Hrs</p>
-                                                <p>7 Weeks , 4 Mock Test</p>
-                                                <button>Enrol Now</button>
-                                                <i class="fab fa-css3-alt css"></i>
-                                            </div>
-                                            <div class="box">
-                                                <h3>Product Management</h3>
-                                                <p>140 Hrs</p>
-                                                <p>5 Weeks , 4 Mock Test</p>
-                                                <button>Enrol Now</button>
-                                                <i class="fab fa-js-square js"></i>
-                                            </div>
-                                            <div class="box">
-                                                <h3>Flow</h3>
-                                                <p>120 Hrs</p>
-                                                <p>4 Weeks , 4 Mock Test</p>
-                                                <button>Enrol Now</button>
-                                                <i class="fas fa-code"></i>
-                                            </div>
-                                            <!-- Trigger Course -->
-                                            <div class="box">
-                                                <h3>Trigger</h3>
-                                                <p>110 Hrs</p>
-                                                <p>6 Weeks , 6 Mock Test</p>
-                                                <button>Enrol Now</button>
-                                                <i class="fas fa-bolt"></i>
-                                            </div>
-                                        </div>
-                                        </div>
-                                </lightning-accordion-section>
-                            
-                                <lightning-accordion-section name="C" label="Consultant Course">
-                                    <div style="background-color:#96a4b9;padding:0.3rem">
-                                    </div>
-                                    <div class="course-box">
-                                        <div class="course">
-                                            <div class="box">
-                                                <h3>Marketing Cloud Consultant</h3>
-                                                <p>110 Hrs</p>
-                                                <p>6 Weeks , 6 Mock Test</p>
-                                                <button>Enrol Now</button>
-                                                <i class="fab fa-html5 html"></i>
-                                            </div>
-                                            <div class="box">
-                                                <h3>Service Cloud Consultant</h3>
-                                                <p>120 Hrs</p>
-                                                <p>6 Weeks , 4 Mock Test</p>
-                                                <button>Enrol Now</button>
-                                                <i class="fab fa-css3-alt css"></i>
-                                            </div>
-                                            <div class="box">
-                                                <h3>Sales Cloud</h3>
-                                                <p>120 Hrs</p>
-                                                <p>4 Weeks , 4 Mock Test</p>
-                                                <button>Enrol Now</button>
-                                                <i class="fab fa-js-square js"></i>
-                                            </div>
-                                            <div class="box">
-                                                <h3> Project management</h3>
-                                                <p>140 Hrs</p>
-                                                <p>7 Weeks , 4 Mock Test</p>
-                                                <button>Enrol Now</button>
-                                                <i class="fas fa-code"></i>
-                                            </div>
-                                            <!-- Trigger Course -->
-                                            <div class="box">
-                                                <h3>Commerce Cloud</h3>
-                                                <p>140 Hrs</p>
-                                                <p>7 Weeks , 4 Mock Test</p>
-                                                <button>Enrol Now</button>
-                                                <i class="fas fa-bolt"></i>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        
-                                </lightning-accordion-section>
-                            </lightning-accordion>
-
-                        </div>
-                        </template>
-                        <template if:false={showCourse}>
-                        </template>
-
-                    </div>
-                    
-                    <div class="slds-grid slds-wrap">
-                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
-                          <img src={craft} alt="craft">
-                        </div>
-                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
-                            <img src={crafting} alt="photo dashboard">
-                        </div>
-                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
-                            <img src={home} alt="clicking">
-                        </div>
-                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
-                            <img src={homes} alt="imagesclick">
-                          
-                        </div>
-                      </div>
-                   
-                        <div class="dashboard-container">
-                            <header class="header">
-                                <h1>  Welcome to Your Dashboard</h1>
-                                <p>  Our aim is to make meaningful connections to fill gap with the leading practices, trust, Innovation and, customer success..</p>
-                            </header>
-                    
-                            <nav class="navigation">
-                                <ul>
-                                    <li><a href="#main-content">Jump to Main Content</a></li>
-                                    <!-- Add other navigation links as needed -->
-                                </ul>
+                                <button class="nav-item" onclick={clickLogout}>Log out</button>
                             </nav>
-                    
-                            <main id="main-content" class="main-content">
-                                <h2>Main Content</h2>
-                              <p>
-                                AppyCrown: Your trusted Salesforce Consulting Partner delivering reliable consulting services.
-                
-                                 We are a team of highly expertise and experience in Salesforce which has enabled us to implement and support various business use cases in the Sales, Service, Experience, and Marketing Clouds.
-                
-                                At AppyCrown Private Limited, our team diligently adheres to all Salesforce best practices, guided by Salesforce MVP Om Prakash, who serves as our Founder, CEO, and Technical Architect.
-                
-                               Our aim is to make meaningful connections to fill gap with the leading practices, trust, Innovation and, customer success.
-                              </p>
-                            </main>
-                    
-                            <footer class="footer">
-                                <div class="footer-links">
-                                    <a href="#">About </a>
-                                    <a href="#">Candidate Dashboard</a>
-                                    <a href="#">Download the App AppyNtern</a>
-                                    <!-- Add more footer links as needed -->
-                                </div>
-                                <div class="footer-social">
-                                    <a href="#" class="social-link"><img src={instagramicon} alt="Instagram Icon"></a>
-                                    <a href="#" class="social-link"><img src={twittericon} alt="Twitter Icon"></a>
-                                    <a href="#" class="social-link"><img src={pineresticon} alt="Pinterest Icon"></a>
-                                    <a href="#" class="social-link"><img src={facebookicon} alt="Facebook Icon"></a>
-                                    <a href="https://www.linkedin.com/company/appycrown-private-limited/mycompany/verification/" class="social-link"><img src={likedinicon} alt="LinkedIn Icon"></a>
-                                    <!-- Replace image src with actual icon URLs or use icon font libraries -->
-                                </div>
-                                <div class="copyright">
-                                    <p>&copy; 2024 AppyNtern. All rights reserved.</p>
-                                </div>
-                            </footer>
                         </div>
+
+                        <div class="dashboard">
+                            <div class="sidebar">
+                                <ul>
+                                    <li>
+                                        <div class="button-wrapper">
+                                            <img src={homeimage} alt="Home Icon" class="icon">
+                                            <button class="nav-item" onclick={clickHome}>Home</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="button-wrapper">
+                                            <img src={profile} alt="Profile Icon" class="icon">
+                                            <button class="nav-item" onclick={clickProfile}>Profile</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="button-wrapper">
+                                            <img src={internship} alt="Internship Icon" class="icon">
+                                            <button class="nav-item" onclick={clickInternship}>Internship</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="button-wrapper">
+                                            <img src={task} alt="Tasks Icon" class="icon">
+                                            <button class="nav-item" onclick={clickTasks}>Tasks</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="button-wrapper">
+                                            <img src={application} alt="Application Icon" class="icon">
+                                            <button class="nav-item" onclick={clickApplication}>Application Management</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="button-wrapper">
+                                            <img src={feedback} alt="Feedback Icon" class="icon">
+                                            <button class="nav-item" onclick={clickFeedback}>Feedback and Support</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!--App inner pages-->
+                            <template if:true={showHome}>
+                                <div class="inner-page">
+                                    <section class="main">
+                                        <div class="main-top">
+
+                                        </div>
+
+                                        <div class="user-profile">
+                                            <div class="profile-image">
+                                                <img src={dashboard} alt="User Image">
+                                            </div>
+
+                                            <template if:true={candidate}>
+                                                <div class="profile-details">
+
+                                          <strong><h2>{candidate.Name}</h2></strong>
+                                          <p>Email: {candidate.Email_ID__c}</p>
+
+
+
+
+
+                                                    <p>Location: India</p>
+
+                                                    <button onclick={editProfile}>Edit Profile</button>
+                                                </div>
+                                            </template>
+
+                                            <img src={logophoto} alt="LogoAppy" height="200" width="600">
+                                        </div>
+                                        <div class="main-skills">
+                                            <div class="card">
+                                                <i class="fas fa-laptop-code"></i>
+                                                <h3>Admin Part</h3>
+                                                <p>Salesforce.</p>
+                                                <button>Get Started</button>
+                                            </div>
+
+                                            <div class="card">
+                                                <i class="fab fa-wordpress"></i>
+                                                <h3>Developer Part</h3>
+                                                <p>Salesforce.</p>
+                                                <button>Get Started</button>
+                                            </div>
+                                            <div class="card">
+                                                <i class="fas fa-palette"></i>
+                                                <h3>Trigger Part</h3>
+                                                <p>Salesforce.</p>
+                                                <button>Get Started</button>
+                                            </div>
+                                            <div class="card">
+                                                <i class="fab fa-app-store-ios"></i>
+                                                <h3>Lightning Wave Component</h3>
+                                                <p>Salesforce.</p>
+                                                <button>Get Started</button>
+                                            </div>
+
+
+
+                                            <div class="grid-container">
+                                                <div class="grid-item">
+                                                    <span> Recommendation</span>
+                                                    <lightning-carousel disable-auto-scroll>
+                                                        <template for:each={slides} for:item="slide">
+                                                            <lightning-carousel-image key={slide.id}
+                                                                src={slide.imageUrl} header={slide.language}
+                                                                description={slide.description}></lightning-carousel-image>
+                                                        </template>
+                                                    </lightning-carousel>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <section class="main-course">
+                                            <h1>My courses</h1>
+                                            <div class="course-box">
+                                                <ul>
+                                                    <li class="active">In progress</li>
+                                                    <li>Explore</li>
+                                                    <li>Incoming</li>
+                                                    <li>Finished</li>
+                                                </ul>
+                                                <div class="course">
+                                                    <div class="box">
+                                                        <h3>HTML</h3>
+                                                        <p>80% - Progress</p>
+                                                        <button>Continue</button>
+                                                        <i class="fab fa-html5 html"></i>
+                                                    </div>
+                                                    <div class="box">
+                                                        <h3>CSS</h3>
+                                                        <p>50% - Progress</p>
+                                                        <button>Continue</button>
+                                                        <i class="fab fa-css3-alt css"></i>
+                                                    </div>
+                                                    <div class="box">
+                                                        <h3>JavaScript</h3>
+                                                        <p>30% - Progress</p>
+                                                        <button>Continue</button>
+                                                        <i class="fab fa-js-square js"></i>
+                                                    </div>
+                                                    <div class="box">
+                                                        <h3>Apex</h3>
+                                                        <p>30% - Progress</p>
+                                                        <button>Continue</button>
+                                                        <i class="fas fa-code"></i>
+                                                    </div>
+                                                    <!-- Trigger Course -->
+                                                    <div class="box">
+                                                        <h3>Trigger</h3>
+                                                        <p>25% - Progress</p>
+                                                        <button>Continue</button>
+                                                        <i class="fas fa-bolt"></i>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </section>
+                                </div>
+
+                            </template>
+
+                            <template if:true={showProfile}>
+
+                                <div class="inner-page">
+                                    <div class="proContainer">
+                                        <section class="userProfile card">
+                                            <div class="profile">
+                                                <figure><img src="profile.png" alt="profile" width="250px"
+                                                        height="250px"></figure>
+                                            </div>
+                                        </section>
+
+
+                                        <!-- ===== ===== Work & Skills Section ===== ===== -->
+                                        <section class="work_skills card">
+
+                                            <!-- ===== ===== Work Contaienr ===== ===== -->
+                                            <div class="work">
+                                                <h1 class="heading">Education</h1>
+                                                <div class="primary">
+                                                    <h1>School Name</h1>
+                                                    <span>Intermediate</span>
+                                                    <p>City<br> State</p>
+                                                </div>
+
+                                                <div class="secondary">
+                                                    <h1>College Name <br> Session</h1>
+                                                    <span>Graduation</span>
+                                                    <p>City <br> State</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- ===== ===== Skills Contaienr ===== ===== -->
+                                            <div class="skills">
+                                                <h1 class="heading">Skills</h1>
+                                                <ul>
+                                                    <li style="--i:0">Apex</li>
+                                                    <li style="--i:1">LWC</li>
+                                                    <li style="--i:2">Admin</li>
+                                                    <li style="--i:3">---</li>
+                                                </ul>
+                                            </div>
+                                        </section>
+
+
+                                        <!-- ===== ===== User Details Sections ===== ===== -->
+                                        <section class="userDetails card">
+                                            <div class="userName">
+                                                <h1 class="name">Name(field)</h1>
+                                                <div class="map">
+                                                    <i class="ri-map-pin-fill ri"></i>
+                                                    <span>Current_Address_c</span>
+                                                </div>
+                                                <p>Fresher</p>
+                                            </div>
+
+                                            <div class="rank">
+                                                <h1 class="heading">Email</h1>
+                                                <span>Email__c</span>
+
+                                            </div>
+
+                                            <div class="btns">
+                                                <ul>
+                                                    <li class="sendMsg">
+                                                        <i class="ri-chat-4-fill ri"></i>
+                                                        <a href="#">Linkedin</a>
+                                                    </li>
+
+                                                    <li class="sendMsg active">
+                                                        <i class="ri-check-fill ri"></i>
+                                                        <a href="#">Verified</a>
+                                                    </li>
+
+                                                    <li class="sendMsg">
+                                                        <a href="#">Github</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </section>
+
+
+
+                                        <section class="timeline_about card">
+                                            <div class="tabs">
+                                                <ul>
+                                                    <li class="timeline">
+                                                        <i class="ri-eye-fill ri"></i>
+                                                        <span>Timeline</span>
+                                                    </li>
+
+                                                    <li class="about active">
+                                                        <i class="ri-user-3-fill ri"></i>
+                                                        <span>About</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="contact_Info">
+                                                <h1 class="heading">Contact Information</h1>
+                                                <ul>
+                                                    <li class="phone">
+                                                        <h1 class="label">Phone:</h1>
+                                                        <span class="info"></span>
+                                                    </li>
+
+                                                    <li class="address">
+                                                        <h1 class="label">Address:</h1>
+                                                        <span class="info"><br></span>
+                                                    </li>
+
+                                                    <li class="email">
+                                                        <h1 class="label">E-mail:</h1>
+                                                        <span class="info"></span>
+                                                    </li>
+
+                                                    <li class="site">
+                                                        <h1 class="label">College</h1>
+                                                        <span class="info"></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="basic_info">
+                                                <h1 class="heading">Basic Information</h1>
+                                                <ul>
+                                                    <li class="birthday">
+                                                        <h1 class="label">Birthday:</h1>
+                                                        <span class="info"></span>
+                                                    </li>
+
+                                                    <li class="sex">
+                                                        <h1 class="label">Gender:</h1>
+                                                        <span class="info"></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </section>
+
+                                    </div>
+                                </div>
+
+                            </template>
+                            <template if:false={showProfile}>
+
+                            </template>
+
+                            <template if:true={showInternship}>
+                                <div class="inner-page">
+
+                                    <div class="auto-typing">
+                                        <p id="typing-text0" class="typing-text"></p>
+
+                                    </div>
+
+                                    <div class="Select">
+                                        <div class="slds-form-element">
+                                            <label class="slds-form-element__label" for="select-01">Select Role</label>
+                                            <div class="slds-form-element__control">
+                                                <div class="slds-select_container">
+                                                    <select class="slds-select" id="select-01">
+                                                        <option value="">Select…</option>
+                                                        <option>Developer Role</option>
+                                                        <option>Consultant Role</option>
+                                                        <option>Admin Role</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="photo">
+                                        <img src={intern} alt="Intern Photo" height="200" width="450">
+                                    </div>
+                                    <br>
+                                    <div class="Internship Section">
+
+                                        <div class="demo-only" style="width:30rem">
+                                            <article class="slds-tile slds-hint-parent">
+                                                <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                                    <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                                                        <a href="#">Salesforce Developer Role</a>
+                                                    </h3>
+
+                                                    <div class="slds-shrink-none">
+
+                                                    </div>
+                                                </div>
+                                                <div class="Section ">
+                                                    <div class="slds-tile__detail">
+                                                        <!-- <dl class="slds-list_horizontal slds-wrap"></dl> -->
+                                                        <template for:each={internshiprecord} for:item="currentItem"
+                                                            for:index="index">
+                                                            <dl class="slds-list_horizontal slds-wrap"
+                                                                key={currentItem.Id}>
+
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="First Label">Role:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for first label">
+                                                                    {currentItem.Name}</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">Location:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Location__c}</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">START DATE:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Created_On__c}</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">DURATION:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Duration__c} / Months</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">STIPEND:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Stipend__c}</dd>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">Full-Time</dd>
+                                                                <br>
+                                                                <div class="buttons-internship">
+                                                                    <lightning-button variant="brand"
+                                                                        label="View Details"
+                                                                        onclick={viewInternshipDetails}></lightning-button>
+                                                                    <lightning-button variant="brand" label="Apply"
+                                                                        onclick={applyInternship}></lightning-button>
+                                                                </div>
+                                                                <div
+                                                                    style="background-color:#073c8c;padding:0.3rem; width:100%">
+
+                                                                </div>
+                                                            </dl>
+                                                        </template>
+                                                        <!-- </dl> -->
+                                                    </div>
+                                                </div>
+
+                                            </article>
+                                        </div>
+
+
+
+
+                                        <div class="demo-only" style="width:30rem">
+                                            <article class="slds-tile slds-hint-parent">
+                                                <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                                    <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                                                        <a href="#">Salesforce Developer Role</a>
+                                                    </h3>
+
+                                                    <div class="slds-shrink-none">
+
+                                                    </div>
+                                                </div>
+                                                <div class="Section ">
+                                                    <div class="slds-tile__detail">
+                                                        <!-- <dl class="slds-list_horizontal slds-wrap"></dl> -->
+                                                        <template for:each={internshiprecord} for:item="currentItem"
+                                                            for:index="index">
+                                                            <dl class="slds-list_horizontal slds-wrap"
+                                                                key={currentItem.Id}>
+
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="First Label">Role:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for first label">
+                                                                    {currentItem.Name}</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">Location:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Location__c}</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">START DATE:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Created_On__c}</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">DURATION:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Duration__c}/ Months</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">STIPEND:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Stipend__c}</dd>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">Full-Time</dd>
+                                                                <br>
+                                                                <div class="buttons-internship">
+                                                                    <lightning-button variant="brand"
+                                                                        label="View Details"
+                                                                        onclick={viewInternshipDetails}></lightning-button>
+                                                                    <lightning-button variant="brand" label="Apply"
+                                                                        onclick={applyInternship}></lightning-button>
+                                                                </div>
+                                                                <div
+                                                                    style="background-color:#073c8c;padding:0.3rem; width:100%">
+
+                                                                </div>
+                                                            </dl>
+                                                        </template>
+                                                        <!-- </dl> -->
+                                                    </div>
+                                                </div>
+
+                                            </article>
+                                        </div>
+
+                                        <div class="demo-only" style="width:30rem">
+                                            <article class="slds-tile slds-hint-parent">
+                                                <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                                    <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                                                        <a href="#">Salesforce Developer Role</a>
+                                                    </h3>
+
+                                                    <div class="slds-shrink-none">
+
+                                                    </div>
+                                                </div>
+                                                <div class="Section ">
+                                                    <div class="slds-tile__detail">
+                                                        <!-- <dl class="slds-list_horizontal slds-wrap"></dl> -->
+                                                        <template for:each={internshiprecord} for:item="currentItem"
+                                                            for:index="index">
+                                                            <dl class="slds-list_horizontal slds-wrap"
+                                                                key={currentItem.Id}>
+
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="First Label">Role:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for first label">
+                                                                    {currentItem.Name}</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">Location:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Location__c}</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">START DATE:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Created_On__c}</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">DURATION:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Duration__c} /Months</dd>
+                                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                                    title="Second Label">STIPEND:</dt>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">
+                                                                    {currentItem.Stipend__c}</dd>
+                                                                <dd class="slds-item_detail slds-truncate"
+                                                                    title="Description for second label">Full-Time</dd>
+                                                                <br>
+                                                                <div class="buttons-internship">
+                                                                    <lightning-button variant="brand"
+                                                                        label="View Details"
+                                                                        onclick={viewInternshipDetails}></lightning-button>
+                                                                    <lightning-button variant="brand" label="Apply"
+                                                                        onclick={applyInternship}></lightning-button>
+                                                                </div>
+                                                                <div
+                                                                    style="background-color:#073c8c;padding:0.3rem; width:100%">
+
+                                                                </div>
+                                                            </dl>
+                                                        </template>
+                                                        <!-- </dl> -->
+                                                    </div>
+                                                </div>
+
+                                            </article>
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+
+
+
+                                </div>
+                            </template>
+                            <template if:false={showInternship}>
+
+                            </template>
+
+                            <template if:true={showTasks}>
+                                <div class="inner-page">
+                                    <div class="table-data">
+                                        <div class="order">
+                                            <div class="head">
+                                                <h3>Tasks</h3>
+                                            </div>
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Task</th>
+                                                        <th> Due Date </th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <template for:each={taskReminders} for:item="task">
+                                                        <tr key={task.Id}>
+                                                            <td>{task.Name}</td>
+                                                            <td style="color: #142846;">{task.Due_Date__c}</td>
+
+                                                            <td style="color: #FB174F;"><lightning-input type="checkbox"
+                                                                    label="Completed" checked="True"
+                                                                    onchange={handleTaskCompletion}></lightning-input>
+                                                            </td>
+                                                        </tr>
+                                                    </template>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+
+
+
+                            <template if:false={showTasks}>
+
+                            </template>
+
+                            <template if:true={showApplication}>
+                                <div class="inner-page">
+
+                                    <div class="details">
+                                        <div class="internStatus">
+                                            <div class="cardHeader">
+                                                <h2>Apply Status</h2>
+                                                <a href="#" class="btn">View All</a>
+                                            </div>
+
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <td>Internship</td>
+                                                        <td>Mode</td>
+                                                        <td>Date Applied</td>
+                                                        <td>Status</td>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td>AppyNtern Summer Internship 2024</td>
+                                                        <td> Online</td>
+                                                        <td> 13/5/24</td>
+                                                        <td><span class="status select">Accepted</span></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>AppynTern Industrial Training 2024</td>
+                                                        <td> Offline</td>
+                                                        <td>18/5/24</td>
+                                                        <td><span class="status pending">Pending</span></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>AppynTern Winter Training 2023</td>
+                                                        <td> Online</td>
+                                                        <td>19/12/23</td>
+                                                        <td><span class="status reject">Rejected</span></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>AppynTern Campus Training 2024</td>
+                                                        <td>Online</td>
+                                                        <td>1/04/24</td>
+                                                        <td><span class="status inProgress">Ongoing</span></td>
+                                                    </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="finishedInternships">
+                                            <div class="cardHeader">
+                                                <h2>Finished Internships</h2>
+                                            </div>
+
+                                            <table>
+                                                <tr>
+                                                    <td width="60px">
+                                                        <div class="imgBx"><lightning-icon icon-name="utility:download"
+                                                                size="small"
+                                                                alternative-text="Download"></lightning-icon>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <h4> AppynTern Summer Training 2023 <br> <span>2023</span></h4>
+                                                    </td>
+                                                </tr>
+
+
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </template>
+                            <template if:false={showApplication}>
+
+                            </template>
+
+                            <template if:true={showFeedback}>
+                                <div class="inner-page">
+                                    <div class="slds-grid">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <lightning-card title="Feedback & Support" icon-name="action:feedback">
+                                                <div class="slds-card__body slds-text-color_default">
+                                                    <lightning-input type="email" label="Your Email" value={email}
+                                                        onchange={handleEmailChange}></lightning-input>
+                                                    <lightning-input type="text" label="Subject" value={subject}
+                                                        onchange={handleSubjectChange}></lightning-input>
+                                                    <lightning-textarea label="Description" value={description}
+                                                        onchange={handleDescriptionChange}></lightning-textarea>
+                                                    <div class="slds-m-top_medium">
+                                                        <label for="screenshot">Screenshot (if available): </label>
+                                                        <input type="file" id="screenshot" name="screenshot"
+                                                            margin-top="20px" accept="image/png, image/jpeg">
+                                                    </div>
+
+                                                    <lightning-button label="Submit" onclick={handleSubmit}
+                                                        class="slds-m-top_medium" margin-top="20px"></lightning-button>
+                                                </div>
+                                            </lightning-card>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <img src="https://i.imgur.com/VCkeUCB.png" alt="support illustration"
+                                                class="imageStyle" height="200" width="600" />
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+            </template>
+            <template if:false={showFeedback}>
+
+            </template>
+
+            <template if:true={showEditProfile}>
+                <div class="inner-page">
+
+                    <lightning-card>
+                        <div style="display: flex; justify-content: center;">
+                            <lightning-card title="Profile Update Form"
+                                class="slds-theme_shade slds-small-size_2-of-2 slds-medium-size_2-of-3 slds-large-size_2-of-5"
+                                style="background-color: rgb(145, 109, 145);">
+                                <div class="slds-m-around_medium">
+
+                                    <form>
+
+                                        <div class="slds-box slds-theme_default slds-m-bottom_small">
+                                            <lightning-input class="slds-size_1-of-2" type="text"
+                                                label="Full Name"></lightning-input>
+                                        </div>
+
+                                        <div class="slds-box slds-theme_default slds-m-bottom_small">
+                                            <lightning-input class="slds-size_1-of-2" type="tel"
+                                                label="Phone Number"></lightning-input>
+                                        </div>
+
+                                        <div class="slds-box slds-theme_default slds-m-bottom_small">
+                                            <lightning-input class="slds-size_1-of-2" type="date"
+                                                label="Date of Birth"></lightning-input>
+                                        </div>
+
+                                        <div class="slds-box slds-theme_default slds-m-bottom_small">
+                                            <lightning-input class="slds-size_1-of-2" type="text"
+                                                label="Gender"></lightning-input>
+                                        </div>
+
+                                        <div class="slds-box slds-theme_default slds-m-bottom_small">
+                                            <lightning-input class="slds-size_1-of-2" type="text"
+                                                label="Graduation University"></lightning-input>
+                                        </div>
+
+                                        <div class="slds-box slds-theme_default slds-m-bottom_small">
+                                            <lightning-input class="slds-size_1-of-2" type="number" label="Graduation Year"
+                                                min="2022" max="2024"></lightning-input>
+                                        </div>
+
+                                        <div class="slds-box slds-theme_default slds-m-bottom_small">
+                                            <lightning-input class="slds-size_1-of-2" type="text"
+                                                label="HomeTown"></lightning-input>
+                                        </div>
+
+                                        <div class="slds-box slds-theme_default slds-m-bottom_small">
+                                            <lightning-input class="slds-size_1-of-2" type="text"
+                                                label="Skills"></lightning-input>
+                                        </div>
+
+                                        <div class="slds-box slds-theme_default slds-m-bottom_small">
+                                            <lightning-input class="slds-size_1-of-2" type="text"
+                                                label="Hobbies"></lightning-input>
+                                        </div>
+
+                                        <div class="slds-box slds-theme_default slds-m-bottom_small">
+                                            <lightning-textarea class="slds-size_1-of-2" label="Work Experience"
+                                                maxlength="500"></lightning-textarea>
+                                        </div>
+
+                                        <div class="slds-box slds-theme_default slds-m-bottom_small">
+                                            <lightning-card title="Upload Resume">
+                                                <lightning-file-upload label="Attach Resume" name="fileUploader"
+                                                    accept=".doc,.docx,.pdf" multiple>
+                                                </lightning-file-upload>
+                                            </lightning-card>
+                                        </div>
+
+                                        <!-- <div class="slds-box slds-theme_default slds-m-bottom_small"> -->
+                                        <lightning-button variant="brand" label="Submit" title="Submit"
+                                            class="slds-m-top_medium" onclick={handleSubmit}></lightning-button>
+                                        <!-- </div> -->
+
+                                    </form>
+
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </lightning-card>
+
+                </div>
+
+            </template>
+            <template if:false={showEditProfile}></template>
+
+            <template if:true={showApplicationForm}>
+
+                <div class="inner-page">
+                    <lightning-card>
+                        <!-- Personal detail section -->
+                        <template if:true={profilePage}>
+                            <div class="applicationFormHeading">
+                                <p>Application Form</p>
+                            </div>
+                            <div class="applicationFormSubHeading">
+                                <p>Profile</p>
+                            </div>
+
+                            <div class="ProfileForm">
+
+
+                                <div class="slds-grid slds-wrap">
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+                                        <!-- FUll Name  -->
+                                        <div class="slds-form-element  formData">
+                                            <label class="slds-form-element  formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Full Name</label>
+                                            <div class="slds-form-element  formData__control">
+                                                <input type="text" id="text-input-id-46" placeholder="Full Name"
+                                                    required="" class="slds-input" onchange={getFullNameAp} />
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element  formData">
+                                            <label class="slds-form-element  formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Phone</label>
+                                            <div class="slds-form-element  formData__control">
+                                                <input type="text" id="text-input-id-47" placeholder="Phone" required=""
+                                                    class="slds-input" onchange={getPhoneAp} />
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element  formData">
+                                            <label class="slds-form-element  formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Highest
+                                                Qualification</label>
+                                            <div class="slds-form-element  formData__control">
+                                                <input type="text" id="text-input-id-57" placeholder="Graduation"
+                                                    required="" class="slds-input" onchange={getHighestQualAp}/>
+                                            </div>
+                                        </div>
+
+                                        <!-- Current Address  -->
+
+                                        <div class="slds-form-element  formData">
+                                            <label class="slds-form-element  formData__label"
+                                                for="textarea-id-01">Current
+                                                Address</label>
+                                            <div class="slds-form-element  formData__control">
+                                                <textarea id="textarea-id-02" placeholder="Type your Current Address"
+                                                    class="slds-textarea" onchange={getCurrentAddressAp}></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+
+                                        <!-- Category -->
+
+                                        <div
+                                            class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                                            <lightning-combobox label="Gender" class="selectBox formData" name="gender"
+                                                value={selectedTypeOption} options={genderOptions}
+                                                onchange={handleTypeChange}>
+                                            </lightning-combobox>
+                                        </div>
+
+
+                                        <!-- Email  -->
+
+                                        <div class="slds-form-element  formData">
+                                            <label class="slds-form-element  formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Email</label>
+                                            <div class="slds-form-element  formData__control">
+                                                <input type="text" id="text-input-id-48" placeholder="Email" required=""
+                                                    class="slds-input" onchange={getEmailAp} />
+                                            </div>
+                                        </div>
+
+
+                                        <div
+                                            class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                                            <lightning-combobox label="Graduation Year" class="selectBox formData"
+                                                name="GradYear" value={selectedGradYear} options={options}
+                                                onchange={handleGradYearChange}>
+                                            </lightning-combobox>
+                                        </div>
+
+
+                                        <!-- permanent Address  -->
+
+
+                                        <div class="slds-form-element  formData">
+                                            <label class="slds-form-element  formData__label"
+                                                for="textarea-id-01">Permanent
+                                                Address</label>
+                                            <div class="slds-form-element  formData__control">
+                                                <textarea id="textarea-id-01" placeholder="Type your Permanent Address"
+                                                    class="slds-textarea" onchange={getPermanentAddressAp}></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="EducationFormSubHeading">
+                                <p>Education</p>
+                            </div>
+                            <div class="EducationLevel">
+                                <p>Matriculation</p>
+                            </div>
+
+                            <div class="EducationForm">
+
+                                <div class="slds-grid slds-wrap">
+                                    <!-- column1 -->
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+                                        <div class="slds-form-element  formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Board Name</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-51"
+                                                    placeholder="Matriculation Board" required="" class="slds-input" onchange={getMatricBoardNameAp}/>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Session</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-54"
+                                                    placeholder="Enter Your Session" required="" class="slds-input" onchange={getMatricSessionAp}/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- column2 -->
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>School
+                                                Name</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-52"
+                                                    placeholder="Matriculation School Name" required=""
+                                                    class="slds-input" onchange={getMatricSchoolAp} />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Passing
+                                                year</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-55"
+                                                    placeholder="Enter your Passing Year" required=""
+                                                    class="slds-input" onchange={getMatricPassingYearAp} />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- column3 -->
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>School
+                                                Location</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-53" placeholder="School Location"
+                                                    required="" class="slds-input" onchange={getMatricSchoolLocationAp} />
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Percentage</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-56"
+                                                    placeholder="Enter overall Percentage" required=""
+                                                    class="slds-input" onchange={getMatricPercentageAp} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <div class="EducationLevel">
+                                <p>Intermediate</p>
+                            </div>
+
+                            <div class="EducationForm">
+
+                                <div class="slds-grid slds-wrap">
+                                    <!-- column1 -->
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+                                        <div class="slds-form-element  formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Board Name</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-67"
+                                                    placeholder="Intermediate Board" required="" class="slds-input" onchange={getInterBoardNameAp} />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Session</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-59"
+                                                    placeholder="Enter Your Session" required="" class="slds-input" onchange={getInterSessionAp} />
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                                            <lightning-combobox label="Faculty" class="selectBox formData"
+                                                name="Faculty" value={selectedFacultyOption} options={facultyOptions}
+                                                onchange={handleFacultyChange}>
+                                            </lightning-combobox>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- column2 -->
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>School
+                                                Name</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-60"
+                                                    placeholder="Intermediate School Name" required=""
+                                                    class="slds-input" onchange={getInterSchoolNameAp} />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Passing
+                                                year</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-61"
+                                                    placeholder="Enter your Passing Year" required=""
+                                                    class="slds-input" onchange={getInterPassingYearAp} />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- column3 -->
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>School
+                                                Location</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-62" placeholder="School Location"
+                                                    required="" class="slds-input" onchange={getInterSchoolLoationAp} />
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Percentage</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-63"
+                                                    placeholder="Enter overall Percentage" required=""
+                                                    class="slds-input" onchange={getInterPercentageAp} />
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <div class="EducationLevel">
+                                <p>Graduation</p>
+                            </div>
+
+                            <div class="EducationForm">
+
+                                <div class="slds-grid slds-wrap">
+                                    <!-- column1 -->
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+                                        <div class="slds-form-element  formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Board Name</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-70"
+                                                    placeholder="Graduation Board" required="" class="slds-input" onchange={getGraduationBoardAp} />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Session</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-71"
+                                                    placeholder="Enter Your Session" required="" class="slds-input" onchange={getGraduationSessionAp} />
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                                            <lightning-combobox label="Faculty" class="selectBox formData"
+                                                name="Faculty" value={selectedGradFacultyOption}
+                                                options={GradfacultyOptions} onchange={handleGradFacultyChange}>
+                                            </lightning-combobox>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <!-- column2 -->
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>School
+                                                Name</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-72"
+                                                    placeholder="Matriculation School Name" required=""
+                                                    class="slds-input" onchange={getGraduationSchoolNameAp} />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Passing
+                                                year</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-73"
+                                                    placeholder="Enter your Passing Year" required=""
+                                                    class="slds-input" onchange={getGraduationPassingYearAp} />
+                                            </div>
+                                        </div>
+
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">*
+                                                </abbr>Specialization</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-74"
+                                                    placeholder="Computer Science and Engineering" required=""
+                                                    class="slds-input" onchange={getGraduationSpecializationAp} />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- column3 -->
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>College
+                                                Location</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-77" placeholder="School Location"
+                                                    required="" class="slds-input" onchange={getGraduationSchoolLocationAp} />
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element formData">
+                                            <label class="slds-form-element formData__label" for="text-input-id-46">
+                                                <abbr class="slds-required" title="required">* </abbr>Percentage
+                                                (Aggregate)</label>
+                                            <div class="slds-form-element formData__control">
+                                                <input type="text" id="text-input-id-75"
+                                                    placeholder="Enter overall Percentage" required=""
+                                                    class="slds-input" onchange={getGraduationPercentageAp} />
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+
+                            <div class="button">
+
+                                <button class="slds-button slds-button_success" onclick={goUpload}>Save & Next</button>
+                            </div>
+
+                        </template>
+                        <template if:false={profilePage}>
+
+                        </template>
+
+                        <!-- uploading -->
+
+                        <template if:true={UploadSection}>
+                            <div class="UploadFormHeading">
+                                <p>Application Form</p>
+                            </div>
+                            <div class="UploadFormSubHeading">
+                                <p>Upload</p>
+                            </div>
+
+                            <div class="UploadForm">
+
+
+                                <div class="slds-grid slds-wrap uploading">
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+                                        <!-- Uploading   -->
+                                        <div class="slds-form-element formData uploading">
+                                            <span class="slds-form-element formData__label"
+                                                id="file-selector-primary-label-103">10th
+                                                Marksheet/Certificate</span>
+                                            <div class="slds-form-element formData__control">
+                                                <div class="slds-file-selector slds-file-selector_files">
+                                                    <div class="slds-file-selector__dropzone">
+                                                        <input type="file"
+                                                            class="slds-file-selector__input slds-assistive-text"
+                                                            accept="image/png" id="file-upload-input-104"
+                                                            aria-labelledby="file-selector-primary-label-101 file-selector-secondary-label102" />
+                                                        <label class="slds-file-selector__body"
+                                                            for="file-upload-input-103"
+                                                            id="file-selector-secondary-label103">
+                                                            <span
+                                                                class="slds-file-selector__button slds-button slds-button_neutral">
+                                                                <svg class="slds-button__icon slds-button__icon_left"
+                                                                    aria-hidden="true">
+                                                                    <use
+                                                                        xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload">
+                                                                    </use>
+                                                                </svg>Upload</span>
+                                                            <span class="slds-file-selector__text slds-medium-show">or
+                                                                Drop</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="slds-form-element formData uploading">
+                                            <span class="slds-form-element formData__label"
+                                                id="file-selector-primary-label-101">Upload
+                                                Resume</span>
+                                            <div class="slds-form-element formData__control">
+                                                <div class="slds-file-selector slds-file-selector_files">
+                                                    <div class="slds-file-selector__dropzone">
+                                                        <input type="file"
+                                                            class="slds-file-selector__input slds-assistive-text"
+                                                            accept="image/png" id="file-upload-input-103"
+                                                            aria-labelledby="file-selector-primary-label-101 file-selector-secondary-label102" />
+                                                        <label class="slds-file-selector__body"
+                                                            for="file-upload-input-103"
+                                                            id="file-selector-secondary-label102">
+                                                            <span
+                                                                class="slds-file-selector__button slds-button slds-button_neutral">
+                                                                <svg class="slds-button__icon slds-button__icon_left"
+                                                                    aria-hidden="true">
+                                                                    <use
+                                                                        xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload">
+                                                                    </use>
+                                                                </svg>Upload</span>
+                                                            <span class="slds-file-selector__text slds-medium-show">or
+                                                                Drop</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="slds-form-element formData uploading">
+                                            <span class="slds-form-element formData__label"
+                                                id="file-selector-primary-label-102">Latest
+                                                passport
+                                                size Photograph</span>
+                                            <div class="slds-form-element formData__control">
+                                                <div class="slds-file-selector slds-file-selector_files">
+                                                    <div class="slds-file-selector__dropzone">
+                                                        <input type="file"
+                                                            class="slds-file-selector__input slds-assistive-text"
+                                                            accept="image/png" id="file-upload-input-105"
+                                                            aria-labelledby="file-selector-primary-label-101 file-selector-secondary-label102" />
+                                                        <label class="slds-file-selector__body"
+                                                            for="file-upload-input-103"
+                                                            id="file-selector-secondary-label105">
+                                                            <span
+                                                                class="slds-file-selector__button slds-button slds-button_neutral">
+                                                                <svg class="slds-button__icon slds-button__icon_left"
+                                                                    aria-hidden="true">
+                                                                    <use
+                                                                        xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload">
+                                                                    </use>
+                                                                </svg>Upload Files</span>
+                                                            <span class="slds-file-selector__text slds-medium-show">or
+                                                                Drop</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div
+                                        class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12">
+
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="button">
+
+                                <button class="slds-button slds-button_brand" onclick={goProfile}>Back</button>
+
+                                <button class="slds-button slds-button_destructive" onclick={Submit}>Submit</button>
+                            </div>
+                        </template>
+                        <template if:false={UploadSection}>
+
+                        </template>
+
+
+                    </lightning-card>
+                </div>
+
+
+            </template>
+            <template if:false={showApplicationForm}></template>
+
+
+            <template if:true={showJobs}>
+                <div class="inner-page">
+
+                    <div class="auto-typing">
+                        <p id="typing-text1" class="typing-text"></p>
+
                     </div>
-   
+
+
+                    <div class="photo">
+                        <img src={jobappy} alt="job Photo" height="100" width="450">
+
+                    </div>
+
+                    <lightning-accordion class="accordian" onsectiontoggle={clickHandler} active-section-name="A">
+                        <div style="background-color:#16325c;padding:0.2rem"></div>
+
+                        <lightning-accordion-section name="A" label="Salesforce Developer Job">
+                            <div class="demo-only" style="width:30rem">
+                                <article class="slds-tile slds-hint-parent">
+                                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                        <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                                            <a href="#">Salesforce Developer Role</a>
+                                        </h3>
+
+                                        <div class="slds-shrink-none">
+
+                                        </div>
+                                    </div>
+                                    <div class="Section ">
+                                        <div class="slds-tile__detail">
+                                            <dl class="slds-list_horizontal slds-wrap">
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="First Label">Developer Role:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for first label">Experienced</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Location:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Bangalore</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Expected Salary:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">5LPA</dd>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Full-Time</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <br>
+                            <div class="buttons-job">
+                                <lightning-button variant="brand" label="Apply" onclick={applyjob}></lightning-button>
+                            </div>
+                        </lightning-accordion-section>
+                        <lightning-accordion-section name="B" label="Salesforce Admin Job">
+                            <div class="demo-only" style="width:30rem">
+                                <article class="slds-tile slds-hint-parent">
+                                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                        <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                                            <a href="#">Salesforce Admin Role</a>
+                                        </h3>
+
+                                        <div class="slds-shrink-none">
+
+                                        </div>
+                                    </div>
+                                    <div class="Section ">
+                                        <div class="slds-tile__detail">
+                                            <dl class="slds-list_horizontal slds-wrap">
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="First Label">Admin Role:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for first label">Experienced</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Location:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Bangalore</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Expected Salary:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">4LPA</dd>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Full-Time</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <br>
+                            <div class="buttons-job">
+                                <lightning-button variant="brand" label="Apply" onclick={applyjob}></lightning-button>
+                            </div>
+
+
+
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="C" label="Salesforce Consultant Job">
+
+                            <div class="demo-only" style="width:30rem">
+                                <article class="slds-tile slds-hint-parent">
+                                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                        <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                                            <a href="#">Salesforce Consultant Role</a>
+                                        </h3>
+
+                                        <div class="slds-shrink-none">
+
+                                        </div>
+                                    </div>
+                                    <div class="Section ">
+                                        <div class="slds-tile__detail">
+                                            <dl class="slds-list_horizontal slds-wrap">
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="First Label">Consultant Role:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for first label">Experienced</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Location:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Bangalore</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Expected Salary:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">9LPA</dd>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Full-Time</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <br>
+                            <div class="buttons-job">
+                                <lightning-button variant="brand" label="Apply" onclick={applyjob}></lightning-button>
+                            </div>
+
+
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+
+                    <lightning-accordion class="accordian" onsectiontoggle={clickHandler} active-section-name="A">
+                        <lightning-accordion-section name="A" label="Salesforce Administrator Job">
+                            <div class="demo-only" style="width:30rem">
+                                <article class="slds-tile slds-hint-parent">
+                                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                        <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                                            <a href="#">Salesforce Developer Role</a>
+                                        </h3>
+
+                                        <div class="slds-shrink-none">
+
+                                        </div>
+                                    </div>
+                                    <div class="Section ">
+                                        <div class="slds-tile__detail">
+                                            <dl class="slds-list_horizontal slds-wrap">
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="First Label">Administrator Role:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for first label">Experienced</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Location:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Mumbai</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Expected Salary:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">7LPA</dd>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Full-Time</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <br>
+                            <div class="buttons-job">
+                                <lightning-button variant="brand" label="Apply" onclick={applyjob}></lightning-button>
+                            </div>
+                            <div style="background-color:#16325c;padding:0.2rem"></div>
+
+                        </lightning-accordion-section>
+                        <lightning-accordion-section name="B" label="Salesforce Admin Job">
+                            <div class="demo-only" style="width:30rem">
+                                <article class="slds-tile slds-hint-parent">
+                                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                        <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                                            <a href="#">Salesforce Architect Role</a>
+                                        </h3>
+
+                                        <div class="slds-shrink-none">
+
+                                        </div>
+                                    </div>
+                                    <div class="Section ">
+                                        <div class="slds-tile__detail">
+                                            <dl class="slds-list_horizontal slds-wrap">
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="First Label">Architect Role:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for first label">Experienced</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Location:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Bangalore</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Expected Salary:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">8LPA</dd>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Full-Time</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <br>
+                            <div class="buttons-job">
+                                <lightning-button variant="brand" label="Apply" onclick={applyjob}></lightning-button>
+                            </div>
+                            <div style="background-color:#16325c;padding:0.2rem"></div>
+
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="C" label="Salesforce Consultant Job">
+
+                            <div class="demo-only" style="width:30rem">
+                                <article class="slds-tile slds-hint-parent">
+                                    <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                        <h3 class="slds-tile__title slds-truncate" title="Salesforce UX">
+                                            <a href="#">Salesforce Consultant Role</a>
+                                        </h3>
+
+                                        <div class="slds-shrink-none">
+
+                                        </div>
+                                    </div>
+                                    <div class="Section ">
+                                        <div class="slds-tile__detail">
+                                            <dl class="slds-list_horizontal slds-wrap">
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="First Label">Consultant Role:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for first label">Experienced</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Location:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Bangalore</dd>
+                                                <dt class="slds-item_label slds-text-color_weak slds-truncate"
+                                                    title="Second Label">Expected Salary:</dt>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">9LPA</dd>
+                                                <dd class="slds-item_detail slds-truncate"
+                                                    title="Description for second label">Full-Time</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <br>
+                            <div class="buttons-job">
+                                <lightning-button variant="brand" label="Apply" onclick={applyjob}></lightning-button>
+                            </div>
+                            <div style="background-color:#16325c;padding:0.2rem"></div>
+
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+
+
+
+
+                </div>
+
+            </template>
+            <template if:false={showJobs}>
+
+            </template>
+
+            <template if:true={showCourse}>
+                <div class="inner-page">
+
+                    <lightning-accordion class="" onsectiontoggle={clickHandler} active-section-name="A">
+                        <lightning-accordion-section name="A" label="Development Course">
+                            <div style="background-color:#96a4b9;padding:0.3rem">
+                            </div>
+                            <div class="course-box">
+                                <div class="course">
+                                    <div class="box">
+                                        <h3>HTML</h3>
+                                        <p>130 Hrs</p>
+                                        <p>6 Weeks , 4 Mock Test</p>
+                                        <p>1 Project</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fab fa-html5 html"></i>
+                                    </div>
+                                    <div class="box">
+                                        <h3>CSS</h3>
+                                        <p>130 Hrs</p>
+                                        <p>5 Weeks , 4 Mock Test</p>
+                                        <p>1 Project</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fab fa-css3-alt css"></i>
+                                    </div>
+                                    <div class="box">
+                                        <h3>JavaScript</h3>
+                                        <p>150 Hrs</p>
+                                        <p>5 Weeks , 4 Mock Test</p>
+                                        <p>1 Project</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fab fa-js-square js"></i>
+                                    </div>
+                                    <div class="box">
+                                        <h3>Apex</h3>
+                                        <p>130 Hrs</p>
+                                        <p>5 Weeks , 4 Mock Test</p>
+                                        <p>1 Project</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <!-- Trigger Course -->
+                                    <div class="box">
+                                        <h3>LWC</h3>
+                                        <p>150 Hrs</p>
+                                        <p>8 Weeks , 7 Mock Test</p>
+                                        <p>1 Project</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </lightning-accordion-section>
+                        <lightning-accordion-section name="B" label="Admin Course">
+                            <div style="background-color:#96a4b9;padding:0.3rem">
+                            </div>
+                            <div class="course-box">
+                                <div class="course">
+                                    <div class="box">
+                                        <h3>Data Management</h3>
+                                        <p>130 Hrs</p>
+                                        <p>7 Weeks , 4 Mock Test</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fab fa-html5 html"></i>
+                                    </div>
+                                    <div class="box">
+                                        <h3>User Management</h3>
+                                        <p>130 Hrs</p>
+                                        <p>7 Weeks , 4 Mock Test</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fab fa-css3-alt css"></i>
+                                    </div>
+                                    <div class="box">
+                                        <h3>Product Management</h3>
+                                        <p>140 Hrs</p>
+                                        <p>5 Weeks , 4 Mock Test</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fab fa-js-square js"></i>
+                                    </div>
+                                    <div class="box">
+                                        <h3>Flow</h3>
+                                        <p>120 Hrs</p>
+                                        <p>4 Weeks , 4 Mock Test</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <!-- Trigger Course -->
+                                    <div class="box">
+                                        <h3>Trigger</h3>
+                                        <p>110 Hrs</p>
+                                        <p>6 Weeks , 6 Mock Test</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="C" label="Consultant Course">
+                            <div style="background-color:#96a4b9;padding:0.3rem">
+                            </div>
+                            <div class="course-box">
+                                <div class="course">
+                                    <div class="box">
+                                        <h3>Marketing Cloud Consultant</h3>
+                                        <p>110 Hrs</p>
+                                        <p>6 Weeks , 6 Mock Test</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fab fa-html5 html"></i>
+                                    </div>
+                                    <div class="box">
+                                        <h3>Service Cloud Consultant</h3>
+                                        <p>120 Hrs</p>
+                                        <p>6 Weeks , 4 Mock Test</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fab fa-css3-alt css"></i>
+                                    </div>
+                                    <div class="box">
+                                        <h3>Sales Cloud</h3>
+                                        <p>120 Hrs</p>
+                                        <p>4 Weeks , 4 Mock Test</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fab fa-js-square js"></i>
+                                    </div>
+                                    <div class="box">
+                                        <h3> Project management</h3>
+                                        <p>140 Hrs</p>
+                                        <p>7 Weeks , 4 Mock Test</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <!-- Trigger Course -->
+                                    <div class="box">
+                                        <h3>Commerce Cloud</h3>
+                                        <p>140 Hrs</p>
+                                        <p>7 Weeks , 4 Mock Test</p>
+                                        <button>Enrol Now</button>
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+
+                </div>
+            </template>
+            <template if:false={showCourse}>
+            </template>
+
+            </div>
+
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
+                    <img src={craft} alt="craft">
+                </div>
+                <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
+                    <img src={crafting} alt="photo dashboard">
+                </div>
+                <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
+                    <img src={home} alt="clicking">
+                </div>
+                <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
+                    <img src={homes} alt="imagesclick">
+
+                </div>
+            </div>
+
+            <div class="dashboard-container">
+                <header class="header">
+                    <h1> Welcome to Your Dashboard</h1>
                     
-                
-                </lightning-card>
+                </header>
 
-            </template>
-            <template if:false={showDashboard}>
+                <nav class="navigation1">
+                    <ul>
+                        <li><a href="#main-content">Jump to Main Content</a></li>
+                        <!-- Add other navigation links as needed -->
+                    </ul>
+                </nav>
 
-            </template>
-        </template>
+                <main id="main-content" class="main-content">
+                    <h2>Main Content</h2>
+                    <p>
+                        AppyCrown: Your trusted Salesforce Consulting Partner delivering reliable consulting services.
 
-        <template if:false={isLogin}>
-            <template if:true={showLogin}>
+                        We are a team of highly expertise and experience in Salesforce which has enabled us to implement
+                        and support various business use cases in the Sales, Service, Experience, and Marketing Clouds.
+
+                        At AppyCrown Private Limited, our team diligently adheres to all Salesforce best practices,
+                        guided by Salesforce MVP Om Prakash, who serves as our Founder, CEO, and Technical Architect.
+
+                        Our aim is to make meaningful connections to fill gap with the leading practices, trust,
+                        Innovation and, customer success.
+                    </p>
+                </main>
+
+                <footer class="footer">
+                    <div class="footer-links">
+                        <a href="#">About </a>
+                        <a href="#">Candidate Dashboard</a>
+                        <a href="#">Download the App AppyNtern</a>
+                        <!-- Add more footer links as needed -->
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><img src={instagramicon} alt="Instagram Icon"></a>
+                        <a href="#" class="social-link"><img src={twittericon} alt="Twitter Icon"></a>
+                        <a href="#" class="social-link"><img src={pineresticon} alt="Pinterest Icon"></a>
+                        <a href="#" class="social-link"><img src={facebookicon} alt="Facebook Icon"></a>
+                        <a href="https://www.linkedin.com/company/appycrown-private-limited/mycompany/verification/"
+                            class="social-link"><img src={likedinicon} alt="LinkedIn Icon"></a>
+                        <!-- Replace image src with actual icon URLs or use icon font libraries -->
+                    </div>
+                    <div class="copyright">
+                        <p>&copy; 2024 AppyNtern. All rights reserved.</p>
+                    </div>
+                </footer>
+            </div>
+
+
+            </div>
+
+
+
+    </lightning-card>
+
+</template>
+<template if:false={showDashboard}>
+
+</template>
+</template>
+
+<template if:false={isLogin}>
+    <lightning-card>
+        <div class="navbar">
+          <nav class=" nav">
+              <ul>
+                  <li><a onclick={openWelcome}>Home</a></li>
+                  <li><a onclick={openWelcome}>About Us</a></li>
+                  <li><a onclick={openWelcome}>Contact</a>
+                  
+                  </li>
+                  <li class="right"><a  onclick={navigateToRegister}>Register</a></li>
+              </ul>
+          </nav>
+      </div>
+    
+      </lightning-card>
+
+    <template if:true={showLogin}>
+
+
+        <template if:false={showOtp}>
+            <div class="full-body">
+
+
                 <template if:true={showForgotPass}>
                     <div class="loginPage">
                         <div class="login-box">
                             <h2 class="login-heading">Forgot Password</h2>
                             <div class="input-group">
                                 <img src={emailIcon} alt="Email" class="input-icon">
-                                <lightning-input type="text" placeholder="Enter Your Email...." onchange={getEmail}></lightning-input>
-    
+                                <lightning-input type="text" placeholder="Enter Your Email...."
+                                    onchange={getEmailFP}></lightning-input>
+
                             </div>
-    
+
                             <div class="input-group">
                                 <img src={passwordIcon} alt="Password" class="input-icon">
-                                <lightning-input type="password" placeholder="Enter Your Password....." onchange={getPassword}></lightning-input>
+                                <lightning-input type="password" placeholder="Enter Your Password....."
+                                    onchange={getPasswordFP}></lightning-input>
                             </div>
                             <div class="input-group">
                                 <img src={passwordIcon} alt="Password" class="input-icon">
-                                <lightning-input type="password" placeholder="Confirm-Password" onchange={getPassword}></lightning-input>
+                                <lightning-input type="password" placeholder="Confirm-Password"
+                                    onchange={getConPasswordFP}></lightning-input>
                             </div>
                             <div class="slds-m-top_medium" style="color:brown; margin:auto;">{error}</div>
-    
-                            
-                           <div class="forgot-pass">
-                            <button onclick={cancelPass}>Cancel</button>
-                            <button onclick={forgotPass}>Submit</button>
-    
-                           </div>
+
+
+                            <div class="forgot-pass">
+                                <button onclick={cancelPass}>Cancel</button>
+                                <button onclick={handleForgotPassword}>Submit</button>
+
+
+                            </div>
 
                         </div>
                     </div>
                 </template>
-                <template if:true={showForgotPass}>
-                    
+
+
+                <!-- <lightning-button label="Enter OTP" onclick={showPopup}></lightning-button> -->
+
+                <template if:true={isPopupVisible}>
+                    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                        <div class="outer-div">
+
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                title="Close" onclick={closePopup}>
+                                <lightning-icon icon-name="utility:close" alternative-text="close"
+                                    size="small"></lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <div class="content slds-m-around_medium">
+
+                                <div class="slds-text-heading_medium">Change Your Password</div>
+                                <div class="slds-text-body_regular slds-m-top_small">Check your Email and enter the 6
+                                    digit Verification code to confirm your account.</div>
+
+                                <div class="slds-m-top_large otp-field">
+                                    <lightning-input onchange={handleCodeChange} class="large-input" type="number"
+                                        pattern="[0-9]{6}" maxlength="6"
+                                        placeholder="Verification Code:"></lightning-input>
+                                </div>
+
+                                <div class="slds-p-horizontal_small">
+                                    <hr class="slds-border_bottom">
+                                </div>
+
+                                <div class="slds-m-top_medium" style="color:brown; margin:auto;">{error}</div>
+
+                                <button onclick={submitOtpF}>Submit</button>
+
+                                <div class="slds-m-top_medium buttons-field">
+
+                                    <a onclick={closePopup}>Didn't get a code? Try Again.</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
                 </template>
-            
-                
-            </template>
-            <template if:false={showLogin}>
-                <div class="loginPage">
-                    <div class="login-box">
-                        <h2 class="login-heading">Welcome to Login Page</h2>
-                        <div class="input-group">
-                            <img src={emailIcon} alt="Email" class="input-icon">
-                            <lightning-input type="text" placeholder="Enter Your Email...." onchange={getEmail}></lightning-input>
 
-                        </div>
-
-                        <div class="input-group">
-                            <img src={passwordIcon} alt="Password" class="input-icon">
-                            <lightning-input type="password" placeholder="Enter Your Password....." onchange={getPassword}></lightning-input>
-
-                        </div>
-                        <div class="slds-m-top_medium" style="color:brown; margin:auto;">{error}</div>
-                        <br>
-
-                            <button class="login" onclick={userLogin}>LogIn</button>
-
-                       <br>
-                       <div class="forgot-pass">
-                        <a onclick={navigateToForgotPass}>Forgot Password.</a>
-                        <a onclick={navigateToRegister}>SignUp.</a>
-
-                       </div>
-                           <br> 
-                        <div class="login-buttons">
-                            <button class="login-with-google" onclick={loginWithGoogle}>
-                                <img src={googleIcon} alt="Google" class="login-icon">
-                                <span>Login with Google</span>
-                            </button>
-                            <br>
-                            <button class="login-with-gmail" onclick={loginWithGmail}>
-                                <img src={gmailIcon} alt="Gmail" class="login-icon">
-                                <span>Login with Gmail</span>
-                            </button>
-                            <br>
-                            <button class="login-with-linkedin" onclick={loginWithLinkedIn}>
-                                <img src={linkedinIcon} alt="LinkedIn" class="login-icon">
-                                <span>Login with LinkedIn</span>
-                            </button>
-                        </div>
-                    </div>
+                <div class="content-on-rightside">
+                    <img src={registrationLeftImage} alt="image">
                 </div>
-            </template>
-            
-
+            </div>
         </template>
         
-    </lightning-card>
+                <!-- FORGOT PASSWORD PAGE BLANK -->
+        <template if:true={showForgotPass}>
+
+        </template>
+
+    </template>
+    <template if:false={showLogin}>
+        <div class="loginPage">
+            <div class="login-box">
+                <h2 class="login-heading">Welcome to Login Page</h2>
+                <div class="input-group">
+                    <img src={emailIcon} alt="Email" class="input-icon">
+                    <lightning-input type="text" placeholder="Enter Your Email...."
+                        onchange={getEmail}></lightning-input>
+
+                </div>
+
+                <div class="input-group">
+                    <img src={passwordIcon} alt="Password" class="input-icon">
+                    <lightning-input type="password" placeholder="Enter Your Password....."
+                        onchange={getPassword}></lightning-input>
+
+                </div>
+                <div class="slds-m-top_medium" style="color:brown; margin:auto;">{error}</div>
+                <br>
+
+                <button class="login" onclick={userLogin}>LogIn</button>
+
+                <br>
+                <div class="forgot-pass">
+                    <a onclick={navigateToForgotPass}>Forgot Password.</a>
+                    <a onclick={navigateToRegister}>SignUp.</a>
+
+                </div>
+                <br>
+                <div class="login-buttons">
+                    <button class="login-with-google" onclick={loginWithGoogle}>
+                        <img src={googleIcon} alt="Google" class="login-icon">
+                        <span>Login with Google</span>
+                    </button>
+                    <br>
+                    <button class="login-with-gmail" onclick={loginWithGmail}>
+                        <img src={gmailIcon} alt="Gmail" class="login-icon">
+                        <span>Login with Gmail</span>
+                    </button>
+                    <br>
+                    <button class="login-with-linkedin" onclick={loginWithLinkedIn}>
+                        <img src={linkedinIcon} alt="LinkedIn" class="login-icon">
+                        <span>Login with LinkedIn</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+</template>
+
+
+
+
+</lightning-card>
 
 </template>

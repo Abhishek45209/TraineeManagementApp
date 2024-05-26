@@ -1,5 +1,4 @@
 import { LightningElement, track } from 'lwc';
-// Abhik Code
 import saveCandidate from '@salesforce/apex/RegisterCandidates.saveCandidate';
 import saveCandidateProfile from '@salesforce/apex/RegisterCandidates.saveCandidateProfile';
 import verifyOtp from '@salesforce/apex/RegisterCandidates.verifyOtp';
@@ -17,7 +16,7 @@ import Mobile from '@salesforce/resourceUrl/Mobile';
 import password from '@salesforce/resourceUrl/password';
 import ConfirmPassword from '@salesforce/resourceUrl/ConfirmPassword';
 
-//Abhik Code
+
 export default class Registration extends NavigationMixin(LightningElement) {
     registrationLeftImage = ImageSidebar;
     googleImage = Google;
@@ -55,7 +54,7 @@ export default class Registration extends NavigationMixin(LightningElement) {
     //     this.showOtp = true;
     //     this.isPopupVisible = true;
     // }
-// Abhik Code
+
     handleFullNameChange(event) {
         this.fullName = event.target.value;
     }
@@ -77,75 +76,82 @@ export default class Registration extends NavigationMixin(LightningElement) {
     }
 
     handleRegister() {
-        if (this.password !== this.confirmPassword) {
-            this.error = 'Passwords do not match';
+        // Validate form inputs
+        if (!this.fullName || !this.email || !this.mobileNumber || !this.password || !this.confirmPassword) {
+            this.error = 'All fields are required.';
+            this.updateError();
             return;
-        } else {
-            saveCandidate({
-                fullName: this.fullName,
-                email: this.email,
-                mobileNumber: this.mobileNumber
-            })
-            .then(result => {
-                console.log(result);
-                if (result == 'exist') {
-                    console.log(result);
-                    const event = new ShowToastEvent({
-                        title: 'Failed!',
-                        message: 'Email ' + this.email + ' is already registered!',
-                        variant: 'error',
-                    });
-                    this.dispatchEvent(event);
-
-                    this.error = 'Email ' + this.email + ' is already registered! Please use "Forgot Password" or contact admin.';
-
-                    console.log(this.error);
-
-                } else {
-                    //this.showOtp = true;
-                    this.newCandidateId = result;
-                    console.log(result);
-
-                    this.showPopup();
-                    //this.isPopupVisible = true;
-
-
-                    const event = new ShowToastEvent({
-                        title: 'Success!',
-                        message: 'Registration successful. Please verify OTP sent to your email.',
-                        variant: 'success',
-                    });
-                    this.dispatchEvent(event);
-                    this.showPopup();
-                }
-            })
-            .catch(error => {
+        }
+    
+        if (this.mobileNumber.length !== 10 || !/^\d{10}$/.test(this.mobileNumber)) {
+            this.error = 'Invalid mobile number. Please enter a 10-digit number.';
+            this.updateError();
+            return;
+        }
+    
+        if (this.password !== this.confirmPassword) {
+            this.error = 'Passwords do not match.';
+            this.updateError();
+            return;
+        }
+    
+        // Clear any previous errors
+        this.error = '';
+        this.updateError();
+    
+        saveCandidate({
+            fullName: this.fullName,
+            email: this.email,
+            mobileNumber: this.mobileNumber,
+            password: this.password
+        })
+        .then(result => {
+            if (result === 'exist') {
                 const event = new ShowToastEvent({
                     title: 'Failed!',
-                    message: 'Something went wrong!',
+                    message: `Email ${this.email} is already registered!`,
                     variant: 'error',
                 });
                 this.dispatchEvent(event);
-
-                this.error = error.body.message;
-                console.log(error);
-                console.error('Error saving candidate:', this.error);
+    
+                this.error = `Email ${this.email} is already registered! Please try "Forgot Password" or contact admin.`;
+                this.updateError();
+            } else {
+                this.newCandidateId = result;
+                this.showPopup();
+    
+                const event = new ShowToastEvent({
+                    title: 'Success!',
+                    message: 'Registration successful. Please verify OTP sent to your email.',
+                    variant: 'success',
+                });
+                this.dispatchEvent(event);
+            }
+        })
+        .catch(error => {
+            const event = new ShowToastEvent({
+                title: 'Failed!',
+                message: 'Something went wrong!',
+                variant: 'error',
             });
-        }
+            this.dispatchEvent(event);
+    
+            this.error = error.body.message;
+            this.updateError();
+            console.error('Error saving candidate:', error);
+        });
     }
-
-
-//TO VERIFY WITH OTP
+    
+    
     handleCodeChange(event) {
         this.entrCode = event.target.value.toString();
     }
 
-    i = 0;
+    
     submitOtp() {
-        verifyOtp({otp: this.entrCode, emailId: this.email })
-            .then(result=>{
-                if(result == this.entrCode){
-                    
+        verifyOtp({otp: this.entrCode, emailId: this.email})
+            .then(result => {
+                if (result === this.entrCode) {
                     saveCandidateProfile({
                         fullName: this.fullName,
                         email: this.email,
@@ -153,8 +159,8 @@ export default class Registration extends NavigationMixin(LightningElement) {
                         canId: this.newCandidateId,
                         password: this.password
                     })
-                    .then( result=>{
-                        if(result){
+                    .then(result => {
+                        if (result) {
                             const event = new ShowToastEvent({
                                 title: 'Success!',
                                 message: 'Registration successful.',
@@ -168,61 +174,65 @@ export default class Registration extends NavigationMixin(LightningElement) {
                                     pageName: 'home',
                                 },
                             });
-
+    
                             this.closePopup();
-                            //this.showOtp = false;
-                            console.log('Profile created succefully');
-                        }else{
+                            console.log('Profile created successfully');
+                        } else {
                             const event = new ShowToastEvent({
                                 title: 'Failed!',
                                 message: 'Something Went Wrong!',
                                 variant: 'error',
                             });
                             this.dispatchEvent(event);
-                            this.error='Something went wrong while Registration! Try Again';
+                            this.error = 'Something went wrong while Registration! Try Again';
+                            this.updateError();
                         }
-                        
                     })
-                    .catch( error =>{
+                    .catch(error => {
                         const event = new ShowToastEvent({
                             title: 'Failed!',
-                            message: 'Something Went Wrong!',
+                            message: 'Something went wrong!',
                             variant: 'error',
                         });
                         this.dispatchEvent(event);
-                        this.error = 'Something went wrong! While registration.';
+                        this.error = 'Something went wrong while Registration! Try Again';
+                        this.updateError();
                         console.log(error);
-                    })
-
-                }else{
-                    
-                    for(i = 0; i<2; i++){
-                        this.showPopup();
-                    }
-                    
+                    });
+                } else {
                     const event = new ShowToastEvent({
                         title: 'Failed!',
                         message: 'Incorrect Verification Code! Try Again.',
                         variant: 'error',
                     });
                     this.dispatchEvent(event);
-                    this.error='Incorrect Verificaton Code! Try Again.';
-
+                    this.error = 'Incorrect Verification Code! Try Again.';
+                    this.updateError();
                 }
-
             })
             .catch(error => {
-                console.log('Error occured: '+ error);
+                console.log('Error occurred: ' + error);
+                const event = new ShowToastEvent({
+                    title: 'Failed!',
+                    message: 'Error verifying OTP. Please try again.',
+                    variant: 'error',
+                });
+                this.dispatchEvent(event);
+                this.error = 'Incorrect Verification Code! Try Again.';
+                this.updateError();
             });
-
+    
         console.log('Submitted OTP:', this.entrCode);
-        this.closePopup();
+        this.showPopup();
     }
-
-    testing(){
-        this.showOtp = true;
+    
+    updateError() {
+        const errorElement = this.querySelector('.slds-m-top_medium');
+        if (errorElement) {
+            errorElement.textContent = this.error;
+        }
     }
-
+     
 
     LoginRedirect() {
         this[NavigationMixin.Navigate]({

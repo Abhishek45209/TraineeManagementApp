@@ -40,7 +40,7 @@
                     </div>
                     <div class="input-group">
                         <img src={mobileIcon} alt="name" class="mobileIcon">
-                        <input type="text" name="mobilenumber" placeholder="Enter you Mobile Number" onchange={handleMobileNumberChange}>
+                        <input type="phone" name="mobilenumber" placeholder="Enter you Mobile Number" onchange={handleMobileNumberChange}>
                     </div>
                     <div class="input-group">
                         <img src={passwordIcon} alt="name" class="passwordIcon">
@@ -51,9 +51,9 @@
                         <input type="text" name="confirmPassword" placeholder="Retype your Password" onchange={handleConfirmPasswordChange}>
                     </div>
                     
-                    <div class="slds-m-top_medium" style="color:brown; margin:auto; width:95%">{error}</div>
+                    <div class="slds-m-top_medium" style="color:brown; margin:auto; width:95%; padding:10px;">{error}</div>
                     <div class="button-group">
-                        <button class="login-Button" onclick={LoginRedirect}>Login</button>
+                        <a onclick={LoginRedirect}>LogIn</a>
                     
                         <button class="register-button" onclick={handleRegister}>Register</button>
                     </div>

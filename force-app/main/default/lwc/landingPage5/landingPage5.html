@@ -1,152 +1,351 @@
 <template>
-    <div class={fadeClass}>
 
-        <img src="https://i.imgur.com/sLAB0QO.gif">
+    <template if:false={showRegistrationPage}>
 
-    </div>
-    <lightning-card class={appCardClass}>
-        <div class="navbar">
-            <nav class="slds-nav">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact</a>
-                      
-                    
-                    </li>
-                    <li class="right"><a  onclick={navigateToLogin}>Log In</a></li>
-                </ul>
-            </nav>
+        <div class={fadeClass}>
+
+            <img src="https://i.imgur.com/sLAB0QO.gif">
+
         </div>
 
-        <div class="slds-grid">
-            <!-- left  -->
-            <div class="slds-col slds-size_1-of-2">
-                <br>
-                <br>
-                <br>
-                <h1 class="slds-text-heading_large custom-heading">AppyNtern</h1>
-                <p class="slds-text-title custom-subtitle">Learn, Code & Explore The Salesforce</p>
-                <br>
+        <div class={appCardClass}>
+            <lightning-card>
+                <div class="navbar">
+                    <nav class=" nav">
+                        <ul>
+                            <li><a onclick={openWelcome}>Home</a></li>
+                            <li><a onclick={openAbout}>About Us</a></li>
+                            <li><a onclick={openContact}>Contact</a>
 
-                <div class="advt">
-                
-                    <p class="advtSol">Join our internship program and unlock new world of opportunity</p>
+                            </li>
+                            <li class="right"><a onclick={navigateToRegister}>Log In </a></li>
+                        </ul>
+                    </nav>
                 </div>
 
-                <!-- changes made by utsav -->
-                <div class="button-container">
-                    <button class="Register-Button" onclick={navigateToRegister}>Register Now </button>
-                </div>
-                <!-- changes made by utsav -->
+            </lightning-card>
 
+
+
+            <div class="slds-grid">
+
+                <!-- left  -->
+                <div class="slds-col slds-size_1-of-2">
+                    <br>
+                    <br>
+                    <br>
+                    <h1 class="slds-text-heading_large custom-heading">AppyNtern</h1>
+                    <p class="slds-text-title custom-subtitle">Learn, Code & Explore The Salesforce</p>
+                    <br>
+
+                    <div class="advt">
+
+                        <p class="advtSol">Join our internship program and unlock new world of opportunity</p>
+                    </div>
+
+                    <!-- changes made by utsav -->
+                    <div class="button-container">
+                        <button class="Register-Button" onclick={navigateToRegister}>Register Now </button>
+                    </div>
+                    <!-- changes made by utsav -->
+
+                </div>
+                <!-- right  -->
+                <div class="slds-col slds-size_1-of-2">
+                    <img src="https://i.imgur.com/4RMcGdK.png" class="slds-m-top_small">
+                </div>
             </div>
-            <!-- right  -->
-            <div class="slds-col slds-size_1-of-2">
-                <img src="https://i.imgur.com/RYLSwcX.png" class="slds-m-top_small">
+
+
+
+            <section class="about-section">
+                <!-- about left  -->
+                <div class="about-left">
+                    <img src="https://i.imgur.com/9u7W7do.png" />
+                </div>
+
+                <!-- about right  -->
+                <div class="about-right">
+
+                    <h1>About Us</h1>
+                    <p>Appyntern, an acknowledged frontrunner in Salesforce training, is pledged to provide top-tier,
+                        transformative learning experiences for aspiring IT professionals and organizations. Central to
+                        our mission is the empowerment of individuals and enterprises through our comprehensive,
+                        hands-on Salesforce training modules, specifically designed to enhance productivity and foster
+                        long-term growth. Our team, comprised of seasoned industry professionals and certified
+                        Salesforce experts, amalgamate extensive knowledge with real-world Salesforce scenarios,
+                        ensuring a practical approach to learning. With Appyntern, embarking upon the journey of
+                        mastering Salesforce equips you with skills and proficiency in high demand across diverse
+                        industries. Driven by passion, dedication, and a steadfast commitment to learners' success,
+                        Appyntern stands as your paramount companion in your Salesforce learning journey.
+                    </p>
+                    <div class="address">
+                        <ul>
+                            <li>
+                                <span class="address-logo">
+                                    <i class="fas fa-paper-plane"></i>
+                                </span>
+                                <p>Address</p>
+                                <span class="saprater">:</span>
+                                <p>Motihari, Bihar, India</p>
+                            </li>
+                            <li>
+                                <span class="address-logo">
+                                    <i class="fas fa-phone-alt"></i>
+                                </span>
+                                <p>Phone No</p>
+                                <span class="saprater">:</span>
+                                <p>+91 91539 98530</p>
+                            </li>
+                            <li>
+                                <span class="address-logo">
+                                    <i class="far fa-envelope"></i>
+                                </span>
+                                <p>Email ID</p>
+                                <span class="saprater">:</span>
+                                <p> contact@appycrown.com</p>
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+                </div>
+            </section>
+            <section class="contactUs" style="background-color: white;">
+                <div class="contactline">
+                <center>
+                    <h1>Contact Us</h1>
+                </center>
             </div>
+                <div class="contact-body">
+
+                    <div class = "contact-info">
+                        <div>
+                          <span><i class = "fas fa-mobile-alt"></i></span>
+                          <img src={phone} alt="phoneicon">
+                          <span>Phone No.</span>
+                          <span class = "text">+91 9153998530</span>
+                        </div>
+                        <div>
+                          <span><i class = "fas fa-envelope-open"></i></span>
+                          <img src={emailiconhome} alt="email"> 
+                          <span>E-mail</span>
+                          <span class = "text">contact@appycrown.com</span>
+                         
+                        </div>
+                        <div>
+                          <span><i class = "fas fa-map-marker-alt"></i></span>
+                          <img src={address} alt="address">
+                          <span>Address</span>
+                          <span class = "text">AppyCrown Private Limited
+                              Prakash Vatika, Pakridayal,
+                              Motihari, Bihar
+                              India 845428</span>
+                        </div>
+                        <div>
+                          <span><i class = "fas fa-clock"></i></span>
+                          <img src={openinghour} alt="openinghour">
+                          <span>Opening Hours</span>
+                          <span class = "text">Monday - Friday (9:00 AM to 5:00 PM)</span>
+                        </div>
+                      </div>
+          
+
+                    <div class="contact-form">
+                        <form>
+                            <div>
+                                <input type="text" class="form-control" onchange={getFullName} placeholder="Full Name">
+                                <input type="text" class="form-control" onchange={getCity} placeholder="City">
+                            </div>
+                            <div>
+                                <input type="email" class="form-control" onchange={getEmail} placeholder="E-mail">
+                                <input type="text" class="form-control" onchange={getPhone} placeholder="Phone">
+                            </div>
+                            <textarea rows="5" placeholder="Message" onchange={getMessage} class="form-control"></textarea>
+                            <input type="submit" class="send-btn" onclick={SendMessage} value="send message">
+                        </form>
+
+                        <div>
+                            <img src="https://i.imgur.com/AQlJmUn.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class = "map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d223700.1490386933!2d-97.11558670486288!3d28.829485511234168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864266db2e2dac3b%3A0xeee20d566f63267d!2sVictoria%2C%20TX%2C%20USA!5e0!3m2!1sen!2snp!4v1604921178092!5m2!1sen!2snp" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          </div> -->
+
+                <div class="contact-footer">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><img src={insta} alt="Instagram Icon"></a>
+                <a href="#" class="social-link"><img src={twitt} alt="Twitter Icon"></a>
+                <a href="#" class="social-link"><img src={git} alt="Github Icon"></a>
+                <a href="#" class="social-link"><img src={face} alt="Facebook Icon"></a>
+                <a href="https://www.linkedin.com/company/appycrown-private-limited/mycompany/verification/"
+                    class="social-link"><img src={link} alt="LinkedIn Icon"></a>
+
+                    </div>
+                </div>
+
+
+
+            </section>
         </div>
-        <br>
-        <br>
-        <br>
-        <br><br><br><br><br><br><br><br><br><br><br>
-    </lightning-card>
-    <section class="about-section">
-        <!-- about left  -->
-        <div class="about-left">
-            <img src="https://i.imgur.com/9u7W7do.png"/>
-        </div>
 
-        <!-- about right  -->
-        <div class="about-right">
-            
-            <h1>About Us</h1>
-            <p>Appyntern, an acknowledged frontrunner in Salesforce training, is pledged to provide top-tier, transformative learning experiences for aspiring IT professionals and organizations. Central to our mission is the empowerment of individuals and enterprises through our comprehensive, hands-on Salesforce training modules, specifically designed to enhance productivity and foster long-term growth. Our team, comprised of seasoned industry professionals and certified Salesforce experts, amalgamate extensive knowledge with real-world Salesforce scenarios, ensuring a practical approach to learning. With Appyntern, embarking upon the journey of mastering Salesforce equips you with skills and proficiency in high demand across diverse industries. Driven by passion, dedication, and a steadfast commitment to learners' success, Appyntern stands as your paramount companion in your Salesforce learning journey.
-            </p>
-            <div class="address">
-                <ul>
-                    <li>
-                        <span class="address-logo">
-                            <i class="fas fa-paper-plane"></i>
-                        </span>
-                        <p>Address</p>
-                        <span class="saprater">:</span>
-                        <p>Motihari, Bihar, India</p>
-                    </li>
-                    <li>
-                        <span class="address-logo">
-                            <i class="fas fa-phone-alt"></i>
-                        </span>
-                        <p>Phone No</p>
-                        <span class="saprater">:</span>
-                        <p>+91 91539 98530</p>
-                    </li>
-                    <li>
-                        <span class="address-logo">
-                            <i class="far fa-envelope"></i>
-                        </span>
-                        <p>Email ID</p>
-                        <span class="saprater">:</span>
-                        <p> contact@appycrown.com</p>
-                    </li>
-                </ul>
+    </template>
+
+    <template if:true={showRegistrationPage}>
+        <lightning-card>
+            <div class="navbar">
+                <nav class=" nav">
+                    <ul>
+                        <li><a onclick={openHome}>Home</a></li>
+                        <li><a onclick={openHome}>About Us</a></li>
+                        <li><a onclick={openHome}>Contact</a>
+
+                        </li>
+                        <li class="right"><a onclick={navigateToLogin}>Log In</a></li>
+                    </ul>
+                </nav>
             </div>
-            
-        
-        </div>
-    </section>
-    <section class="contactUs">
-        <div class="containerCon">
-            <div class="content">
-              <div class="left-side">
-                <div class="address details">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <div class="topic">Address</div>
-                  <div class="text-one">Motihari,Bihar</div>
-                  <div class="text-two">Prakash Vatika, Pakridayal,</div>
+
+        </lightning-card>
+
+        <lightning-card>
+            <template if:true={showOtpo}>
+                <div class="container">
+                    <lightning-card>
+                        <div class="content slds-m-around_medium">
+                            <div class="slds-text-heading_medium">Finish Your Registration</div>
+                            <div class="slds-text-body_regular slds-m-top_small">Check your Email and enter the 6 digit
+                                Verification code to confirm your account.</div>
+
+                            <div class="slds-m-top_large otp-field">
+                                <lightning-input class="large-input" type="number" pattern="[0-9]{6}" maxlength="6"
+                                    placeholder="Verification Code:"></lightning-input>
+                            </div>
+
+                            <div class="slds-p-horizontal_small">
+                                <hr class="slds-border_bottom">
+                            </div>
+
+                            <lightning-button variant="brand" label="Submit"></lightning-button>
+                            <div class="slds-m-top_medium buttons-field">
+                                <a>Didn't get a code?</a>
+                            </div>
+                        </div>
+                    </lightning-card>
                 </div>
-                <div class="phone details">
-                  <i class="fas fa-phone-alt"></i>
-                  <div class="topic">Phone</div>
-                  <div class="text-one">+91 91539 98530</div>
-                  <div class="text-two"> 000</div>
-                </div>
-                <div class="email details">
-                  <i class="fas fa-envelope"></i>
-                  <div class="topic">Email</div>
-                  <div class="text-one">contact@appycrown.com
-                </div>
-                  <div class="text-two">appyntern.com</div>
-                </div>
-              </div>
-              <div class="right-side">
-                <div class="topic-text">Send us a message</div>
-                <p>If you have any Internship related queries or a special request/suggestion feel free to connect with us . It's our pleasure to help you.</p>
-              <form action="#">
-                <div class="input-box">
-                  <input type="text" placeholder="Enter your name">
-                </div>
-                <div class="input-box">
-                  <input type="text" placeholder="Enter your email">
-                </div>
-                <div class="input-box message-box">
-                  
-                </div>
-                <div class="button">
-                  <input type="button" value="Send Now" >
-                </div>
-              </form>
-            </div>
-            </div>
-          </div>
+            </template>
+            <template if:false={showOtp}>
+                <div class="full-body">
 
 
-    </section>
+                    <div class="registration">
+                        <div class="content-on-leftside">
+                            <div class="textcontainer">
+                                <h1>Sign Up</h1>
 
-         
-    
+                                <div class="input-group">
+                                    <img src={nameIcon} alt="name" class="nameIcon">
+                                    <input type="text" name="FullName" placeholder="Enter you Full Name"
+                                        onchange={handleFullNameChange}>
+                                </div>
+                                <div class="input-group">
+                                    <img src={emailIcon} alt="name" class="emailIcon">
+                                    <input type="Email" name="Email" placeholder="Enter you Email"
+                                        onchange={handleEmailChange}>
+                                </div>
+                                <div class="input-group">
+                                    <img src={mobileIcon} alt="name" class="mobileIcon">
+                                    <input type="phone" name="mobilenumber" placeholder="Enter you Mobile Number"
+                                        onchange={handleMobileNumberChange}>
+                                </div>
+                                <div class="input-group">
+                                    <img src={passwordIcon} alt="name" class="passwordIcon">
+                                    <input type="password" name="password" placeholder="Create your Password"
+                                        onchange={handlePasswordChange}>
+                                </div>
+                                <div class="input-group">
+                                    <img src={ConfirmPasswordIcon} alt="name" class="ConfirmPasswordIcon">
+                                    <input type="text" name="confirmPassword" placeholder="Retype your Password"
+                                        onchange={handleConfirmPasswordChange}>
+                                </div>
+
+                                <div class="slds-m-top_medium"
+                                    style="color:brown; margin:auto; width:95%; padding:10px;">{error}</div>
+                                <div class="button-group">
+                                    <a onclick={LoginRedirect}>LogIn</a>
+
+                                    <button class="register-button" onclick={handleRegister}>Register</button>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="button-group">
+                                    <a onclick={openHome}>Cancel</a>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                    <!-- <lightning-button label="Enter OTP" onclick={showPopup}></lightning-button> -->
+
+                    <template if:true={isPopupVisible}>
+                        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                            <div class="outer-div">
+
+                                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                    title="Close" onclick={closePopup}>
+                                    <lightning-icon icon-name="utility:close" alternative-text="close"
+                                        size="small"></lightning-icon>
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                                <div class="content slds-m-around_medium">
+
+                                    <div class="slds-text-heading_medium">Finish Your Registration</div>
+                                    <div class="slds-text-body_regular slds-m-top_small">Check your Email and enter the
+                                        6 digit Verification code to confirm your account.</div>
+
+                                    <div class="slds-m-top_large otp-field">
+                                        <lightning-input onchange={handleCodeChange} class="large-input" type="number"
+                                            pattern="[0-9]{6}" maxlength="6"
+                                            placeholder="Verification Code:"></lightning-input>
+                                    </div>
+
+                                    <div class="slds-p-horizontal_small">
+                                        <hr class="slds-border_bottom">
+                                    </div>
+
+                                    <lightning-button onclick={submitOtp} variant="brand"
+                                        label="Submit"></lightning-button>
+                                    <div class="slds-m-top_medium buttons-field">
+                                        <a>Didn't get a code?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="slds-backdrop slds-backdrop_open"></div>
+                    </template>
+
+                    <div class="content-on-rightside">
+                        <img src={registrationLeftImage} alt="image">
+                    </div>
+                </div>
+            </template>
+
+        </lightning-card>
+
+    </template>
+
+
 
 </template>
-<!-- <div class="imageContaineraboutus">
-    <img src="https://i.imgur.com/9u7W7do.png"/>
-  </div> -->

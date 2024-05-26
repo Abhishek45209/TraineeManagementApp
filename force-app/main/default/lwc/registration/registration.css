@@ -1,12 +1,14 @@
 .full-body{
     display: flex;
+    height: 100vh;
 }
 .registration{
+    height: max-content;
     width: 400px;
     border-radius: 16px;
     display: flex;
     background-color: #ebebeb;
-    padding: 25px;
+    padding: 22px 30px;
     margin-left: 150px;
 }
 
@@ -55,48 +57,34 @@
 }
 
 .button-group {
+    
+    width: max-content;
+    margin: auto;
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 14px;
+}
+.button-group a{
+    margin: auto;
 }
 
 .register-button {
     text-align: center;
-    padding: 8px 24px;
+    width: max-content;
+    padding: 8px 22px;
+    font-size: 1.4em;
     border-radius: 20px;
-    font-size: 1.5em;
     color: white;
     cursor: pointer;
     border: none;
-    width: 45%;
 }
 
-.login-Button {
-    text-align: center;
-    padding: 8px 24px;
-    border-radius: 20px;
-    font-size: 1.5em;
-    color: white;
-    cursor: pointer;
-    border: none;
-    width: 45%;
-}
 
 .register-button {
     background-color: #007bff;
 }
 
 .register-button:hover {
-    background-color: rgb(11, 91, 197);
-    box-shadow: 2px 2px 2px black;
-}
-
-.login-Button {
-    background-color: #19007b;
-}
-
-.login-Button:hover {
     background-color: rgb(11, 91, 197);
     box-shadow: 2px 2px 2px black;
 }
@@ -288,4 +276,94 @@
 .slds-button{
     display: flex;
     padding: 8px 14px;
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+    .registration {
+        width: 100%;
+        margin-left: 0;
+    }
+    .content-on-rightside {
+        display: block; 
+        width: 100%;
+    }
+  
+}
+
+@media only screen and (max-width: 768px) {
+   
+    .full-body {
+        flex-direction: column;
+    }
+    .registration {
+        width: 100%;
+        margin: 0;
+    }
+    .content-on-rightside {
+        display: block; 
+        width: 100%;
+    }
+
+    .input-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+        width: 75%;
+    }
+
+    .textcontainer h1 {
+        font-size: 2em;
+        width:60%;
+    }
+    .button-group {
+        flex-direction: column;
+        width:60%;
+    }
+
+    .button-group a{
+        width:50%;
+    }
+    .content-on-rightside {
+        display: block;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 575px) {
+  
+    .full-body {
+        flex-direction: column;
+    }
+    .registration {
+        width: 100%;
+        margin: 0;
+    }
+    .textcontainer h1 {
+        font-size: 2em;
+        width:60%;
+    }
+    .button-group {
+        flex-direction: column;
+        width:60%;
+    }
+
+    .button-group a{
+        width:50%;
+    }
+    .content-on-rightside {
+        display: block;
+        width: 100%;
+    }
+
+    .input-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+        width: 70%;
+    }
+
+    
 }

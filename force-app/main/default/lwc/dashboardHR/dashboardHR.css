@@ -191,6 +191,48 @@
 
 /* code by utsav */
 
+
+.Qualification-Table {
+    border-collapse: collapse;
+    /* margin: 25px 0; */
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.Qualification-Table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.Qualification-Table th,
+.Qualification-Table td {
+    padding: 12px 15px;
+}
+
+.Qualification-Table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.Qualification-Table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.Qualification-Table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.Qualification-Table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+
+
 /* by anushka*/
 
 .content-table {
@@ -461,10 +503,122 @@ tbody tr td img {
 
 .documents{
     display: flex;
-    justify-content: space-between;
     margin-left: 20%;
-    margin-right: 20%;
+    /* margin-right: 20%; */
     align-items: center;
     margin-bottom: 4%;
     margin-top: 4%;
+}
+
+.downloadResume{
+    margin-left: 3%;
+}
+
+.EducationFormSubHeading{
+    background-color: #5f9dbd;
+    margin-top: 15px;
+    padding-left: 1.5%;
+}
+
+.EducationFormSubHeading p{
+    font-size: 1.5em;
+    font-weight: 800;
+
+}
+
+.EducationLevel{
+    margin-top: 10px;
+    padding-left: 1.3%;   
+}
+
+.EducationLevel p{
+    background: linear-gradient(90deg, rgba(46,207,237,1) 0%, rgba(220,242,246,1) 51%, rgba(255,255,255,1) 100%);
+    font-size: 1.6em;
+    font-weight: 700;
+    padding-left: 1.8%;   
+
+}
+
+
+/* Anushka job posting css here */
+
+.containerJob {
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+	/* width: 300px; */
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+	border-top: 5px solid #009578;
+	border-bottom: 5px solid #009578;
+}
+
+.hire {
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 1rem;
+	padding: 1em;
+}
+
+.hire__value {
+	background: transparent;
+	border: none;
+	outline: none;
+	font-family: sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	flex-grow: 1;
+}
+
+.hire:has(.hire__checkbox:checked) {
+	color: #555555;
+	background: #cdffcd;
+	
+    text-decoration-line: underline;
+    text-decoration-color: red;
+    text-decoration-thickness: 3px;
+	order: 1;
+}
+
+.containerJob .title {
+    margin-bottom: 2rem; 
+    font-weight: 900px;
+}
+
+.send-email {
+    margin-top: 2rem;
+    background: red;
+    color:white;
+    order: 1;
+}
+
+@media screen and (max-width: 279px) {
+    .slds-show_small {
+        display: block;
+    }
+
+    .slds-hide_medium, .slds-hide_large {
+        display: none;
+    }
+}
+
+/* ABHISHEK RESPONSIVE CSS */
+@media screen and (min-width: 500px) and (max-width: 600px) {
+    
+    .sidebar {
+        display: none;
+    }
+
+    .myCustomClass {
+        width: 100%; 
+    }
+
+   
+    .slds-col  {
+        width: 75%;
+    }
 }
