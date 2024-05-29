@@ -46,7 +46,7 @@
                         </li>
                         <li>
                             <img src={icon} alt="dashboard">
-                            <a href="#" onclick={handleShowInternManagement}>Intern Management</a>
+                            <a onclick={handleShowInternManagement}>Intern Management</a>
                         </li>
                         <li>
                             <img src={icon} alt="dashboard">
@@ -68,7 +68,7 @@
             </div>
 
             <!-- project management section -->
-            
+
 
             <!-- grid 2 -->
             <div class="slds-col slds-large-size_9-of-12 slds-medium-size_8-of-12 slds-size_9-of-12">
@@ -77,7 +77,156 @@
                 </template>
 
                 <template if:true={showDashboard}>
-                    <p>Dashboard Shown</p>
+                    
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+
+                            <div class="dataContainerRegistrants">
+                                <p>0</p>
+                                <h2 onclick={handleShowCandidateManagement}>Registrants</h2>
+                            </div>
+
+                        </div>
+                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+
+                            <div class="dataContainerApplications">
+                                <p>9</p>
+                                <h2 onclick={handleShowApplicationManagement}>Total Applications</h2>
+                            </div>
+
+                        </div>
+                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+
+                            <div class="dataContainerInterns">
+                                <p>0</p>
+                                <h2 onclick={handleShowInternManagement}>Total Interns</h2>
+                            </div>
+
+                        </div>
+                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+
+                            <div class="dataContainerProjects">
+                                <p>0</p>
+                                <h2 onclick={handleShowProjects}>Projects</h2>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="notes">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-large-size_8-of-12 slds-medium-size_8-of-12 slds-size_12-of-12">
+
+                                
+
+                                <!-- Inquiries -->
+
+                                <div class="Feedbacks">
+                                    <h1>Feedbacks</h1>
+
+                                    <table class="Dashboard-Table" style="width: 96%; height: 30vh; border: 2px  solid black; margin:auto;">
+                                        <thead>
+                                            <tr class="slds-line-height_reset">
+
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Name">Email</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Candidate ID">Subject</div>
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <template for:each={feedBackDetails} for:item="feedbacks">
+                                                <tr key={feedbacks.Id}>
+
+                                                    <td>
+                                                        <div class="slds-truncate" >
+                                                            {feedbacks.Email__c}
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="slds-truncate">
+                                                            {feedbacks.Subject__c}</div>
+                                                    </td>
+
+
+                                                </tr>
+                                            </template>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="Inquiries">
+                                    <h1>Inquiries</h1>
+
+                                    <table class="Dashboard-Inq-Table" style="width: 96%; height: 30vh; border: 2px  solid black; margin:auto;">
+                                        <thead>
+                                            <tr class="slds-line-height_reset">
+
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Name">Name</div>
+                                                </th>
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="Candidate ID">Email</div>
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <template for:each={inquiriesDetails} for:item="inquiry">
+                                                <tr key={inquiry.Id}>
+
+                                                    <td>
+                                                        <div class="slds-truncate" >
+                                                            {inquiry.Full_Name__c}
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="slds-truncate" >
+                                                            {inquiry.Email__c}</div>
+                                                    </td>
+
+
+                                                </tr>
+                                            </template>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+
+                                <!-- add notes  -->
+                                <article class="slds-card notesContainer">
+                                    <div class="slds-card__header slds-grid">
+                                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+
+                                            <div class="slds-media__body">
+                                                <h2 class="slds-card__header-title">
+                                                    <a href="#" class="slds-card__header-link slds-truncate"
+                                                        title="Accounts">
+                                                        <span>Personal Notes</span>
+                                                    </a>
+                                                </h2>
+                                            </div>
+                                            <div class="slds-no-flex">
+                                                <button class="slds-button slds-button_neutral" onclick={newNotes}>Add New</button>
+                                            </div>
+                                        </header>
+                                    </div>
+                                </article>
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
                 </template>
                 <template if:false={showDashboard}>
 
@@ -92,114 +241,121 @@
                         <button class="slds-button slds-button_neutral" onclick={newInternship}>Create New</button>
 
                     </div>
-                    <div class="listingsDetails">
 
-                        <div class="slds-form-element">
-                            <div class="slds-form-element__control">
-                                <div class="slds-checkbox">
-                                    <input type="checkbox" name="options" id="checkbox-unique-id-80"
-                                        value="checkbox-unique-id-80" checked="" />
-                                    <label class="slds-checkbox__label" for="checkbox-unique-id-80 labelheading">
-                                        <span class="slds-checkbox_faux"></span>
-                                        <span class="slds-form-element__label internshipName">Internship Name</span>
-                                        <span>Published/Unpublished</span>
-                                    </label>
+                    <template for:each={internshipListings} for:item="item" for:index="index">
+
+                        <div key={item.Id} class="listingsDetails">
+
+                            <div class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <div class="slds-checkbox">
+                                        <input type="checkbox" name="options" id="checkbox-unique-id-80"
+                                            value="checkbox-unique-id-80" checked="" />
+                                        <label class="slds-checkbox__label" for="checkbox-unique-id-80 labelheading">
+                                            <span class="slds-checkbox_faux"></span>
+                                            <span class="slds-form-element__label internshipName"> {item.Name} </span>
+                                            <span>{item.Id}</span>
+                                        </label>
+                                    </div>
                                 </div>
+                            </div>
+
+                            <div class="slds-grid slds-wrap">
+                                <div
+                                    class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+                                    <div class="demo-only" style="width:30rem">
+                                        <article class="slds-tile">
+
+
+                                            <div class="slds-tile__detail">
+
+                                                <dl class="slds-list_horizontal slds-wrap">
+                                                    <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                        title="First Label">
+                                                        Duration:</dt>
+                                                    <dd class="slds-item_detail slds-truncate  content-value"
+                                                        title="Description for first label">
+                                                        {item.Duration__c} weeks</dd>
+                                                    <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                        title="First Label">
+                                                        Location:</dt>
+                                                    <dd class="slds-item_detail slds-truncate  content-value"
+                                                        title="Description for first label">
+                                                        {item.Location__c}</dd>
+
+                                                </dl>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+
+                                    <div class="demo-only" style="width:30rem">
+                                        <article class="slds-tile">
+
+                                            <div class="slds-tile__detail margin-left">
+                                                <dl class="slds-list_horizontal slds-wrap">
+
+                                                    <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                        title="First Label">
+                                                        Created On:</dt>
+                                                    <dd class="slds-item_detail slds-truncate content-value"
+                                                        title="Description for first label">
+                                                        {item.Created_On__c}</dd>
+                                                    <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                        title="Second Label">
+                                                        Deadline:</dt>
+                                                    <dd class="slds-item_detail slds-truncate content-value"
+                                                        title="Description for second label">
+                                                        {item.Deadline__c}</dd>
+
+                                                </dl>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+                                    <div class="demo-only" style="width:30rem">
+                                        <article class="slds-tile">
+
+                                            <div class="slds-tile__detail ">
+                                                <dl class="slds-list_horizontal slds-wrap">
+
+                                                    <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                        title="First Label">
+                                                        Stipend</dt>
+                                                    <dd class="slds-item_detail slds-truncate  content-value"
+                                                        title="  for first label">
+                                                        {item.Stipend__c}</dd>
+                                                    <dt class="slds-item_label slds-text-color_weak slds-truncate head"
+                                                        title="Second Label">
+                                                        Experience Level</dt>
+                                                    <dd class="slds-item_detail slds-truncate content-value"
+                                                        title="Description for second label">
+                                                        {item.Experience_Level__c}</dd>
+                                                </dl>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="internshipButton">
+
+                                <button class="slds-button slds-button_brand onclick={handleEdit}">Edit </button>
+                                <button
+                                    class="slds-button slds-button_destructive onclick={handleDelete}">Delete</button>
+                                <button class="slds-button slds-button_success onclick={handleButtonClick}">Publish
+                                </button>
+                                <button
+                                    class="slds-button slds-button_text-destructive onclick={handleButtonClick}">Unpublish
+                                </button>
                             </div>
                         </div>
-
-                        <div class="slds-grid slds-wrap">
-                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
-                                <div class="demo-only" style="width:30rem">
-                                    <article class="slds-tile">
-
-
-                                        <div class="slds-tile__detail">
-
-                                            <dl class="slds-list_horizontal slds-wrap">
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="First Label">
-                                                    Duration:</dt>
-                                                <dd class="slds-item_detail slds-truncate  content-value"
-                                                    title="Description for first label">
-                                                    6 weeks</dd>
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="First Label">
-                                                    Location:</dt>
-                                                <dd class="slds-item_detail slds-truncate  content-value"
-                                                    title="Description for first label">
-                                                    Remote/Office</dd>
-
-                                            </dl>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-
-                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
-
-                                <div class="demo-only" style="width:30rem">
-                                    <article class="slds-tile">
-
-                                        <div class="slds-tile__detail margin-left">
-                                            <dl class="slds-list_horizontal slds-wrap">
-
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="First Label">
-                                                    Created On:</dt>
-                                                <dd class="slds-item_detail slds-truncate content-value"
-                                                    title="Description for first label">
-                                                    5/12/2024 3:37 AM</dd>
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="Second Label">
-                                                    Deadline:</dt>
-                                                <dd class="slds-item_detail slds-truncate content-value"
-                                                    title="Description for second label">
-                                                    5/14/2024 3:37 AM</dd>
-
-                                            </dl>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-
-                            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
-                                <div class="demo-only" style="width:30rem">
-                                    <article class="slds-tile">
-
-                                        <div class="slds-tile__detail ">
-                                            <dl class="slds-list_horizontal slds-wrap">
-
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="First Label">
-                                                    Stipend</dt>
-                                                <dd class="slds-item_detail slds-truncate  content-value"
-                                                    title="  for first label">
-                                                    Free/Paid</dd>
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="Second Label">
-                                                    Experience Level</dt>
-                                                <dd class="slds-item_detail slds-truncate content-value"
-                                                    title="Description for second label">
-                                                    Fresher/Experience</dd>
-                                            </dl>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="internshipButton">
-
-                            <button class="slds-button slds-button_brand onclick={handleButtonClick}">Edit </button>
-                            <button
-                                class="slds-button slds-button_destructive onclick={handleButtonClick}">Delete</button>
-                            <button class="slds-button slds-button_success onclick={handleButtonClick}">Publish
-                            </button>
-                            <button
-                                class="slds-button slds-button_text-destructive onclick={handleButtonClick}">Unpublish
-                            </button>
-                        </div>
-                    </div>
+                    </template>
                 </template>
                 <template if:false={showInternshipsListings}>
                 </template>
@@ -248,76 +404,67 @@
                 <!-- 
                 Abhishek application management -->
                 <template if:true={showApplcationManagement}>
-                    <table class="content-table">
+                    <!-- Ibrar working here -->
+                    <h1 style="width: fit-content; margin: auto; font-size: 1.6rem;">{internshipApStatus} Internship Applications</h1>
+
+                    <div class="button-filter">
+                        <button class="slds-button slds-button_neutral" data-status="Applied" onclick={handleFilter}>New</button>
+                        <button class="slds-button slds-button_neutral" data-status="Selected" onclick={handleFilter}>Selected</button>
+                        <button class="slds-button slds-button_neutral" data-status="Rejected" onclick={handleFilter}>Rejected</button>
+                        <button class="slds-button slds-button_neutral" data-status="All" onclick={handleFilter}>All</button>
+                    </div>
+
+                    <table class="content-table" style="width: 96%; margin:auto;">
                         <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Graduation year</th>
-                                <th>Experience</th>
-                                <th>Course</th>
-                                <th>Action</th>
+                            <tr class="slds-line-height_reset">
+                                
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Name">Name</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Candidate ID">Candidate Name</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Internship ID">Internship</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Application Date">Application Date</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Actions">Actions</div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Utsav</td>
-                                <td>Utsav120@gmail.com</td>
-                                <td>2024</td>
-                                <td>Fresher</td>
-                                <td>Btech</td>
-                                <td>
-                                    <button class="slds-button slds-button_brand"
-                                        onclick={viewCandidateApplicationDetails}>View</button>
-                                </td>
-                            </tr>
-                            <tr class="active-row">
-                                <td>Anushka</td>
-                                <td>anushkatiwari123@gmail.com</td>
-                                <td>2024</td>
-                                <td>Fresher</td>
-                                <td>Btech</td>
-                                <td>
-                                    <button class="slds-button slds-button_brand"
-                                        onclick={viewCandidateApplicationDetails}>View</button>
-                                </td>
-
-                            </tr>
-
-                            <tr>
-                                <td>Raushan</td>
-                                <td>kumarraushan91628@gmail.com</td>
-                                <td>2024</td>
-                                <td>Fresher</td>
-                                <td>BCA</td>
-                                <td>
-                                    <button class="slds-button slds-button_brand"
-                                        onclick={viewCandidateApplicationDetails}>View</button>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-
+                            <template for:each={internshipApplications} for:item="application">
+                                <tr key={application.Id}>
+                                    
+                                    <td>
+                                        <div class="slds-truncate" title={application.Name}>{application.Name}</div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" title={application.Candidate_Id__c}>{application.Candidate_Name__c}</div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" title={application.Internship_Id__c}>{application.Internship_Name__c}</div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" title={application.Application_Date__c}>{application.Application_Date__c}</div>
+                                    </td>
+                                    <td>
+                                        <button class="slds-button slds-button_brand" data-id={application.Id}
+                                        data-canid={application.Candidate_Id__c}
+                                        data-intrid={application.Internship_Id__c}
+                                         onclick={viewCandidateApplicationDetails}>View</button>
+                                    </td>
+                                </tr>
+                            </template>
                         </tbody>
                     </table>
+
+
                 </template>
+                
                 <template if:false={showApplcationManagement}>
 
                     <!-- By anushka -->
@@ -340,49 +487,38 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                                            <th> Candidate <span class="icon-arrow">&UpArrow;</span></th>
-                                            <th> Location <span class="icon-arrow">&UpArrow;</span></th>
-                                            <th> Program <span class="icon-arrow">&UpArrow;</span></th>
-                                            <th> Status <span class="icon-arrow">&UpArrow;</span></th>
-                                            <th> Qualification <span class="icon-arrow">&UpArrow;</span></th>
+                                            <th> Internship Name <span class="icon-arrow">&UpArrow;</span></th>
+                                            <th> Application End Date <span class="icon-arrow">&UpArrow;</span></th>
+                                            <th> Instructor <span class="icon-arrow">&UpArrow;</span></th>
+                                            <th> Candidates <span class="icon-arrow">&UpArrow;</span></th>
+                                            <th> Actions <span class="icon-arrow">&UpArrow;</span></th>
                                         </tr>
+                                        
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td> 1 </td>
-                                            <td> <img src="" alt="">Utsav</td>
-                                            <td> Purnia </td>
-                                            <td> AppynTern - Summer Internship 2024 </td>
-                                            <td>
-                                                <p class="status delivered">Selected</p>
-                                            </td>
-                                            <td> <strong>Fresher</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td> 2 </td>
-                                            <td><img src="" alt=""> Abhishek </td>
-                                            <td> Purnia </td>
-                                            <td> AppynTern - Industrial Training 2024 </td>
-                                            <td>
-                                                <p class="status cancelled">Rejected</p>
-                                            </td>
-                                            <td> <strong>Undergraduate</strong> </td>
-                                        </tr>
-                                        <tr>
-                                            <td> 3</td>
-                                            <td><img src="" alt=""> Ibrar </td>
-                                            <td> Katihar </td>
-                                            <td> AppynTern - Campus Training 2024</td>
-                                            <td>
-                                                <p class="status shipped">Pending</p>
-                                            </td>
-                                            <td> <strong>Fresher</strong> </td>
-                                        </tr>
-
+                                        <template for:each={holdAnyRecord} for:item="internship">
+                                            <tr key={internship.Id}>
+                                                <td>
+                                                    <div class="slds-truncate" title={internship.Name}>{internship.Name}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="slds-truncate" title={internship.Deadline__c}>{internship.Deadline__c}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="slds-truncate" title="Instructor">--</div>
+                                                </td>
+                                                <td>
+                                                    <div class="slds-truncate" title="Candidates">--</div>
+                                                </td>
+                                                <td>
+                                                    <button class="slds-button slds-button_brand" data-id={internship.Id} onclick={showInternManagemePopup}>View</button>
+                                                </td>
+                                            </tr>
+                                        </template>
                                     </tbody>
                                 </table>
                             </section>
+                            
                         </div>
                     </div>
 
@@ -391,12 +527,252 @@
 
                 </template>
 
-
                 <template if:false={showInternManagement}>
-
-
                 </template>
 
+                <!-- INNER PAGE OF INTERNS MANAGEMENT  -->
+                <template if:true={showManageInternTemp}>
+                    <section>
+                        <div class="internship-details">
+                            <div class="EducationFormSubHeading">
+                        <template if:true={appIntrData}>
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1 slds-p-around_x-small" style="font-size: 24px;">
+                                    <strong>{appIntrData.Name}</strong> 
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-p-around_x-small" style="font-size: 18px;">
+                                    <strong>Duration:</strong> {appIntrData.Duration__c}
+                                </div>
+                                <div class="slds-col slds-size_1-of-1 slds-p-around_x-small" style="font-size: 18px;">
+                                    <strong>Stipend:</strong> {appIntrData.Stipend__c}
+                                </div>
+                            </div>
+            
+                        </template>
+
+                        <template if:false={appIntrData}>
+                            <p>Loading Internship Data...</p>
+                        </template>
+                    </div>
+                        </div>
+          
+                    </section>
+
+                    <div class="slds-grid slds-grid_align-spread slds-m-around_medium button-container-ib">
+                        <div class="slds-button-group-ib">
+                            <button class="slds-button custom-button-ib" onclick={assignTaskToAll}>Assign Task to All</button>
+                            <button class="slds-button custom-button-ib" onclick={assignProjectToAll}>Assign Project to All</button>
+                        </div>
+                        <div class="slds-button-group-ib">
+                            <button class="slds-button custom-button-ib" onclick={scheduleCall}>Schedule Call</button>
+                            <button class="slds-button custom-button-ib" onclick={makeAnnouncement}>Announcement</button>
+                        </div>
+                    </div>
+
+                    <section>
+                        <h1>Enrolled Candidates:</h1>
+                        <table class="content-table" style="width: 96%; margin:auto;">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Name">Candidate Name</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Candidate ID">Email ID</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Internship ID">Task</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Application Date">Project</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Actions">View</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                
+                                <template for:each={appCanData} for:item="currentItem" for:index="index">
+                                    <tr key={currentItem.Id}>
+                                        
+                                        <td>
+                                            <div class="slds-truncate" title={currentItem.Candidate_Name__c}>{currentItem.Candidate_Name__c}</div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate" title={currentItem.Candidate_Email__c}>{currentItem.Candidate_Email__c}</div>
+                                        </td>
+
+                                        <td>
+                                            <button class="slds-button slds-button_brand" data-id={currentItem.Candidate_Id__c}
+                                             onclick={assignTast}>Assign Task</button>
+                                        </td>
+                                        <td>
+                                            <button class="slds-button slds-button_brand" data-id={currentItem.Candidate_Id__c}
+                                             onclick={assignProject}>Assign Project</button>
+                                        </td>
+                                        <td>
+                                            <button class="slds-button slds-button_brand" data-id={currentItem.Candidate_Id__c}
+                                             onclick={viewProfileInternManagement}>View</button>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+
+                    </section>
+    
+                    <div class="button-container-bottom">
+                        <button class="slds-button custom-button-bottom" onclick={handleCompleted}>Completed</button>
+                    </div>
+                </template>
+
+                <!-- INNER PAGE OF INTERNS Profile page  -->
+                <template if:true={showInternProfilePop}>
+                    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+                        class="slds-modal slds-fade-in-open slds-modal_large">
+                        <div class="slds-modal__container">
+                            
+                            <div class="slds-modal__header">
+                                <h1 id="modal-heading-021" class="slds-modal__title slds-hyphenate" tabindex="-1">Applicant Details</h1>
+                            </div>
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-22" style="padding-inline: 50px;">
+                
+                                <!-- <section>
+                                    <div class="internship-details">
+                                        <div class="EducationFormSubHeading">
+                                        <p>Internship Details:</p>
+                                    </div>
+                                    <template if:true={appCanData}>
+                                        <div class="slds-grid slds-wrap">
+                                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                                <strong>Internship Name:</strong> {appCanData.Name}
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                                <strong>Duration:</strong> {appCanData.Duration__c}
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                                <strong>Location:</strong> {appCanData.Location__c}
+                                            </div>
+                                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                                <strong>Stipend:</strong> {appCanData.Stipend__c}
+                                            </div>
+                                        </div>
+                        
+                                    </template>
+                                    <template if:false={appIntrData}>
+                                        <p>Loading Internship Data...</p>
+                                    </template>
+                                    </div>
+                                    
+                                </section>
+                 -->
+                            
+                                    
+
+
+
+                 <div class="slds-m-around_medium">
+                    <!-- Candidate Profile Section -->
+                    <div class="slds-box slds-theme_default slds-m-bottom_medium">
+                        <h1 class="slds-text-heading_medium">Candidate Profile</h1>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-2">
+                                <p><strong>Name:</strong>IBRAR ALAM</p>
+                                <p><strong>Email:</strong>email@gmail.com</p>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <p><strong>Phone:</strong> 1234567890</p>
+                                <p><strong>Address:</strong> Location </p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Task and Rating Sections -->
+                    <div class="slds-box slds-theme_default slds-m-bottom_medium">
+                        <h2 class="slds-text-heading_medium">Task Ratings</h2>
+                        <div class="slds-grid slds-wrap">
+                            <!-- Task Name Section -->
+                            <div class="slds-col slds-size_1-of-2">
+                                <h3 class="slds-text-heading_small">Tasks</h3>
+                                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                    <thead>
+                                        <tr class="slds-line-height_reset">
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Task Name">Task Name</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Rating">Rating (out of 10)</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a class="slds-truncate">Create Flow to draft email</a>
+                                            </td>
+                                            <td>
+                                                <a class="slds-truncate">1      2      3      4      5      6      7      8      9      10</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a class="slds-truncate">Create Lwc to for product card</a>
+                                            </td>
+                                            <td>
+                                                <a class="slds-truncate">1      2      3      4      5      6      7      8      9      10</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="slds-truncate">Design Product Card</div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate" >1      2      3      4      5      6      7      8      9      10</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="slds-truncate" >Create Lwc to for product card</div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">1      2      3      4      5      6      7      8      9      10</div>
+                                            </td>
+                                        </tr>
+<!--                                         
+                                        <template for:each={tasks} for:item="task">
+                                            <tr key={task.Id}>
+                                                <td>
+                                                    <div class="slds-truncate" title={task.Name}>Create Lwc to for product card</div>
+                                                </td>
+                                                <td>
+                                                    <div class="slds-truncate" title={task.Rating}>1  2  3  4  5  6  7  8  9  10</div>
+                                                </td>
+                                            </tr>
+                                        </template> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                
+                            </div>
+                            <div class="slds-modal__footer">
+                                <button class="slds-button slds-button_neutral" aria-label="Cancel and close"
+                                    onclick={closeInternManagemePopup}>Close</button>
+                                <button class="slds-button slds-button_brand">Save</button>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+                </template>
 
                 <template if:true={showCandidateManagement}>
 
@@ -448,391 +824,718 @@
 
                 </template>
                 <template if:true={showProjectManagement}>
-                    
 
-                        <lightning-card class="projectshow">
-        
-        
-                            <div class="slds-grid slds-wrap slds-gutters slds-grid_align-center">
-                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
-                                    <p><b>Project Name:-</b> AppyIntern</p>
+
+                    <lightning-card class="Profile">
+                        <div class="management">
+                            <h1>Project Management</h1>
+                            <hr>
+                        </div>
+                        <div class="headsectionprojrct">
+                            <div class="buttonsection">
+                                <button onclick={createproject}>+Create Project</button>
+                                <button class="asine" onclick={assignproject}>+Assign Project</button>
+                            </div>
+
+
+                            <template if:true={createprojectsection}>
+                                <div class="createproject">
+                                    <h1 class="crox" onclick={crox}>x</h1>
+                                    <div class="management">
+                                        <h1>Create Project</h1>
+                                        <hr>
+                                    </div>
+                                    <lightning-card>
+                                        <!-- <div class="slds-m-around_medium "> -->
+                                        <lightning-input label="Project Name:-" value={projectname}
+                                            onchange={handleprojectname}></lightning-input>
+                                        <lightning-input label="Duration:-" value={duration}
+                                            onchange={handleduration}></lightning-input>
+                                        <lightning-input label="Start Date:-" type="date" value={start}
+                                            onchange={handlestart}></lightning-input>
+                                        <lightning-input label="End Date:-" type="date" value={End}
+                                            onchange={handleEnd}></lightning-input>
+                                        <lightning-input label="Navbar Section:-" type="Navbar" value={Navbar}
+                                            onchange={handleNavbarChange}></lightning-input><br>
+                                        <hr> <lightning-button label="Create" class="assineandcreatproject"
+                                            variant="brand" onclick={handleCreate}></lightning-button>
+                                        <!-- </div> -->
+                                    </lightning-card>
+
                                 </div>
-                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
-                                    <p><b>Duration:-</b> 1 Months</p>
+                            </template>
+                            <template if:true={assignprojectsection}>
+                                <div class="assignproject">
+                                    <h1 class="crox" onclick={crox}>x</h1>
+                                    <div class="management">
+                                        <h1>Assign Project</h1>
+                                        <hr>
+                                    </div>
+                                    <!-- <div class="slds-grid slds-grid_align-center">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12"> -->
+                                    <lightning-card title="Assign project">
+                                        <!-- <div class="slds-m-around_medium "> -->
+                                        <lightning-input label="Project Name:-" value={projectnames}
+                                            onchange={handleprojectnames}></lightning-input>
+                                        <lightning-input label="Intern Name:-" value={internname}
+                                            onchange={handleinternname}></lightning-input>
+                                        <lightning-input label="Team Leader:-" value={teamleader}
+                                            onchange={handleteamleader}></lightning-input>
+                                        <lightning-input label="Role:-" type="select" value={role}
+                                            onchange={handlerole}></lightning-input>
+                                        <lightning-input label="Duration:-" value={durations}
+                                            onchange={handledurations}></lightning-input>
+                                        <lightning-input label="Start Date:-" type="date" value={starts}
+                                            onchange={handlestarts}></lightning-input>
+                                        <lightning-input label="End Date:-" type="date" value={Ends}
+                                            onchange={handleEnds}></lightning-input>
+                                        <lightning-input label="Navbar Section:-" type="Navbar" value={Navbars}
+                                            onchange={handleNavbarsChange}></lightning-input><br>
+                                        <hr><lightning-button label="Assign" class="assineandcreatproject"
+                                            variant="brand" onclick={handleCreate}></lightning-button>
+                                        <!-- </div> -->
+                                    </lightning-card>
+                                    <!-- </div>
+                            </div> -->
                                 </div>
-                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
-                                    <p><b>Start Date:-</b> 25/05/2024</p>
-                                </div>
-                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
-                                    <p><b>End Date:-</b> 25/06/2024</p>
-                                </div>
-                                <div class="navbasection">
-                                    <p><b>Navbar Section:-</b>Home,Registation,Login,Dashboard,HR Dashboard,Update
-                                        profile,Application Form</p>
+                            </template>
+                            <div class="heading">
+                                <h1>Projects</h1>
+                            </div>
+                            <div class="projects">
+                                <div class="slds-grid slds-wrap slds-gutters slds-grid_align-center">
+
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                        <p><b>Project Name:-</b>AppyIntern</p>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                        <p><b>Duration:-</b>1 Months</p>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                        <p><b>Start Date:-</b>25/05/2024</p>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                        <p><b>End Date:-</b>25/06/2024</p>
+                                    </div>
+                                    <div class="paragraphsection">
+                                        <p><b>Module/Page:-</b>Home,Registation,Login,Dashboard,HR Dashboard,Update
+                                            profile,Application Form </p>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- </div> -->
-                        </lightning-card>
-        
-
-                </template>
-                <template if:false={showProjectManagement}>
-
-                </template>
-
-                <!-- ABHISHEK HR VIEWS FEEDBACK PAGE -->
-                <template if:true={showNotificationsAndCommunicationManagement}>
-                    <div style="background-color: white; padding: 10px;">
-                        <template if:true={feedbacks}>
-                            <lightning-accordion active-section-name="A">
-                                <template for:each={feedbacks} for:item="feedback" for:index="index">
-                                    <lightning-accordion-section name={feedback.Id} label={feedback.Subject__c}
-                                        key={feedback.Id}>
-                                        <div style="background-color: rgb(220, 247, 220); margin: 10px; padding: 10px;">
-                                            <p><b>Email: </b> {feedback.Email__c}</p>
-                                            <p><b>Description: </b> {feedback.Description__c}</p>
-                                            <p><b>Screenshot: </b></p>
-                                            <img src={feedback.Screenshot__c} alt="Screenshot" />
+                            <template if:false={completesection}>
+                                <h1 class="crox" onclick={crox}>x</h1>
+                                <div class="management">
+                                    <h1>AppyIntern</h1>
+                                    <hr>
+                                </div>
+                                <div class="projectcheck">
+                                    <div class="projectdiv">
+                                        <div class="heading">
+                                            <h1>Completed</h1>
                                         </div>
-                                    </lightning-accordion-section>
-                                </template>
-                            </lightning-accordion>
-                        </template>
-                        <template if:true={error}>
-                            <div class="slds-text-color_error">
-                                <p>{error}</p>
+                                        <div class="projectchecksection">
+                                            <!-- <h1>completed</h1> -->
+                                            <p><b>Project Name:-</b>AppyIntern</p>
+                                            <p><b>Intern Name:-</b>Raushan Kumar</p>
+                                            <p><b>Module/Page:-</b>Candidate Management</p>
+                                        </div>
+                                        <div class="projectchecksection">
+                                            <!-- <h1>completed</h1> -->
+                                            <p><b>Project Name:-</b>AppyIntern</p>
+                                            <p><b>Intern Name:-</b>Raushan Kumar</p>
+                                            <p><b>Module/Page:-</b>Intern Management</p>
+                                        </div>
+                                        <div class="projectchecksection">
+                                            <!-- <h1>completed</h1> -->
+                                            <p><b>Project Name:-</b>AppyIntern</p>
+                                            <p><b>Intern Name:-</b>Raushan Kumar</p>
+                                            <p><b>Module/Page:-</b>Project Management</p>
+                                        </div>
+                                    </div>
+                                    <div class="projectdiv">
+                                        <div class="heading">
+                                            <h1>In Process</h1>
+                                        </div>
+                                        <div class="projectchecksection">
+                                            <!-- <h1>In Proceess</h1> -->
+                                            <p><b>Project Name:-</b>AppyIntern</p>
+                                            <p><b>Intern Name:-</b>Raushan Kumar</p>
+                                            <p><b>Module/Page:-</b> Login</p>
+                                        </div>
+                                        <div class="projectchecksection">
+                                            <!-- <h1>In Proceess</h1> -->
+                                            <p><b>Project Name:-</b>AppyIntern</p>
+                                            <p><b>Intern Name:-</b>Raushan Kumar</p>
+                                            <p><b>Module/Page:-</b> Registatin</p>
+                                        </div>
+                                        <div class="projectchecksection">
+                                            <!-- <h1>In Proceess</h1> -->
+                                            <p><b>Project Name:-</b>AppyIntern</p>
+                                            <p><b>Intern Name:-</b>Raushan Kumar</p>
+                                            <p><b>Module/Page:-</b> Welcome</p>
+                                        </div>
+                                    </div>
+                                    <div class="projectdiv">
+                                        <div class="heading">
+                                            <h1>UpComming</h1>
+                                        </div>
+                                        <div class="projectchecksection">
+                                            <!-- <h1>Upcomming</h1> -->
+                                            <p><b>Project Name:-</b>AppyIntern</p>
+                                            <p><b>Intern Name:-</b>Raushan Kumar</p>
+                                            <p><b>Module/Page:-</b>Home</p>
+                                        </div>
+                                        <div class="projectchecksection">
+                                            <!-- <h1>Upcomming</h1> -->
+                                            <p><b>Project Name:-</b>AppyIntern</p>
+                                            <p><b>Intern Name:-</b>Raushan Kumar</p>
+                                            <p><b>Module/Page:-</b>Application Management</p>
+                                        </div>
+                                        <div class="projectchecksection">
+                                            <!-- <h1>Upcomming</h1> -->
+                                            <p><b>Project Name:-</b>AppyIntern</p>
+                                            <p><b>Intern Name:-</b>Raushan Kumar</p>
+                                            <p><b>Module/Page:-</b>HR Section</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                            <div class="project">
+                                <div class="headings">
+                                    <h1>Assign Project</h1>
+                                    <div class="viewall">
+                                        <p onclick={takeprojectvalue}>View</p>
+                                    </div>
+                                </div>
+                                <div class="projects">
+                                    <div class="slds-grid slds-wrap slds-gutters slds-grid_align-center">
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                            <p><b>Project Name:-</b>AppyIntern</p>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                            <p><b>Duration:-</b>1 week</p>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                            <p><b>Team Leader:-</b>Utsav Kumar</p>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                            <p><b>Role:-</b>Frontend Developer</p>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                            <p><b>Inten Name:-</b>Raushan Kumar</p>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                            <p><b>Page:-</b>Login Page</p>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+
+                                            <p><b>Start Date:-</b>28/05/2024</p>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                            <p><b>End Date:-</b>28/06/2024</p>
+                                        </div>
+                                        <div
+                                            class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </template>
-                    </div>
+                            <div class="projects">
+                                <div class="slds-grid slds-wrap slds-gutters slds-grid_align-center">
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
 
-                </template>
-                <template if:false={showNotificationsAndCommunicationManagement}>
+                                        <p><b>Project Name:-</b>AppyIntern</p>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                        <p><b>Duration:-</b>1 week</p>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                        <p><b>Team Leader:-</b>Utsav Kumar</p>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                        <p><b>Role:-</b>Frontend Developer</p>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
 
-                </template>
+                                        <p><b>Inten Name:-</b>Raushan Kumar</p>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                        <p><b>Page:-</b>Registation Page</p>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
 
-                <!-- ABHISHEK HR VIEWS FEEDBACK PAGE ABOVE  -->
+                                        <p><b>Start Date:-</b>28/05/2024</p>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
+                                        <p><b>End Date:-</b>28/06/2024</p>
+                                    </div>
+                                    <div
+                                        class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small">
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
             </div>
-        </div>
     </lightning-card>
 
 
+</template>
+<template if:false={showProjectManagement}>
 
-    <template if:true={NewInternship}>
+</template>
 
-        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
-            class="slds-modal slds-fade-in-open">
-            <div class="slds-modal__container">
-                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
-                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
-                    </svg>
-                    <span class="slds-assistive-text">Cancel and close</span>
-                </button>
-                <div class="slds-modal__header">
-                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">Create new
-                        Internship Opportunities</h1>
-                </div>
-                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-
-                    <div class="slds-form-element">
-                        <label class="slds-form-element__label" for="text-input-id-48">
-                            <abbr class="slds-required" title="required">* </abbr>Internship Name</label>
-                        <div class="slds-form-element__control">
-                            <input type="text" id="text-input-id-48" placeholder="Enter name of Internship" required=""
-                                class="slds-input" onchange={internshipNameChange} />
+<!-- ABHISHEK HR VIEWS FEEDBACK PAGE -->
+<template if:true={showNotificationsAndCommunicationManagement}>
+    <div style="background-color: white; padding: 10px;">
+        <template if:true={feedbacks}>
+            <lightning-accordion active-section-name="A">
+                <template for:each={feedbacks} for:item="feedback" for:index="index">
+                    <lightning-accordion-section name={feedback.Id} label={feedback.Subject__c} key={feedback.Id}>
+                        <div style="background-color: rgb(220, 247, 220); margin: 10px; padding: 10px;">
+                            <p><b>Email: </b> {feedback.Email__c}</p>
+                            <p><b>Description: </b> {feedback.Description__c}</p>
+                            <p><b>Screenshot: </b></p>
+                            <img src={feedback.Screenshot__c} alt="Screenshot" />
                         </div>
-                    </div>
+                    </lightning-accordion-section>
+                </template>
+            </lightning-accordion>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">
+                <p>{error}</p>
+            </div>
+        </template>
+    </div>
 
-                    <div class="slds-form-element">
-                        <label class="slds-form-element__label" for="textarea-id-01">Details</label>
-                        <div class="slds-form-element__control">
-                            <textarea id="textarea-id-01" placeholder="Write Details for the Internship"
-                                class="slds-textarea" onchange={internshipDetailChange}></textarea>
-                        </div>
-                    </div>
-                    <div class="internshipForm">
-                        <div class="slds-grid slds-wrap">
-                            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+</template>
+<template if:false={showNotificationsAndCommunicationManagement}>
 
-                                <div class="slds-form-element">
-                                    <label class="slds-form-element__label" for="text-input-id-47">
-                                        <abbr class="slds-required" title="required">* </abbr>Duration (in
-                                        weeks)</label>
-                                    <div class="slds-form-element__control">
-                                        <input type="text" id="text-input-id-47" placeholder="Enter Internship Duration"
-                                            required="" class="slds-input" onchange={internshipDurationChange} />
-                                    </div>
-                                </div>
+</template>
 
-                                <div
-                                    class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
-                                    <lightning-combobox label="Location" class="selectBox formData" name="location"
-                                        value={selectedLocationOption} options={locationOptions}
-                                        onchange={internshipLocationChange}>
-                                    </lightning-combobox>
-                                </div>
+<!-- ABHISHEK HR VIEWS FEEDBACK PAGE ABOVE  -->
 
-                                <div
-                                    class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
-                                    <lightning-combobox label="Experience" class="selectBox formData" name="experience"
-                                        value={selectedExperienceOption} options={experienceOptions}
-                                        onchange={internshipExperienceChange}>
-                                    </lightning-combobox>
-                                </div>
+</div>
+</div>
+</lightning-card>
 
 
 
+<template if:true={NewInternship}>
 
-                                <!-- status published or unpublished  -->
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+        class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+            </button>
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">Create new
+                    Internship Opportunities</h1>
+            </div>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
 
-                            </div>
-                            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
-
-
-                                <!-- Deadline Date field  -->
-                                <div class="slds-form-element">
-                                    <lightning-input type="date" label="Deadline" name="deadline"
-                                        onchange={internshipDeadlineChange}></lightning-input>
-                                </div>
-
-
-                                <div class="slds-form-element">
-                                    <label class="slds-form-element__label" for="text-input-id-47">
-                                        <abbr class="slds-required" title="required">* </abbr>Stipend</label>
-                                    <div class="slds-form-element__control">
-                                        <input type="text" id="text-input-id-84" placeholder="Free/Paid"
-                                            class="slds-input" onchange={internshipStipendChange} />
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="text-input-id-48">
+                        <abbr class="slds-required" title="required">* </abbr>Internship Name</label>
+                    <div class="slds-form-element__control">
+                        <input type="text" id="text-input-id-48" placeholder="Enter name of Internship" required=""
+                            class="slds-input" onchange={internshipNameChange} />
                     </div>
                 </div>
-                <div class="slds-modal__footer">
-                    <button class="slds-button slds-button_outline-brand" onclick={unShowNewInternship}>Back</button>
-                    <button class="slds-button slds-button_success" onclick={handleSubmit}>Save</button>
+
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="textarea-id-01">Details</label>
+                    <div class="slds-form-element__control">
+                        <textarea id="textarea-id-01" placeholder="Write Details for the Internship"
+                            class="slds-textarea" onchange={internshipDetailChange}></textarea>
+                    </div>
+                </div>
+                <div class="internshipForm">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="text-input-id-47">
+                                    <abbr class="slds-required" title="required">* </abbr>Duration (in
+                                    weeks)</label>
+                                <div class="slds-form-element__control">
+                                    <input type="text" id="text-input-id-47" placeholder="Enter Internship Duration"
+                                        required="" class="slds-input" onchange={internshipDurationChange} />
+                                </div>
+                            </div>
+
+                            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                                <lightning-combobox label="Location" class="selectBox formData" name="location"
+                                    value={selectedLocationOption} options={locationOptions}
+                                    onchange={internshipLocationChange}>
+                                </lightning-combobox>
+                            </div>
+
+                            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                                <lightning-combobox label="Experience" class="selectBox formData" name="experience"
+                                    value={selectedExperienceOption} options={experienceOptions}
+                                    onchange={internshipExperienceChange}>
+                                </lightning-combobox>
+                            </div>
+
+
+
+
+                            <!-- status published or unpublished  -->
+
+                        </div>
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+
+
+                            <!-- Deadline Date field  -->
+                            <div class="slds-form-element">
+                                <lightning-input type="date" label="Deadline" name="deadline"
+                                    onchange={internshipDeadlineChange}></lightning-input>
+                            </div>
+
+
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="text-input-id-47">
+                                    <abbr class="slds-required" title="required">* </abbr>Stipend</label>
+                                <div class="slds-form-element__control">
+                                    <input type="text" id="text-input-id-84" placeholder="Free/Paid" class="slds-input"
+                                        onchange={internshipStipendChange} />
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
 
                 </div>
             </div>
-        </section>
-        <!-- <div class="slds-backdrop slds-backdrop_open" role="presentation"></div> -->
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_outline-brand" onclick={unShowNewInternship}>Back</button>
+                <button class="slds-button slds-button_success" onclick={handleSubmit}>Save</button>
 
-    </template>
+            </div>
+        </div>
+    </section>
+    <!-- <div class="slds-backdrop slds-backdrop_open" role="presentation"></div> -->
 
-    <template if:true={CandidateApplicationDetails}>
-        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
-            class="slds-modal slds-fade-in-open slds-modal_large">
-            <div class="slds-modal__container">
-                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
-                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
-                    </svg>
-                    <span class="slds-assistive-text">Cancel and close</span>
-                </button>
-                <div class="slds-modal__header">
-                    <h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate" tabindex="-1">Applicant Name</h1>
-                    <p>Applicant Email</p>
-                    <p>Applicant Phone</p>
-                </div>
-                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+</template>
 
-                    <!-- view uploaded documents -->
+<template if:true={CandidateApplicationDetails}>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+        class="slds-modal slds-fade-in-open slds-modal_large">
+        <div class="slds-modal__container">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+            </button>
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate" tabindex="-1">Applicant Details</h1>
+            </div>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2" style="padding-inline: 50px;">
 
-
-                    <div class="applicantDetail">
-                        <div class="slds-grid slds-wrap">
-                            <div class="slds-col slds-large-size_5-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
-                                <div class="demo-only" style="width:30rem">
-                                    <article class="slds-tile">
-
-                                        <div class="slds-tile__detail">
-                                            <dl class="slds-list_horizontal slds-wrap">
-
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="First Label">
-                                                    Highest Qualification:</dt>
-                                                <dd class="slds-item_detail slds-truncate  value"
-                                                    title="Description for first label">
-                                                    B.tech</dd>
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="Second Label">
-                                                    Graduation Year:</dt>
-                                                <dd class="slds-item_detail slds-truncate  value"
-                                                    title="Description for second label">
-                                                    2024</dd>
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="Second Label">
-                                                    Experience:</dt>
-                                                <dd class="slds-item_detail slds-truncate value"
-                                                    title="Description for second label">
-                                                    Fresher</dd>
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="Second Label">
-                                                    Gender:</dt>
-                                                <dd class="slds-item_detail slds-truncate value"
-                                                    title="Description for second label">
-                                                    Male/Female</dd>
-
-                                            </dl>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-
-                            <div class="slds-col slds-large-size_5-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
-                                <div class="demo-only" style="width:30rem">
-                                    <article class="slds-tile">
-
-                                        <div class="slds-tile__detail">
-                                            <dl class="slds-list_horizontal slds-wrap">
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="First Label">
-                                                    Applied for:</dt>
-                                                <dd class="slds-item_detail slds-truncate value"
-                                                    title="Description for first label">
-                                                    Winter Training</dd>
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="Second Label">
-                                                    Applicaiton Date</dt>
-                                                <dd class="slds-item_detail slds-truncate value"
-                                                    title="Description for second label">
-                                                    5/05/2024</dd>
-
-                                            </dl>
-                                        </div>
-                                    </article>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-                    <div class="documents">
-                        <div class="downloadResume">
-                            <button class="slds-button slds-button_success">⬇️ Resume</button>
-                        </div>
-                        <div class="downloadResume">
-                            <button class="slds-button slds-button_success">⬇️ Documents</button>
-                        </div>
-                    </div>
-
+                <section>
                     <div class="EducationFormSubHeading">
-                        <p>Education</p>
+                        <p>Internship Details:</p>
                     </div>
-
-                    <div class="EducationLevel">
-                        <p>Matriculation</p>
-                    </div>
-
-                    <table class="Qualification-Table">
-                        <thead>
-                            <tr>
-                                <th>Qualification</th>
-                                <th>Board</th>
-                                <th>Passing Year</th>
-                                <th>Percentage</th>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Matriculation</td>
-                                <td>CBSE</td>
-                                <td>2018</td>
-                                <td>92</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <!-- <div class="applicantDetail">
+                    <template if:true={appIntrData}>
                         <div class="slds-grid slds-wrap">
-                            <div class="slds-col slds-large-size_5-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
-                                <div class="demo-only" style="width:30rem">
-                                    <article class="slds-tile">
-
-                                        <div class="slds-tile__detail">
-                                            <dl class="slds-list_horizontal slds-wrap">
-
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="First Label">
-                                                    Highest Qualification:</dt>
-                                                <dd class="slds-item_detail slds-truncate  value"
-                                                    title="Description for first label">
-                                                    B.tech</dd>
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="Second Label">
-                                                    Graduation Year:</dt>
-                                                <dd class="slds-item_detail slds-truncate  value"
-                                                    title="Description for second label">
-                                                    2024</dd>
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="Second Label">
-                                                    Experience:</dt>
-                                                <dd class="slds-item_detail slds-truncate value"
-                                                    title="Description for second label">
-                                                    Fresher</dd>
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="Second Label">
-                                                    Gender:</dt>
-                                                <dd class="slds-item_detail slds-truncate value"
-                                                    title="Description for second label">
-                                                    Male/Female</dd>
-
-                                            </dl>
-                                        </div>
-                                    </article>
-                                </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                <strong>Internship Name:</strong> {appIntrData.Name}
                             </div>
-
-                            <div class="slds-col slds-large-size_5-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
-                                <div class="demo-only" style="width:30rem">
-                                    <article class="slds-tile">
-
-                                        <div class="slds-tile__detail">
-                                            <dl class="slds-list_horizontal slds-wrap">
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="First Label">
-                                                    Applied for:</dt>
-                                                <dd class="slds-item_detail slds-truncate value"
-                                                    title="Description for first label">
-                                                    Winter Training</dd>
-                                                <dt class="slds-item_label slds-text-color_weak slds-truncate head"
-                                                    title="Second Label">
-                                                    Applicaiton Date</dt>
-                                                <dd class="slds-item_detail slds-truncate value"
-                                                    title="Description for second label">
-                                                    5/05/2024</dd>
-
-                                            </dl>
-                                        </div>
-                                    </article>
-                                </div>
-
+                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                <strong>Duration:</strong> {appIntrData.Duration__c}
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                <strong>Location:</strong> {appIntrData.Location__c}
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                                <strong>Stipend:</strong> {appIntrData.Stipend__c}
                             </div>
                         </div>
+        
+                    </template>
+                    <template if:false={appIntrData}>
+                        <p>Loading Internship Data...</p>
+                    </template>
+                </section>
 
-
-
-
-                    </div> -->
-
-
+                <div class="EducationFormSubHeading">
+                    <p>Candidate Details:</p>
                 </div>
-                <div class="slds-modal__footer">
-                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close"
-                        onclick={closeCandidateApplicationDetails}>Close</button>
-                    <button class="slds-button slds-button_brand">Save</button>
+            <template if:true={appCanData}>
+
+
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                        <strong>Name:</strong> {appCanData.Name}
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                        <strong>Phone:</strong> {appCanData.Phone__c}
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                        <strong>New Email ID:</strong> {appCanData.New_Email_Id__c}
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                        <strong>Highest Qualification:</strong> {appCanData.Highest_Qualification__c}
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                        <strong>Gender:</strong> {appCanData.Gender__c}
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                        <strong>Current Address:</strong> {appCanData.Current_Address__c}
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-p-around_x-small">
+                        <strong>Permanent Address:</strong> {appCanData.Permanent_Address__c}
+                    </div>
                 </div>
+               
+                <h1><strong>Education Details</strong></h1>
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col"><div class="slds-truncate">Education</div></th>
+                            <th scope="col"><div class="slds-truncate">Board Name</div></th>
+                            <th scope="col"><div class="slds-truncate">Session</div></th>
+                            <th scope="col"><div class="slds-truncate">School Name</div></th>
+                            <th scope="col"><div class="slds-truncate">Passing Year</div></th>
+                            <th scope="col"><div class="slds-truncate">School Location</div></th>
+                            <th scope="col"><div class="slds-truncate">Percentage</div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Matriculation</td>
+                            <td>{appCanData.Matriculation_Board_name__c}</td>
+                            <td>{appCanData.Matriculation_session__c}</td>
+                            <td>{appCanData.Matriculation_school_name__c}</td>
+                            <td>{appCanData.Matriculation_passing_year__c}</td>
+                            <td>{appCanData.Matriculation_school_location__c}</td>
+                            <td>{appCanData.Matriculation_Percentage__c}</td>
+                        </tr>
+                        <tr>
+                            <td>Intermediate</td>
+                            <td>{appCanData.Intermediate_Board_name__c}</td>
+                            <td>{appCanData.Intermediate_session__c}</td>
+                            <td>{appCanData.Intermediate_School_Name__c}</td>
+                            <td>{appCanData.Intermediate_passing_year__c}</td>
+                            <td>{appCanData.Intermediate_School_Location__c}</td>
+                            <td>{appCanData.Intermediate_Percentage__c}</td>
+                        </tr>
+                        <tr>
+                            <td>Graduation</td>
+                            <td>{appCanData.Graduation_Board_name__c}</td>
+                            <td>{appCanData.Graduation_Session__c}</td>
+                            <td>{appCanData.Graduation_School_name__c}</td>
+                            <td>{appCanData.Graduation_Passing_year__c}</td>
+                            <td>{appCanData.Graduation_college_location__c}</td>
+                            <td>{appCanData.Graduation_Percentage_Aggregate__c}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="documents">
+                    <div class="downloadResume" style="margin:auto;">
+                        <button class="slds-button slds-button_success">⬇️ Resume</button>
+                
+                        <button class="slds-button slds-button_success">⬇️ Documents</button>
+                    </div>
+                </div>
+
+            </template>
+            <template if:false={appCanData}>
+                <p>Loading Candidate Data...</p>
+            </template>
+
+        <section>
+            <div class="EducationFormSubHeading">
+                <p>Application Details:</p>
             </div>
+            <template if:true={appAllData}>
+                <p><strong>Application:</strong> {appAllData.Name}</p>
+                <p><strong>Application Date:</strong> {appAllData.Application_Date__c}</p>
+                <p><strong>Status: {appAllData.Status__c}</strong></p>
+                
+
+                <div class="update-buttons-appl" style="display:flex; margin:auto; padding:18px">
+                    <div class="updateStatus" style="margin:auto;">
+                        <button class="slds-button slds-button_success" data-status="selected" data-id={appAllData.Id} style="background-color: rgb(0, 88, 221);"
+                        onclick={handleSelectClick}>SELECT</button>
+                        <button class="slds-button slds-button_success" data-status="rejected" data-id={appAllData.Id} style="background-color: rgb(221, 0, 0);"
+                        onclick={handleRejectClick}>REJECT</button>
+                    </div>
+                </div>
+                <div class="downloadResume">
+                    
+                </div>
+
+            </template>
+
+            <template if:false={appAllData}>
+                <p>Loading Application Data...</p>
+            </template>
+
         </section>
-        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
-    </template>
+
+                    
+
+
+
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" aria-label="Cancel and close"
+                    onclick={closeCandidateApplicationDetails}>Close</button>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>
+
+<template if:true={NewNotes}>
+
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+        class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+            </button>
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-06" class="slds-modal__title slds-hyphenate" tabindex="-1">Create Your Peronal Notes</h1>
+            </div>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-6">
+
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="text-input-id-48">
+                        <abbr class="slds-required" title="required">* </abbr>Title</label>
+                    <div class="slds-form-element__control">
+                        <input type="text" id="text-input-id-58" placeholder="Enter name of Internship" required=""
+                            class="slds-input" onchange={internshipNameChange} />
+                    </div>
+                </div>
+
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="textarea-id-01">Details</label>
+                    <div class="slds-form-element__control">
+                        <textarea id="textarea-id-05" placeholder="Write Details for your Notes"
+                            class="slds-textarea" onchange={internshipDetailChange}></textarea>
+                    </div>
+                </div>
+                    <div class="slds-form-element__control">
+                        <input type="text" id="text-input-id-28" placeholder="Enter name of Internship" required=""
+                            class="slds-input" onchange={internshipNameChange} />
+                    </div>
+                </div>
+
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="textarea-id-01">Remark (if any):</label>
+                    <div class="slds-form-element__control">
+                        <textarea id="textarea-id-04" placeholder="Remarks"
+                            class="slds-textarea" onchange={internshipDetailChange}></textarea>
+                    </div>
+                </div>
+                <!-- <div class="internshipForm">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="text-input-id-47">
+                                    <abbr class="slds-required" title="required">* </abbr>Duration (in
+                                    weeks)</label>
+                                <div class="slds-form-element__control">
+                                    <input type="text" id="text-input-id-40" placeholder="Enter Internship Duration"
+                                        required="" class="slds-input" onchange={internshipDurationChange} />
+                                </div>
+                            </div>
+
+                            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                                <lightning-combobox label="Location" class="selectBox formData" name="location"
+                                    value={selectedLocationOption} options={locationOptions}
+                                    onchange={internshipLocationChange}>
+                                </lightning-combobox>
+                            </div>
+
+                            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+                                <lightning-combobox label="Experience" class="selectBox formData" name="experience"
+                                    value={selectedExperienceOption} options={experienceOptions}
+                                    onchange={internshipExperienceChange}>
+                                </lightning-combobox>
+                            </div>
+
+
+
+
+                             status published or unpublished
+
+                        </div>
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+
+
+                             Deadline Date field
+                            <div class="slds-form-element">
+                                <lightning-input type="date" label="Deadline" name="deadline"
+                                    onchange={internshipDeadlineChange}></lightning-input>
+                            </div>
+
+
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="text-input-id-47">
+                                    <abbr class="slds-required" title="required">* </abbr>Stipend</label>
+                                <div class="slds-form-element__control">
+                                    <input type="text" id="text-input-id-34" placeholder="Free/Paid" class="slds-input"
+                                        onchange={internshipStipendChange} />
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div> -->
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_outline-brand" onclick={unshowNewNotes}>Back</button>
+                <button class="slds-button slds-button_success" onclick={handleNotesSubmit}>Save</button>
+
+            </div>
+        </div>
+    </section>
+    <!-- <div class="slds-backdrop slds-backdrop_open" role="presentation"></div> -->
+
+</template>
+
+<template if:false={NewNOtes}>
+
+</template>
 
 </template>

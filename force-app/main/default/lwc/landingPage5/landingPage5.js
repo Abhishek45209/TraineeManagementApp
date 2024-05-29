@@ -24,10 +24,15 @@ import twitters from '@salesforce/resourceUrl/twitterIconhome';
 
 
 
-//IMPORTS FOR REGISTRATION
-import saveCandidate from '@salesforce/apex/RegisterCandidates.saveCandidate';
-import saveCandidateProfile from '@salesforce/apex/RegisterCandidates.saveCandidateProfile';
-import verifyOtp from '@salesforce/apex/RegisterCandidates.verifyOtp';
+// //IMPORTS FOR REGISTRATION
+// import saveCandidate from '@salesforce/apex/RegisterCandidates.saveCandidate';
+// import saveCandidateProfile from '@salesforce/apex/RegisterCandidates.saveCandidateProfile';
+// import verifyOtp from '@salesforce/apex/RegisterCandidates.verifyOtp';
+
+import saveCandidate from '@salesforce/apex/NewRegistration.saveCandidate';
+import saveCandidateProfile from '@salesforce/apex/NewRegistration.saveCandidateProfile';
+import verifyOtp from '@salesforce/apex/NewRegistration.verifyOtp';
+
 import ImageSidebar from '@salesforce/resourceUrl/ImageSidebar';
 import ContactMessageHomePage from '@salesforce/apex/Contact.ContactMessageHomePage';
 

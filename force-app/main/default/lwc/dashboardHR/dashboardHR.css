@@ -503,15 +503,13 @@ tbody tr td img {
 
 .documents{
     display: flex;
-    margin-left: 20%;
-    /* margin-right: 20%; */
     align-items: center;
-    margin-bottom: 4%;
-    margin-top: 4%;
+    margin-inline: auto;
+    margin-block: 10px;
 }
 
 .downloadResume{
-    margin-left: 3%;
+    margin: auto;
 }
 
 .EducationFormSubHeading{
@@ -622,3 +620,423 @@ tbody tr td img {
         width: 75%;
     }
 }
+
+
+
+/* ///// */
+
+.headsectionprojrct
+{
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+.projects
+{
+    text-align: start;
+    align-items: start;
+    justify-content: start;
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color:rgb(189, 187, 187);
+}
+/* .slds-grid
+{
+    text-align: start;
+    align-items: start;
+    justify-content: start;  
+    font-size: 20px; 
+    padding: 2rem;
+    / gap: 1rem; /
+} */
+.paragraphsection
+{
+    text-align: start;
+    justify-content: start;
+    align-items: start;
+    padding: 5px;
+    margin-left: 5px;
+}
+.buttonsection
+{
+    font-size: 15px;
+    display: flex;
+    gap: 200px;
+    font-size: 20px;
+    background-color: white;
+    padding: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+/* button
+{
+    padding: 1rem;
+} */
+.heading
+{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 1rem;
+}
+.headings
+{
+    display: flex;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 1rem;
+}
+.project
+{
+
+    margin-top: 100px;
+}
+.createproject,.assignproject
+{
+    font-weight: bold;
+    background-color: white;
+    text-align: start;
+    justify-content: start;
+    align-items: start;
+    position: absolute;
+    width: 500px;
+    padding: 2rem;
+    margin-left: 200px;
+}
+.management
+{
+   text-align: center;
+   justify-content: center;
+   font-size: 40px;
+   font-weight: bold;
+}
+.crox
+{
+    text-align: end;
+    align-items: end;
+    justify-content: end;
+    font-size: 30px;
+    color: red;
+}
+.viewall
+{
+    color: blue;
+    text-align: end;
+    align-items: end;
+    justify-content: end;
+    margin: auto;
+}
+.projectcheck
+{
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    text-align: start;
+    justify-content: start;
+    align-items: center;
+    background-color: white;
+    column-gap: 2rem;
+    position:absolute;
+    padding: 3rem;
+}
+.projectchecksection
+{
+    border:1px solid black ;
+    border-radius: 10px;
+    padding: 1rem;
+    align-items: start;
+    font-size: 20px;
+    margin-top: 20px;
+    width: 400px;
+    background-color:rgb(189, 187, 187);
+}
+.projectdiv
+{
+    text-align: start;
+}
+.assineandcreatproject
+{
+    text-align: end;
+    justify-content:end;
+    align-items: end;
+}
+@media screen and (width: 500px) {
+    .projectcheck
+    {
+        width: 400px;
+        text-align: start;
+        justify-content: start;
+        align-items: start;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+    }
+    .projectchecksection
+    {
+        width: 300px;
+        text-align: start;
+        justify-content: start;
+        align-items: start;
+        font-size: 15px;
+    }
+    .createproject,.assignproject
+{
+    font-weight: bold;
+    background-color: white;
+    text-align: start;
+    justify-content: start;
+    align-items: start;
+    width: 400px;
+    margin: auto;
+}
+   
+  }
+
+/* FOR INTERNSHIP APPLICATION  */
+.containInternshipAp {
+    width: 95%;
+}
+.button-filter {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: 14px;
+}
+.slds-button {
+    margin: 0 5px;
+}
+
+
+.activeap {
+    background-color: #0070d2;
+    color: white;
+}
+
+
+
+/* FOR INNER PAGE OF INTERN MANAGEMENT */
+.button-container-ib {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slds-button-group-ib {
+    margin: 0 1rem;
+}
+
+.custom-button-ib {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.custom-button-ib:nth-child(1) {
+    background-color: rgb(1 118 211);
+}
+
+.custom-button-ib:nth-child(2) {
+    background-color: #7221b0;
+}
+
+.custom-button-ib:nth-child(3) {
+    background-color: #1265a8;
+}
+
+.custom-button-ib:nth-child(4) {
+    background-color: #ed64a6;
+}
+
+.custom-button-ib:hover {
+    opacity: 0.9;
+}
+
+.button-container-bottom {
+    width: max-content;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    padding: 1rem;
+}
+
+.custom-button-bottom {
+    padding: 0.4rem .08rem;
+    cursor: pointer;
+}
+
+.custom-button-bottom:hover {
+    opacity: 0.9;
+}
+
+
+
+/* dashboard css by utsav */
+
+
+.dataContainerRegistrants{
+    background-color: red;
+    text-align: center;
+    box-shadow: 1px 1px 8px    black;
+   padding: 4%;
+   margin: 2%;
+   border-radius: 20px;
+  }
+  .dataContainerApplications{
+    background-color: blue;
+    text-align: center;
+    box-shadow: 1px 1px 8px    black;
+   padding: 4%;
+   margin: 2%;
+   border-radius: 20px;
+  
+  }
+  .dataContainerInterns{
+    background-color: green;
+    text-align: center;
+    box-shadow: 1px 1px 8px    black;
+   padding: 4%;
+   margin: 2%;
+   border-radius: 20px;
+  
+  }
+  .dataContainerProjects{
+    background-color: orange;
+    text-align: center;
+    box-shadow: 1px 1px 8px    black;
+   padding: 4%;
+   margin: 2%;
+   border-radius: 20px;
+  
+  }
+  
+  
+  
+  .dataContainerRegistrants  p, .dataContainerApplications    p, .dataContainerInterns    p, .dataContainerProjects   p{
+    font-size: 4em;
+    font-size: 800;
+    color: white;
+    padding: 2%;
+  }
+  
+  .dataContainerRegistrants  h2, .dataContainerApplications    h2, .dataContainerInterns    h2, .dataContainerProjects   h2{
+    font-size: 2em;
+    font-weight: 600;
+    color: whitesmoke;
+    cursor: pointer;
+  }
+  
+  
+  .notes{
+    margin: 5%;
+   
+  }
+  
+  .notesContainer{
+    background-color: #5d91ab;
+  }
+  
+  .Inquiries{
+    margin-bottom: 2%;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  
+  }
+  
+  .Feedbacks{
+    margin-bottom: 2%;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  
+  
+  }
+  
+  .Feedbacks h1{
+    padding-left: 2%;
+    font-size: 1.7em;
+  }
+  
+  .Inquiries   h1{
+    padding-left: 2%;
+  
+    font-size: 1.7em;
+  
+  }
+  
+  .Dashboard-Table {
+    border-collapse: collapse;
+    /* margin: 25px 0; */
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+  }
+  
+  .Dashboard-Table thead tr {
+    background-color: #2e7bdf;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .Dashboard-Table th,
+  .Dashboard-Table td {
+    padding: 12px 15px;
+  }
+  
+  .Dashboard-Table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .Dashboard-Table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .Dashboard-Table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+  
+  .Dashboard-Table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+  }
+  
+  .Dashboard-Inq-Table {
+    border-collapse: collapse;
+    /* margin: 25px 0; */
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+  }
+  
+  .Dashboard-Inq-Table thead tr {
+    background-color: #ee8e35;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .Dashboard-Inq-Table th,
+  .Dashboard-Table td {
+    padding: 12px 15px;
+  }
+  
+  .Dashboard-Inq-Table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .Dashboard-Inq-Table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .Dashboard-Inq-Table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+  
+  .Dashboard-Inq-Table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+  }

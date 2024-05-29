@@ -9,7 +9,7 @@
         </div>
 
         <div class={appCardClass}>
-            <lightning-card>
+            
                 <div class="navbar">
                     <nav class=" nav">
                         <ul>
@@ -18,12 +18,12 @@
                             <li><a onclick={openContact}>Contact</a>
 
                             </li>
-                            <li class="right"><a onclick={navigateToRegister}>Log In </a></li>
+                            <li class="right"><a onclick={navigateToLogin}>Log In </a></li>
                         </ul>
                     </nav>
                 </div>
 
-            </lightning-card>
+          
 
 
 
@@ -77,38 +77,21 @@
                         ensuring a practical approach to learning. With Appyntern, embarking upon the journey of
                         mastering Salesforce equips you with skills and proficiency in high demand across diverse
                         industries. Driven by passion, dedication, and a steadfast commitment to learners' success,
-                        Appyntern stands as your paramount companion in your Salesforce learning journey.
+                        Appyntern stands as your paramount companion in your Salesforce learning journey. <br><br>
+
+                        <b>Partners & Certifications</b><br>
+
+                       
+                              Salesforce ISV Partner<br>
+                            Trailblazer Workforce Partner Program<br>
+                              Salesforce Startup Program<br>
+                      
+
+
+
+                        
                     </p>
-                    <div class="address">
-                        <ul>
-                            <li>
-                                <span class="address-logo">
-                                    <i class="fas fa-paper-plane"></i>
-                                </span>
-                                <p>Address</p>
-                                <span class="saprater">:</span>
-                                <p>Motihari, Bihar, India</p>
-                            </li>
-                            <li>
-                                <span class="address-logo">
-                                    <i class="fas fa-phone-alt"></i>
-                                </span>
-                                <p>Phone No</p>
-                                <span class="saprater">:</span>
-                                <p>+91 91539 98530</p>
-                            </li>
-                            <li>
-                                <span class="address-logo">
-                                    <i class="far fa-envelope"></i>
-                                </span>
-                                <p>Email ID</p>
-                                <span class="saprater">:</span>
-                                <p> contact@appycrown.com</p>
-                            </li>
-                        </ul>
-
-                    </div>
-
+                    
 
                 </div>
             </section>
@@ -134,7 +117,7 @@
                           <span class = "text">contact@appycrown.com</span>
                          
                         </div>
-                        <div>
+                        <div class="location">
                           <span><i class = "fas fa-map-marker-alt"></i></span>
                           <img src={address} alt="address">
                           <span>Address</span>
@@ -179,11 +162,11 @@
                 <div class="contact-footer">
                     <h3>Follow Us</h3>
                     <div class="social-links">
-                        <a href="#" class="social-link"><img src={insta} alt="Instagram Icon"></a>
-                <a href="#" class="social-link"><img src={twitt} alt="Twitter Icon"></a>
-                <a href="#" class="social-link"><img src={git} alt="Github Icon"></a>
-                <a href="#" class="social-link"><img src={face} alt="Facebook Icon"></a>
-                <a href="https://www.linkedin.com/company/appycrown-private-limited/mycompany/verification/"
+                        <a href="https://www.instagram.com/appycrownprivatelimited/" class="social-link"><img src={insta} alt="Instagram Icon"></a>
+                <a href="https://x.com/AppyCrown" class="social-link"><img src={twitt} alt="Twitter Icon"></a>
+                <a href="https://www.youtube.com/@AppyCrown" class="social-link"><img src={git} alt="Github Icon"></a>
+                <a href="https://www.facebook.com/AppyCrown/" class="social-link"><img src={face} alt="Facebook Icon"></a>
+                <a href="https://www.linkedin.com/company/appycrown-private-limited/"
                     class="social-link"><img src={link} alt="LinkedIn Icon"></a>
 
                     </div>
@@ -242,8 +225,9 @@
             <template if:false={showOtp}>
                 <div class="full-body">
 
-
+                    
                     <div class="registration">
+                        
                         <div class="content-on-leftside">
                             <div class="textcontainer">
                                 <h1>Sign Up</h1>

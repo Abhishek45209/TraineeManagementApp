@@ -1,6 +1,5 @@
 /* Reset CSS */
 *{
-  margin: 0;
   padding: 0;
   outline: none;
   border: none;
@@ -9,30 +8,384 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Body */
-body {
-  background: #e848f0;
+/* IBRAR'S DESIGN FOR LOGIN PAGE */
+/* Style for the login container */
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #eaf0f0;
+  
 }
 
+/* Style for the login box */
+.login-box {
+  height: max-content;
+  width: 400px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-inline: 30px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+  
+}
+
+/* Style for the "Welcome to Login Page" heading */
+.login-box h2 {
+  text-align: center;
+  font-size: large;
+  margin-bottom: 20px; /* Add some space below the heading */
+  color: rgb(0, 0, 0);
+}
+
+.input-group{
+display: flex;
+align-items: center;
+margin-top: 15px;
+/* border: none; */
+
+}
+.input-icon {
+  width: 24px; /* Adjust icon width */
+  height: 24px; /* Adjust icon height */
+  margin-right: 10px; /* Add some spacing between icon and input field */
+  margin-top: 15px;
+}
+.input-group{
+display: flex;
+align-items: center;
+
+}
+
+.input-group lightning-input {
+  height: 40px;
+  margin-top: -15px;
+  width: calc(100% - 34px);
+  border-radius: 5px; /* Add border radius */
+}
+
+/* Style for login button */
+.regular-button {
+  width: 100%; /* Make the button fill the width of its container */
+  height: 50px; /* Adjust button height */
+  border-radius: 25px; /* Makes the button oval-shaped */
+  background-color: #007bff; /* Change to your desired background color */
+  color: #fff; /* Text color */
+  font-size: 18px; /* Font size */
+  border: none; /* Removes border */
+  cursor: pointer;
+  margin-bottom: 10px; /* Add margin below the button */
+}
+
+/* Hover effect for login button */
+.regular-button:hover {
+  background-color: #0056b3; /* Change to your desired hover background color */
+}
+
+/* Style for login buttons */
+.login-buttons {
+  text-align: center; /* Center align the login buttons */
+}
+
+/* Style for login button icons */
+.login-buttons button img {
+  width: 24px; /* Adjust icon width */
+  height: 24px; /* Adjust icon height */
+  margin-right: 10px; /* Add some spacing between icon and text */
+  vertical-align: middle; /* Align icon vertically with text */
+}
+
+.forgot-pass{
+display: flex;
+justify-content: space-between;
+padding-inline: 30px
+}
+
+/* Style for login button text */
+.login-buttons button span {
+  vertical-align: middle; /* Align text vertically with the icon */
+}
+
+/* Style for login with google button */
+.login-with-google {
+width: 180px;
+  border-radius: 20px; /* Makes the button oval-shaped */
+  background-color: #4285F4; /* Blue color for Google */
+  color: #fff; /* Text color */
+  border: none; /* Removes border */
+  cursor: pointer;
+  display: flex; /* Use flexbox for aligning content */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  margin-bottom: 10px; /* Add margin below the button */
+  margin: auto;
+}
+
+/* Hover effect for login with google button */
+.login-with-google:hover {
+  background-color: #357ae8; /* Darker blue color on hover */
+}
+
+/* Style for login with gmail button */
+.login-with-gmail {
+width: 180px;
+  border-radius: 20px; /* Makes the button oval-shaped */
+  background-color: #EA4335; /* Red color for Gmail */
+  color: #fff; /* Text color */
+  border: none; /* Removes border */
+  cursor: pointer;
+  display: flex; /* Use flexbox for aligning content */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  margin-bottom: 10px; /* Add margin below the button */
+  margin: auto;
+}
+
+/* Hover effect for login with gmail button */
+.login-with-gmail:hover {
+  background-color: #d14836; /* Darker red color on hover */
+}
+
+/* Style for login with linkedin button */
+.login-with-linkedin {
+width: 180px;
+  border-radius: 20px; /* Makes the button oval-shaped */
+  background-color: #0077B5; /* Blue color for LinkedIn */
+  color: #fff; /* Text color */
+  border: none; /* Removes border */
+  cursor: pointer;
+  display: flex; /* Use flexbox for aligning content */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  margin-bottom: 10px; /* Add margin below the button */
+  margin: auto;
+}
+
+/* Hover effect for login with linkedin button */
+.login-with-linkedin:hover {
+  background-color: #005f93; /* Darker blue color on hover */
+}
+
+/* Style for the login button */
+.login {
+  display: block;
+  margin: auto;
+  width: 80%; /* Adjust button width */
+  height: 40px; /* Adjust button height */
+  border-radius: 20px; /* Makes the button oval-shaped */
+  background-color: #007bff; /* Blue color for the button */
+  color: #fff; /* Text color */
+  font-size: 16px; /* Font size */
+  border: none; /* Removes border */
+  cursor: pointer;
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  margin-top: 15px; /* Add margin above the button */
+}
+
+/* Hover effect for the login button */
+.login:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+.login-heading {
+  color: hsl(220, 20%, 97%); /* Set the color to blue */
+  
+}
+
+/*DESING FOR FORGOT PASSWORD PAGE*/
+.f-pass {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background-color: #f4f4f9;
+}
+
+.f-container {
+background-color: #fff;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+max-width: 400px;
+width: 100%;
+text-align: center;
+}
+
+p {
+margin-bottom: 10px;
+color: #666;
+font-size: 14px;
+text-align: left;
+}
+
+.lightning-input::placeholder {
+color: #aaa;
+}
+
+
+.forgot-pass button {
+padding: 8px 25px;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+margin-top: 22px;
+font-size: 16px;
+transition: background-color 0.3s ease;
+}
+
+.forgot-pass button:first-child {
+background-color: #EA4335;
+color: #fff;
+}
+
+.forgot-pass button:first-child:hover {
+background-color: #ba1101;
+}
+
+.forgot-pass button:last-child {
+background-color: #007bff;
+color: #fff;
+}
+
+.forgot-pass button:last-child:hover {
+background-color: #01088e;
+}
+
+.slds-m-top_medium {
+margin-top: 20px;
+color: brown;
+font-size: 14px;
+}
+
+/*IBRAR FOR CODE VERIFICATION PAGE*/
+.content {
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: rgb(251, 250, 250);
+margin: 10px;
+border-radius: 6px;
+padding: 50px;
+}
+
+.otp-field, .button-field {
+position: relative;
+left: 0;
+transform: none;
+}
+
+.slds-form-element__control input {
+width: max-content;
+font-size: 18px;
+font-style: bold;
+text-align: center;
+}
+
+.large-input input {
+height: 70px;
+font-size: 24px;
+}
+
+.outer-div{
+align-content: center;
+height: max-content;
+width: max-content;
+}
+.slds-modal{
+display: flex;
+max-width: max-content;
+max-height: max-content;
+margin: auto;
+align-items: center;
+}
+.slds-input{
+text-align: center;
+font-size: 18px;
+}
+.slds-button{
+display: flex;
+padding: 8px 14px;
+}
+
+
+
+/* FOR HOME SIDEBAR INNER PAGE */
 /* Container */
+.full-page{
+  width: 100%;
+}
+
 .dashboard {
   display: flex;
+  width: 100%;
 }
-
 /* Sidebar */
+
 .sidebar {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  height: 140vh;
+  padding: 10px;
+  transition: transform 0.3s ease;
+  height: 100vh;
+  text-align: center;
+  margin-bottom: 20px;
+  align-items: center;
+  position: sticky;
   left: 0;
+  display: block;
   background: #03164e;
-  width: 300px;
+  width: 22%;
   overflow: hidden;
   box-shadow: 0 20px 35px hsla(0, 0%, 99%, 0.1);
 }
+.sidebar ul {
+  align-items: center;
 
-.sidebar .logo {
+}
+
+.sidebar li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.sidebar li .nav-item {
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar li .nav-item:hover {
+  background-color: #0056b3;
+}
+
+.sidebar li .button-wrapper {
+  width: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar li .icon {
+  width: 26px;
+  height: 26px;
+  margin-top: 24px;
+}
+
+.inner-page{
+  width: 78%;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  color: #000000;
+}
+
+ .sidebar .logo {
   text-align: center;
   display: flex;
   margin: 10px 0 0 10px;
@@ -44,12 +397,149 @@ body {
   border-radius: 50%;
 }
 
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 10px;
+}
+
+.sidebar-toggle-button {
+  display: none;
+}
+
+/* Hide sidebar on small screens */
+@media only screen and (max-width: 600px) {
+  .dashboard {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 60%;
+    position: absolute;
+    left: 0;
+    height: 100vh;
+    z-index: 10;
+    padding: 20px;
+    transform: translateX(-100%);
+    display: none; /* Initially hidden */
+  }
+  
+  .inner-page {
+    width: 100%;
+  }
+  
+  .sidebar-toggle-button {
+    width: 40px;
+    height: 40px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 18px;
+    background: #ffffff70;
+    border-radius: 16px;
+  }
+  .sidebar-toggle-button img{
+    width: 38px;
+    height: 38px;
+  }
+  
+
+  
+  .sidebar.show {
+    transform: translateX(0);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sidebar {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    display: block;
+  }
+html {
+  font-size: 9px;
+}
+}
+
+@media screen and (max-width: 900px) {
+html {
+  font-size: 8px;
+}
+}
+
+@media screen and (max-width: 768px) {
+html {
+  font-size: 10px;
+} 
+}
+/* ===== =====>>  Container Css Start  <<===== ===== */
+
+
+
+
+
+
+
+
+.proContainer {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "userProfile"
+    "userDetails"
+    "work_skills"
+    "timeline_about";
+  overflow-x: hidden;
+  overflow-y: inherit;
+  list-style: none;
+  padding: 0;
+  width: 90%;
+  height: 100%;
+  box-shadow: none;
+}
+
+/* ===== =====>>  Container Card Css Start  <<===== ===== */
+.proContainer .card {
+  backdrop-filter: none;
+}
+
+.userDetails {
+  margin-bottom: 3rem;
+}
+
+.proContainer::before,
+.proContainer::after {
+  display: none;
+}
+
+
+@media screen and (max-width: 500px) {
+.proContainer {
+  width: 100%;
+  overflow: initial;
+}
+}
+
+/* @media screen and (max-width: 350px) {
+.main_bg {
+  animation: none;
+}
+} */
+
 .sidebar .logo span {
   font-weight: bold;
   padding-left: 15px;
   font-size: 18px;
   text-transform: uppercase;
-}
+} 
 
 .sidebar button {
   position: relative;
@@ -58,6 +548,9 @@ body {
   display: table;
   width: 280px;
   padding: 10px;
+}
+.sidebar button:hover {
+  background: #1b65e5;
 }
 
 .sidebar .fas {
@@ -76,9 +569,7 @@ body {
   background: #03164e;
 }
 
-.sidebar button:hover {
-  background: #1b65e5;
-}
+
 
 .sidebar .logout {
   position: absolute;
@@ -87,7 +578,41 @@ body {
   
 }
 
-/* Main Section */
+/*DESIGN FOR INNER PAGE PROFILE */
+
+.profile {
+  display: flex;
+}
+
+.profilesidebar {
+  width: 15%;
+}
+
+.profilesidebar .p-ul {
+  list-style: none;
+  padding: 0;
+}
+
+.p-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  border: none;
+  background-color: rgba(0, 72, 239, 0.963);
+  cursor: pointer;
+}
+
+.template {
+  flex: 1;
+}
+
+
+
+
+
+
+/* DESIGN FOR  Main Section */
 .main {
   position: relative;
   padding: 20px;
@@ -115,12 +640,12 @@ body {
 .main .main-skills .card {
   width: 65%;
   margin: 10px;
-  background: #000000;
+  background: #e4e4e4e6;
   text-align: center;
   border-radius: 20px;
   padding: 10px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-  color: #007bff;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  color: #070707;
 }
 
 .main .main-skills .card h3 {
@@ -161,7 +686,7 @@ body {
   height: 300px;
   padding: 10px 10px 30px 10px;
   margin-top: 10px;
-  background: #000000;
+  background: #e4e4e4e6;
   border-radius: 10px;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
   color: #007bff;
@@ -174,7 +699,7 @@ body {
 
 .course-box ul li {
   margin: 10px;
-  color: gray;
+  color: rgb(92, 70, 70);
   cursor: pointer;
 }
 
@@ -304,14 +829,12 @@ body {
     color: rgb(214, 48, 49); /* Change icon color for Trigger */
 }
 
-
 .horizontal-navbar {
   background-color: #071a57;
   overflow: hidden;
   width: auto; 
   color: #071a57;
-  
-  
+  margin-top: -48px;
 }
 
 .horizontal-navbar ul {
@@ -363,20 +886,15 @@ body {
 
 
 .left-nav {
-  font-size: 32px; /* Set the desired icon size */
-  margin-right: 26px; /* Adjust margin as needed */
-  color: #d6e112; /* Customize icon color */
+  font-size: 32px;
+  margin-right: 26px;
+  color: #d6e112;
 }
 
 .left-nav {
   display: flex;
   align-items: center;
 }
-
-
-
-
-
 
 .recommended-section {
   width: 20%;
@@ -422,12 +940,6 @@ button:hover {
   background-color: #0b35f1;
 }
 
-
-
-
-
-
-
 /* Define colors for the boxes */
 .box1 {
   background-color: #ffffff; /* Light gray */
@@ -451,9 +963,6 @@ button:hover {
 /* Apply box colors to respective columns */
 
 
-
-
-
 /* dashboard.css */
 .dashboard-container {
   max-width: 100%;
@@ -466,60 +975,24 @@ button:hover {
 
 .header {
   text-align: center;
-  margin-bottom: 20px;
+  
+}
+
+.main-content{
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  height: fit-content;
+  text-align: center;
+ height: auto;
 }
 
 
 
-.sidebar {
+ .navigation1 {
   text-align: center;
   margin-bottom: 20px;
-  align-items: center;
- 
-}
-.sidebar ul {
-  align-items: center;
-
-}
-
-.sidebar li {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.sidebar li .nav-item {
-  padding: 10px 20px;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.sidebar li .nav-item:hover {
-  background-color: #0056b3;
-}
-
-.sidebar li .button-wrapper {
-  width: 150px;
-  display: flex;
-  align-items: center;
-}
-
-.sidebar li .icon {
-  width: 26px;
-  height: 26px;
-  margin-top: 24px;
-}
-
-
-
-/* .navigation {
-  text-align: center;
-  margin-bottom: 20px;
+  color: #f8f7f7;
  
 }
 
@@ -538,16 +1011,8 @@ button:hover {
   display: inline;
   text-align: center;
 
-} */
+} 
 
-.main-content {
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  color: #000000;
-  height: 10%;
-}
 
 .footer {
   text-align: center;
@@ -560,8 +1025,9 @@ button:hover {
 
 .footer-links a {
   margin-right: 10px;
-  color: #fff; /* White text color */
+  color: #ffffff; /* White text color */
   text-decoration: none;
+  
 }
 
 .footer-links a:hover {
@@ -586,8 +1052,10 @@ button:hover {
 }
 
 .copyright {
-  font-size: 12px;
-  color: #fff; /* White text color */
+  
+  color: #ffffff; /* White text color */
+  text-align: center;
+  
 }
 
 
@@ -653,28 +1121,6 @@ button:hover {
 }
 
 
-/* 
-.slds-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  grid-gap: 10px; 
-  width: 100%;
-  width: fit-content;
-} */
-
-
-
-
-
-/* .slds-grid {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.slds-col {
-  flex: 1;
-} */
-
 .slds-grid{
   border: 2px solid rgb(255, 255, 255)  ;
 }
@@ -710,7 +1156,6 @@ button:hover {
 /* iconListItem.css */
 .nav-item {
   font-family: Arial, sans-serif;
-  font-size: 18px;
   padding-left: 10px;
   
 }
@@ -738,4 +1183,887 @@ a:hover {
   background-color: transparent;
   border-radius: 50%;
   
+}
+
+
+
+
+
+
+.inner-page{
+margin: right;
+align-items: right;
+justify-content: right;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+color: #03164e;
+}
+
+
+
+.photo{
+float: right;
+}
+
+.Internship Section{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.Section{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+
+.Select{
+background-color: rgb(25, 218, 218);
+color: rgb(177, 174, 149);
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+
+.Button-Apply{
+color: rgb(220, 135, 16);
+}
+
+
+
+.accordion-item {
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #f4f6f9;
+}
+
+.accordion-content {
+  padding: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+.custom-container button {
+  
+width: 50px;
+}
+
+
+
+.buttons-internship{
+padding: 1.8%;
+color: #8de02c;
+
+ gap: 10px;
+ display: flex;
+ 
+ 
+}
+
+
+
+
+
+.auto-typing {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+text-align: center;
+}
+
+.typing-text {
+color: rgb(5, 71, 110);
+font-size: 1.7em;
+font-weight: 800;
+text-shadow: 5px 5px 15px rgb(172, 159, 159);
+}
+
+
+
+/* FOR INTERNSHIP */
+
+.table-data {
+display: flex;
+flex-wrap: wrap;
+grid-gap: 24px;
+margin-top: 24px;
+width: 100%;
+color: dark ;
+}
+.table-data > div {
+border-radius: 20px;
+background: #F5EEF0;
+padding: 24px;
+overflow-x: auto;
+}
+.table-data .head {
+display: flex;
+align-items: center;
+grid-gap: 16px;
+margin-bottom: 24px;
+}
+.table-data .head h3 {
+margin-right: auto;
+font-size: 24px;
+font-weight: 600;
+}
+
+
+.table-data .order {
+flex-grow: 1;
+flex-basis: 500px;
+}
+.table-data .order table {
+width: 100%;
+border-collapse: collapse;
+}
+.table-data .order table th {
+padding-bottom: 12px;
+font-size: 13px;
+text-align: left;
+border-bottom: 1px solid grey;
+}
+.table-data .order table td {
+padding: 16px 0;
+}
+.table-data .order table tr td:first-child {
+display: flex;
+align-items: center;
+grid-gap: 12px;
+padding-left: 6px;
+}
+
+.table-data .order table tbody tr:hover {
+background: rgb(132, 9, 105);
+color: white;
+}
+.table-data .order table tr td .status {
+font-size: 10px;
+padding: 6px 16px;
+color: white;
+border-radius: 20px;
+font-weight: 700;
+}
+
+
+
+
+/* ABHISHEK PROFILE CSS */
+
+.proContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    "header header"
+    "userProfile userDetails"
+    "work_skills timeline_about"
+    "work_skills timeline_about";
+  width: 85%;
+  height: 90vh;
+  background: var(--glass-bg);
+  padding: 1.5rem;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== =====>>  Container Cards Grid-Area Css Start  <<===== =====  */
+header {
+  grid-area: header;
+}
+
+.userProfile {
+  grid-area: userProfile;
+}
+
+.work_skills {
+  grid-area: work_skills;
+}
+
+.userDetails {
+  grid-area: userDetails;
+}
+
+.timeline_about {
+  grid-area: timeline_about;
+}
+
+/* ===== =====>>  Container Cards Css  <<===== =====  */
+.proContainer .card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(3rem);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+/* ===== =====>>  Container Header/Navbar Css  <<===== =====  */
+.proContainer header {
+  padding: 0 2.5rem;
+}
+
+.proContainer header .brandLogo {
+  display: flex;
+  align-items: center;
+}
+
+.proContainer header .brandLogo figure img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.proContainer header .brandLogo span {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-left: 0.5rem;
+}
+
+/* ===== =====>>  User Main-Profile Css Start  <<===== ===== */
+.proContainer .userProfile {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.proContainer .userProfile .profile figure img {
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+}
+
+/* ===== =====>>  Work & Skills Css Start  <<===== ===== */
+.proContainer .work_skills {
+  padding: 1.5rem;
+}
+
+.work_skills .work .heading,
+.work_skills .skills .heading {
+  position: relative;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.work_skills .work .heading::before,
+.work_skills .skills .heading::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 0.1rem;
+  width: 88%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.work_skills .work .primary,
+.work_skills .work .secondary {
+  position: relative;
+}
+
+.work_skills .work .primary h1,
+.work_skills .work .secondary h1 {
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 0.6rem;
+}
+
+.work_skills .work .primary span,
+.work_skills .work .secondary span {
+  position: absolute;
+  top: 0;
+  right: 3rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0099cc;
+  background: #e6f2ff;
+  padding: 0.4rem 1rem;
+  border-radius: 0.4rem;
+}
+
+.work_skills .work .primary p,
+.work_skills .work .secondary p {
+  margin-bottom: 1.8rem;
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.6rem;
+}
+
+/* =====>>  Skills Bars Css  <<===== */
+.work_skills .skills ul li {
+  position: relative;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin: 0.5rem;
+  color: #000;;
+  font-weight: 500;
+}
+
+.work_skills .skills ul li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 0.2rem;
+  background: #33ccff;
+  animation: skills 8s linear infinite;
+  animation-delay: calc(-2s * 1s);
+}
+
+@keyframes skills {
+  0% {
+    width: 50%;
+    filter: hue-rotate(180deg);
+  }
+
+  50% {
+    width: 0;
+  }
+
+  100% {
+    width: 50%;
+    filter: hue-rotate(0);
+  }
+}
+
+/* ===== =====>>  User Details Css Start  <<===== ===== */
+.userDetails {
+  position: relative;
+  padding: 1.5rem 2.5rem;
+}
+
+.userDetails .userName h1 {
+  font-size: 2.2rem;
+}
+
+.userDetails .userName .map {
+  position: absolute;
+  top: 2.5rem;
+  left: 18.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userDetails .userName .map .ri {
+  margin-right: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.userDetails .userName .map span {
+  font-size: 1.1rem;
+  color:  rgba(0, 0, 0, 0.8);
+  font-weight: 700;
+}
+
+.userDetails .userName p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color:#0099cc;
+  margin-bottom: 1.8rem;
+}
+
+.userDetails .rank {
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+.userDetails .rank .heading {
+  font-size: 1rem;
+  color:  rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.userDetails .rank span {
+  font-size:  1.8rem;
+  font-weight: 700;
+}
+
+.userDetails .rank .rating {
+  position: absolute;
+  top: 2.7rem;
+  left: 3.5rem;
+}
+
+.userDetails .rank .rating .rate {
+  color:#0099cc;
+  font-size: 1.4rem;
+}
+
+.userDetails .rank .rating .underrate {
+  color: #88cee6;
+}
+
+.userDetails .btns ul,
+.userDetails .btns ul li {
+  display: flex;
+  align-items: center;
+}
+
+.userDetails .btns ul li {
+  margin-right: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+.userDetails .btns ul li .ri {
+  margin-right: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.userDetails .btns ul li a {
+  font-size: 1.4rem;
+  color: #000;;
+  font-weight: 500;
+}
+
+.userDetails .btns ul .active {
+  background: #e6f2ff;
+  padding: 0.5rem 1.5rem;
+}
+
+.userDetails .btns ul .active a,
+.userDetails .btns ul .active .ri {
+  color:#0099cc;
+}
+
+/* ===== =====>>  Timeline & About Css Start  <<===== ===== */
+.timeline_about {
+  padding: 2.5rem;
+}
+
+.timeline_about .tabs ul {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.timeline_about .tabs ul::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.timeline_about .tabs ul li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 2.5rem;
+  padding-bottom: 0.8rem;
+  cursor: pointer;
+}
+
+.timeline_about .tabs ul li span {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.timeline_about .tabs ul li .ri {
+  margin-right: 0.5rem;
+}
+
+.timeline_about .tabs ul .active::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #0099cc;
+}
+
+.timeline_about .contact_info .heading,
+.timeline_about .basic_info .heading {
+  font-size: 1rem;
+  color:  rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.timeline_about .contact_info ul,
+.timeline_about .basic_info ul {
+  margin-bottom: 1.5rem;
+}
+
+.timeline_about .contact_info ul li,
+.timeline_about .basic_info ul li {
+  display: flex;
+  margin: 0.5rem 0;
+}
+
+.timeline_about .contact_info ul li h1,
+.timeline_about .basic_info ul li h1 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  min-width: 12rem;
+}
+
+.timeline_about .contact_info ul li span,
+.timeline_about .basic_info ul li span {
+  font-size: 1.2rem;
+}
+
+.timeline_about .contact_info ul .phone span,
+.timeline_about .contact_info ul .email span,
+.timeline_about .contact_info ul .site span {
+  color:#0099cc;
+}
+
+/* ABHISHEK PROFILE CSS */
+
+/* Feedback support CSS */
+.slds-theme_default {
+background-color: var(--lwc-colorBackgroundAlt, rgb(255, 255, 255));
+border-radius: 0.25rem;
+transition: opacity 0.45s;
+box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 0.3rem 1rem -0.8rem rgba(0, 0, 0, 0.25);
+color: var(--lwc-colorTextDefault, rgb(22, 50, 92));
+padding:1em;
+}
+
+
+.grid-container {
+display: grid;
+grid-template-columns: auto auto auto;
+gap: 10px;
+}
+
+.grid-item {
+padding: 10px;
+}
+
+
+/*ABHISHEK APPLICATION MANAGEMENT */
+
+
+.details {
+position: relative;
+width: 100%;
+padding: 20px;
+display: grid;
+grid-template-columns: 2fr 1fr;
+grid-gap: 30px;
+/* margin-top: 10px; */
+}
+
+.details .internStatus {
+position: relative;
+display: grid;
+min-height: 500px;
+background: white;
+padding: 20px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+border-radius: 20px;
+}
+
+.details .cardHeader {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+}
+.cardHeader h2 {
+font-weight: 600;
+color: blue;
+}
+.cardHeader .btn {
+position: relative;
+padding: 5px 10px;
+background: blue;
+text-decoration: none;
+color: white;
+border-radius: 6px;
+}
+
+.details table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 10px;
+}
+.details table thead td {
+font-weight: 600;
+}
+.details .internStatus table tr {
+color: black1;
+border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.details .internStatus table tr:last-child {
+border-bottom: none;
+}
+.details .internStatus table tbody tr:hover {
+background: blue;
+color: white;
+}
+.details .internStatus table tr td {
+padding: 10px;
+}
+.details .internStatus table tr td:last-child {
+text-align: end;
+}
+.details .internStatus table tr td:nth-child(2) {
+text-align: end;
+}
+.details .internStatus table tr td:nth-child(3) {
+text-align: center;
+}
+.status.select {
+padding: 2px 4px;
+background: #8de02c;
+color: white;
+border-radius: 4px;
+font-size: 14px;
+font-weight: 500;
+}
+.status.pending {
+padding: 2px 4px;
+background: #e9b10a;
+color: white;
+border-radius: 4px;
+font-size: 14px;
+font-weight: 500;
+}
+.status.reject {
+padding: 2px 4px;
+background: #f00;
+color: white;
+border-radius: 4px;
+font-size: 14px;
+font-weight: 500;
+}
+.status.inProgress {
+padding: 2px 4px;
+background: #1795ce;
+color: white;
+border-radius: 4px;
+font-size: 14px;
+font-weight: 500;
+}
+
+.finishedInternships {
+position: relative;
+display: grid;
+min-height: 500px;
+padding: 20px;
+background: white;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+
+border-radius: 20px;
+}
+.finishedInternships .imgBx {
+position: absolute;
+width: 40px;
+height: 40px;
+border-radius: 50px;
+overflow: hidden;
+}
+
+/* object-fit: cover; */
+.finishedInternships table tr td {
+padding: 12px 10px;
+}
+.finishedInternships table tr td h4 {
+font-size: 16px;
+font-weight: 500;
+line-height: 1.2rem;
+}
+.finishedInternships table tr td h4 span {
+font-size: 14px;
+color: black;
+}
+.finishedInternships table tr:hover {
+background: blue;
+color: white;
+}
+.finishedInternships table tr:hover td h4 span {
+color: white;
+}
+
+/*ABHISHEK APPLICATION MANAGEMENT FINISHED ABOVE */
+
+
+@media (max-width: 991px) {
+.navigation {
+  left: -300px;
+}
+.navigation.active {
+  width: 300px;
+  left: 0;
+}
+.main {
+  width: 100%;
+  left: 0;
+}
+.main.active {
+  left: 300px;
+}
+.cardBox {
+  grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (max-width: 768px) {
+.details {
+  grid-template-columns: 1fr;
+}
+.recentOrders {
+  overflow-x: auto;
+}
+.status.inProgress {
+  white-space: nowrap;
+}
+}
+
+@media (max-width: 480px) {
+.cardBox {
+  grid-template-columns: repeat(1, 1fr);
+}
+.cardHeader h2 {
+  font-size: 20px;
+}
+.user {
+  min-width: 40px;
+}
+.navigation {
+  width: 100%;
+  left: -100%;
+  z-index: 1000;
+}
+.navigation.active {
+  width: 100%;
+  left: 0;
+}
+.toggle {
+  z-index: 10001;
+}
+.main.active .toggle {
+  color: #fff;
+  position: fixed;
+  right: 0;
+  left: initial;
+}
+}
+
+
+
+
+
+
+
+
+
+.grid-container {
+display: grid;
+float: right;
+font-display: column;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust based on your design */
+gap: 20px;
+padding: 5px;
+width: fit-content;
+
+}
+
+.grid-item {
+border: 1px solid #e4e4e4e6;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lightning-carousel-image {
+height: 300px; /* Adjust height as needed */
+}
+
+/* utsav's css for integration of pages */
+
+label{
+font-weight: 20px;
+}
+.slds-box 
+{
+background-color: rgb(222, 225, 232);
+padding: 2rem;
+font-weight: bold;
+}
+
+.applicationFormHeading, .EducationFormHeading, .UploadFormHeading{
+border-bottom: 2px  solid   blue;
+/* margin-left: 1.3%; */
+padding-left: 1.3%;
+}
+
+.applicationFormHeading p, .EducationFormHeading   p, .UploadFormSubHeading  p{
+font-size: 1.5em;
+font-family:Arial, Helvetica, sans-serif;
+font-weight: 900;
+}
+
+.applicationFormSubHeading, .UploadFormSubHeading , .EducationFormSubHeading{
+background-color: #5f9dbd;
+margin-top: 15px;
+padding-left: 1.5%;
+}
+
+.applicationFormSubHeading  p, .EducationFormSubHeading p, .UploadFormSubHeading    p{
+font-size: 1.5em;
+font-weight: 800;
+
+}
+
+.ProfileForm, .EducationForm, .UploadForm{
+margin-top: 18px;
+
+}
+
+.formData{
+margin-left: 18px ;
+}
+
+.formData input::placeholder{
+color: #dbdbdb;
+}
+
+.button{
+
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 2%;
+}
+
+
+.uploading{
+margin-left: 2%;
+margin-bottom: 2%;
+
+}
+
+.EducationLevel{
+margin-top: 10px;
+padding-left: 1.3%;   
+}
+
+.EducationLevel p{
+background: linear-gradient(90deg, rgba(46,207,237,1) 0%, rgba(220,242,246,1) 51%, rgba(255,255,255,1) 100%);
+font-size: 1.6em;
+font-weight: 700;
+padding-left: 1.8%;   
+
 }

@@ -23,6 +23,8 @@ import getInternshipDetails from '@salesforce/apex/GetDataForCandidate.getIntern
 import updateOtp from '@salesforce/apex/ForgotPasswordCls.updateOtp';
 import updatePassword from '@salesforce/apex/ForgotPasswordCls.updatePassword';
 import verifyOtp from '@salesforce/apex/ForgotPasswordCls.verifyOtp';
+import getProfileDetails from '@salesforce/apex/GetDataForCandidate.getProfileDetails';
+
 
 import updateCandidateProfileAp from '@salesforce/apex/SetDataForCandidate.updateCandidateProfileAp';
 
@@ -264,13 +266,15 @@ export default class DashboardCandidate extends NavigationMixin(LightningElement
     pageName ='Dashboard';
 
     //VARIABLES FOR INTERNSHIP APPLICATION FORM
+    internshipId;
+    internshipNameForApply = '';
     fullNameAp;
     phoneAp;
     highestQualification;
     currentAddress;
-    genderAp;
+    //genderAp;
     emailAp;
-    gradYear;
+    //gradYear;
     permanentAddressAp;
     matcricBoard;
     matricSession;
@@ -280,14 +284,12 @@ export default class DashboardCandidate extends NavigationMixin(LightningElement
     matricPercentage;
     interBoard;
     interSession;
-    interFaculty;
     interSchoolName;
     interPassingYear;
     interSchoolLocation;
     interPercentage;
     graduationBoarName;
     graduationSession;
-    graduationFaculty;
     graduationSchoolName;
     graduationPassingYear;
     graduationSpecialization;
@@ -389,14 +391,122 @@ export default class DashboardCandidate extends NavigationMixin(LightningElement
     }
 
     //set
+    showEditProfile = false;
+    showApplicationForm = false;
+    editProfile() {
+        this.showEditProfile = true;
+        this.showHome = false;
+    }
+
+    candidateApplicationID;
+    
+    applyButtonClick(event) {
+        this.showJobs = false;
+        this.internshipId = event.target.dataset.id;
+        this.internshipNameForApply = event.target.dataset.name;
+        // Now you have the record ID, and you can perform any desired operation (e.g., call an Apex method, navigate to a page, etc.).
+        console.log('Clicked Apply for record ID:', this.internshipId);
+        // Add your custom logic here...
+        this.showInternship = false;
+
+        getProfileDetails(
+            {
+                canId: this.loggedInCandidateId
+            })
+            .then(result => {
+                //Handle the result
+                console.log('data' + result);
+                this.candidateApplicationID = result;
+                console.log(this.candidateApplicationID);
+                this.showApplicationForm = true;
+
+            })
+            .catch(err => {
+                console.log('Error Fetching Profile Details', err);
+            })
+
+    }
+
+    // applyInternship(){
+    //     const paragraph = this.template.querySelector('[data-id="intershipId"]');
+    //     const internshipId = paragraph.innerHTML;
+    //     console.log(internshipId);
+    //     //alert(`The text inside the paragraph is: ${text}`);
+
+    //     this.showApplicationForm = true;
+    //     this.showInternship = false;
+    // }
+
+
+    profilePage = true;
+    UploadSection = false;
+   
+   @track selectedTypeOption = ''; // 
+   genderOptions = [
+       { label: 'Male', value: 'Male' },
+       { label: 'Female', value: 'Female' },
+       { label: 'Rather Not Say', value: 'Rather Not Say' },
+
+   ];
+
+   @track selectedGradYear = ''; // 
+   options = [
+       { label: '2012', value: '2012' },
+       { label: '2013', value: '2013' },
+       { label: '2014', value: '2014' },
+       { label: '2015', value: '2015' },
+       { label: '2016', value: '2016' },
+       { label: '2017', value: '2017' },
+       { label: '2018', value: '2018' },
+       { label: '2019', value: '2019' },
+       { label: '2020', value: '2020' },
+       { label: '2021', value: '2021' },
+       { label: '2022', value: '2022' },
+       { label: '2023', value: '2023' },
+       { label: '2024', value: '2024' },
+       { label: '2025', value: '2025' },
+
+   ];
+
+@track selectedFacultyOption = '';
+facultyOptions = [
+    {label: 'Arts', value: 'Arts'},
+    {label: 'Science', value: 'Science'},
+    {label: 'Commerce', value: 'Commerce'},
+]
+
+@track selectedGradFacultyOption = '';
+GradfacultyOptions = [
+    {label: 'Arts', value: 'Arts'},
+    {label: 'Science', value: 'Science'},
+    {label: 'Commerce', value: 'Commerce'},
+]
+
+   handleTypeChange(event) {
+       this.selectedTypeOption = event.detail.value;
+   }
+   handleGradYearChange(event) {
+       this.selectedGradYear = event.detail.value;
+   }
+
+   handleFacultyChange(event){
+    this.selectedFacultyOption = event.detail.value;
+   }
+
+   handleGradFacultyChange(event){
+    this.selectedGradFacultyOption = event.detail.value;
+   }
+
+   goProfile(){
+    this.profilePage = true;
+    this.UploadSection = false;
+   }
+
     handleTypeChange(event) {
         this.genderAp = event.target.value;
     }
     getEmailAp(event) {
         this.emailAp = event.target.value;
-    }
-    handleGradYearChange(event) {
-        this.gradYear = event.target.value;
     }
     getPermanentAddressAp(event) {
         this.permanentAddress = event.target.value;
@@ -425,9 +535,6 @@ export default class DashboardCandidate extends NavigationMixin(LightningElement
     getInterSessionAp(event) {
         this.interSession = event.target.value;
     }
-    handleFacultyChange(event) {
-        this.interFaculty = event.target.value;
-    }
     getInterSchoolNameAp(event) {
         this.interSchoolName = event.target.value;
     }
@@ -446,9 +553,6 @@ export default class DashboardCandidate extends NavigationMixin(LightningElement
     getGraduationSessionAp(event) {
         this.graduationSession = event.target.value;
     }
-    handleGradFacultyChange(event) {
-        this.graduationFaculty = event.target.value;
-    }
     getGraduationSchoolNameAp(event) {
         this.graduationSchoolName = event.target.value;
     }
@@ -465,17 +569,22 @@ export default class DashboardCandidate extends NavigationMixin(LightningElement
         this.graduationPercentage = event.target.value;
     }
 
-    goUpload(){
+    
+    goUpload(event){
+        this.internshipId = event.target.dataset.id;
         console.log('goUpload');
+        console.log('internship ID:', this.internshipId);
         updateCandidateProfileAp({
             canId: this.loggedInCandidateId,
+            internshipId: this.internshipId,
+            internshipName: this.internshipNameForApply,
             fullName: this.fullNameAp,
             phone:this.phoneAp,
             highestQualification: this.highestQualification,
             currentAddress: this.currentAddress,
-            gender: this.genderAp,
+            gender: this.selectedTypeOption,
             emailnew: this.emailAp,
-            gradYear: this.gradYear,
+            gradYear: this.selectedGradYear,
             permanentAddress: this.permanentAddressAp,
             matcricBoard: this.matcricBoard,
             matricSession: this.matricSession,
@@ -485,14 +594,14 @@ export default class DashboardCandidate extends NavigationMixin(LightningElement
             matricPercentage: this.matricPercentage,
             interBoard: this.interBoard,
             interSession: this.interSession,
-            interFaculty: this.interFaculty,
+            interFaculty: this.selectedFacultyOption,
             interSchoolName: this.interSchoolName,
             interPassingYear: this.interPassingYear,
             interSchoolLocation: this.interSchoolLocation,
             interPercentage: this.interPercentage,
             graduationBoarName: this.graduationBoarName,
             graduationSession: this.graduationSession,
-            graduationFaculty: this.graduationFaculty,
+            graduationFaculty: this.selectedGradFacultyOption,
             graduationSchoolName: this.graduationSchoolName,
             graduationPassingYear: this.graduationPassingYear,
             graduationSpecialization: this.graduationSpecialization,
@@ -515,17 +624,14 @@ export default class DashboardCandidate extends NavigationMixin(LightningElement
                 console.log(this.error);
 
             } else {
-                //this.showOtp = true;
+                
                 this.newCandidateId = result;
                 console.log(result);
-
-                //this.showPopup();
-                //this.isPopupVisible = true;
 
 
                 const event = new ShowToastEvent({
                     title: 'Success!',
-                    message: 'Verification Code sent to your Registered email.',
+                    message: 'Application submitted successfully.',
                     variant: 'success',
                 });
                 this.dispatchEvent(event);
@@ -757,11 +863,10 @@ export default class DashboardCandidate extends NavigationMixin(LightningElement
         this.pageName = 'Home';
 
     }
-
+    candidateProfileID;
     clickProfile() {
         this.showHome = false;
         this.dashboardImage = false;
-        this.showProfile = true;
         this.showInternship = false;
         this.showTasks = false;
         this.showApplication = false;
@@ -771,6 +876,25 @@ export default class DashboardCandidate extends NavigationMixin(LightningElement
         this.showEditProfile = false;
         this.showApplicationForm = false;
         this.pageName = 'Profile';
+
+
+        console.log(this.loggedInCandidateId);
+        getProfileDetails(
+            {
+                canId: this.loggedInCandidateId
+            })
+            .then(result => {
+                //Handle the result
+                console.log('data' + result);
+                this.candidateProfileID = result;
+                console.log(this.candidateProfileID);
+                this.showProfile = true;
+
+
+            })
+            .catch(err => {
+                console.log('Error Fetching Profile Details', err);
+            })
 
     }
 
@@ -1047,96 +1171,6 @@ export default class DashboardCandidate extends NavigationMixin(LightningElement
 
         type();
     }
-
-
-
-    // Utsav's code for integrating forms and other things.
-    showEditProfile = false;
-    showApplicationForm = false;
-    editProfile() {
-        this.showEditProfile = true;
-        this.showHome = false;
-    }
-
-    applyInternship(){
-        this.showApplicationForm = true;
-        this.showInternship = false;
-    }
-
-
-    profilePage = true;
-    UploadSection = false;
-   
-   @track selectedTypeOption = ''; // 
-   genderOptions = [
-       { label: 'Male', value: 'Male' },
-       { label: 'Female', value: 'Female' },
-       { label: 'Rather Not Say', value: 'Rather Not Say' },
-
-   ];
-
-   @track selectedGradYear = ''; // 
-   options = [
-       { label: '2012', value: '2012' },
-       { label: '2013', value: '2013' },
-       { label: '2014', value: '2014' },
-       { label: '2015', value: '2015' },
-       { label: '2016', value: '2016' },
-       { label: '2017', value: '2017' },
-       { label: '2018', value: '2018' },
-       { label: '2019', value: '2019' },
-       { label: '2020', value: '2020' },
-       { label: '2021', value: '2021' },
-       { label: '2022', value: '2022' },
-       { label: '2023', value: '2023' },
-       { label: '2024', value: '2024' },
-       { label: '2025', value: '2025' },
-
-   ];
-
-@track selectedFacultyOption = '';
-facultyOptions = [
-    {label: 'Arts', value: 'Arts'},
-    {label: 'Science', value: 'Science'},
-    {label: 'Commerce', value: 'Commerce'},
-]
-
-@track selectedGradFacultyOption = '';
-GradfacultyOptions = [
-    {label: 'Arts', value: 'Arts'},
-    {label: 'Science', value: 'Science'},
-    {label: 'Commerce', value: 'Commerce'},
-]
-
-   handleTypeChange(event) {
-       this.selectedTypeOption = event.detail.value;
-   }
-   handleGradYearChange(event) {
-       this.selectedGradYear = event.detail.value;
-   }
-
-   handleFacultyChange(event){
-    this.selectedFacultyOption = event.detail.value;
-   }
-
-   handleGradFacultyChange(event){
-    this.selectedGradFacultyOption = event.detail.value;
-   }
-
-   goProfile(){
-    this.profilePage = true;
-    this.UploadSection = false;
-   }
-
-
-//    goUpload(){
-//     this.profilePage = false;
-//     this.UploadSection = true;
-//    }
-
-
-
-
 
 
 }
